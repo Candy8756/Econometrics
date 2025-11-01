@@ -1,0 +1,808 @@
+---
+title: "Financial Econometrics Week 6B"
+subtitle: "RDD; Event Studies; Panel Data; DID; Fixed Effects"
+date: "2025-10-26"
+author: Yu Zhang
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+---
+
+# 9 Advanced Topics in Difference-in-Differences  
+# 9 DID进阶专题
+
+In this section, we will delve deeper into some of the more advanced topics and recent developments related to DID methodology.
+
+在本节中，我们将深入探讨DID方法的进阶细节和最新进展。
+
+---
+
+## 9.1 The Parallel Trends Assumption  
+## 9.1 平行趋势假设再探讨
+
+The parallel trends assumption is a frequently used identifying assumption for DID. It states that, in the absence of treatment, the average change in the outcome for the treated group would have been the same as the average change in the outcome for the control group. The parallel trends assumption is an assumption for the counterfactual outcome. 
+
+平行趋势假设是DID方法经常使用的一个关键识别假设。它要求：在没有处理的情况下，处理组结果变量的平均变化应该与控制组结果变量的平均变化相同。平行趋势假设是关于“反事实”的假设。
+
+### 9.1.1 The E[Y|X] Framework for Understanding DID  
+### 9.1.1 理解DID的 E[Y|X] 框架
+
+To understand the parallel trends assumption more formally, let's use the potential outcomes framework with conditional expectations.
+
+为了更正式地理解平行趋势假设，让我们使用带条件期望的潜在结果框架。
+
+**Notation 符号说明:**
+
+- $Y_{it}(1)$: Potential outcome for unit $i$ at time $t$ if treated  
+  单位 $i$ 在时期 $t$ 接受处理时的潜在结果
+- $Y_{it}(0)$: Potential outcome for unit $i$ at time $t$ if not treated  
+  单位 $i$ 在时期 $t$ 未接受处理时的潜在结果
+- $D_i$: Treatment indicator ($D_i=1$ for treated group, $D_i=0$ for control)  
+  处理指示变量（$D_i=1$ 为处理组，$D_i=0$ 为控制组）
+- $Post_t$: Time indicator ($Post_t=1$ for post-treatment, $Post_t=0$ for pre-treatment)  
+  时间指示变量（$Post_t=1$ 为处理后，$Post_t=0$ 为处理前）
+
+**What we observe 我们观察到的:**
+
+$$
+\begin{aligned}
+E[Y|D=1, Post=1] &= E[Y(1)|D=1, Post=1] \quad \text{(Treated, Post)} \\
+E[Y|D=1, Post=0] &= E[Y(0)|D=1, Post=0] \quad \text{(Treated, Pre)} \\
+E[Y|D=0, Post=1] &= E[Y(0)|D=0, Post=1] \quad \text{(Control, Post)} \\
+E[Y|D=0, Post=0] &= E[Y(0)|D=0, Post=0] \quad \text{(Control, Pre)}
+\end{aligned}
+$$
+
+**What we want 我们想要的 (ATT - Average Treatment Effect on the Treated):**
+
+$$
+ATT = E[Y(1) - Y(0)|D=1, Post=1]
+$$
+
+This is the effect of treatment on the treated group in the post-treatment period.
+
+这是处理对处理组在处理后时期的效应。
+
+**The Problem 问题:**
+
+We cannot observe $E[Y(0)|D=1, Post=1]$ - the counterfactual outcome for the treated group had they not been treated.
+
+我们无法观察到 $E[Y(0)|D=1, Post=1]$ —— 处理组如果未接受处理的反事实结果。
+
+**The DID Solution DID的解决方案:**
+
+The DID estimator uses the control group to construct this counterfactual:
+
+DID估计量使用控制组来构建这个反事实：
+
+$$
+\begin{aligned}
+\hat{ATT}_{DID} &= [E[Y|D=1, Post=1] - E[Y|D=1, Post=0]] \\
+&\quad - [E[Y|D=0, Post=1] - E[Y|D=0, Post=0]]
+\end{aligned}
+$$
+
+**The Parallel Trends Assumption (Formal) 平行趋势假设（正式表述）:**
+
+$$
+E[Y(0)|D=1, Post=1] - E[Y(0)|D=1, Post=0] = E[Y(0)|D=0, Post=1] - E[Y(0)|D=0, Post=0]
+$$
+
+In words: In the absence of treatment, the change over time in the treated group would have been the same as the change over time in the control group.
+
+用文字表述：在没有处理的情况下，处理组随时间的变化应该与控制组随时间的变化相同。
+
+**Under this assumption, we can show 在此假设下，我们可以证明:**
+
+$$
+\begin{aligned}
+\hat{ATT}_{DID} &= E[Y(1)|D=1, Post=1] - E[Y(0)|D=1, Post=1] \\
+&= ATT
+\end{aligned}
+$$
+
+This is why parallel trends is a key identifying assumption frequently used for DID!
+
+这就是为什么平行趋势是DID常用的一个关键识别假设！
+
+### 9.1.2 Visual Inspection of Pre-Treatment Trends  
+### 9.1.2 处理前趋势的可视化检验
+
+A simple and powerful way to assess the parallel trends assumption is to plot the average outcomes for the treatment and control groups over time. If the trends are parallel before the treatment, we gain confidence in the assumption.
+
+评估平行趋势假设的一个简单而有力的方法是绘制处理组和控制组随时间变化的平均结果。如果在处理前趋势平行，我们对该假设的信心就更强。
+
+Let's use the `crime4` dataset from the `wooldridge` package to illustrate. This dataset contains crime statistics for US counties from 1981 to 1987.
+
+让我们使用 `wooldridge` 包中的 `crime4` 数据集来演示。该数据集包含1981-1987年美国各县的犯罪统计数据。
+
+```{r parallel_trends_visual}
+# 修正后的平行趋势图代码
+library(wooldridge)
+library(dplyr)
+library(ggplot2)
+
+data(crime4)
+
+# 为演示目的，随机指定一些县为处理组
+set.seed(123)
+treated_counties <- sample(unique(crime4$county), 46)
+
+crime4 <- crime4 %>%
+  mutate(treat = county %in% treated_counties, 
+         post = year >= 86)
+
+# 计算每组每年的平均犯罪率
+crim_trends <- crime4 %>%
+  group_by(treat, year) %>%
+  summarise(avg_crmrte = mean(crmrte, na.rm = TRUE), .groups = 'drop')
+
+# 修正后的图表
+ggplot(crim_trends, aes(x = year, y = avg_crmrte, 
+                        color = factor(treat, labels = c("Control", "Treated")))) +
+  geom_line(linewidth = 1.2) +
+  geom_point(size = 3) +
+  geom_vline(xintercept = 85.5, linetype = "dashed", 
+             color = "gray40", linewidth = 0.8) +
+  scale_color_manual(values = c("Control" = "#0072B2", "Treated" = "#D55E00")) +
+  scale_x_continuous(breaks = 81:87) +  # 明确设置X轴刻度
+  labs(title = "Pre-Treatment Trends in Crime Rate",
+       subtitle = "Parallel Trends Assumption Check (Dashed line indicates treatment start in 1986)",
+       x = "Year", 
+       y = "Average Crime Rate (per capita)", 
+       color = "Group") +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 14),
+    plot.subtitle = element_text(size = 10, color = "gray30"),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+**Interpretation 解读:**
+
+If before 1986 (left of the dashed line), the blue and red lines are roughly parallel, this supports the parallel trends assumption. If the two lines have clearly different trends before treatment, the assumption may not hold.
+
+如果在1986年之前（虚线左侧），蓝线和红线基本平行，则支持平行趋势假设。如果两条线在处理前有明显不同的趋势，则该假设可能不成立。
+
+### 9.1.3 Formal Test for Pre-Treatment Trends  
+### 9.1.3 处理前趋势的正式检验
+
+We can formally test for parallel trends using an event study framework. The idea is to interact the treatment group indicator with time dummies for the pre-treatment periods and test whether these interaction coefficients are jointly equal to zero.
+
+我们可以使用事件研究框架正式检验平行趋势。思路是将处理组指示变量与处理前各期的时间虚拟变量交互，并检验这些交互系数是否联合为零。
+
+**Regression model 回归模型:**
+
+$$ y_{it} = \alpha_i + \gamma_t + \sum_{k=-q}^{-2} \delta_k (D_i \times 1\{t=k\}) + \epsilon_{it} $$
+
+Where $D_i$ is the treatment group indicator and $1\{t=k\}$ are time dummies for pre-treatment periods. We test $H_0: \delta_k = 0$ for all $k < 0$.
+
+其中 $D_i$ 是处理组指示变量，$1\{t=k\}$ 是处理前时期的时间虚拟变量。我们检验 $H_0: \delta_k = 0$ 对所有 $k < 0$。
+
+**In terms of E[Y|X] framework 用 E[Y|X] 框架表述:**
+
+The coefficients $\delta_k$ estimate:
+
+系数 $\delta_k$ 估计的是：
+
+$$
+\delta_k = E[Y|D=1, t=k] - E[Y|D=0, t=k] - [E[Y|D=1, t=-1] - E[Y|D=0, t=-1]]
+$$
+
+If parallel trends holds, these should all be zero (no differential pre-trends).
+
+如果平行趋势成立，这些系数都应该为零（没有差异性的前期趋势）。
+
+```{r parallel_trends_test}
+library(fixest)
+
+# Create relative time variable (relative to treatment year 1986)
+# 创建相对时间变量（相对于处理年份1986）
+crime4 <- crime4 %>%
+  mutate(rel_year = year - 86,
+         rel_year_factor = factor(rel_year))
+
+# Event study regression, using 1985 (rel_year = -1) as reference
+# 事件研究回归，以1985年(rel_year = -1)为基准
+# Only include pre-treatment interactions to test parallel trends
+# 只包含处理前的交互项来检验平行趋势
+pretrend_model <- feols(log(crmrte) ~ i(rel_year_factor, treat, ref = -1) | 
+                        county + year, 
+                        data = crime4 %>% filter(year < 86))
+
+# View coefficients
+# 查看系数
+etable(pretrend_model)
+
+# Is each of the pre-treatment coefficients indistinguishable from zero?
+# 处理前系数是否不能拒绝为零？
+# If p-value > 0.05, we cannot reject parallel trends assumption at the usual 5% significance level
+# 如果p值>0.05，则不能在常规的5%显著性水平下拒绝平行趋势假设
+```
+
+**Important caveat 重要提示:**
+
+Recent econometric research, such as Roth (2022), has pointed out important limitations of this pre-testing practice. Failure to reject the null hypothesis does not prove that parallel trends holds - it only means we did not find strong evidence against it. The test has limited power, especially with few pre-treatment periods.
+
+近期计量经济学研究，如Roth (2022)，指出了这种预检验做法的重要局限性。未能拒绝原假设并不能证明平行趋势成立——它只是说我们没有找到反对它的强有力证据。该检验的功效有限，特别是在处理前时期较少的情况下。
+
+---
+
+## 9.2 Dynamic Treatment Effects and Event Studies  
+## 9.2 动态处理效应与事件研究
+
+The standard DID model assumes a constant treatment effect over time. However, in reality, the effect may evolve in the periods following treatment. **Dynamic treatment effects** allow us to estimate how the effect changes over time.
+
+标准DID模型假设处理效应随时间恒定。但实际上，效应可能在处理后的各期有所演变。**动态处理效应**允许我们估计效应如何随时间变化。
+
+### 9.2.1 The Event Study Model 事件研究模型
+
+The most common way to estimate dynamic treatment effects is through an **event study** model. This involves creating dummy variables for each period relative to the treatment event.
+
+估计动态处理效应最常用的方法是**事件研究**模型。这涉及为相对于处理事件的每个时期创建虚拟变量。
+
+**Model specification 模型设定:**
+
+$$ y_{it} = \alpha_i + \gamma_t + \sum_{k=-q}^{m} \beta_k (D_i \times 1\{t=k\}) + \epsilon_{it} $$
+
+Where:
+- $k < 0$: **Leads** (pre-treatment periods) - test for pre-trends  
+  $k < 0$: **前导项**(处理前时期) - 检验前期趋势
+  
+- $k \geq 0$: **Lags** (post-treatment periods) - capture dynamic treatment effects  
+  $k \geq 0$: **滞后项**(处理后时期) - 捕捉动态处理效应
+  
+- One period (usually $k=-1$) is omitted as the baseline  
+  通常省略一期($k=-1$)作为基准
+
+**In E[Y|X] framework 用 E[Y|X] 框架表述:**
+
+Each coefficient $\beta_k$ estimates:
+
+每个系数 $\beta_k$ 估计的是：
+
+For $k < 0$ (pre-treatment):
+
+对于 $k < 0$ (处理前):
+
+$$
+\beta_k = [E[Y|D=1, t=k] - E[Y|D=0, t=k]] - [E[Y|D=1, t=-1] - E[Y|D=0, t=-1]]
+$$
+
+This should be zero under parallel trends (no differential pre-trends).
+
+在平行趋势假设下，这应该为零(没有差异性的前期趋势)。
+
+For $k \geq 0$ (post-treatment):
+
+对于 $k \geq 0$ (处理后):
+
+$$
+\beta_k = E[Y(1) - Y(0)|D=1, t=k] - [E[Y|D=1, t=-1] - E[Y|D=0, t=-1]]
+$$
+
+This captures the treatment effect at time $k$ relative to the baseline period.
+
+这捕捉了时期 $k$ 相对于基准期的处理效应。
+
+### 9.2.2 Visualizing Dynamic Effects 可视化动态效应
+
+The best way to present event study results is to plot the estimated coefficients $\beta_k$ along with their confidence intervals.
+
+呈现事件研究结果的最佳方式是绘制估计的系数 $\beta_k$ 及其置信区间。
+
+```{r dynamic_did}
+library(fixest)
+
+# Use crime4 data, treatment occurs in 1986
+# 使用crime4数据，处理发生在1986年
+# rel_year was created earlier
+# rel_year之前已经创建
+
+# Full event study model (includes leads and lags)
+# 完整的事件研究模型（包含前导和滞后）
+event_study <- feols(log(crmrte) ~ i(rel_year_factor, treat, ref = -1) | 
+                     county + year, 
+                     data = crime4)
+
+# View coefficient table
+# 查看系数表
+etable(event_study)
+
+# Plot dynamic effects
+# 绘制动态效应图
+iplot(event_study, 
+      main = "Event Study: Effect of Policy on Crime Rate",
+      xlab = "Years Relative to Treatment",
+      ylab = "Coefficient Estimate (log crime rate)")
+```
+
+**Interpreting the Event Study Plot 解读事件研究图:**
+
+**Pre-treatment (negative values) 处理前(负值):**
+
+If these coefficients' confidence intervals include zero and show no clear trend, this supports the parallel trends assumption.
+
+如果这些处理前估计系数的置信区间包含零且无明显趋势，支持平行趋势假设。
+
+**Post-treatment (non-negative values) 处理后(非负值):**
+
+These coefficients show how the treatment effect evolves over time:
+
+这些处理后的估计系数显示处理效应如何随时间演变：
+
+- If coefficients are not significantly different from zero: no evidence for any effect 
+  如果系数不显著区别于零：没有证据存在效应
+
+- If coefficients gradually increase: effect accumulates over time  
+  如果系数逐渐增大：效应随时间累积
+  
+- If coefficients rise then fall: effect is temporary  
+  如果系数先增后减：效应是暂时的
+  
+- If coefficients jump immediately then stabilize: effect is permanent  
+  如果系数立即跳升后保持稳定：效应是永久性的
+
+### 9.2.3 Corporate Finance Example 1: CEO Turnover  
+### 9.2.3 公司金融例子1：CEO更替
+
+**Research Question 研究问题:** How does CEO turnover affect firm performance over time?
+
+CEO更替如何随时间影响公司业绩？
+
+```{r ceo_turnover_event_study, eval=FALSE}
+# Hypothetical example using firm panel data
+# 使用公司面板数据的假设性例子
+
+# Assume we have firm-level data with:
+# 假设我们有公司层面的数据，包含：
+# - firm_id: firm identifier
+# - year: year
+# - roa: return on assets (outcome variable)
+# - ceo_turnover_year: year when CEO turnover occurred
+# - event_time: years relative to CEO turnover
+
+library(fixest)
+
+# Event study model
+# 事件研究模型
+ceo_event_study <- feols(roa ~ i(event_time, ref = -1) | firm_id + year, 
+                         data = firm_data)
+
+# Plot
+# 绘图
+iplot(ceo_event_study,
+      main = "Dynamic Effect of CEO Turnover on Firm Performance",
+      xlab = "Years Relative to CEO Turnover",
+      ylab = "Effect on ROA (%)")
+```
+
+**Expected Pattern 预期模式:**
+
+- **Pre-turnover (negative years)**: Coefficients might be negative if turnover follows poor performance  
+  **更替前（负数年份）**：如果更替发生在业绩不佳之后，系数可能为负
+  
+- **Year 0**: Immediate effect of turnover  
+  **第0年**：更替的即时效应
+  
+- **Post-turnover (positive years)**: Gradual improvement if new CEO is effective  
+  **更替后（正数年份）**：如果新CEO有效，业绩逐渐改善
+
+### 9.2.4 Corporate Finance Example 2: Dividend Initiation  
+### 9.2.4 公司金融例子2：股利发放
+
+**Research Question 研究问题:** What is the dynamic effect of dividend initiation on firm valuation?
+
+首次发放股利对公司估值的动态效应是什么？
+
+**Background 背景:**
+
+Dividend initiation is a significant corporate event that signals management's confidence in future cash flows. The signaling theory predicts a positive stock price reaction. However, the effect might evolve over time as the market updates its beliefs.
+
+首次发放股利是一个重要的公司事件，它传递了管理层对未来现金流的信心。信号理论预测股价会有正面反应。然而，随着市场更新其信念，效应可能随时间演变。
+
+```{r dividend_initiation_event, eval=FALSE}
+# Event study for dividend initiation
+# 股利发放的事件研究
+
+# Variables:
+# 变量：
+# tobin_q: firm valuation (Tobin's Q)
+# event_time: quarters relative to dividend initiation
+# firm_id, quarter: panel identifiers
+
+library(fixest)
+
+# Event study model
+# 事件研究模型
+div_event_study <- feols(tobin_q ~ i(event_time, ref = -1) | 
+                         firm_id + quarter, 
+                         data = dividend_data)
+
+# Plot
+# 绘图
+iplot(div_event_study,
+      main = "Dynamic Effect of Dividend Initiation on Tobin's Q",
+      xlab = "Quarters Relative to Dividend Initiation",
+      ylab = "Effect on Tobin's Q")
+```
+
+**Expected Pattern 预期模式:**
+
+- **Pre-initiation (negative quarters)**: Coefficients should be close to zero (parallel trends)  
+  **发放前（负数季度）**：系数应接近零（平行趋势）
+  
+- **Quarter 0**: Positive jump (announcement effect)  
+  **第0季度**：正向跳跃（公告效应）
+  
+- **Post-initiation (positive quarters)**: 
+  - If effect persists: dividend policy conveys credible information  
+    如果效应持续：股利政策传递了可信信息
+  - If effect fades: market overreaction or information already incorporated  
+    如果效应消退：市场过度反应或信息已被吸收
+
+### 9.2.5 Corporate Finance Example 3: Capital Structure Adjustment  
+### 9.2.5 公司金融例子3：资本结构调整
+
+**Research Question 研究问题:** How quickly do firms adjust their leverage after a major debt issuance or retirement?
+
+公司在重大债务发行或偿还后多快调整其杠杆率？
+
+**Background 背景:**
+
+Trade-off theory suggests firms have target leverage ratios. After a shock (e.g., large debt issuance), firms gradually rebalance toward their target. The speed of adjustment reveals the importance of adjustment costs.
+
+权衡理论认为公司有目标杠杆率。在受到冲击（如大规模债务发行）后，公司逐渐向目标再平衡。调整速度揭示了调整成本的重要性。
+
+```{r leverage_adjustment_event, eval=FALSE}
+# Event study for leverage adjustment
+# 杠杆率调整的事件研究
+
+# Identify firms with major debt issuance (> 10% of assets)
+# 识别有重大债务发行的公司（>资产的10%）
+firm_data <- firm_data %>%
+  group_by(firm_id) %>%
+  mutate(major_debt_issue = (debt_issued / total_assets) > 0.10) %>%
+  ungroup()
+
+# Create event time for firms with major debt issuance
+# 为有重大债务发行的公司创建事件时间
+# (Code to create event_time variable)
+# (创建event_time变量的代码)
+
+# Event study model
+# 事件研究模型
+leverage_event <- feols(leverage ~ i(event_time, ref = -1) | 
+                        firm_id + year, 
+                        data = firm_data %>% filter(major_debt_issue))
+
+# Plot
+# 绘图
+iplot(leverage_event,
+      main = "Leverage Dynamics After Major Debt Issuance",
+      xlab = "Years Relative to Debt Issuance",
+      ylab = "Leverage Ratio")
+```
+
+**Expected Pattern 预期模式:**
+
+- **Year 0**: Sharp increase in leverage (debt issuance)  
+  **第0年**：杠杆率急剧上升（债务发行）
+  
+- **Years 1-3**: Gradual decline as firms pay down debt or grow equity  
+  **第1-3年**：随着公司偿还债务或增加股权，杠杆率逐渐下降
+  
+- **Long-run**: Convergence to pre-issuance level (target leverage)  
+  **长期**：收敛到发行前水平（目标杠杆率）
+  
+- **Speed of adjustment**: Faster for firms with lower adjustment costs (e.g., larger, more profitable firms)  
+  **调整速度**：调整成本较低的公司（如规模更大、盈利能力更强的公司）调整更快
+
+### 9.2.6 Important Note on Staggered Treatment 关于交错处理的重要提示
+
+Recent research (Goodman-Bacon 2021, Sun & Abraham 2021) has shown that in settings with **staggered treatment adoption** (i.e., different units get treated at different times), the standard two-way fixed effects (TWFE) event study estimator can be biased due to heterogeneous treatment effects.
+
+近期研究(Goodman-Bacon 2021, Sun & Abraham 2021)表明，在**交错处理设定**(即不同单位在不同时间接受处理)下，由于异质性处理效应，标准的双向固定效应(TWFE)事件研究估计量可能有偏。
+
+New estimators have been proposed to address this issue (e.g., Callaway & Sant'Anna, Sun & Abraham, Borusyak et al.), but they are beyond the scope of this course.
+
+已有新的估计量被提出来解决这个问题(如Callaway & Sant'Anna, Sun & Abraham, Borusyak等)，但超出了本课程范围。
+
+
+---
+
+## 9.3 Heterogeneous Treatment Effects: Moderator vs. Mediator  
+## 9.3 异质性处理效应：调节变量 vs. 中介变量
+
+The standard DID model estimates the Average Treatment Effect on the Treated (ATT). However, the treatment effect may not be the same for all individuals or units. This is known as **heterogeneous treatment effects**.
+
+标准DID模型估计的是平均处理效应(ATT)。但是，处理效应可能因个体或单位的不同而异。这被称为**异质性处理效应**。
+
+It is crucial to distinguish between two concepts when discussing heterogeneous effects: **moderators** and **mediators**.
+
+在讨论异质性效应时，必须区分两个概念：**调节变量**和**中介变量**。
+
+### 9.3.1 Moderator Variables 调节变量
+
+**Definition 定义:**
+
+A **moderator** is a variable that changes the strength or direction of the treatment effect. It answers the question: *For whom* or *under what conditions* does the treatment work differently?
+
+**调节变量**是改变处理效应强度或方向的变量。它回答的问题是：**对谁**或**在什么条件下**处理有不同的效果？
+
+**Example 例子:**
+
+A job training program might be more effective for younger workers than for older workers. In this case, age is a moderator.
+
+培训项目可能对年轻工人比对年长工人更有效。在这种情况下，年龄就是调节变量。
+
+**Corporate Finance Example 公司金融例子:**
+
+The effect of CEO turnover on firm performance might differ between family-controlled firms and non-family firms. Ownership structure acts as a moderator.
+
+CEO更替对公司业绩的影响可能在家族控制企业和非家族企业之间有所不同。所有权结构起到调节作用。
+
+**Testing for Moderating Effects in DID 在DID中检验调节效应:**
+
+We interact the DID term ($Treated_i \times Post_t$) with the moderator variable ($Z_i$):
+
+我们将DID项($Treated_i \times Post_t$)与调节变量($Z_i$)交互：
+
+$$ y_{it} = \alpha_i + \gamma_t + \beta_1 (Treated_i \times Post_t) + \beta_2 (Treated_i \times Post_t \times Z_i) + \epsilon_{it} $$
+
+**In E[Y|X] terms 用 E[Y|X] 表述:**
+
+- $\beta_1$ estimates ATT for units with $Z_i = 0$:  
+  $\beta_1$ 估计 $Z_i = 0$ 单位的ATT：
+  
+$$
+\beta_1 = E[Y(1) - Y(0)|D=1, Post=1, Z=0]
+$$
+
+- $\beta_1 + \beta_2$ estimates ATT for units with $Z_i = 1$:  
+  $\beta_1 + \beta_2$ 估计 $Z_i = 1$ 单位的ATT：
+  
+$$
+\beta_1 + \beta_2 = E[Y(1) - Y(0)|D=1, Post=1, Z=1]
+$$
+
+- $\beta_2$ captures the difference in treatment effects:  
+  $\beta_2$ 捕捉处理效应的差异：
+  
+$$
+\beta_2 = E[Y(1) - Y(0)|D=1, Post=1, Z=1] - E[Y(1) - Y(0)|D=1, Post=1, Z=0]
+$$
+
+If $\beta_2$ is significant, the treatment effect depends on the value of $Z_i$.
+
+如果 $\beta_2$ 显著，说明处理效应取决于 $Z_i$ 的值。
+
+### 9.3.2 Mediator Variables 中介变量
+
+**Definition 定义:**
+
+A **mediator** is a variable that explains the mechanism through which the treatment affects the outcome. It answers the question: *How* or *why* does the treatment work?
+
+**中介变量**解释处理如何或为何影响结果的机制。它回答的问题是：**如何**或**为什么**处理起作用？
+
+The mediator lies on the causal pathway: $X \rightarrow M \rightarrow Y$
+
+中介变量位于因果路径上：$X \rightarrow M \rightarrow Y$
+
+**Example 例子:**
+
+A minimum wage increase (treatment) might increase employment (outcome) by boosting consumer demand (mediator).
+
+最低工资提高(处理)可能通过提升消费需求(中介)来增加就业(结果)。
+
+**Corporate Finance Example 公司金融例子:**
+
+Board independence reform (treatment) might improve firm performance (outcome) by enhancing monitoring effectiveness (mediator).
+
+董事会独立性改革(处理)可能通过增强监督有效性(中介)来提升公司业绩(结果)。
+
+**Mediation analysis will be discussed in detail in Section 10.**
+
+**中介分析将在第10节详细讨论。**
+
+### 9.3.3 Example: Heterogeneous Effects in Card & Krueger Data  
+### 9.3.3 实例：Card & Krueger数据中的异质性效应
+
+Let's test whether the effect of the minimum wage increase differs by restaurant type (chain vs. non-chain restaurants).
+
+让我们检验最低工资提高的效应是否因餐厅类型(连锁店 vs. 非连锁店)而异。
+
+```{r heterogeneous_did}
+library(foreign)
+library(dplyr)
+library(fixest)
+
+# Assume njmin data is loaded
+# 假设njmin数据已加载
+njmin <- read.dta('6_CK1994_old.dta')
+njmin <- njmin %>% 
+ mutate(fte = nmgrs + empft + (0.5 * emppt), 
+        nj = (state==1), 
+        d = (time==1))
+
+# Create chain restaurant dummy
+# 创建连锁店虚拟变量
+njmin <- njmin %>%
+  mutate(nj_post = nj * d,
+         nj_post_coowned = nj * d * co_owned,
+         nj_post_noncoowned = nj * d * (co_owned==0))
+
+# Standard DID model
+# 标准DID模型
+did_standard <- feols(fte ~ nj_post | store + time, data = njmin)
+
+# Heterogeneous DID model (with three-way interaction)
+# 异质性DID模型（包含三阶交互项）
+did_heterog <- feols(fte ~ nj_post + nj_post_coowned | store + time, data = njmin)
+
+# Heterogeneous DID model (with three-way interaction)
+# 异质性DID模型（包含两个三阶交互项）
+did_heterog2 <- feols(fte ~ nj_post_noncoowned + nj_post_coowned | store + time, data = njmin)
+
+# Heterogeneous DID model (co_owned=1 subsample)
+# 异质性DID模型（co_owned=1子样本）
+did_coowned <- feols(fte ~ nj_post + nj_post_coowned | store + time, data = njmin %>% filter(co_owned==1))
+
+# Heterogeneous DID model (co_owned=0 subsample)
+# 异质性DID模型（co_owned=0子样本）
+did_noncoowned <- feols(fte ~ nj_post + nj_post_coowned | store + time, data = njmin %>% filter(co_owned==0))
+
+# Compare results
+# 比较结果
+etable(did_standard, did_heterog, did_heterog2, did_noncoowned, did_coowned,
+       dict = c(nj_post = "NJ × Post", 
+                nj_post_coowned = "NJ × Post × Co-Owned",
+                nj_post_noncoowned = "NJ × Post × Not Co-Owned"))
+```
+
+**Interpretation 解读:**
+
+- The coefficient on `nj_post` is the DID effect for non-chain restaurants  
+  `nj_post` 的系数是非连锁店的DID效应
+  
+- The coefficient on `nj_post_chain` represents the difference in DID effects between chain and non-chain restaurants  
+  `nj_post_chain` 的系数表示连锁店与非连锁店之间DID效应的差异
+  
+- If `nj_post_chain` is significant, the minimum wage effect on employment differs significantly between chain and non-chain restaurants  
+  如果 `nj_post_chain` 显著，说明最低工资对就业的影响在连锁店和非连锁店之间存在显著差异
+
+---
+
+# 10 Mediation Analysis  
+# 10 中介效应分析
+
+Mediation analysis helps us understand the process or mechanism through which an independent variable (X) influences a dependent variable (Y). It involves a third variable, the mediator (M), which is hypothesized to lie on the causal pathway between X and Y.
+
+中介分析帮助我们理解自变量(X)如何影响因变量(Y)的过程或机制。它涉及第三个变量——中介变量(M)，该变量被假设位于X和Y之间的因果路径上。
+
+$$ X \rightarrow M \rightarrow Y $$
+
+## 10.1 The Baron and Kenny (1986) Causal-Steps Approach  
+## 10.1 Baron and Kenny (1986) 因果步骤法
+
+The classic approach to mediation was proposed by Baron and Kenny. It involves four steps:
+
+经典的中介分析方法由Baron and Kenny提出，包含四个步骤：
+
+**Step 1: Total Effect 步骤1：总效应**
+
+Show that the independent variable (X) has a significant effect on the dependent variable (Y).
+
+检验自变量(X)对因变量(Y)是否有显著影响。
+
+$$ Y = \beta_{10} + c \cdot X + \epsilon_1 $$
+
+We need $c$ to be significant. This is the **total effect**.
+
+需要 $c$ 显著。这是**总效应**。
+
+**In E[Y|X] terms 用 E[Y|X] 表述:**
+
+$$
+c = E[Y|X=1] - E[Y|X=0]
+$$
+
+**Step 2: Path a 步骤2：路径a**
+
+Show that the independent variable (X) has a significant effect on the mediator (M).
+
+检验自变量(X)对中介变量(M)是否有显著影响。
+
+$$ M = \beta_{20} + a \cdot X + \epsilon_2 $$
+
+We need $a$ to be significant.
+
+需要 $a$ 显著。
+
+**In E[Y|X] terms 用 E[Y|X] 表述:**
+
+$$
+a = E[M|X=1] - E[M|X=0]
+$$
+
+**Step 3: Path b 步骤3：路径b**
+
+Show that the mediator (M) has a significant effect on the dependent variable (Y), while controlling for the independent variable (X).
+
+在控制自变量(X)的情况下，检验中介变量(M)对因变量(Y)是否有显著影响。
+
+$$ Y = \beta_{30} + c' \cdot X + b \cdot M + \epsilon_3 $$
+
+We need $b$ to be significant. The coefficient $c'$ is the **direct effect** of X on Y.
+
+需要 $b$ 显著。系数 $c'$ 是X对Y的**直接效应**。
+
+**Step 4: Test for Mediation 步骤4：检验中介效应**
+
+Even if steps 1-3 are satisfied, we still do not have evidence for mediation. **Critically, we need to test whether the indirect effect significantly explains the total effect, i.e., whether c is significantly different from c'.**
+
+即使步骤1-3都满足，我们仍然没有中介的证据。**关键是，我们需要检验间接效应是否显著解释总效用——即c是否显著不同于c'。**
+
+- **Indirect effect 间接效应** = $a \times b$  
+  The effect of X on Y that goes through M  
+  X通过M对Y的影响
+  
+- **Direct effect 直接效应** = $c'$  
+  The effect of X on Y not mediated by M  
+  X对Y的影响中未被M中介的部分
+  
+- **Total effect 总效应** = $c = c' + ab$
+
+**Possible Results: 可能的中介效应检验结果:**
+
+- **No mediation 无中介**: $ab$ is not significant OR $c$ is not significantly different from $c'$  
+  $ab$ 不显著或 $c$ 与 $c'$ 无显著差异
+  
+- **Evidence of mediation**: $ab$ is significant and $c$ is significantly different from $c'$
+
+  $ab$ 显著且 $c$ 与 $c'$ 有显著差异
+  
+  Then, you should compute the ratio $ab/c$ to quantify the extent to which the mediator explains the total effect. 
+  
+  See my REStat paper as an example for attributing mechanisms in the total effect.
+  
+
+---
+
+
+## DIY Exercises DIY练习
+
+1. **Parallel Trends Test 平行趋势检验:**  
+   Pick an replication data from journals listed on the syllabus, plot parallel trends, and examine pre-period coefficients.  
+   从课程大纲所列的学术期刊中找一篇双重差分文章，下载复现数据，绘制平行趋势图并观察事前趋势。
+
+2. **Heterogeneous Effects 异质性效应:**  
+   In the same data, test whether the treatment effect differs by pre-existing characteristics. 
+   
+   在同样的数据中，检验处理效应是否因条件而异。
+   
+---
+
+## References 参考文献
+
+1. Borusyak, K., Jaravel, X., & Spiess, J. (2021). Revisiting event study designs: Robust and efficient estimation. *arXiv preprint arXiv:2108.12419*.
+
+2. Callaway, B., & Sant'Anna, P. H. (2021). Difference-in-differences with multiple time periods. *Journal of Econometrics, 225*(2), 200-230.
+
+3. Card, D., & Krueger, A. B. (1994). Minimum Wages and Employment: A Case Study of the Fast-Food Industry in New Jersey and Pennsylvania. *The American Economic Review, 84*(4), 772-793.
+
+4. Goodman-Bacon, A. (2021). Difference-in-differences with variation in treatment timing. *Journal of Econometrics, 225*(2), 254-277. https://doi.org/10.1016/j.jeconom.2021.03.014
+
+5. Roth, J. (2022). Pretest with Caution: Event-Study Estimates after Testing for Parallel Trends. *American Economic Review: Insights, 4*(3), 305-22. https://doi.org/10.1257/aeri.20210236
+
+6. Sun, L., & Abraham, S. (2021). Estimating dynamic treatment effects in event studies with heterogeneous treatment effects. *Journal of Econometrics, 225*(2), 175-199. https://doi.org/10.1016/j.jeconom.2020.09.006
+
+
+

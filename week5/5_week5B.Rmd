@@ -1,0 +1,264 @@
+---
+title: "Financial Econometrics Week 5 Part B"
+subtitle: "IV-Instrumental Variables"
+date: "2025-10-26"
+author: Yu Zhang
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+---
+
+# 5 Instrumental variables (IE Ch. 15 pg. 485 '461'; URfIE Ch. 15)
+
+## 5.1 IV basics
+
+Focus on the distance instrument. What are the two IV assumptions?
+
+y = b0 + b1\*x + u but E[u\|x]!=0, OLS is biased
+
+We solve this and estimate b1 by instrumenting x with instrumental variable z:
+
+x = a0 + a1\*z + e (first stage), with the following two assumptions:
+
+(1) Relevance assumption: a1 != 0 (z significantly influences x)
+
+(2) Exclusion restriction: cov(z,u) = 0 (z influences y only through x)
+
+Estimating the instrumental regression:
+
+Method 1:
+
+First estimate x = a0 + a1*z + \gamma*controls + e. Obtain x_hat = a0 + a1*z (first stage)
+
+Then, estimate y = b0 + b1\*x_hat + \omega*controls + u. Obtain b1. (second stage)
+
+Method 2:（更少见）
+
+（可能考下方公式） 2SLS: Three interpretations:
+
+```         
+ 1. Directly obtain b1 as cov(y,z)/cov(x,z). 
+ 2. Estimate y = c0 + c1*z + u (reduced form) and x = a0 + a1*z + e (first stage). Obtain b1 = c1 / a1
+ 3. Use one step estimation implementation of 2SLS in R (Stata, etc.): ivreg...
+```
+reduced form 的解读：当IV变的时候，y怎么变
+
+（考两个假设，选择或问答）
+两个假设：
+1.相关性检验：要有逻辑和结果
+  first stage：z是否能影响y及其影响程度
+  first stage error（弱工具变量问题）：若a1不显著，则很难拒绝a1≠0，则很难排除c1/a1除以的不是0，则b1估计不准确（会偏大），从而显著影响ibs的估计；且置信区间下限为0，上限很大。
+2.排他性检验：只能讨论经济逻辑
+  second stage：
+Not so good IV: father_educ, mother_educ
+
+```{r}
+library(AER);library(stargazer)
+data(mroz, package='wooldridge')
+
+# restrict to non-missing wage observations
+oursample <- subset(mroz, !is.na(wage))
+
+# OLS slope parameter manually
+with(oursample, cov(log(wage),educ) / var(educ) )
+# IV slope parameter manually
+with(oursample, cov(log(wage),fatheduc) / cov(educ,fatheduc) )
+
+
+# OLS automatically
+reg.ols <-   lm(log(wage) ~ educ, data=oursample)
+
+# IV automatically 
+reg.iv <- ivreg(log(wage) ~ educ | fatheduc, data=oursample) 
+
+# Pretty regression table
+stargazer(reg.ols,reg.iv, type="text")
+```
+
+弱工具变量问题：
+## 5.2 Weak instrument test（弱工具变量检验）
+
+（考） Weak instrument test: F-stat in the first stage for the instruments should be \>10
+——在弱工具变量检验中一般要求F>10，才能说明没有弱工具变量问题
+
+```{r}
+library(AER);library(stargazer)
+data(card, package='wooldridge')
+
+# Checking for relevance: first stage
+firststage<-lm(educ ~ nearc4+exper+I(exper^2)+black+smsa+south+smsa66+reg662+
+           reg663+reg664+reg665+reg666+reg667+reg668+reg669, data=card)
+# OLS
+ols<-lm(log(wage)~educ+exper+I(exper^2)+black+smsa+south+smsa66+reg662+
+           reg663+reg664+reg665+reg666+reg667+reg668+reg669, data=card)
+# IV estimation
+iv <-ivreg(log(wage)~educ+exper+I(exper^2)+black+smsa+south+smsa66+
+             reg662+reg663+reg664+reg665+reg666+reg667+reg668+reg669 
+          | nearc4+exper+I(exper^2)+black+smsa+south+smsa66+
+            reg662+reg663+reg664+reg665+reg666+reg667+reg668+reg669
+          , data=card)
+
+# Pretty regression table of selected coefficients
+stargazer(firststage,ols,iv,type="text",
+          keep=c("ed","near","exp","bl"),keep.stat=c("n","rsq"))
+
+
+```
+
+## 5.3 Over-identification test
+
+Test for overidentification restrictions
+
+(other names: Hansen's J test, overidentification test)
+
+Idea: after estimating the second stage (using the fitted data or 2SLS), use the original data to calculate residuals, and then estimate whether the residuals significantly depends on the instruments.
+
+In fact: You can only run this test with more than one instruments. It test whether the estimate using ONLY one of the instrument is similar across instruments.
+
+《经济学》（季刊）关于计量分析中的相关表述说明
+
+发布日期：2025-06-27 15:23
+
+二、工具变量法中的外生性假设 工具变量法中，工具变量的外生性无法直接检验，因为无法穷尽工具变量对被解释变量所有可能的作用途径。因此，小标题避免使用“工具变量外生性检验”，建议改为“工具变量外生性讨论”或“工具变量外生性分析”。正文中也应避免使用“通过了工具变量外生性检验”等类似的表述，建议采用“数据分析结果与工具变量外生性假设一致”或类似措辞。
+
+此外，Hansen J 过度识别检验适用于在同质性处理效应框架内，有多个工具变量的情形，且假定至少一个工具变量满足外生性，以检验其他工具变量的外生性。因此，Hansen J 检验无法整体检验所有工具变量同时满足外生性的情况。
+
+Go through Ch. 15 together.
+
+Skip Ch 15-5a (Nobody really use it in practice.)
+
+My basic intuition for Hansen's J test: try using each instrument individually and do 2SLS. Are the estimate similar? If the answer is yes, then your IVs pass the over-identification (Hansen's J) test.
+
+```{r}
+library(AER)
+data(mroz, package='wooldridge')
+
+# restrict to non-missing wage observations
+oursample <- subset(mroz, !is.na(wage))
+
+# IV regression
+summary( res.2sls <- ivreg(log(wage) ~ educ+exper+I(exper^2)
+                | exper+I(exper^2)+motheduc+fatheduc,data=oursample) )
+
+# Auxiliary regression
+res.aux <-  lm(resid(res.2sls) ~ exper+I(exper^2)+motheduc+fatheduc
+                       , data=oursample) 
+
+# Calculations for test
+( r2 <- summary(res.aux)$r.squared )
+( n <- nobs(res.aux) )
+( teststat <- n*r2 )
+( pval <- 1-pchisq(teststat,1) )
+
+```
+
+## 5.4 Some more IV examples and IV tools
+
+y = b0 + b1*x + u, cov(x,u) ≠ 0
+
+"Experiment" as IV: randomly change x for some units.
+
+"Quasi-Experiment"" as close as experiment as possible.
+
+If you are interested: <https://evalf20.classes.andrewheiss.com/example/iv/> <https://plausiblyexog.substack.com/>
+
+If you are interested: Some more cool packages
+
+```{r}
+library(tidyverse)  # ggplot(), %>%, mutate(), and friends
+library(broom)  # Convert models to data frames
+library(modelsummary)  # Create side-by-side regression tables
+library(kableExtra)  # Add fancier formatting to tables
+library(estimatr)  # Run 2SLS models in one step with iv_robust()
+```
+
+Borrowed from Prof. Yaping Wang's examples:
+
+Example A: “政府规模、市场化与地区腐败问题研究”
+
+地区腐败是y，政府规模和市场化是x 对政府规模这个变量,他们选择了两个工具变量:各个省区1952 年的人口密度和1952 年各地人均政府开支水平 满足条件？ 针对市场化(民营化发展水平)的工具变量是各省1979 年非公有企业的就业人数的比例。 满足条件？ 这里的工具变量都是滞后量！ 很多情况下，滞后变量可以用作IV 但有时在有预期的情况下，还有问题。比如ROEt=a+b INVt+ epsilon， 滞后一期的INV还不行！ (注：还有可能，地区腐败和52年人口密度都与有史以来的地方政商关系有关。。。会有什么影响？)
+
+Example B: 如何判断一个z是合适的IV?“关系型贷款与企业创新问题的研究”
+
+为什么有内生问题？ 文章用的IV是：公司所在地到港口城市的距离， 公司所在地公路网密度 相关性？ 外生性？ 作者说“影响企业创新行为主要是企业的内部因素（陈功玉和邓晓岚，2005），各个地区距离经常使用的港口城市的距离是在长期的地壳运动中形成的，因此满足外生性条件。历史的公路网密度与当前的企业创新活动之间的相关性较低，能较好地满足外生性条件。” 但“外生的变量”(external variable)并不一定满足IV变量的外生条件(exclusion restriction)
+
+z is not decided by the firm -\> does not mean that z influences y only through x
+
+My work with an IV example: IV_famine_severity.pdf
+
+## 5.5 Homework 2
+
+HW2 is an exercise to help you develop a good workflow when doing empirical work. I try to make instructions as clear as possible so may seem long (it really isn't THAT long.)
+
+DUE Nov 2 before class. Submit to TA.
+
+You can follow up on your work in HW 1 or start afresh. As before, you can get data from akshare, CSMAR or any other financial data provider (e.g. Wind, RESSET, ...).
+
+Please answer in English or in Chinese, whichever you prefer.
+
+1.  State the statistical relationship you would like to test:
+
+    -   ceteri paribus, when x increase by ..., y is expected to increase by ... (or Pr(y=1) is expected to increase by ...)
+    -   Name at least one potential mechanism/reason for this statistical relationship
+    -   Describe the dataset that you want to perform this test with (i.e. the source and the nature of the dataset, how many observations)
+
+2.  Describe the single-variate relationship:
+
+    -   Describe the summary statistics of the y and x variables
+    -   Display the regression relationship
+    -   Discuss the statistical and **economic** significance of the single-variate regression coefficient of y on x
+
+3.  Discuss whether measurement errors (in y? in x?) and relatedly outliers exist in your Step 2. Discuss how they may (or may not) matter for your result. Discuss how to alleviate these problems.
+
+4.  Discuss whether the omitted variable problem exist in your Step 2. Partially alleviate the OV problem by adding control variables. Does your result change? If the coefficient on the main x variable changed from Step 2, discuss why it is changing in the direction that you observe.
+
+5.  Discuss whether (or not) sample selection issues exist. What population can your test represent? What (larger) population is your test not able to represent because of non-random selection?
+
+6.  Describe what is the censoring problem in the y variable. Does the censoring problem exist in your dataset? If yes, can you do a robustness check to see if your result is sensitive to addressing the censoring problem? If not, describe what regression model can be used to address the censoring problem.
+
+7.  Does the OV problem still exist now after Step 4? If yes, discuss (in details) what assumptions must a valid instrumental variable satisfy to address more fully the OV problem. Bonus: Propose an instrument (你不需要有数据) and discuss why it plausibly satisfies the IV assumptions.
+
+8.  cnki.net 专业检索 KY='工具变量' AND (LY=='金融研究' OR LY=='经济研究' OR LY=='管理世界' LY=='金融学季刊') ，择近十年以来的论文，择一篇分析其工具变量是否满足两个假设条件。
+
+# 6 Regression Discontinuity Design
+
+(general knowledge of RDD is included in the exam; but coding is not required) (考看图写回归方程；考看回归表格写解读)
+treated的系数解读是重点关注！！！
+RDD的核心思想：利用一个已知的、外生的分界点，来识别因果效应。
+
+Regression Discontinuity Design
+
+week6_rd_Slide 1_econ526.pdf
+
+rauh
+
+bakke whited
+
+week6_rd_Slide 5_LaborCapitalStructure.pdf
+
+schmalz
+
+<https://sites.google.com/site/inessal/research/> (one of the first paper on the Russell RDD, which later sparked a huge debate)
+
+【考：看图写回归方程】How to write the RDD regression equation: We learn using Pg. 17 of innofund.pdf
+
+week6_rd_innofund.pdf
+
+三个图分别对应：
+y \~ treated 
+y \~ treated + score + score:treated 
+y \~ treated + score + I(score\^2) + score:treated + I(score\^2):treated
+
+the coefficient of interest is the one on treated
+
+If you are interested in coding up the RDD model, you can read these:
+
+<https://evalf20.classes.andrewheiss.com/example/rdd/>
+
+<https://blog.csdn.net/claire_chen_jia/article/details/108857734>
+
+<https://cattaneo.princeton.edu/papers/Calonico-Cattaneo-Farrell-Titiunik_2017_Stata.pdf>

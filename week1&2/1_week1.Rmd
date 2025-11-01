@@ -1,0 +1,448 @@
+---
+title: "Module 1"
+author: "Yu Zhang"
+date: "2025/9/8"
+output: html_document
+---
+
+1.1 R can be used as a calculator
+
+```{r}
+1+1
+5*(4-1)^2
+sqrt( log(10) )
+```
+
+1.2 Installing packages in R
+
+```{r}
+# install.packages('ggplot2')
+```
+
+```{r}
+library('ggplot2')
+```
+
+```{r}
+Sys.setlocale("LC_ALL", "zh_CN.UTF-8")
+getwd()
+```
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+# basedirectory = 'C://Users//yzhan//SynologyDrive//Dropbox//Teaching教学//金融硕金融计量//'
+basedirectory = 'D://SynologyDrive//Dropbox//Teaching教学//金融硕金融计量//'
+subdirectory = 'Rfiles//'
+workdirectory = paste(basedirectory, subdirectory, sep = '')
+opts_knit$set(root.dir = workdirectory)
+Sys.setlocale("LC_ALL", "zh_CN.UTF-8")
+```
+
+```{r}
+getwd()
+```
+
+1.3 Input your first column into R
+
+```{r}
+ (a <- c(1,2,3,4,5,6))
+```
+
+```{r}
+(year <- c(2016,2017,2018,2019,2020))
+(stkprc1 <- c(10,20,40,80,160))
+(stkprc2 <- c(40,30,20,10,5))
+(portfolio <- 1*stkprc1 + 1*stkprc2)
+(price_difference <- stkprc1 - stkprc2)
+length(year)
+sort(stkprc2)
+rep(1,5)
+seq(4,12,2)
+```
+
+```{r}
+(cities <- c("New York","Los Angeles","Chicago"))
+```
+
+```{r}
+(cities == "New York")
+```
+
+Factor variables
+
+```{r}
+x <- c(3,2,2,3,1,2,3,2,1,2)
+(xf <- factor(x, labels=c("A","B","C")))
+```
+
+```{r}
+credit_rating <- c("AAA", "AA", "A", "BBB", "AA", "BBB", "A")
+(credit_factor <- factor(c("AAA", "AA", "A", "BBB", "AA", "BBB", "A")))
+```
+
+```{r}
+(credit_factor_ordered <- factor(credit_rating, ordered = TRUE, 
+                                levels = rev(c("AAA", "AA", "A", "BBB")))) # rev() is for reverse
+(credit_factor_ordered2 <- ordered(credit_factor, levels = rev(c("AAA", "AA", "A", "BBB")))) # rev() is for reverse
+```
+
+Vector naming
+
+```{r}
+# Create a vector "avgs":
+(avgs <- c(.366, .358, .356, .349, .346))
+```
+
+```{r}
+# Create a string vector of names:
+(players <- c("丁一","钱二","张三","李四","王五"))
+```
+
+```{r}
+# Assign names to vector and display vector:
+names(avgs) <- players
+avgs
+names(avgs)
+```
+
+```{r}
+# Indices by number:
+avgs[2]
+avgs[1:4]
+avgs[-(1:3)]
+avgs[4:length(avgs)]
+```
+
+```{r}
+# Indices by name:
+avgs["王五"]
+```
+
+```{r}
+players=="王五" | players=="张三" 
+avgs[players=="王五" | players=="张三" ]
+players %in% c("王五","张三") 
+avgs[players %in% c("王五","张三")]
+!(players %in% c("王五","张三"))
+avgs[!(players %in% c("王五","张三"))]
+```
+
+```{r}
+stkprc1
+year
+stkprc1[year>=2018]
+stkprc1_named <- stkprc1
+names(stkprc1_named) <- year
+stkprc1_named[year>=2018]
+```
+
+```{r}
+# Logical indices:
+avgs[ avgs>=0.35 ]
+```
+
+R vector to R matrix
+
+```{r}
+(v <- c(2,-4,-1,5,7,0))
+```
+
+```{r}
+( A <- matrix(v,nrow=2) )
+```
+
+```{r}
+( matrix(v,ncol=2) )
+```
+
+```{r}
+( matrix(v,ncol=4) )
+```
+
+```{r}
+(A)
+(A[2,3])
+(A[1,])
+(A[,1])
+```
+
+```{r}
+(B <- cbind(year, stkprc1, stkprc2))
+```
+
+```{r}
+B[1,]
+B[,1]
+B[year>=2017,]
+B[,colnames(B)=='year']
+B[,'year']
+```
+
+```{r}
+B[,colnames(B)  ==  c('year','stkprc1')]
+```
+
+```{r}
+B[,colnames(B) %in% c('year','stkprc1')]
+B[,c('year','stkprc1')]
+```
+
+R matrix to R dataframe
+
+```{r}
+(C <- as.data.frame(B))
+```
+
+```{r}
+C[1,]
+C[year==2017,]
+C[,colnames(C)=='year']
+C[,'year']
+C$year
+C[year>=2018,]
+```
+
+```{r}
+C[,colnames(C)==c('year','stkprc1')]
+C[,c('year','stkprc1')]
+C[year>=2019,colnames(C)==c('year','stkprc1')]
+C[year>=2019,names(C)==c('year','stkprc1')]
+C[year>=2019,!(names(C) == c('stkprc1'))]
+C[year>=2019,!(names(C) %in% c('stkprc1'))]
+```
+
+```{r}
+getwd()
+save(C, file = "1_stkprc.RData")
+C <- NULL
+```
+
+```{r}
+load('1_stkprc.RData')
+```
+
+```{r}
+write.table(C, file = "1_stkprc.csv", sep=",", row.names = FALSE)
+```
+
+```{r}
+(D <- read.table("1_stkprc.csv", sep=",", header = TRUE))
+```
+
+```{r}
+D
+```
+
+在R语言中调用Akshare的数据接口
+
+首先官网安装python
+
+然后在R语言中安装reticulate，并执行py_config（会创建一个干净的python virtual environment，里面需要重新安装packages）
+
+最后用py_install("akshare")安装akshare
+
+```{r}
+if(!require(reticulate)){
+    install.packages("reticulate")
+}
+py_config()
+```
+
+```{r}
+library(reticulate)
+py_install("akshare")
+```
+```{r}
+# 如果报“错误：版本设定无效”，执行下述代码
+# 1) 清掉强制指定的 Python（若有）
+# Sys.unsetenv("RETICULATE_PYTHON")
+
+# 2) 移除损坏的虚拟环境（不用确认）
+# library(reticulate)
+# if ("r-reticulate" %in% virtualenv_list()) {
+#   virtualenv_remove("r-reticulate", confirm = FALSE)
+# }
+```
+
+```{r}
+library(reticulate)  # 导入 reticulate 包
+ak <- import("akshare")  # 类似于 import akshare as ak
+stock_snapshot <- ak$stock_zh_a_spot_em()  # 类似于 ak.stock_zh_a_spot_em()
+print(head(stock_snapshot))  # 查看数据
+```
+
+```{r}
+stock_history_qfq <- ak$stock_zh_a_hist(symbol='600519',period='daily',adjust='qfq')  # 前复权（当前价格不变）
+stock_history_hfq <- ak$stock_zh_a_hist(symbol='600519',period='daily',adjust='hfq')  # 后复权（历史价格不变）
+# Notice "日期" from "stock_zh_a_hist" is the list type. Will cause bugs. Let us correct it.
+stock_history_qfq$日期 <- as.Date(unlist(stock_history_qfq$日期))
+stock_history_hfq$日期 <- as.Date(unlist(stock_history_hfq$日期))
+save(stock_history_qfq, file = "1_qfq.RData")
+save(stock_history_hfq, file = "1_hfq.RData")
+```
+
+```{r}
+load('1_qfq.RData')
+load('1_hfq.RData')
+print(head(stock_history_qfq))
+print(head(stock_history_qfq[order(stock_history_qfq$日期, decreasing = TRUE),]))
+print(tail(stock_history_qfq))
+print(head(stock_history_hfq))
+print(head(stock_history_hfq[order(stock_history_hfq$日期, decreasing = TRUE),c('日期','收盘')]))
+print(tail(stock_history_hfq))
+```
+
+```{r}
+stock_history_hfq$名称 <- '贵州茅台'
+stock_history_hfq <- stock_history_hfq[,c(ncol(stock_history_hfq),1:(ncol(stock_history_hfq)-1))]
+stock_history_hfq$代码 <- '600519'
+stock_history_hfq <- stock_history_hfq[,c(ncol(stock_history_hfq),1:(ncol(stock_history_hfq)-1))]
+print(head(stock_history_hfq))
+```
+
+计算回报率
+
+```{r}
+stock_history_hfq$log_close_price <- log(stock_history_hfq$收盘)
+print(head(stock_history_hfq))
+```
+
+```{r}
+stock_history_hfq$ret_i <- c(NA,diff(stock_history_hfq$log_close_price))
+print(head(stock_history_hfq))
+```
+
+```{r}
+stock_history_hfq <- stock_history_hfq[,!(names(stock_history_hfq) %in% 'log_close_price')]
+print(tail(stock_history_hfq))
+```
+
+```{r}
+stock_return <- stock_history_hfq[,c('名称','代码','日期','ret_i')]
+print(head(stock_return))
+```
+
+Use Stargazer to summarize the stock return dataset
+
+```{r}
+summary(stock_return)
+```
+
+```{r}
+if (!require('stargazer')) {
+  install.packages('stargazer')
+}
+library('stargazer')
+stargazer(stock_history_hfq, type="text")
+stargazer(stock_return, type="text")
+```
+
+单数日和双数日回报是否相同？
+
+```{r}
+单数日 = strtoi(substring(stock_return$日期,10,10)) %% 2 == 1
+stock_return <- cbind(stock_return, 单数日)
+print(head(stock_return))
+```
+
+```{r}
+t.test(stock_return$ret_i ~ stock_return$单数日,var.equal=FALSE,alternative='two.sided') 
+ # we use t test not assuming equal variance
+```
+
+Plot the histogram and kernel density of ret_i
+
+```{r}
+library('ggplot2')
+library('viridis')
+ggplot(stock_return, aes(x=ret_i))+
+  geom_histogram(aes(y=..density..), fill=viridis(1), color="black", bins=30)+
+  geom_density(color=viridis(1))
+```
+
+Plot the return distribution of odd days and even days
+
+```{r}
+ggplot(stock_return, aes(x=as.factor(单数日), y=ret_i, fill=as.factor(单数日))) + geom_boxplot()
+```
+
+```{r}
+library('dplyr')
+(D <- C[,c('year','stkprc1')])
+(E <- C[,c('year','stkprc2')])
+names(E) <- c('year','index')
+E
+```
+
+```{r}
+(F <- left_join(D,E,by='year'))
+```
+
+```{r}
+D
+```
+
+```{r}
+E
+```
+
+```{r}
+F
+```
+
+Following the above example, let us merge return data on moutai and the hs300 index
+
+Get market index data
+
+```{r}
+library(reticulate)  # 导入 reticulate 包
+ak <- import("akshare")  # 类似于 import akshare as ak
+index_history <- ak$stock_zh_index_daily(symbol = "sh000300")
+```
+
+Notice "date" in "index_history" is the list type. typeof(index_history\$date) = "list" Will cause bugs. Let us correct it.
+
+```{r}
+index_history['date'] = as.Date(unlist(index_history['date']))
+save(index_history, file="1_hs300.RData")
+print(head(index_history))
+```
+
+Calculate market return
+
+```{r}
+index_history$ret_m <- c(NA,diff(log(index_history$close))) 
+index_return <- index_history[,c('date','ret_m')]
+print(head(index_return))
+```
+
+```{r}
+print(head(stock_return))
+```
+
+Merge market return data and stock return data (stock_return)
+
+```{r}
+library(dplyr)
+ret_im <- inner_join(stock_return,
+                                  index_return,
+                                  by=c("日期" = "date"))
+print(head(ret_im))
+```
+
+```{r}
+summary(lm(ret_i ~ ret_m, data=ret_im))
+```
+
+```{r}
+attach(ret_im)
+# Add regression line
+plot(ret_m, ret_i, main = "Moutai return on market return",
+     xlab = "Market return", ylab = "Moutai return")
+abline(lm(ret_i ~ ret_m), col = "blue")
+detach(ret_im)
+```
+
+```{r}
+save(ret_im, file = '1_moutai_hs300.RData')
+```

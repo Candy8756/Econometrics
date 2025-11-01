@@ -1,0 +1,1208 @@
+---
+title: "OLS further issues"
+author: "FinEmt 2025"
+date: "2025/9/15"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+```{r echo=FALSE, warning=FALSE}
+library(ggplot2)
+library(stargazer)
+library(dplyr)
+library(AER)
+library(wooldridge)
+```
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+basedirectory = 'D://SynologyDrive//Dropbox//Teaching教学//金融硕金融计量//'
+subdirectory = 'Rfiles//'
+workdirectory = paste(basedirectory, subdirectory, sep = '')
+opts_knit$set(root.dir = workdirectory)
+```
+
+## 2.5 Basic hypothesis testing (IE Ch 4; read slides and textbook together)
+
+### 2.5.1 T-test
+
+Very often, we want to test whether there is any true relation at all
+between y and x. Ex ante, we do not know whether the relationship is
+positive or negative. This is a mission for the standard two-sided t
+test:
+
+H0: $\beta_1 = 0$, H1: $\beta_1 \neq 0$.
+
+**t-stat** = $(\hat{\beta}_1 - 0) / se(\hat{\beta}_1)$.
+
+So the **coefficient estimate** divided by the **standard error**.
+
+**Suppose true** $\beta_1$ **is zero,** **t-stat will not deviate too
+much from zero.**
+
+Rejecting H0 (i.e. there is a relationship) at an accurate confidence
+level (say 5%, or even 1%) requires a large t-stat (\>1.9). Essentially,
+the coefficient estimate must be much larger than the standard error of
+the coefficient estimator.
+
+**If t-stat deviate much from zero, we reject H0:** $\beta_1 = 0$.
+
+t-stat for 10% confidence level (*): 1.65 (very large sample), 1.66
+(N=100), 1.71 (N=25), 1.83 (N=10)*
+
+*t-stat for 5% confidence level (**): 1.96 (very large sample), 1.99
+(N=100), 2.06 (N=25), 2.26 (N=10)***
+
+***t-stat for 1% confidence level (***): 2.58 (very large sample), 2.62
+(N=100), 2.80 (N=25), 3.25 (N=10)
+
+The standard error has to be correct (i.e. if SLR.5 holds--\> simple OLS
+s.e.; if SLR.5 failed to hold–\> robust s.e.)
+
+Example 1: % of campaign contribution (x) and % of votes (y)
+
+```{r}
+data(vote1, package='wooldridge')
+
+model3 <- lm(voteA ~ shareA, data=vote1)
+
+# Summary of the regression results
+stargazer(model3, type="text")
+
+# Examine homotheticity
+ggplot(data=vote1, aes(x=shareA, y=voteA)) + geom_point() +
+     geom_smooth(method='lm') + theme_light() +
+     labs(x = "Share of campaign spending in %", 
+            y = "Share of vote in %")
+```
+
+We know from the graph that there is no clear evidence that A1-A5 are
+rejected for model3. Therefore the standard error (0.015) could be
+correct. We will trust it for the moment.
+
+**Some of you might vaguely recall that OLS has a normality
+assumption**, that the residual $u$ needs to be Normally distributed.
+SLR.1--SLR.5 has not said anything about that.
+
+Wooldridge Ch. 4.1 proves that the t-value is correct if the normality
+assumption holds (SLR.6).
+
+Wooldridge Ch. 5.2 discusses that practically, one could also use the
+t-value when you have a "large sample" (OLS Asymptotics), even if the
+normality assumption (SLR.6) does not hold (Gauss-Markov Theorem).
+
+**Nowadays, researchers very rarely test whether the residual is
+normal.**
+
+（要求，可考t_stat的计算，不考p值的计算）
+
+```{r}
+# Manual calculation of the t-stat and the p-value
+sum_model3 = summary(model3)
+(t_stat = sum_model3$coefficients['shareA','Estimate'] / 
+    sum_model3$coefficients['shareA','Std. Error'])
+(pval_exact = 2*pt(-abs(t_stat), 173-2)) 
+# pt: cdf of student t distribution. 
+# 171 is the degree of freedom (N(Obs) - N(x variables)).
+
+(pval_normal = 2*pnorm(-abs(t_stat)))
+```
+
+```{r}
+sum_model3$coefficients
+```
+
+Example 2: ROE and log(CEO salary).
+
+```{r}
+data(ceosal1, package='wooldridge')
+
+# OLS regression
+model1 <- lm( log(salary) ~ roe, data=ceosal1 )
+stargazer(model1, type='text')
+
+# Plot the OLS regression
+ceosal1$log_salary = log(ceosal1$salary)
+ggplot(data=ceosal1, aes(x=roe, y=log_salary)) + geom_point() + 
+  geom_smooth(method='lm',se=FALSE) + theme_light()
+```
+
+```{r}
+# Manual calculation of the t-stat and the p-value
+sum_model1 = summary(model1)
+(t_stat = sum_model1$coefficients['roe','Estimate'] / 
+    sum_model1$coefficients['roe','Std. Error'])
+(pval_exact = 2*pt(-abs(t_stat), 209-2)) 
+# pt: cdf of student t distribution. 
+# 171 is the degree of freedom (N(Obs) - N(x variables)).
+(pval_normal = 2*pnorm(-abs(t_stat)))
+```
+
+We see that for the relationship between ROE and log(COE salary), the
+t-test reports a t-stat of 3.07. This t-stat is significant at the 1%
+confidence level.
+
+However, the graph shows that Assumption SLR.5 (homotheticity) is likely
+not true.
+
+Therefore, we cannot trust the standard error in model1.
+
+As a result, we are still uncertain whether there is a relationship
+between ROE and log(COE salary).
+
+```{r}
+# load packages (which need to be installed!)
+library(lmtest); library(car); library(sandwich)
+
+# Usual SE:
+coeftest(model1)
+# Refined White heteroscedasticity-robust SE (Details in Wooldridge Ch. 8):
+coeftest(model1, vcov=vcovHC, type='HC0') 
+```
+
+### 2.6 Multivariate regressions (IE Ch 3; read slides and textbook together)
+
+Remember that interpreting regression is "ceteri paribus".
+
+To better attain "ceteri paribus" we add more x variables that may
+explain the y variable.
+
+y = beta0 + beta1\* x1 + beta2\* x2 + beta3\* x3 + ... + beta_n\* x_n +
+u
+
+I.e., an increase of 1 in x1 is on average associated with an increase
+of beta1 in y, holding fixed x2, x3, ..., and x_n.
+
+Estimating a multivariate regression is as easy as estimating a
+single-variate regression:
+
+```{r eval=FALSE}
+lm(y ~ x1+x2+x3+...)
+```
+
+Example 3.1 & 3.4:
+
+```{r}
+data(gpa1, package='wooldridge')
+
+# Just obtain parameter estimates:
+lm(colGPA ~ hsGPA+ACT, data=gpa1)
+```
+
+```{r}
+# Store results under "GPAres" and display full table:
+modelM1 <- lm(colGPA ~ hsGPA+ACT, data=gpa1)
+stargazer(modelM1, type="text")
+```
+
+```{r}
+sum_modelM1 <- summary(modelM1)
+sum_modelM1$coefficient
+```
+
+Example 3.2:
+
+```{r}
+data(wage1, package='wooldridge')
+
+# OLS regression:
+stargazer( lm(log(wage) ~ educ+exper+tenure, data=wage1) , type="text")
+summary(lm(log(wage) ~ educ+exper+tenure, data=wage1))$coefficient
+```
+
+Example 3.3:
+
+```{r}
+data(k401k, package='wooldridge')
+# OLS regression:
+stargazer( lm(prate ~ mrate+age, data=k401k), type='text' )
+```
+
+Example 3.5: R\^2
+
+```{r}
+data(crime1, package='wooldridge')
+
+# Model without avgsen:
+stargazer( model1 <- 
+             lm(narr86 ~ pcnv+ptime86+qemp86, data=crime1) , 
+           type="text")
+```
+
+```{r}
+model1 <- lm(narr86 ~ pcnv+ptime86+qemp86, data=crime1)
+summary(model1)
+model2 <- lm(narr86 ~ pcnv+avgsen+ptime86+qemp86, data=crime1)
+summary(model2)
+```
+
+```{r}
+# Model with avgsen:
+model1 <- lm(narr86 ~ pcnv+avgsen+ptime86+qemp86, data=crime1)
+```
+
+```{r}
+stargazer(model1, model2, type='text')
+```
+
+In the baseline specification, we include pcnv, ptime86, and qemp86 as
+the explanatory variables. If we include avgsen as an additional x
+variable, the regression estimates are robust, the coefficient estimates
+are unchanged from before.
+
+```{r}
+data(wage1, package='wooldridge')
+
+# OLS regression:
+stargazer( model1 <- lm(log(wage) ~ educ, data=wage1)  , type="text")
+
+stargazer( model2 <- lm(log(wage) ~ educ+exper+tenure, data=wage1) , 
+           type="text")
+
+stargazer(model1, model2, type='text')
+```
+
+In a single-variate regression, we find that years of education is
+associated with log wage.
+
+However, it can be that some worker with high level of education has
+only recently joined the workforce, therefore earning a low wage.
+
+A more proper estimation of the effect of education on wage should
+compare workers with the same level of experience and years on the job
+(tenure).
+
+When we include exper and tenure (together with educ) in a multi-variate
+regression, we find that the effect of education is even stronger when
+we compare workers that are otherwise similar except in years of
+education (the coefficient on educ becomes slightly larger, from 0.083
+to 0.092.)
+
+In addition, the explanatory power of the model increases: R-squared
+goes up from 0.186 to 0.316.
+
+```{r}
+library(car)
+data(wage1, package='wooldridge')
+
+# OLS regression:
+model1 <- lm(log(wage) ~ educ, data=wage1)
+model2 <- lm(log(wage) ~ exper, data=wage1)
+model3 <- lm(log(wage) ~ educ+exper, data=wage1)
+
+stargazer(model1, model2, model3, type='text')
+
+H2 <- "educ=exper"
+linearHypothesis(model3, H2)
+```
+
+### 2.6.1 Unbiasedness of beta: When do we trust the coefficients (IE 3-3)
+
+We chit-chat for now. Will dig into data later.
+
+A1: linear in parameters (the true model is linear)
+
+-   What if the true model is not linear?
+
+1.  First, linear regression model can be non-linear
+    ($y = b0 + b1*x + b2*x^2$). The model just needs to be linear in
+    parameters (i.e., not $y = a + x^b$.)
+
+2.  Second, we often do not know what the true model is. It might be
+    non-linear but you are also not sure whether any specific non-linear
+    model (logit, probit, etc) is true. In this case, OLS estimation of
+    a linear model is still good (maybe the best) way to obtain an quick
+    idea of the relationship. All models are wrong, some models are
+    useful.
+
+-   In sum, A1 is a very weak condition. It is always best to estimate
+    the true model. If you know x\^2 matters, stick it into the model.
+    Estimating a linear model when you do not know the true model is
+    never a silly thing to do. The only strong implication of A1 is when
+    you know $y = a + x^b$ is the true model, then it cannot be
+    estimated using OLS.
+
+A2: Random sampling (i.e. there is no selection bias)
+
+extravert
+
+introvert
+
+-   **Selection bias:** let us say we estimate the effect of
+    extraversion on salary using a face-to-face survey. Extraverts with
+    better salaries will be more likely to respond ("echo chamber";
+    "confirmation bias").
+
+-   **Censoring:** We will say more about it in the next weeks (Tobit
+    model.)
+
+A3: No perfect collinearity (the x variables cannot have too high a
+correlation -- typically you worry when rho\>0.9)
+
+-   In a multi-variate regression, estimating the coefficient b_j on the
+    regressor x_j is equivalent to regressing y on x_1, x_2, ...,
+    x\_{j-1}, x\_{j+1}, ..., x\_{k} to get residual $\tilde{y}$ and
+    regressing x_j on x_1, x_2, ..., x\_{j-1}, x\_{j+1}, ..., x\_{k} to
+    get residual $\tilde{x}_j$ and finally regressing $\tilde{y}$ on
+    $\tilde{x}_j$ and get the single variate regression $\beta_j$.
+
+-   Mathematically: If x_j is perfectly multi-collinear (with other
+    x's), then x_j is perfectly explained by the other regressors and
+    $\tilde{x}_j$ is zero. This violates the A3 in single variate OLS.
+
+-   Intuitively: When two x variables are perfectly collinear, "ceteri
+    paribus" becomes impossible.
+
+Let's say we want to examine factors regarding an investor's behavior:
+
+-   year
+-   age
+-   cohort
+
+y: risky_share
+
+risky_share \~ year + age + cohort
+
+year - cohort = age
+
+The three variables (year, age, and cohort) are collinear. Any of these
+variables is a linear combination of the other two. (Violation of A3
+under multi-variable regression.)
+
+It is impossible to make ceteri paribus.
+
+For example, holding year and cohort fixed, we cannot compare two
+investors with different age! (make sure you understand this.)
+
+You need effective variations in all x variables in order to be able to
+estimate the regression model. Perfect collinearity makes this
+impossible.
+
+-   We say more about it in 2.6.2 (How to detect collinearity in the
+    data)
+
+A4: Zero conditional mean: $E(u|x_1,x_2,...x_k)=0$
+
+Ways of violating A4:
+
+1.  A4 is related to A2. Selection bias will create non-zero conditional
+    means. The extravert example.
+
+（下面是考点：OVB。考系数影响的方向）
+
+2\. Omitted variable bias (exclusion of an important variable that is
+correlated with the included variable):
+
+-- Below I provide a more general formulation of OVB (more general than
+the example I wrote on the whiteboard in Week 2)
+
+-- Suppose the true model is $y = b0 + b1*x1 + b2*x2 + e$ where x1 and
+x2 are positively correlated.
+
+-- You estimate a model $y= b0 + b1*x1 + u$ and forgot to include x2.
+
+-- In the incorrect model, we know the regression residual $u$ equals
+$b2*x2 +e$ (make sure you understand.)
+
+-- Then, the zero conditional mean assumption becomes not true:
+
+$E[u|x1]=0$ -\> $E[b2*x2 + e|x1]=0$-\>$E[b2*x2|x1] + E[e|x1]=0$
+-\>$E[b2*x2|x1]=0$ -\> FALSE!
+
+SLR.4 is false because x2 is correlated with x1 and is an "omitted
+variable".
+
+We further illustrate what happens to the beta when there is OVB:
+
+（考） beta = cov(y,x)/var(x)
+
+$$
+\hat{b1} = cov(b0+b1*x1+b2*x2+e,x1)/var(x1)
+$$ $$
+= [0 + b1*var(x1) +
+b2*cov(x2,x1) + 0] / var(x1)
+$$ $$
+ = b1 + b2 * cov(x2,x1)/var(x1)
+ $$ The true effect of x1 on y is b1. What you estimate is b1 plus a
+bias. The bias equals b2 \* cov(x2,x1)/var(x1). If x2 and x1 is
+positively correlated, you would overestimate the effect of x1 on y.
+Because you falsely attribute the effect of x2 on y to x1.
+
+This is especially damaging if in the true model, b1 is in fact zero.
+Then the relationship you find (b1_hat) is entirely spurious.
+
+-- In your estimation, SLR.4 is violated: $E[b2*x2+e|x1] = b2*E[x2|x1]$
+is not zero. -- This is also called spurious correlations
+(<https://www.tylervigen.com/spurious-correlations>).
+
+-- We can visualize spurious correlations in the following example:
+
+```{r}
+data(gpa1, package='wooldridge')
+
+# Parameter estimates for full and simple model:
+model1 <- lm(colGPA ~ ACT+hsGPA, data=gpa1)
+
+# Relation between regressors:
+model2 <- lm(hsGPA ~ ACT, data=gpa1)
+
+# Actual regression with hsGPA omitted:
+model3 <- lm( colGPA ~ ACT, data=gpa1)
+stargazer(model1, model2, model3, type='text')
+```
+
+```{r}
+(0.009+0.453*0.039)
+```
+
+**Homework 1:**
+
+Run a single variate regression that explores relationship between one
+financial statement ratio (e.g. profit margin, ROA, etc) as the y
+variable and one variable that might drive the y variable (as the x
+variable). Use data from akshare, CSMAR or Wind.
+
+Next, include variables that makes the y on x relationship estimation
+more precise and unbiased, i.e. make your regression a
+multivariate-regression. Practice as many new concepts in this and the
+last week's classes as possible. **Submit to the TA 10/12 before
+class.**
+
+You can reach me with well-thought-out questions at
+[yuzhang\@gsm.pku.edu.cn](mailto:yuzhang@gsm.pku.edu.cn){.email}
+
+**Q: Is it always better to include more control variables? (IE 3-4b)**
+
+A: No. There are irrelevant controls (1. no effect on y. And/or 2. no
+relation with x1)
+
+-- Omitting a variable is harmless if there is NO reason to think that
+it is correlated with the included variables.
+
+Over-controlling: Irrelevant controls may not make your estimate more
+precise
+
+Including uncorrelated regressors reduces the power of the test (i.e.
+increase standard errors, lower t-stats).
+
+Control for precisely-measured and relevant variables. Do not include
+clearly imprecisely-measured or irrevelant variables. Include variables
+used in prior research.
+
+We try to see this in the simulation below
+
+```{r}
+# Set the random seed
+set.seed(1234567)
+
+# set sample size
+n<-50
+
+# set true parameters: betas and sd of u
+b0 <- 0; b1 <- 1; b2 <- 1; b3 <- 1; b4 <- 1; b5 <- 1; b6 <- 1; b7 <- 1; su <- 1
+
+# Draw a sample of size n:
+x1 <- rnorm(n,0,1)
+x2 <- rnorm(n,0,1)
+x3 <- rnorm(n,0,1)
+x4 <- rnorm(n,0,1)
+x2a <- x2 + rnorm(n,0,10) # "proxy variable" --- noisy controls
+x3a <- x3 + rnorm(n,0,10)
+x4a <- x4 + rnorm(n,0,10)
+u <- rnorm(n,0,su)
+y <- b0 + b1*x1 + b2*x2 + b3*x3 + b4*x4 + u
+
+# estimate parameters by OLS
+model1 <- lm(y~x1)
+model2 <- lm(y~x1+x2)
+model3 <- lm(y~x1+x2+x3)
+model4 <- lm(y~x1+x2+x3+x4)
+model5 <- lm(y~x1+x2a+x3a+x4a)
+stargazer(model1, model2, model3, model4, model5, type='text')
+
+```
+
+This is relevant when you have a small sample size (n=50 in the above
+example). Let us try a larger sample (say n=100, 500). Big data (large
+sample size) can sometime solve problems of random noise. It helps that
+here the data is Normal as opposed to ill-conditioned distributions.
+
+You should worry about over-controlling if controls are insignificant or
+with unexpected signs; Adjusted-R2 decreases or does not increase.
+
+How do you choose control variables? Tradeoff between OVB v.s.
+overcontrolling
+
+Include controls in prior research. (google scholar, cnki, top journals,
+phd, master thesis)
+
+Theorem (Gauss-Markov):
+
+When A1-A4 is satisfied, **OLS estimates are unbaised.** We can trust
+the coefficients.
+
+There is NO restriction on normally distributed or homotheticity.
+
+Practical tips on OLS: 1. Include non-linear terms if you know they are
+important. 2. Check collinearity of the x variables. 3. Think about
+potential selection bias. 4. Think about potential omitted variable
+bias. 5. But do not over-control when you have a small sample. When you
+have too many variables relative to your sample size, use Lasso
+(<https://www.r-bloggers.com/2021/05/lasso-regression-model-with-r-code/>)
+
+### 2.6.2 Standard error of beta in multivariate regression (IE 3-4)
+
+### and simple hypothesis testing (IE 4-2)
+
+A5: Homoskedasticity. If the residual has the same variance regardless
+of the values of x1, x2, ..., xk.
+
+Then (if A1-A5 is true), the s.e. of beta_j can be written as:
+
+$Var(\hat{\beta_j}) = \sigma^2 / [TSS_j * (1-R^2_j)]$
+
+where $\sigma^2$ is the variance of the regression residual,
+
+$$
+TSS_j = \sum_i {(x_{ij} - \bar{x_j})^2}
+$$ is the total sample variation in $x_j$, and $$
+R^2_j
+$$ is the R-squared from regressing $x_j$ on all other independent
+variables (and including an intercept).
+
+1.  Same as before (univariate case), the s.e. of beta_j is larger if
+    residual variance (noise) is larger.
+2.  Same as before, the s.e. of beta_j is smaller if there is more
+    variation in x_j, or a larger sample size.
+    $TSS_j = (N-1)\sigma^2_{x_j}$.
+3.  What is new here is that only independent variantion in x_j matters.
+    The part that is not explained by other regressors ($1-R^2_j$). In
+    the extreme case, if x_j is a linear combination of other regressors
+    (R\^2_j = 1), then s.e. of beta_j is infinite, i.e. we know nothing
+    about \beta\_j.
+
+#### The VIF test for multicollinearity （IE 3-4a; 考检验的名字）
+
+We know from above (3.) that s.e. of beta_j is increasing in
+$1/(1-R^2_j)$. This is called the VIF (variance inflation factor,
+$(1-R^2_j)$.) A VIF higher than 10 is definitely worrisome. A VIF lower
+than 5 (2), you are somewhat (extremely) safe. In between, there are
+disagreements.
+
+```{r}
+data(gpa1, package='wooldridge')
+# Full estimation results including automatic SE :
+res <- lm(colGPA ~ hsGPA+ACT, data=gpa1)
+stargazer(res, type='text')
+```
+
+```{r}
+# Extract SER (standard error of residuals)
+( SER <- summary(res)$sigma )
+```
+
+```{r}
+# regressing hsGPA on ACT for calculation of R2 & VIF
+( R2.hsGPA  <- summary( lm(hsGPA~ACT, data=gpa1) )$r.squared )
+```
+
+```{r}
+( VIF.hsGPA <- 1/(1-R2.hsGPA) )
+```
+
+```{r}
+# manual calculation of SE of hsGPA coefficient:
+n <- nobs(res)
+sdx <- sd(gpa1$hsGPA) * sqrt((n-1)/n)  # (Note: sd() uses the (n-1) version)
+( SE.hsGPA <- 1/sqrt(n) * SER/sdx  * sqrt(VIF.hsGPA) )
+```
+
+A convenient way to automatically calculate variance inflation factors
+(VIF) is provided by the package `car`. Remember from Section 1.1.3 that
+in order to use this package, we have to install it once per computer
+using `install.packages("car")`. Then we can load it with the command
+`library(car)`. Among other useful tools, this package implements the
+command `vif(lmres)` where `lmres` is a regression result from `lm`. It
+delivers a vector of VIF for each of the regressors as demonstrated in
+Script 3.9 (MLR-VIF.R).
+
+We extend Example 3.6. and regress individual log wage on education
+(educ), potential overall work experience (exper), and the number of
+years with current employer (tenure). We could imagine that these three
+variables are correlated with each other, but the results show no big
+VIF. The largest one is for the coefficient of exper. Its variance is
+higher by a factor of (only) 1.478 than in a world in which it were
+uncorrelated with the other regressors. So we don’t have to worry about
+multicollinearity here.
+
+```{r}
+data(wage1, package='wooldridge')
+
+# OLS regression:
+lmres <- lm(log(wage) ~ educ+exper+tenure, data=wage1)
+
+# Regression output:
+summary(lmres)
+
+# Load package "car" (has to be installed):
+library(car)
+# Automatically calculate VIF :
+vif(lmres)
+```
+
+## 2.7 Advanced Hypothesis testing: （给code考解读）
+
+### 2.7.1 F Tests (IE 4-5)
+
+H0: beta_j=0, ..., beta_k=0
+
+Regress the original model with x_j, ..., x_k (unrestricted model).
+R-squared is R\^2\_{ur}
+
+Regress the restricted model without x_j, ..., x_k. R-squared is
+R\^2\_{r}
+
+F-stat = $[(R^2_{ur} - R^2_{r}) / (1- R^2_{r})] * [(n-k-1) / q]$
+
+Intuitively, if H0 is true, then $R^2_{ur}$ should be the same as
+$R^2_{r}$.
+
+If $R^2_{ur} >> R^2_{r}$, and especially if n is large, then H0 must be
+false.
+
+```{r}
+# Critical value for alpha=1% using the F distribution with 3 (q) 
+#                                           and 347 (n-k-1) d.f.:
+qf(1-0.01, 5,345)
+```
+
+```{r}
+data(mlb1, package='wooldridge')
+
+# Unrestricted OLS regression:
+res.ur <- lm(log(salary) ~ years+gamesyr+bavg+hrunsyr+rbisyr, data=mlb1)
+stargazer(res.ur, type='text')
+
+# Restricted OLS regression:
+res.r <- lm(log(salary) ~ years+gamesyr, data=mlb1)
+stargazer(res.r, type='text')
+```
+
+```{r}
+# R2:
+( r2.ur <- summary(res.ur)$r.squared )
+( r2.r <- summary(res.r)$r.squared )
+
+# F statistic:
+( F <- (r2.ur-r2.r) / (1-r2.ur) * 347/3 ) 
+# equivalent to (ssr.r-ssr.ur) / (ssr.ur) * (n-k-1)/q --- the textbook F formula
+
+# p value = 1-cdf of the appropriate F distribution:
+1-pf(F, 3,347)
+```
+
+### 2.7.2 Linear restrictions (IE 4-4, IE Eq 4.25, URfIE 4.3)
+
+More generally, tests can be done on general linear hypotheses:
+
+H0: f_A(beta_1, ..., beta_k)=0, f_B(beta_1, ..., beta_k)=0, ... where
+F_A, F_B are linear functions.
+
+H0:
+
+b1 = 0
+
+b2 = 0
+
+b3 = 0
+
+b4 = 0
+
+b5 = 0
+
+Example 1: H0: beta_j=0, ..., beta_k=0
+
+```{r}
+data(mlb1, package='wooldridge')
+
+# Unrestricted OLS regression:
+result.ur <- lm(log(salary) ~ years+gamesyr+bavg+hrunsyr+rbisyr, data=mlb1)
+
+# Load package "car" (which has to be installed on the computer)
+library(car)
+
+# F test
+myH0 <- c("bavg","hrunsyr","rbisyr")
+linearHypothesis(result.ur, myH0)
+```
+
+Example 2: H0: beta_j - beta_k = 0 (Chow test)
+
+```{r}
+myH0 <- "hrunsyr=rbisyr"
+stargazer(res.ur, type='text')
+linearHypothesis(res.ur, myH0)
+
+```
+
+Example 3: the F test for overall significance
+
+```{r}
+stargazer(res.ur, type='text')
+```
+
+### 2.7.3 Reporting multiple models using stargazer
+
+```{r}
+data(meap93, package='wooldridge')
+
+# define new variable within data frame
+meap93$b_s <- meap93$benefits / meap93$salary
+
+# Estimate three different models
+model1<- lm(log(salary) ~ b_s                       , data=meap93)
+model2<- lm(log(salary) ~ b_s+log(enroll)+log(staff), data=meap93)
+model3<- lm(log(salary) ~ b_s+log(enroll)+log(staff)+droprate+gradrate
+                                                    , data=meap93)
+# Load package and display table of results
+library(stargazer)
+stargazer(list(model1,model2,model3),type="text",keep.stat=c("n","rsq"))
+```
+
+## 2.8 More on A1 functional forms (URfIE 6.1, IE Ch 6)
+
+Data scaling does not affect t-stats, the R-squared, or the F-stat.
+
+```{r}
+data(bwght, package='wooldridge')
+library('stargazer')
+
+stargazer(bwght, type='text')
+# Basic model:
+model1 = lm( bwght ~ cigs+faminc, data=bwght)
+
+# Weight in pounds, manual way:
+bwght$bwghtlbs <- bwght$bwght/16
+model2 = lm( bwghtlbs ~ cigs+faminc, data=bwght)
+
+# Weight in pounds, direct way:
+model3 = lm( I(bwght/16) ~ cigs+faminc, data=bwght)
+
+# Packs of cigarettes:
+model4 = lm( bwght ~ I(cigs/20) +faminc, data=bwght)
+
+stargazer(model1, model2, model3, model4, type='text')
+stargazer(model1, model2, model3, model4, type='text', report="vct*")
+```
+
+### 2.8.1 Standardized x variables (z-score) （考系数解读）
+
+It is often useful to z-score the x variables (sometimes also the y
+variable) to ease inspection of the explanatory power.
+
+```{r}
+data(hprice2, package='wooldridge')
+stargazer(hprice2, type='text')
+
+# Estimate model with standardized variables:
+model4 =  lm(scale(price) ~ 0+scale(nox)+scale(crime)+scale(rooms)+
+                              scale(dist)+scale(stratio), data=hprice2)
+model3 =  lm(scale(price) ~ scale(nox)+scale(crime)+scale(rooms)+
+                              scale(dist)+scale(stratio), data=hprice2)
+model2 = lm(price ~ scale(nox)+scale(crime)+scale(rooms)+
+                              scale(dist)+scale(stratio), data=hprice2)
+model1 = lm(price ~ nox + crime + rooms + dist + stratio, data=hprice2)
+stargazer(model1, model2, model3, model4, type='text', report="vct*")
+```
+
+### 2.8.2 Square terms （考系数解读 dy/dx）
+
+```{r}
+
+data(hprice2, package='wooldridge')
+stargazer(hprice2, type='text')
+
+
+model1 <- lm(log(price)~log(nox)+log(dist)+rooms+
+           stratio,data=hprice2)
+
+model2 <- lm(log(price)~log(nox)+log(dist)+rooms+I(rooms^2)+
+           stratio,data=hprice2)
+
+# Using poly(...):
+model3 <- lm(log(price)~log(nox)+log(dist)+poly(rooms,2,raw=TRUE)+
+           stratio,data=hprice2)
+stargazer(model1, model2, model3, type='text')
+
+model2$coefficients[['I(rooms^2)']]
+model3$coefficients[['poly(rooms, 2, raw = TRUE)2']]
+```
+
+### 2.8.3 Interaction terms (考系数解读)
+
+```{r}
+data(attend, package='wooldridge')
+
+# Estimate model with interaction effect:
+stargazer(myres<-lm(stndfnl~atndrte*priGPA+I(priGPA^2), data=attend), 
+          type='text')
+```
+
+Q: If atndrte = 1, priGPA=4, what is the marginal effect of increases in
+atndrte on the y variable? A: The answer is -0.010 + 0.005\*(4) = 0.010
+
+Q: If atndrte = 1, priGPA=4, what is the marginal effect of increases in
+priGPA on the y variable? A: The answer is -2.003 + 0.434*2*4 + 0.005\*1
+= 1.474
+
+```{r}
+# Estimate for partial effect at priGPA=2.59:
+b <- coef(myres)
+b["atndrte"] + 2.59*b["atndrte:priGPA"] 
+```
+
+```{r}
+# Test partial effect for priGPA=2.59:
+library(car)
+linearHypothesis(myres,c("atndrte+2.59*atndrte:priGPA"))
+
+```
+
+### 2.8.4 Dummy variables
+
+IE 7-1 to 7-4, URfIE 7
+
+Dummy variable as numeric variable
+
+```{r}
+data(wage1, package='wooldridge')
+
+typeof(wage1[[1,'female']])
+
+lm(wage ~ female+educ+exper+tenure, data=wage1)
+```
+
+```{r}
+data(wage1, package='wooldridge')
+
+lm(log(wage)~married*female+educ+exper+I(exper^2)+tenure+I(tenure^2),
+                                                           data=wage1)
+```
+
+married male: 0.21
+
+married female: 0.21 + -0.11 + -0.30 = -0.20
+
+single male: reference group (0) single female: -0.11
+
+Dummy variable as logical variable
+
+```{r}
+data(wage1, package='wooldridge')
+
+# replace "female" with logical variable
+wage1$female <- as.logical(wage1$female)
+table(wage1$female)
+
+typeof(wage1[[1,'female']])
+  
+# regression with logical variable
+lm(wage ~ female+educ+exper+tenure, data=wage1)
+```
+
+Multiple categories (K) can be treated as K-1 dummy variables (with an
+ommited/reference group), or as a factor variable:
+
+```{r}
+data(CPS1985,package="AER")
+
+# Table of categories and frequencies for two factor variables:
+table(CPS1985$gender)
+table(CPS1985$occupation)
+CPS1985$occupation_string <- as.character.factor(CPS1985$occupation)
+CPS1985$occupation2 <- factor(CPS1985$occupation_string, levels = c('worker','technical','services','office','sales','management'))
+summary(CPS1985)
+```
+
+```{r}
+# Directly using factor variables in regression formula:
+lm(log(wage) ~ education+experience+gender+occupation, data=CPS1985)
+
+```
+
+```{r}
+# Manually redefine the  reference category:
+CPS1985$gender <- relevel(CPS1985$gender,"female")
+CPS1985$occupation <- relevel(CPS1985$occupation,"management")
+
+# Rerun regression:
+lm(log(wage) ~ education+experience+gender+occupation, data=CPS1985)
+
+```
+
+## 2.9 More on A5 Heteroscedasticity （不考推导）
+
+IE 8, URfIE 8
+
+Under A5, the s.e. of beta in single variate linear regression can be
+written as (not required):
+
+$Var(\hat{\beta}_1) = \frac{\sigma^2}{\sum_{i=1}^{n}(x_i-\bar{x})^2}$
+
+If A5 is not true (we have heteroscedasticity, different var(u) for
+different values of x), then
+
+$Var(\hat{\beta}_1) = \frac{\sum_{i=1}^{n}(x_i-\bar{x})^2 \times \sigma^2}{\sum_{i=1}^{n}(x_i-\bar{x})^2 \times \sum_{i=1}^{n}(x_i-\bar{x})^2}$
+
+$Var(\hat{\beta}_1) = \frac{1}{N-2}\frac{E[(x_i-\bar{x})^2u^2]}{E[(x_i-\bar{x})^2]\times E[(x_i-\bar{x})^2]}$
+
+$Var(\hat{\beta}_1) = \frac{1}{N-2}\frac{Cov((x_i-\bar{x})^2,u^2) + E[(x_i-\bar{x})^2]*E[u^2]}{E[(x_i-\bar{x})^2]\times E[(x_i-\bar{x})^2]}$
+
+If you have noisy residuals precisely when you have the most information
+in x ($(x_i-\bar{x})^2$ and $u^2$ positively correlated), the
+information in x is polluted and you have larger standard error than
+under A5.
+
+If you have less noisy residuals precisely when you have the most
+information in x ($(x_i-\bar{x})^2$ and $u^2$ negatively correlated),
+you may actually have smaller standard error than under A5.
+
+When you have heteroskedasticity, you should use corrected standard
+error (HC standard error, robust standard error)
+
+HC standard error usually is larger than traditional standard error (in
+rare cases it can also be smaller, when $Cov((x_i-\bar{x})^2,u^2)<0$.)
+
+### 2.9.1 HC-robust standard errors（考适用情况）
+
+```{r}
+data(gpa3, package='wooldridge')
+
+# load packages (which need to be installed!)
+library(lmtest); library(car); library(sandwich)
+
+# Estimate model (only for spring data)
+reg <- lm(cumgpa~sat+hsperc+tothrs+female+black+white, 
+                                     data=gpa3, subset=(spring==1))
+# Usual SE:
+coeftest(reg)
+# Refined White heteroscedasticity-robust SE:
+coeftest(reg, vcov=vcovHC, type='HC0') # White's estimator
+
+myH0 <- c("black","white")
+linearHypothesis(reg, myH0, vcov=hccm(reg,type="hc0"))
+
+```
+
+```{r}
+# Estimate model (only for spring data)
+library('sandwich') # vcovHC
+library('stargazer')
+model <- lm(cumgpa~sat+hsperc+tothrs+female+black+white, 
+                                     data=gpa3, subset=(spring==1))
+
+# Adjust standard errors
+cov1         <- vcovHC(model, type = "HC0") # White's estimator
+robust_se    <- sqrt(diag(cov1))
+
+# Stargazer output (with and without RSE)
+stargazer(model, type = "text",
+          se = list(robust_se))
+stargazer(model, model, type = "text",
+          se = list(NULL, robust_se), column.labels = c("Plain Vanilla", "HC0"))
+```
+
+Cluster-robust standard error (clustered standard errors), when the row
+number being the cluster id (i.e. each observation is a cluster),
+becomes the same as White's robust standard error
+
+Will teach more about clustered standard errors in the panel data module
+(IE Ch 13, 14)
+
+```{r}
+library(lfe)
+gpa3$id_obs = as.numeric(rownames(gpa3))
+model1 <- felm(cumgpa~sat+hsperc+tothrs+female+black+white |0|0|0, 
+                                     data=gpa3, subset=(spring==1))
+model2 <- felm(cumgpa~sat+hsperc+tothrs+female+black+white |0|0|id_obs, 
+                                     data=gpa3, subset=(spring==1)) # reg y x, robust
+stargazer(model1, model2, type='text')
+```
+
+```{r}
+linearHypothesis(model2,c("black=0","white=0"))
+```
+
+### 2.9.2 WLS (NOT REQUIRED!!! )（不考）
+
+Weighted Least Squares (WLS) attempts to provide a more efficient
+alternative to OLS. It is a special version of a feasible generalized
+least squares (FGLS) estimator. Instead of the sum of squared residuals,
+their weighted sum is minimized. If the weights are inversely
+proportional to the variance, the estimator is efficient. Also the usual
+formula for the variance-covariance matrix of the parameter estimates
+and standard inference tools are valid. WLS weights the data. Therefore
+WLS WILL change the coefficient estimate.
+
+We can obtain WLS parameter estimates by multiplying each variable in
+the model with the square root of the weight as shown by Wooldridge
+(Section 8.4, URfIE 8.3). In R, it is more convenient to use the option
+`weight=...` of the command `lm`. This provides a more concise syntax
+and takes care of correct residuals, fitted values, predictions, and the
+like in terms of the original variables.
+
+In the following example, it is assumed that the residual variance is
+inversely related to income (`inc`).
+
+```{r}
+library(foreign)
+d401k<-read.dta("http://fmwww.bc.edu/ec-p/data/wooldridge/401ksubs.dta")
+# data(k401ksubs, package='wooldridge')
+# d401k<-k401ksubs
+
+# OLS (only for singles: fsize==1)
+lm(nettfa ~ inc + I((age-25)^2) + male + e401k, 
+                                         data=d401k, subset=(fsize==1))
+
+# WLS
+lm(nettfa ~ inc + I((age-25)^2) + male + e401k, weight=1/inc, 
+                                         data=d401k, subset=(fsize==1))
+```
+
+We can also use heteroscedasticity-robust statistics from Section 8.1 to
+account for the fact that our variance function might be misspecified.
+Script 8.6 (WLS-Robust.R) repeats the WLS estimation of Example 8.6 but
+reports non-robust and robust standard errors and t statistics. It
+replicates Wooldridge (Table 8.2).
+
+```{r}
+library(foreign)
+d401k<-read.dta("http://fmwww.bc.edu/ec-p/data/wooldridge/401ksubs.dta")
+
+# WLS
+wlsreg <- lm(nettfa ~ inc + I((age-25)^2) + male + e401k, 
+                             weight=1/inc, data=d401k, subset=(fsize==1))
+
+# non-robust results
+library(lmtest); library(car)
+coeftest(wlsreg)
+
+# robust results (White estimator:)
+coeftest(wlsreg,vcovHC, type="HC0")
+```
+
+The assumption made in Example 8.6 that the variance is proportional to
+a regressor is usually hard to justify. Typically, we don’t not know the
+variance function and have to estimate it. This feasible GLS (FGLS)
+estimator replaces the (allegedly) known variance function with an
+estimated one. We can estimate the relation between variance and
+regressors using a linear regression of the log of the squared residuals
+from an initial OLS regression log(uˆ2) as the dependent variable.
+Wooldridge (Section 8.4) suggests two versions for the selection of
+regressors: - the regressors x1,..., xk from the original model -
+\hat{y} and \hat{y}ˆ2 from the original model similar to the White test
+As the estimated error variance, we can use \$exp(\hat{log(\hat{u}^2)}).
+Its inverse can then be used as a weight in WLS estimation
+
+```{r}
+data(smoke, package='wooldridge')
+
+# OLS
+olsreg<-lm(cigs~log(income)+log(cigpric)+educ+age+I(age^2)+restaurn, 
+                                                            data=smoke)
+olsreg
+```
+
+```{r}
+# BP test
+library(lmtest)
+bptest(olsreg)
+
+# FGLS: estimation of the variance function
+logu2 <- log(resid(olsreg)^2)
+varreg<-lm(logu2~log(income)+log(cigpric)+educ+age+I(age^2)+restaurn, 
+                                                            data=smoke)
+varreg
+```
+
+```{r}
+# FGLS: WLS
+w <- 1/exp(fitted(varreg))
+wlsreg<-lm(cigs~log(income)+log(cigpric)+educ+age+I(age^2)+restaurn, 
+                                                  weight=w ,data=smoke)
+stargazer(olsreg, wlsreg, type='text')
+```
+
+WLS has the benefit of being more efficient, but also has the drawback
+of being less transparent.
+
+### 2.10 Multivariate regressions in matrix form (NOT REQUIRED!!!)
+
+IE Appendix E, URfIE 3.2
+
+$\hat{\beta} = (X'X)^{-1}X'y$
+
+```{r eval=FALSE}
+bhat <- solve( t(X)%*%X ) %*% t(X)%*%y
+```
+
+$\hat{VAR(\hat{\beta})} = \hat{\sigma}^2(X'X)^{-1}$
+
+```{r}
+data(gpa1, package='wooldridge')
+stargazer( lm(colGPA ~ hsGPA + ACT, data=gpa1), type="text")
+```
+
+```{r}
+# Determine sample size & no. of regressors:
+n <- nrow(gpa1); k<-2
+
+# extract y
+y <- gpa1$colGPA
+
+# extract X & add a column of ones
+X <- cbind(1, gpa1$hsGPA, gpa1$ACT)
+
+# Display first rows of X:
+head(X)
+```
+
+```{r}
+# Parameter estimates:
+( bhat <- solve( t(X)%*%X ) %*% t(X)%*%y )
+```
+
+```{r}
+# Residuals, estimated variance of u and SER:
+uhat <- y - X %*% bhat
+sigsqhat <- as.numeric( t(uhat) %*% uhat / (n-k-1) )
+( SER <- sqrt(sigsqhat) )
+```
+
+```{r}
+# Estimated variance of the parameter estimators and SE:
+Vbetahat <- sigsqhat * solve( t(X)%*%X )
+( se <- sqrt( diag(Vbetahat) ) )
+```
+
+**Homework 1:**
+
+Run a single variate regression that explores relationship between one
+financial statement ratio (e.g. profit margin, ROA, etc) as the y
+variable and one variable that might drive the y variable (as the x
+variable). Use data from akshare, CSMAR or Wind.
+
+Next, include variables that makes the y on x relationship estimation
+more precise and unbiased, i.e. make your regression a
+multivariate-regression. Practice as many new concepts in this and the
+last week's classes as possible. **Submit to the TA 10/12 before
+class.**
+
+You can reach me with well-thought-out questions at
+[yuzhang\@gsm.pku.edu.cn](mailto:yuzhang@gsm.pku.edu.cn){.email}

@@ -1,0 +1,621 @@
+---
+title: "OLS basics"
+author: "FinEmt 2024"
+date: "2024/11/21"
+output: html_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+Let us first go through Chapter 2 of Wooldridge together, especially:
+
+(a) the derivation of the OLS estimator in 2.2,
+
+    The OLS estimator requires these two key assumptions:
+
+    SLR means simple linear regression
+
+    (SLR.1) linearity: $y = b0 + b1*x + u$
+
+    (SLR.4) conditional independence: $E[u|x] = 0$ or $cov(u,x) = 0$
+
+(b) the definition of $R^2$ in 2.3,
+
+(c) the full set of OLS assumptions in 2.5.
+
+    (SLR.2) random sample --- because we want to understand the
+    population relationship.
+
+    (SLR.3) variation in x--- because we need information.
+
+    Under (SLR.1)--(SLR.4), the OLS estimator is unbiased.
+
+    (SLR.5) homoskedasticity: $Var(u|x) = \sigma^2$ for any $x$.
+
+    Under (SLR.1)--(SLR.5), the standard error of the OLS estimator has
+    a simple formula.
+
+    After running regressions with the example data below, you shall DIY
+    regressions with the income statement data ("ourdata") from the last
+    Rmarkdown session.
+
+If we have time, we will discuss:
+
+(d) deriving the standard error of the OLS estimator in 2.5
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+```{r echo=FALSE, warning=FALSE}
+library(ggplot2)
+library(stargazer)
+library(dplyr)
+```
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+# basedirectory = 'C://Users//yzhan//Dropbox//Teaching教学//金融硕金融计量//'
+basedirectory = 'D://Dropbox//Teaching教学//金融硕金融计量//'
+subdirectory = 'Rfiles//'
+workdirectory = paste(basedirectory, subdirectory, sep = '')
+opts_knit$set(root.dir = workdirectory)
+```
+
+## 2.1 beta
+
+Example 1: The relationship between CEO salary (y) and ROE (x) (IE,
+Example 2.3)
+
+```{r}
+if (!require("wooldridge")) install.packages("wooldridge")
+data(ceosal1, package='wooldridge')
+attach(ceosal1) # temprarily, you would not need to specify ceosal1. E.g. roe now represents ceosal1$roe
+```
+
+```{r}
+# ingredients to the OLS formulas 
+cov(roe,salary)
+var(roe)
+mean(salary)
+mean(roe)
+```
+
+```{r}
+# manual calculation of OLS coefficients 
+( b1hat <- cov(roe,salary)/var(roe) )
+( b0hat <- mean(salary) - b1hat*mean(roe) )
+```
+
+```{r}
+# "detach" the data frame
+detach(ceosal1)
+```
+
+```{r}
+head(ceosal1)
+```
+
+```{r}
+# summary stats for the ceosal1 data set
+stargazer(ceosal1, type='text')
+```
+
+```{r}
+data(ceosal1, package='wooldridge')
+
+# OLS regression
+lm( salary ~ roe, data=ceosal1 )
+```
+
+```{r}
+data(ceosal1, package='wooldridge')
+
+# OLS regression
+summary(lm( salary ~ roe, data=ceosal1 ))
+```
+
+```{r}
+data(ceosal1, package='wooldridge')
+
+# OLS regression
+model1 <- lm( salary ~ roe, data=ceosal1 )
+stargazer(model1, type='text')
+```
+
+```{r}
+# Plot the OLS regression
+ggplot(data=ceosal1, aes(x=roe, y=salary)) + geom_point() + geom_smooth(method='lm',se=FALSE) + theme_light()
+ggplot(data=ceosal1, aes(x=roe, y=salary)) + geom_point() + geom_smooth(method='lm',se=FALSE) + ylim(c(0,4000)) + theme_light()
+```
+
+```{r}
+data(ceosal1, package='wooldridge')
+# OLS regression
+model1 <- lm( salary ~ roe, data=ceosal1 )
+# Scatter plot (restrict y axis limits)
+with(ceosal1, plot(roe, salary, ylim=c(0,4000)))
+# Add OLS regression line
+abline(model1)
+```
+
+Example 2: The relationship between wage (y) and education (x) (IE,
+Example 2.4)
+
+```{r}
+data(wage1, package='wooldridge')
+stargazer(wage1,type='text')
+# OLS regression:
+model2 <- lm(wage ~ educ, data=wage1)
+stargazer(model2, type='text')
+ggplot(data=wage1, aes(x=educ, y=wage)) + geom_point() + geom_smooth(method='lm',se=FALSE) + theme_light()
+```
+
+The regression coefficient of wage on educ: 0.541
+
+The standard deviation of wage: 3.693
+
+The standard deviation of educ: 2.769
+
+When educ increase by 1 standard deviation, wage is expected to increase
+by 0.4056 standard deviation. (if you think conditional independence
+plausibly holds)
+
+When educ increase by 1 standard deviation, we expect to observe wage
+that is higher by 0.4056 standard deviation. (if you are unsure if
+conditional independence holds)
+
+```{r}
+2.769*0.541/3.693
+```
+
+In the above, you might notice at least two problems with the regression
+model assumptions (linearity and homoskedasticity).
+
+Example 3: The relationship between voting outcomes (y) and campaign
+expenditure
+
+```{r}
+data(vote1, package='wooldridge')
+
+# OLS regression (parentheses for immediate output):
+model3 <- lm(voteA ~ shareA, data=vote1)
+stargazer(vote1, type='text')
+stargazer(model3, type='text')
+
+# scatter plot with regression line:
+ggplot(data=vote1, aes(x=shareA, y=voteA)) + geom_point() + geom_smooth(method='lm',se=FALSE) + theme_light() + labs(x = "Share of campaign spending in %", y = "Share of vote in %")
+```
+
+The regression coefficient of voteA on shareA: 0.464
+
+The standard deviation of voteA: 16.785
+
+The standard deviation of shareA: 33.484
+
+When shareA increase by 1 standard deviation, voteA is expected to
+increase by 0.9256 standard deviation.
+
+(if you think conditional independence plausibly holds)
+
+When shareA increase by 1 standard deviation, we expect to observe voteA
+to be higher by 0.9256 standard deviation. (if you are unsure if
+conditional independence holds)
+
+```{r}
+33.484*0.464/16.785
+```
+
+## 2.2 Fitted Values, R-squared
+
+### Fitted values
+
+```{r}
+model2 <- lm(wage ~ educ, data=wage1)
+names(model2)
+```
+
+```{r}
+model2$coefficients
+```
+
+```{r}
+coef(model2)
+```
+
+Fitted values:
+
+$\hat{y} = \hat{\beta}_0 + \hat{\beta}_1 * x$.
+
+$\hat{u} = y - \hat{y} = y - \hat{\beta}_0 - \hat{\beta}_1 * x$.
+
+```{r}
+(wage_xiaomin <- model2$coefficients[["(Intercept)"]] + 16*model2$coefficients[["educ"]])
+```
+
+```{r}
+wage1$wage_hat <- fitted(model2)
+wage1$uhat <- resid(model2)
+wage1_reg <- wage1 %>% select(wage, educ, wage_hat, uhat)
+head(wage1_reg)
+```
+
+### 2.2.2 R-squared
+
+Total sum of squares (TSS, SST):
+$TSS = \sum_{i=1}^{n} (y_i-\bar{y})^2 = (n-1)\cdot Var(y)$.
+
+Explained sum of squares (SSE):
+$SSE = \sum_{i=1}^{n} (\hat{y}_i-\bar{y})^2 = (n-1)\cdot Var(\hat{y})$.
+
+Residual sum of squares (SSR):
+$SSR = \sum_{i=1}^{n} (\hat{u}_i-0)^2 = (n-1)\cdot Var(\hat{u})$.
+
+R-squared, also called coefficient of determination:
+$R^{2} = \frac{VAR(\hat{y})}{VAR(y)}$.
+
+Example 2.8 CEO salary and ROE
+
+```{r}
+data(ceosal1, package='wooldridge')
+model1 <- lm( salary ~ roe, data=ceosal1 )
+# Calculate predicted values & residuals:
+sal.hat <- fitted(model1)
+u.hat <- resid(model1)
+```
+
+```{r}
+# Calculate R^2 in three different ways:
+sal <- ceosal1$salary
+var(sal.hat) / var(sal)
+```
+
+```{r}
+var(u.hat) / var(sal)
+1 - var(u.hat) / var(sal)
+```
+
+Example 2.9 Voting outcome and campaign expenditures
+
+```{r}
+data(vote1, package='wooldridge')
+
+model3 <- lm(voteA ~ shareA, data=vote1)
+
+# Summary of the regression results
+stargazer(model3, type="text")
+```
+
+```{r}
+# Calculate R^2 manually:
+var( fitted(model3) ) / var( vote1$voteA )
+
+```
+
+## 2.3 Units of Measurement and Functional Form
+
+We discussed last week the simple linear regression (SLR) model:
+
+$$
+y_i = \beta_0 + \beta_1 x_i + u_i 
+$$
+
+### 2.3.1 Deviation from linearity
+
+**What if the true model is not linear? What does** $\beta$ **measure in
+that case?**
+
+```{r}
+if (!require("lfe")) install.packages("lfe")
+source('binscatter.R') # https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "wage ~ educ", key_var = 'educ', data=wage1, bins = 18, partial=FALSE)
+```
+
+```{r warning=FALSe}
+
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "salary ~ roe", key_var = 'roe', data=ceosal1, bins = 8, partial=FALSE)
+```
+
+```{r}
+data(vote1, package='wooldridge')
+
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "voteA ~ shareA", key_var = 'shareA', data=vote1, bins = 8, partial=FALSE)
+```
+
+**It** ( $\beta$ ) **means the best linear fit to the true (non-linear
+relationship).**
+
+### 2.3.2 Logarithms
+
+**However, we can do better by taking the logarithm of variables we
+think have exponential growth (for example GDP, value of a portfolio or
+a company's assets, salaries)**
+
+```{r}
+data(wage1, package='wooldridge')
+logmodel1 <- lm( log(wage) ~ educ, data=wage1 )
+stargazer(logmodel1, type='text')
+```
+
+```{r}
+data(ceosal1, package='wooldridge')
+# Estimate log-log model
+logmodel2 <- lm( log(salary) ~ roe, data=ceosal1)
+stargazer(logmodel2, type='text')
+```
+
+```{r}
+data(ceosal1, package='wooldridge')
+# Estimate log-log model
+logmodel2 <- lm( log(salary) ~ log(sales), data=ceosal1)
+stargazer(logmodel2, type='text')
+```
+
+```{r warning=FALSe}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "salary ~ sales", key_var = 'sales', data=ceosal1, bins = 18, partial=FALSE)
+```
+
+```{r warning=FALSe}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+ceosal1$log_salary = log(ceosal1$salary)
+ceosal1$log_sales = log(ceosal1$sales)
+binscatter(formula = "log_salary ~ log_sales", key_var = 'log_sales', data=ceosal1, bins = 8, partial=FALSE)
+```
+
+```{r}
+source('binscatter.R') # https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "wage ~ educ", key_var = 'educ', data=wage1, bins = 18, partial=FALSE)
+```
+
+```{r}
+source('binscatter.R') # https://www.timlrx.com/blog/binscatter-for-r
+wage1$log_wage = log(wage1$wage)
+binscatter(formula = "log_wage ~ educ", key_var = 'educ', data=wage1, bins = 18, partial=FALSE)
+```
+
+... We can add a square term: (will teach more on interaction terms next
+week)
+
+```{r}
+data(wage1, package='wooldridge')
+logmodel1 <- lm( log(wage) ~ educ + I(educ^2), data=wage1 )
+stargazer(logmodel1, type='text')
+```
+
+### 2.3.3 Constant terms
+
+R can run a regression WITHOUT the constant term:
+
+```{r eval=FALSE}
+lm(y ~ 0 + x)
+```
+
+R can run a regression WITH only the constant term:
+
+```{r eval=FALSE}
+lm(y ~ 1)
+```
+
+```{r}
+data(ceosal1, package='wooldridge')
+
+# Usual OLS regression:
+(reg1 <- lm( salary ~ roe, data=ceosal1))
+stargazer(reg1, type='text')
+```
+
+```{r}
+# Regression without intercept (through origin):
+(reg2 <- lm( salary ~ 0 + roe, data=ceosal1))
+stargazer(reg2, type='text')
+```
+
+```{r}
+# Regression without slope (on a constant):
+(reg3 <- lm( salary ~ 1 , data=ceosal1))
+stargazer(reg3, type='text')
+```
+
+```{r}
+# average y:
+mean(ceosal1$salary)
+```
+
+```{r}
+# Scatter Plot with all 3 regression lines
+plot(ceosal1$roe, ceosal1$salary, ylim=c(0,4000))
+abline(reg1, lwd=2, lty=1)
+abline(reg2, lwd=2, lty=2)
+abline(reg3, lwd=2, lty=3)
+legend("topleft",c("full","through origin","const only"),lwd=2,lty=1:3)
+
+```
+
+## 2.4 Standard error of beta
+
+What is the "standard error of beta"?
+
+We often say this term.
+
+**But we really mean the "standard error of beta_hat".**
+
+Wooldridge textbook: 2-5b Variances of the OLS Estimators
+
+"In addition to knowing that the sampling distribution of
+$\hat{\beta}_1$" is centered about $\beta_1$ ($\hat{\beta}_1$ is
+unbiased), it is important to know **how far we can expect**
+$\hat{\beta}_1$ **to be away from** $\beta_1$ **on average.**"
+
+i.e. **the distribution of** $\hat{\beta}_1$ **given the true**
+$\beta_1$**.**
+
+When we calculate the standard error of beta, we will state the
+classical OLS model assumptions: (Chapter 2, pg. 40, IE)
+
+Assumption SLR.1 (linearity) : $y=\beta_0+\beta_1*x+u$.
+
+Assumption SLR.2 (random sample) : $n, {(x_i,y_i): i = 1,2,...,n}$ is a
+random sample of the population given the model in 1.
+
+Assumption SLR.3 (sample variation) : ${x_i, i=1,2,...,n}$ are not all
+the same value. Assumption 4 (zero conditional mean): $E(u|x)=0$.
+
+If SLR.1-SLR.4 are satisfied, then OLS
+$\hat{\beta} = cov(x_i,y_i)/var(x_i)$ or in matrix form
+$\hat{\beta} = (X'X)^{-1}X'Y$ is an unbiased estimate of $\beta$, i.e.
+$E[\hat{\beta}] = \beta$.
+
+SLR.1 and SLR.4 together requires the true model to be linear.
+
+### 2.4.1 Standard error of beta
+
+Assumption SLR.5 (homoskedasticity) : $Var(u|x) = \sigma^2$.
+
+**Our focus is not the proof, but the intuition of the formula for**
+$Var(\hat{\beta}_1)$ **:**
+
+If A1-A5 are satisfied, then
+$Var(\hat{\beta}_1) = \frac{\sigma^2}{\sum_{i=1}^{n}(x_i-\bar{x})^2}$,
+
+where $\sum_{i=1}^{n}(x_i-\bar{x})^2 = (n-1)\hat{Var}(x)$.
+
+Stare at the $Var(\hat{\beta}_1)$ formula. **What does it reveal about
+the standard error of beta_hat?**
+
+```{r}
+data(ceosal1, package='wooldridge')
+
+# OLS regression
+model1 <- lm( salary ~ roe, data=ceosal1 )
+stargazer(model1, type='text')
+ggplot(data=ceosal1, aes(x=roe, y=salary)) + geom_point() + geom_smooth(method='lm',se=TRUE) + theme_light()
+```
+
+To compute $Var(\hat{\beta}_1)$, we further need to compute
+$\hat{\sigma}^2=\frac{1}{n-2}\sum_{i=1}^{n}\hat{u}_i^2$.
+
+Manual calculation of the standard errors:
+
+```{r}
+# Number of obs.
+( n <- nobs(model1) )
+```
+
+```{r}
+# SER (standard error of the regression):
+(SER <- sd(resid(model1)) * sqrt((n-1)/(n-2)) )
+```
+
+```{r}
+sd(ceosal1$roe)
+```
+
+```{r}
+sqrt(n-1)
+```
+
+```{r}
+# SE of b1hat & b0hat, respectively:
+SER / sd(ceosal1$roe) / sqrt(n-1)
+```
+
+```{r}
+SER / sd(ceosal1$roe) / sqrt(n-1) * sqrt(mean(ceosal1$roe^2))
+```
+
+### 2.5 Multivariate regressions
+
+```{r eval=FALSE}
+lm(y ~ x1+x2+x3+...)
+```
+
+```{r}
+data(gpa1, package='wooldridge')
+
+# Just obtain parameter estimates:
+lm(colGPA ~ hsGPA+ACT, data=gpa1)
+```
+
+```{r}
+# Store results under "GPAres" and display full table:
+modelM1 <- lm(colGPA ~ hsGPA+ACT, data=gpa1)
+stargazer(modelM1, type="text")
+```
+
+```{r}
+data(wage1, package='wooldridge')
+
+# OLS regression:
+stargazer( lm(log(wage) ~ educ+exper+tenure, data=wage1) , type="text")
+
+```
+
+```{r}
+data(crime1, package='wooldridge')
+
+# Model without avgsen:
+stargazer( lm(narr86 ~ pcnv+ptime86+qemp86, data=crime1) , type="text")
+```
+
+```{r}
+# Model with avgsen:
+stargazer( lm(narr86 ~ pcnv+avgsen+ptime86+qemp86, data=crime1) , type="text")
+```
+
+```{r}
+data(wage1, package='wooldridge')
+
+# OLS regression:
+stargazer( lm(log(wage) ~ educ, data=wage1)  , type="text")
+```
+
+### 2.5.1 Multivariate regressions (matrix form, NOT REQUIRED!!!)
+
+$\hat{\beta} = (X'X)^{-1}X'y$
+
+```{r eval=FALSE}
+bhat <- solve( t(X)%*%X ) %*% t(X)%*%y
+```
+
+$\hat{VAR(\hat{\beta})} = \hat{\sigma}^2(X'X)^{-1}$
+
+```{r}
+data(gpa1, package='wooldridge')
+stargazer( lm(colGPA ~ hsGPA + ACT, data=gpa1), type="text")
+```
+
+```{r}
+# Determine sample size & no. of regressors:
+n <- nrow(gpa1); k<-2
+
+# extract y
+y <- gpa1$colGPA
+
+# extract X & add a column of ones
+X <- cbind(1, gpa1$hsGPA, gpa1$ACT)
+
+# Display first rows of X:
+head(X)
+```
+
+```{r}
+# Parameter estimates:
+( bhat <- solve( t(X)%*%X ) %*% t(X)%*%y )
+```
+
+```{r}
+# Residuals, estimated variance of u and SER:
+uhat <- y - X %*% bhat
+sigsqhat <- as.numeric( t(uhat) %*% uhat / (n-k-1) )
+( SER <- sqrt(sigsqhat) )
+```
+
+```{r}
+# Estimated variance of the parameter estimators and SE:
+Vbetahat <- sigsqhat * solve( t(X)%*%X )
+( se <- sqrt( diag(Vbetahat) ) )
+```

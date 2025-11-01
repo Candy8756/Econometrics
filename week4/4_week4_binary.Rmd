@@ -1,0 +1,438 @@
+---
+  title: "Week 4"
+author: "FinEmt 2025"
+date: "2025/10/12"
+output: html_document
+---
+  
+  10/12 Week 4: 
+  
+  * Binary Choice (Linear probability model v.s. Logit/Probit models)
+  * Measurement error in the LHS variable v.s. in the RHS variables
+
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+# basedirectory = 'C://Users//yzhan//Dropbox//Teaching教学//金融硕金融计量//'
+# basedirectory = 'E://Dropbox//Teaching教学//金融硕金融计量//'
+basedirectory = 'D://SynologyDrive//Dropbox//Teaching教学//金融硕金融计量//'
+subdirectory = 'Rfiles//'
+workdirectory = paste(basedirectory, subdirectory, sep = '')
+opts_knit$set(root.dir = workdirectory)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+```
+
+```{r}
+load("2_lrb_ourdata.RData")
+```
+```{r}
+# if(!require(reticulate)){
+#     install.packages("reticulate")
+# }
+# py_config()
+```
+```{r}
+library(reticulate)
+py_install("akshare")
+```
+分红配送-东财(https://akshare.akfamily.xyz/data/stock/stock.html#id150)
+(https://data.eastmoney.com/yjfp/)
+```{python}
+import akshare as ak
+stock_fhps_em_df = ak.stock_fhps_em(date="20241231") # 分红送配(2024年年报)
+stock_fhps_em_df['预案公告日'] = stock_fhps_em_df['预案公告日'].astype(str)
+stock_fhps_em_df['股权登记日'] = stock_fhps_em_df['股权登记日'].astype(str)
+stock_fhps_em_df['除权除息日'] = stock_fhps_em_df['除权除息日'].astype(str)
+stock_fhps_em_df['最新公告日期'] = stock_fhps_em_df['最新公告日期'].astype(str)
+```
+```{python}
+stock_fhps_em_df.to_csv('stock_fhps_em_df.csv')
+```
+```{r}
+dividend_announcement <- read.csv(file = 'stock_fhps_em_df.csv', colClasses=c("代码"="character"))
+print(dividend_announcement)
+```
+```{r}
+library(dplyr)
+income_and_dividend <- left_join(ourdata, dividend_announcement, by=c("股票代码" = "代码"))
+income_and_dividend$是否现金分红 <-  ifelse(is.na(income_and_dividend$现金分红.股息率), 0, 1)
+income_and_dividend[sapply(income_and_dividend, is.infinite)] <- NA
+```
+
+# 3 Binary choice （模型写法、适用范围、图；系数解读--系数，mfx）
+
+## 3.1 A Binary Dependent Variable: The Linear Probability Model (IE 7-5, p. 248 '224'; URfIE 17.1.1)
+## 3.2 The Linear Probability Model Revisited: Heteroskedacity (IE 8-5, p. 289 '265'; URfIE 17.1.1)
+We use coeftest(. , vcov=vcovHC, type='HC0') i.e. White's robust standard error. 
+
+```{r}
+library(car); library(lmtest); library('sandwich'); library('stargazer')  # for robust SE
+data(mroz, package='wooldridge')
+
+# Estimate linear probability model
+linprob <- lm(inlf~nwifeinc+educ+exper+I(exper^2)+age+kidslt6+kidsge6,data=mroz)
+# Regression table with heteroscedasticity-robust SE and t tests:
+coeftest(linprob,vcov=vcovHC, type='HC0')
+# Adjust standard errors
+cov1         <- vcovHC(linprob, type = "HC0") # White's estimator
+robust_se    <- sqrt(diag(cov1))
+
+# Stargazer summary statistics for the data
+stargazer(mroz['inlf'], type='text')
+stargazer(mroz[c('nwifeinc', 'educ', 'exper', 'age', 'kidslt6', 'kidsge6')], type='text')
+
+# Stargazer output (with and without RSE)
+stargazer(linprob, linprob, type = "text",
+          se = list(robust_se, NULL))
+
+```
+
+The dividend decision analyzed using the LPM
+
+```{r}
+# Estimate linear probability model
+div_model_lpm <- lm(是否现金分红~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+I(上市板块_factorized)+销售费用比率+管理费用比率,data=income_and_dividend)
+# Regression table with heteroscedasticity-robust SE and t tests:
+coeftest(div_model_lpm,vcov=vcovHC, type='HC0')
+# Adjust standard errors
+cov1         <- vcovHC(div_model_lpm, type = "HC0") # White's estimator
+div_robust_se    <- sqrt(diag(cov1))
+
+# Stargazer summary statistics for the data
+for (vvar in c('是否现金分红','log10营业总收入','净利率','营业总收入同比增长率','净利润同比增长率','销售费用比率','管理费用比率')) {
+  stargazer(na.omit(income_and_dividend[vvar]), type='text')
+}
+
+# Stargazer output (with and without RSE)
+stargazer(div_model_lpm, div_model_lpm, type = "text",
+          se = list(div_robust_se, NULL))
+```
+
+
+## 3.3 Logit and Probit Models for Binary Response (IE 17-1, p. 549 '525'; URfIE 17.1.2)
+
+Logit
+
+```{r}
+data(mroz, package='wooldridge')
+
+# Estimate logit model
+logitres<-glm(inlf~nwifeinc+educ+exper+I(exper^2)+age+kidslt6+kidsge6,
+                                family=binomial(link=logit),data=mroz)
+# Summary of results:
+summary(logitres)
+stargazer(logitres, type='text')
+```
+
+```{r}
+# Log likelihood value:
+logLik(logitres) 
+# McFadden's pseudo R2:
+  1 - logitres$deviance/logitres$null.deviance
+```
+
+```{r}
+# Automatic APE (Average Partial Effect) calculations with package mfx
+library(mfx)
+logit <- logitmfx(inlf~nwifeinc+educ+exper+I(exper^2)+age+kidslt6+kidsge6, 
+                  data=mroz, atmean=FALSE)
+logit
+```
+
+```{r}
+logit_mfx_coef <- logit$mfxest[,1]  
+logit_mfx_se <- logit$mfxest[,2] 
+stargazer(logit$fit, type="text",title = "Predicting Probability of In the Labor Force",intercept.bottom=FALSE,
+          coef = list(logit_mfx_coef),
+          se   = list(logit_mfx_se), column.labels="Logit mfx",
+          digits=4,align=TRUE) 
+```
+```{r}
+stargazer(linprob, logit$fit, type="text",title = "Predicting Probability of In the Labor Force",intercept.bottom=FALSE,
+          coef = list(NULL, logit_mfx_coef),
+          se   = list(robust_se, logit_mfx_se), column.labels=c("LPM","Logit mfx"),
+          digits=4,align=TRUE)
+```
+Logit (是否分红)
+
+```{r}
+# Estimate logit model
+div_logitres<-glm(是否现金分红~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+
+                    I(上市板块_factorized)+销售费用比率+管理费用比率,
+                  family=binomial(link=logit),data=income_and_dividend)
+# Summary of results:
+summary(div_logitres)
+# Stargazer summary statistics for the data and Logit results
+for (vvar in c('是否现金分红','log10营业总收入','净利率','营业总收入同比增长率','净利润同比增长率','销售费用比率','管理费用比率')) {
+  stargazer(na.omit(income_and_dividend[vvar]), type='text')
+}
+stargazer(div_logitres, type='text')
+```
+
+```{r}
+# Log likelihood value:
+logLik(div_logitres) 
+# McFadden's pseudo R2:
+1 - div_logitres$deviance/div_logitres$null.deviance
+```
+
+```{r}
+# Automatic APE (Average Partial Effect) calculations with package mfx
+library(mfx)
+div_logit <- logitmfx(是否现金分红~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+
+                        I(上市板块_factorized)+销售费用比率+管理费用比率, 
+                      data=income_and_dividend, atmean=FALSE)
+# Stargazer summary statistics for the data and Logit results
+for (vvar in c('是否现金分红','log10营业总收入','净利率','营业总收入同比增长率','净利润同比增长率','销售费用比率','管理费用比率')) {
+  stargazer(na.omit(income_and_dividend[vvar]), type='text')
+}
+# Marginal effects from Logit model
+div_logit
+```
+
+```{r}
+div_logit_mfx_coef <- div_logit$mfxest[,1]  
+div_logit_mfx_se <- div_logit$mfxest[,2] 
+stargazer(div_logit$fit, type="text",title = "Predicting Probability of Cash Dividends",intercept.bottom=FALSE,
+          coef = list(div_logit_mfx_coef),
+          se   = list(div_logit_mfx_se), column.labels="Logit mfx",
+          digits=4,align=TRUE) 
+```
+```{r}
+stargazer(div_model_lpm, div_logit$fit, type="text",title = "Predicting Probability of Cash Dividends",intercept.bottom=FALSE,
+          coef = list(NULL, div_logit_mfx_coef),
+          se   = list(div_robust_se, div_logit_mfx_se), column.labels=c("LPM","Logit mfx"),
+          digits=4,align=TRUE)
+```
+
+Probit Model
+
+```{r}
+data(mroz, package='wooldridge')
+
+# Estimate probit model
+probitres<-glm(inlf~nwifeinc+educ+exper+I(exper^2)+age+kidslt6+kidsge6,
+               family=binomial(link=probit),data=mroz)
+# Summary of results:
+summary(probitres)
+stargazer(probitres, type='text')
+```
+```{r}
+# Automatic APE (Average Partial Effect) calculations with package mfx
+library(mfx)
+probit <- probitmfx(inlf~nwifeinc+educ+exper+I(exper^2)+age+kidslt6+kidsge6, 
+                    data=mroz, atmean=FALSE)
+probit
+```
+
+
+```{r}
+probit_mfx_coef <- probit$mfxest[,1]  
+probit_mfx_se <- probit$mfxest[,2] 
+stargazer(probit$fit, type="text",title = "Predicting Probability of In the Labor Force",intercept.bottom=FALSE,
+          coef = list(probit_mfx_coef),
+          se   = list(probit_mfx_se), column.labels="Probit mfx",
+          digits=4,align=TRUE) 
+```
+```{r}
+stargazer(linprob, logit$fit, probit$fit, type="text",title = "Predicting Probability of In the Labor Force",intercept.bottom=FALSE,
+          coef = list(NULL, logit_mfx_coef, probit_mfx_coef),
+          se   = list(robust_se, logit_mfx_se, probit_mfx_se), column.labels=c("LPM","Logit mfx","Probit mfx"),
+          digits=4,align=TRUE)
+```
+
+Probit: 是否分红
+
+```{r}
+# Estimate probit model
+div_probitres<-glm(是否现金分红~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+
+                     I(上市板块_factorized)+销售费用比率+管理费用比率,
+                   family=binomial(link=probit),data=income_and_dividend)
+# Summary of results:
+summary(div_probitres)
+stargazer(div_probitres, type='text')
+```
+```{r}
+# Automatic APE (Average Partial Effect) calculations with package mfx
+library(mfx)
+div_probit <- probitmfx(是否现金分红~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+
+                          I(上市板块_factorized)+销售费用比率+管理费用比率, 
+                        data=income_and_dividend, atmean=FALSE)
+div_probit
+```
+
+
+```{r}
+div_probit_mfx_coef <- div_probit$mfxest[,1]  
+div_probit_mfx_se <- div_probit$mfxest[,2] 
+stargazer(div_probit$fit, type="text",title = "Predicting Probability of Cash Dividends",intercept.bottom=FALSE,
+          coef = list(div_probit_mfx_coef),
+          se   = list(div_probit_mfx_se), column.labels="Probit mfx",
+          digits=4,align=TRUE) 
+```
+```{r}
+stargazer(div_model_lpm, div_logit$fit, div_probit$fit, type="text",title = "Predicting Probability of Cash Dividends",intercept.bottom=FALSE,
+          coef = list(NULL, div_logit_mfx_coef, div_probit_mfx_coef),
+          se   = list(div_robust_se, div_logit_mfx_se, div_probit_mfx_se), column.labels=c("LPM","Logit mfx","Probit mfx"),
+          digits=4,align=TRUE)
+```
+
+
+Focus on Equations 17.1--17.5, Figure 17.1, Subsection 17-1d (p. 554 '530'), Figure 17.
+
+"linear probability model" (source:"The journal of finance" OR source:"journal of financial economics" OR source:"THE review of financial studies")
+
+"logit model" (source:"The journal of finance" OR source:"journal of financial economics" OR source:"THE review of financial studies")
+
+"probit model" (source:"The journal of finance" OR source:"journal of financial economics" OR source:"THE review of financial studies")
+
+## 3.4 Count Data: The Poisson Regression Model (IE 17-2; URfIE 17.2)
+（考用来干嘛，细节不考）
+y variable has the form: 0, 1, 2, 3, 4, ...
+"count variable" as dependent variable -> use Poisson regression
+
+Example: number of claims (car insurance); number of hospital visits (health insurance)
+
+"poisson regression" (source:"The journal of finance" OR source:"journal of financial economics" OR source:"THE review of financial studies")
+
+```{r}
+data(crime1, package='wooldridge')
+
+# Estimate linear model
+lm.res      <-  lm(narr86~pcnv+avgsen+tottime+ptime86+qemp86+inc86+
+                     black+hispan+born60, data=crime1)
+# Estimate Poisson model
+Poisson.res <- glm(narr86~pcnv+avgsen+tottime+ptime86+qemp86+inc86+
+                     black+hispan+born60, data=crime1, family=poisson)
+stargazer(lm.res, Poisson.res, type='text')
+```
+
+
+# 4 Properties of OLS under Measurement Error (IE 9-4, p. 311 '287'; URfIE 9.2.)
+（都考，例如对于beta=cov(y,x)/var(x)的影响）
+
+## 4.1 Measurement Error in the Dependent Variable (IE 9-4a)
+
+```{r}
+# Set the random seed
+set.seed(1234567)
+n_simulation <- 1000
+# set true parameters: intercept & slope
+b0<-1.0; b1<-1.0
+# initialize b1hat to store "n_simulation" results:
+b1hat <- numeric(n_simulation)
+b1hat.me <- numeric(n_simulation)
+# Draw a sample of x, fixed over replications:
+x <- rnorm(100,4,1)
+# repeat r times:
+for(j in 1:n_simulation) {
+  # Draw a sample of u
+  u <- rnorm(100,0,3)
+  # Draw a sample of ystar:
+  ystar <- b0 + b1*x+u
+  # regress ystar on x and store slope estimate at position j
+  bhat <- coef( lm(ystar~x) )
+  b1hat[j] <- bhat["x"]
+  # Measurement error and mismeasured y:
+  e0 <- rnorm(100,0,6)
+  y <- ystar+e0
+  # regress y on x and store slope estimate at position j
+  bhat.me <- coef( lm(y~x) )
+  b1hat.me[j] <- bhat.me["x"]
+}
+```
+
+
+```{r}
+# Mean with and without ME
+c( mean(b1hat), mean(b1hat.me) )
+# Variance with and without ME
+c( var(b1hat), var(b1hat.me) )
+# Std. Err. with and without ME
+c( sd(b1hat), sd(b1hat.me) )
+# T-value with and without ME
+c( mean(b1hat)/sd(b1hat), mean(b1hat.me)/sd(b1hat.me) )
+```
+
+
+### 4.1.1 binscatter
+
+```{r}
+library(wooldridge)
+source('binscatter.R') # https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "wage ~ educ", key_var = 'educ', data=wage1, bins = 18, partial=FALSE)
+ggplot(data = wage1, aes(x=educ, y=wage)) + geom_point() + geom_smooth(method = 'lm')
+```
+
+```{r warning=FALSE}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "salary ~ roe", key_var = 'roe', data=ceosal1, bins = 8, partial=FALSE)
+```
+
+```{r}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "voteA ~ shareA", key_var = 'shareA', data=vote1, bins = 8, partial=FALSE)
+```
+
+```{r warning=FALSE}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+ceosal1$log_salary = log(ceosal1$salary)
+binscatter(formula = "log_salary ~ roe", key_var = 'roe', data=ceosal1, bins = 8, partial=FALSE)
+```
+
+```{r warning=FALSE}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+ceosal1$log_salary = log(ceosal1$salary)
+ceosal1$log_sales = log(ceosal1$sales)
+binscatter(formula = "log_salary ~ log_sales", key_var = 'log_sales', data=ceosal1, bins = 8, partial=FALSE)
+```
+
+```{r}
+source('binscatter.R') # https://www.timlrx.com/blog/binscatter-for-r
+wage1$log_wage = log(wage1$wage)
+binscatter(formula = "log_wage ~ educ", key_var = 'educ', data=wage1, bins = 18, partial=FALSE)
+```
+
+- Why is binscatter valid? cov(E[y|x],x) = cov(y,x)
+
+## 4.2 Measurement Error in an Explanatory Variable, Attenuation bias (IE 9-4b; URfIE 9.2)
+
+```{r}
+# Set the random seed
+set.seed(1234567)
+n_simulation <- 1000
+# set true parameters: intercept & slope
+b0<-1.0; b1<-1.0
+# initialize b1hat to store "n_simulation" results:
+b1hat <- numeric(n_simulation)
+b1hat.me <- numeric(n_simulation)
+# Draw a sample of x, fixed over replications:
+xstar <- rnorm(100,4,1)
+# repeat r times:
+for(j in 1:n_simulation) {
+  # Draw a sample of u
+  u <- rnorm(100,0,3)
+  # Draw a sample of y:
+  y <- b0 + b1*xstar+u
+  # regress y on xstar and store slope estimate at position j
+  bhat <- coef( lm(y~xstar) )
+  b1hat[j] <- bhat["xstar"]
+  # Measurement error and mismeasured x:
+  e1 <- rnorm(100,0,3)
+  x <- xstar+e1
+  # regress y on x and store slope estimate at position j
+  bhat.me <- coef( lm(y~x) )
+  b1hat.me[j] <- bhat.me["x"]
+}
+```
+
+```{r}
+# Mean with and without ME
+c( mean(b1hat), mean(b1hat.me) )
+# Variance with and without ME
+c( var(b1hat), var(b1hat.me) )
+# Std. Err. with and without ME
+c( sd(b1hat), sd(b1hat.me) )
+# T-value with and without ME
+c( mean(b1hat)/sd(b1hat), mean(b1hat.me)/sd(b1hat.me) )
+```

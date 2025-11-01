@@ -1,0 +1,980 @@
+---
+title: "Financial Econometrics Week 6"
+subtitle: "RDD; Event Studies; Panel Data; DID; Fixed Effects"
+date: "2025-10-26"
+author: Yu Zhang
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+---
+
+# 6 Regression Discontinuity Design
+
+(general knowledge of RDD is included in the exam; but coding is not required) (考图到回归方程；考回归表格的解读)
+
+Regression Discontinuity Design
+
+week6_rd_Slide 1_econ526.pdf
+
+rauh
+
+bakke whited
+
+week6_rd_Slide 5_LaborCapitalStructure.pdf
+
+schmalz
+
+<https://sites.google.com/site/inessal/research/> (one of the first paper on the Russell RDD, which later sparked a huge debate)
+
+How to write the RDD regression equation: We learn using Pg. 17 of innofund.pdf
+
+week6_rd_innofund.pdf
+
+y \~ treated y \~ treated + score + score:treated y \~ treated + score + I(score\^2) + score:treated + I(score\^2):treated
+
+the coefficient of interest is the one on treated
+
+If you are interested in coding up the RDD model, you can read these:
+
+<https://evalf20.classes.andrewheiss.com/example/rdd/>
+
+<https://blog.csdn.net/claire_chen_jia/article/details/108857734>
+
+<https://cattaneo.princeton.edu/papers/Calonico-Cattaneo-Farrell-Titiunik_2017_Stata.pdf>
+
+# 7 Event study（必考）
+
+$$y_i = b0 + b1*x_i + u_i$$
+
+$$y_{it} = b0 + b1*x_{it} + u_{it}$$
+
+## Chapter 4, Campbell, Lo and MacKinley (1997):
+
+ECONOMISTS ARE FREQUENTLY ASKED to measure the effect of an economic event on the value of a firm. On the surface this seems like a difficult task, but a measure can be constructed easily using financial market data in an event study. The usefulness of such a study comes from the fact that, given rationality in the marketplace, the effect of an event will be reflected immediately in asset prices. Thus the event's economic impact can be measured using asset prices observed over a relatively short time period. In contrast, direct measures may require many months or even years of observation.
+
+The general applicability of the event-study methodology has led to its wide use. In the academic accounting and finance field, event-study methodology has been applied to a variety of firm-specific and economy-wide events. Some examples include mergers and acquisitions, earnings announcements, issues of new debt or equity, and announcements of macroeconomic variables such as the trade deficit. In most applications, the focus is the effect of an event on the price of a particular class of securities of the firm, most often common equity.
+
+This chapter explains the econometric methodology of event studies. Section 4.1 briefly outlines the procedure for conducting an event study. Section 4.2 sets up an illustrative example of an event study. Central to any event study is the measurement of the abnormal return. Section 4.3 details the first step--measuring the normal performance-and Section 4.4 follows with the necessary tools for calculating the abnormal return, making statistical inferences about these returns, and aggregating over many event observations.
+
+## Chapter 4.1 Outline of an Event Study
+
+At the outset it is useful to give a brief outline of the structure of an event study. While there is no unique structure, the analysis can be viewed as having seven steps:
+
+**1. Event definition.** The initial task of conducting an event study is to define the event of interest and identify the period over which the security prices of the firms involved in this event will be examined-the event window.
+
+For example, if one is looking at the information content of an earnings announcement with daily data, the event will be the earnings announcement and the event window might be the one day of the announcement. In practice, the event window is often expanded to two days, the day of the announcement and the day after the announcement. This is done to capture the price effects of announcements which occur after the stock market closes on the announcement day.
+
+The period prior to or after the event may also be of interest and included separately in the analysis. For example, in the earnings-announcement case, the market may acquire information about the earnings prior to the actual announcement and one can investigate this possibility by examining pre-event returns.
+
+**2. Selection criteria.** After identifying the event of interest, it is necessary to determine the selection criteria for the inclusion of a given firm in the study. The criteria may involve restrictions imposed by data availability such as listing on the NYSE or AMEX or may involve restrictions such as membership in a specific industry.
+
+At this stage it is useful to summarize some characteristics of the data sample (e.g., firm market capitalization, industry representation, distribution of events through time) and note any potential biases which may have been introduced through the sample selection.
+
+## An Example of an Event Study
+
+We investigate the information content of quarterly earnings announcements for the 30 firms in the Dow Jones Industrial Index over the five-year period from January 1988 to December 1993. These announcements correspond to the quarterly earnings for the last quarter of 1987 through the third quarter of 1993.
+
+-- The 5 years of data for 30 firms provide a total sample of 600 announcements.
+
+For each firm and quarter, three pieces of information are compiled: the date of the announcement, the actual announced earnings, and a measure of the expected earnings.
+
+The source of the date of the announcement is Datastream, and the source of the actual earnings is Compustat.
+
+If earnings announcements convey information to investors, one would expect the announcement impact on the market's valuation of the firm's equity to depend on the magnitude of the unexpected component of the announcement.
+
+Thus a measure of the deviation of the actual announced earnings from the market's prior expectation is required.
+
+We use the mean quarterly earnings forecast from the Institutional Brokers Estimate System (I/B/E/S) to proxy for the market's expectation of earnings. I/B/E/S compiles forecasts from analysts for a large number of companies and reports summary statistics each month. The mean forecast is taken from the last month of the quarter. For example, the mean third-quarter forecast from September 1990 is used as the measure of expected earnings for the third quarter of 1990.
+
+In order to examine the impact of the earnings announcement on the value of the firm's equity, we assign each announcement to one of three categories: good news, no news, or bad news.
+
+We categorize each announcement using the deviation of the actual earnings from the expected earnings: - Good news: the actual exceeds expected by more than 2.5% the expected earnings. (189/600) 189\*41 = 7,749 - Bad news: the actual is more than 2.5% less than the expected earnings. (238/600) - No news: The actual earnings is in the 5% range centered about the expected earnings. (173/600)
+
+With the announcements categorized, the next step is to specify the sampling interval, event window, and estimation window that will be used to analyze the behavior of firms' equity returns. For this example we set the sampling interval to one day; thus daily stock returns are used. We choose a 41 day event window, comprised of 20 pre-event days, the event day, and 20 post-event days. For each announcement we use the 250-trading day period prior to the event window as the estimation window.
+
+**3. Normal and abnormal returns.** To appraise the event's impact we require a measure of the abnormal return. The abnormal return is the actual ex post return of the security over the event window minus the normal return of the firm over the event window. The normal return is defined as the return that would be expected if the event did not take place. For each firm $i$ and event date $t$ we have
+
+$$ AR_{it} = R_{it} - E[R_{it}|X_t]$$
+
+where $AR_{it}$, $R_{it}$ and $E(R_{it})$ are the abnormal, actual and normal returns, respectively, for time period $t$. $X_t$ is the conditioning information for the normal performance model.
+
+For a range of days within the event window $[\tau_1,\tau_2]$, we can also define the cumulative abnormal return (CAR):
+
+$$ CAR_{i}(\tau_1,\tau_2) = \sum_{t=\tau_1}^{t=\tau_2} AR_{it} $$
+
+There are two common choices for modeling the normal return:
+
+-   **constant-mean-return model** where $X_t$ is a constant. The constant-mean-return model, as the name implies, assumes that the mean return of a given security is constant through time.
+
+$$ R_{it} = \mu_i + \xi_{it}, \\ E[\xi_{it}]=0, Var[\xi_{it}]=\sigma^2_{\xi_{i}} $$ Although the constant-mean-return model is perhaps the simplest model, Brown and Warner (1980, 1985) find it often yields results similar to those of more sophisticated models. This lack of sensitivity to the model choice can be attributed to the fact that the actual return is frequently not explained much by a more sophisticated model.
+
+When using daily data the model is typically applied to nominal returns. With monthly data the model can be applied to real returns or excess returns (the return in excess of the nominal riskfree return generally measured using the US Treasury bill) as well as nominal returns.
+
+-   **market model** where $X_t$ is the market return. The market model assumes a stable linear relation between the market return and the security return.
+
+$$ R_{it} = \alpha_i + \beta_i R_{mt} + \epsilon_{it}, \\ E[\epsilon_{it}]=0, Var[\epsilon_{it}]=\sigma^2_{\epsilon_{i}} $$
+
+In applications a broad-based stock index is used for the market portfolio, with the S&P500 index, the CRSP value-weighted index, and the CRSP equal- weighted index being popular choices.
+
+The market model represents a potential improvement over the constant-mean- return model. By removing the portion of the return that is related to variation in the market's return, the variance of the abnormal return is reduced. This can lead to increased ability to detect event effects. The benefit from using the market model will depend upon the R-squared of the market-model regression. The higher the $R^2$, the greater is the variance reduction of the abnormal return, and the larger is the gain in the ability to detect event effects.
+
+The CAPM model is almost the same as the market model except (1) it uses excess returns, and (2) it imposes that $alpha_i = 0$. Empirical research show that (2) is not necessarily true (e.g. evidence based on factor models.) Thus, market model without restrictions is preferred.
+
+-   \*\* Other Statistical Models: Factor models \*\* A number of other statistical models have been proposed for modeling the normal return. A general type of statistical model is the factor model. Factor models potentially provide the benefit of reducing the variance of the abnormal return by explaining more of the variation in the normal return. For example, the Fama-French 3-factor model:
+
+$$ R_{it} = \alpha_i + R_{f} + \beta_{m,i} (R_{mt} - R_f) + \beta_{s,i} * SMB_t + \beta_{v,i} *HML_t + \epsilon_{it}, \\
+E[\epsilon_{it}]=0, Var[\epsilon_{it}]=\sigma^2_{\epsilon_{i}} $$
+
+**4. Estimation procedure.** Once a normal return model has been selected, the parameters of the model must be estimated using **estimation window**, i.e. the period prior to the event window.
+
+For example, in an event study using daily data and the market model, the market-model parameters could be estimated over the 120 days prior to the event. (In the textbook example mentioned above, for each announcement we use the 250-trading day period prior to the event window as the estimation window. )
+
+Generally the event period itself is not included in the estimation period to prevent the event from influencing the normal return model parameter estimates.
+
+With the parameter estimates for the normal performance model, the abnormal returns $AR_{it}$ can be calculated.
+
+**5. Testing pocedure.** Next, we need to design the framework for testing whether the abnormal returns is significant (-ly different from zero.)
+
+Here, the important considerations are defining the null hypothesis and determining the techniques for aggregating the abnormal returns of individual firms.
+
+Each event is **one observation** from the distribution of the same kind of events.
+
+For each $AR_t$ (189 Good News events, sample of 189 observations, for each t =-20,..,0,...,19,20)
+
+Define $$\overline{AR}_t = \frac{1}{N}\sum_{i=1}^{N} AR_{it}$$
+
+$$\overline{CAR}(\tau_1,\tau_2) = \frac{1}{N}\sum_{i=1}^{N} CAR_{i}(\tau_1,\tau_2)$$ - The null hypothesis can be whether the mean abnormal return on day t is zero: $$H_0: \overline{AR}_t = 0 \mbox{ for some } t.$$ - The null hypothesis can also be whether the mean cumulative abnormal return from day tau_1 to day tau_2 is zero:
+
+$$H_0: \overline{CAR}(\tau_1,\tau_2) = 0 \mbox{ for some } (\tau_1,\tau_2).$$ - I.I.D.: Consider the events occurring for the individual securities in the analysis. Do these event windows overlap? If they do not, we can consider the ARs or the CARs independently and identically distributed across events, and use the standard t test.
+
+```{r eval=FALSE}
+t_test(CAR)
+```
+
+-   Frequently the event windows do overlap however. For example, many stocks may be announcing quarterly earnings on the same day or nearby dates. Then, the ARs and the CARs are correlated. Briefly, they are correlated through the market return (think about how the ARs are calculated under the market model.)
+
+Several options exists when your event windows overlap:
+
+1.  When event days perfectly overlap: You should use a portfolio approach. This applies when you have multiple event days, and for each event day there are multiple stocks experiencing the event. In this case, just form an (equally- weighted) portfolio of the event stocks for each event day -\> calculate the AR & CAR for the event portfolios -\> note that the IID assumption holds for the portfolios -\> use t_test.
+
+2.  When event days imperfectly overlap: the dates are not the same, but the event windows overlap. In this case, there are two possibilities:
+
+2A) First, you can "bootstrap". You bootstrap on the actual dates. Briefly, this involves randomly throw out 5% of the actual dates AFTER you calculated $AR_{it}$'s. After throwing out the $AR_{it}$'s on the randomly chosen actual dates, compute the $\overline{AR}_t$ and $\overline{CAR}(\tau_1,\tau_2)$. Do this 200 times. The distribution of the results from this bootstrap procedure is approximately the same as the true distribution of the $\overline{AR}_t$ and $\overline{CAR}(\tau_1,\tau_2)$.
+
+2B) Second, you can estimate it in one step using a multivariate regression model with dummy variables for the event date (Schipper and Thompson, 1983). The Impact of Merger-Related Regulations on the Shareholders of Acquiring Firms. Journal of Accounting Research). The model is very elegant:
+
+$$ R_{it} = \alpha_i + \beta_{i} R_{mt} + \sum_{s=\tau_1}^{s=\tau_2}\gamma_{s} 1\{t=s\} + \epsilon_{it} $$
+
+(A caveat is the $\beta_{i}$'s are estimated using not only pre-event data.)
+
+The AR for event day $s$ is the coefficient estimate ${\gamma_{s}}$:
+
+$$\overline{AR}_{s} = \gamma_{s}$$ However, the correct standard error here is the clustered standard error at the trading day level (we will talk about this very soon) by $t$. The residual term $\epsilon_{it}$ in each day t is correlated across firm i1, i2, i3, etc, because there could be reasons other than the market return that makes event day returns similar across firms on the same trading day.
+
+Once you have the clustered standard error, you can do t_test for the ARs.
+
+The CAR is just a linear sum of the coefficient estimates ${\gamma_{s}}$:
+
+$$\overline{CAR}(\tau_1,\tau_2) = \sum_{s=\tau_1}^{\tau_2} \gamma_{s}$$
+
+If the i.i.d. assumption is true, you can just use the t test on the CAR data.
+
+If the i.i.d. assumption is not true, just get clustered standard errors for the AR, and then use linearHypothesis to perform test on the CAR.
+
+**6. Empirical results.** The presentation of the empirical results follows the formulation of the econometric design. In addition to presenting the basic empirical results, the presentation of diagnostics can be fruitful. Occasionally, especially in studies with a limited number of event observations, the empirical results can be heavily influenced by one or two firms. Knowledge of this is important for gauging the importance of the results.
+
+Look at pg. 90 ('164') of CLK book.
+
+**7. Interpretation and conclusions.** Ideally the empirical results will lead to insights about the mechanisms by which the event affects security prices. Additional analysis may be included to distinguish between competing explanations.
+
+Example code from Prof. WYP (which assumes non-overlapping events, i.i.d. abnormal returns): (I asked ChatGPT to "annotate the code in Chinese")
+
+```{r}
+# 加载必要的库
+# library(fBasics)
+library(dplyr)
+
+# 定义几个参数
+eststart=-250 # 估计窗口开始位置，单位为日历天
+estend=-22    # 估计窗口结束位置
+effectdays=50 # 估计窗口内有效数据的最小天数
+evtstart=-5   # 事件窗口开始位置，单位为有效交易日
+evtend=5      # 事件窗口结束位置
+```
+
+```{r}
+# 读入事件数据：包含公司代码和事件时间（“事件A”）
+evt=read.table("6_eventlist.txt", header=T, colClasses=c("NULL", "character", "character"))
+head(evt)
+evt=unique(evt)  # 去掉可能的重复事件
+nevt=length(evt$evtdate)
+d1=evt$evtdate  # 转换日期为 R 中的日期格式
+d2=paste(substr(d1,1,4), substr(d1,5,6), substr(d1,7,8), sep="-")
+evt$evtdate=as.Date(d2, "%Y-%m-%d")
+evt
+```
+
+```{r}
+# 读入日度回报数据
+retdt=read.table("6_retdaily.txt", header=T, colClasses=c("character", "character", "numeric"))
+d1=retdt$date  # 转换日期为 R 中的日期格式
+d2=paste(substr(d1,1,4), substr(d1,5,6), substr(d1,7,8), sep="-")
+retdt$date=as.Date(d2, "%Y-%m-%d")
+retdt
+summary(retdt)
+retdt=subset(retdt, retdt$ret>-10) # 删除明显错误的数据（或者可以采用截尾处理）
+```
+
+```{r}
+# 读入日度指数回报数据
+retindex=read.table("6_index.txt", header=T, colClasses=c("character", "numeric"))
+d1=retindex$date  # 转换日期为 R 中的日期格式
+d2=paste(substr(d1,1,4), substr(d1,5,6), substr(d1,7,8), sep="-")
+retindex$date=as.Date(d2, "%Y-%m-%d")
+head(retindex)
+summary(retindex)
+retindex=retindex[!duplicated(retindex$date),] # 去掉重复日期
+retindex=dplyr::arrange(retindex, date)
+retindex=transform(retindex, idate=as.integer(row.names(retindex))) # idate 变量为交易日的排序位置，便于后续定位
+head(retindex)
+```
+
+```{r}
+# 通过日期合并事件和指数数据
+library(dplyr)
+idatetable <- retindex %>% mutate(evtdate=date, evtidate=idate) %>% 
+  select(evtdate, evtidate) %>% arrange(evtidate)
+head(idatetable)
+evt <- left_join(evt, idatetable, by='evtdate')
+head(evt)
+```
+
+```{r}
+# 修正非交易日的事件日期，调整为最近的交易日
+for (i in 1:nrow(evt)) {
+  if (is.na(evt$evtidate[i])) { # 如果事件日期为非交易日
+    for (j in idatetable$evtidate[2]:idatetable$evtidate[nrow(idatetable)]) { 
+      if (idatetable$evtdate[j] > evt$evtdate[i] & idatetable$evtdate[j-1] < evt$evtdate[i]) { # 找到事件日期之后的第一个交易日
+        evt$evtidate[i] <- idatetable$evtidate[j] # 设置事件日期为下一个交易日
+      }
+    }
+  }
+}
+head(evt)
+```
+
+```{r}
+#  合并个股与指数
+ret=left_join(retdt, retindex, by="date") # 用 left_join 将个股和指数数据合并，确保 key（如日期）没有重复值
+#一般来说，用left_join命令前要保证其中一个数据文件中的key没有重复观察值。前面retindex已经处理了
+#d1=ret$date #把日期改成R中的日期形式
+#d2=paste(substr(d1,1,4), substr(d1,5,6), substr(d1,7,8), sep="-")
+#ret$date=as.Date(d2, "%Y-%m-%d")
+head(ret)
+```
+
+```{r}
+# 创建空矩阵 ardata，用于存储异常收益 (AR)
+ardata <- matrix(nrow=nevt, ncol=evtend-evtstart+1) 
+i=1
+(evtid=evt[i,'firm'])       # 当前事件对应的公司代码
+(evtdt=evt[i,'evtdate'])    # 当前事件的日期
+(evtidt=evt[i,'evtidate'])  # 当前事件的交易日排序日期
+eststart                    # 估计窗口的起始位置
+estend                      # 估计窗口的结束位置
+```
+
+```{r}
+# 提取估计窗口的数据
+(estiwindow=subset(ret, firm==evtid & (idate-evtidt)>eststart & (idate-evtidt)<estend))
+```
+
+```{r}
+# 检查估计窗口的数据长度是否满足有效交易天数要求
+length(estiwindow$ret)
+effectdays
+length(estiwindow$ret)>effectdays
+```
+
+```{r}
+# 对估计窗口的数据进行 OLS 回归，模型为：个股回报 = β × 指数回报 + 常数项
+(ols.out=lm(ret~indexret, data=estiwindow))
+```
+
+```{r}
+# 提取事件窗口的数据
+(evtwindow=subset(ret, firm==evtid & (idate-evtidt)>=evtstart & (idate-evtidt)<=evtend))
+```
+
+```{r}
+# 使用估计窗口的回归模型预测事件窗口的预期收益
+(fret=predict(ols.out, evtwindow))
+```
+
+```{r}
+# 计算异常收益 (AR)，公式为：AR = 实际收益 - 预期收益
+(ar=transform(evtwindow, ddate=evtwindow$idate-evtidt, fret = fret, ar=ret-fret))
+```
+
+```{r}
+# 提取事件日前的 AR（负数日期）
+(arbefore=subset(ar, ddate<0)) # 按股票的观察值顺序定位
+#这里用该股票有观察值的顺序定位，有时可能需要用市场指数有观察值的顺序定位，这时需要用到前面定义的idate变量
+```
+
+```{r}
+# 确定事件日前有效 AR 数据的数量
+(k=min(length(arbefore$ar),abs(evtstart)))
+```
+
+```{r}
+# 将事件日前的 AR 填充到矩阵 ardata
+if (length(arbefore$ar)>0) {
+  arbefore=arrange(arbefore, -ddate) # 按日期倒序排列
+  for (j in 1:k) {
+    ardata[i,abs(evtstart)+1-j]=arbefore$ar[j]
+  }
+}
+```
+
+```{r}
+# 检查当前矩阵的头部数据
+head(ardata)
+```
+
+```{r}
+# 提取事件日及之后的 AR 数据
+arafter=subset(ar, ddate>=0)
+k=min(length(arafter$ar), abs(evtend)+1)
+if (length(arafter$ar)>0) {
+  arafter=arrange(arafter, ddate) # 按日期正序排列
+  for (j in 1:k) {
+    ardata[i,abs(evtstart)+j] = arafter$ar[j]
+  }
+}
+```
+
+```{r}
+# 检查事件后 AR 数据
+arafter
+```
+
+```{r}
+# 检查更新后的矩阵
+head(ardata)
+```
+
+```{r}
+# 迭代计算所有事件的 AR
+ardata <- matrix(nrow=nevt,ncol=evtend-evtstart+1) 
+for (i in 1:nevt) {
+  if (i %% 50 == 1) {
+    print(i) # 每 50 个事件打印进度
+  }
+  evtid=evt[i,'firm']
+  evtidt=evt[i,'evtidate']
+  estiwindow=subset(ret, firm==evtid & (idate-evtidt)>eststart & (idate-evtidt)<estend)
+  if (length(estiwindow$ret)>effectdays) {
+    ols.out=lm(ret~indexret, data=estiwindow)
+    evtwindow=subset(ret, firm==evtid & (idate-evtidt)>=evtstart & (idate-evtidt)<=evtend)
+    fret=predict(ols.out, evtwindow)
+    ar=transform(evtwindow, ddate=evtwindow$idate-evtidt, fret = fret, ar=ret-fret)
+    (arbefore=subset(ar, ddate<0))  #这里用该股票有观察值的顺序定位，有时可能需要用市场指数有观察值的顺序定位，这时需要用到前面定义的idate变量    
+    (k=min(length(arbefore$ar),abs(evtstart)))
+    if (length(arbefore$ar)>0) {
+      arbefore=arrange(arbefore, -ddate)
+      for (j in 1:k) {
+        ardata[i,abs(evtstart)+1-j]=arbefore$ar[j]
+      }
+    }
+    arafter=subset(ar, ddate>=0)
+    k=min(length(arafter$ar), abs(evtend)+1)
+    if (length(arafter$ar)>0) {
+      arafter=arrange(arafter, ddate)
+      for (j in 1:k) {
+        ardata[i,abs(evtstart)+j] = arafter$ar[j]
+      }
+    }
+  }
+}
+```
+
+```{r}
+# 计算 AR 和 CAR，并进行统计检验
+days=c(-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5)
+armean=days
+t=days
+for (i in 1:11) {
+  armean[i]=mean(ardata[,i], na.rm=TRUE) # 计算平均 AR
+  tt=t.test(ardata[,i], mu=0)           # T 检验：是否显著不同于 0
+  t[i]=tt$statistic
+}
+(cbind(days, armean, t)) # 打印 AR 和 t 值
+```
+
+```{r}
+# 累积异常收益 (CAR)
+cardata=ardata
+for (i in 2:11) {
+  cardata[,i]=cardata[,i-1]+ardata[,i]
+}
+head(cardata)
+```
+
+```{r}
+# 计算 CAR 的均值、t 值和置信区间
+car = armean
+car_t = armean
+lb = armean
+ub = armean
+for (i in 1:11) {
+  car_tt=t.test(cardata[,i], mu=0)
+  car[i] = car_tt$estimate
+  car_t[i]=car_tt$statistic
+  lb[i] = car_tt$conf.int[1]
+  ub[i] = car_tt$conf.int[2]
+}
+carframe <- data.frame(days, armean, t, car, car_t, lb, ub)
+carframe
+```
+
+```{r}
+# 绘制 CAR 图表
+plot(days, car, type='b', xlim=c(-6, 6), ylim=c(0, 0.045)) # 基本绘图
+library(ggplot2)
+ggplot(data = carframe, aes(x=days))+
+  geom_point(aes(y=car))+       # 绘制 CAR 点
+  geom_line(aes(y=car))+        # 绘制 CAR 线
+  geom_line(aes(y=ub))+         # 上置信区间
+  geom_line(aes(y=lb))+         # 下置信区间
+  geom_hline(yintercept=0) +    # 水平基线
+  theme_light()                 # 主题
+```
+
+```{r}
+library(ggplot2)
+
+# Improved ggplot with better styling
+ggplot(data = carframe, aes(x = days)) +
+  geom_point(aes(y = car), color = "#1f77b4", size = 2) +  # Custom color and size for points
+  geom_line(aes(y = car), color = "#1f77b4", size = 1.2) +  # Thicker line for CAR
+  geom_line(aes(y = ub), color = "#ff7f0e", linetype = "dashed", size = 1) + # Dashed line for upper bound
+  geom_line(aes(y = lb), color = "#ff7f0e", linetype = "dashed", size = 1) + # Dashed line for lower bound
+  geom_hline(yintercept = 0, color = "black", linetype = "solid", size = 1) + # Solid line at y = 0
+  labs(
+    title = "Cumulative Abnormal Returns (CAR)",
+    subtitle = "With 95% Confidence Intervals",
+    x = "Event Day",
+    y = "CAR",
+    caption = "Source: Event A data from Professor WYP."
+  ) +
+  theme_light() +
+  theme(
+    plot.title = element_text(size = 16, face = "bold", hjust = 0.5),
+    plot.subtitle = element_text(size = 12, face = "italic", hjust = 0.5),
+    axis.title = element_text(size = 12),
+    axis.text = element_text(size = 10),
+    panel.grid.minor = element_blank(),  # Remove minor grid lines
+    panel.grid.major = element_line(color = "gray90")  # Lighter major grid lines
+  )
+```
+
+# 8 DID
+
+$$ R_{it} = \alpha_i + \beta_{i} R_{mt} + \sum_{s=\tau_1}^{s=\tau_2}\gamma_{s} 1\{t=s\} + \epsilon_{it} $$ Recall that we proposed an one-step regression (repeated above) to estimate the event study with overlapping windows. This regression uses what we call **panel data**, because the data is indexed $(i,t)$, like a two-way panel.
+
+Panel data is superior to **cross-sectional data**, where we observe an unit only once. In panel data, we observe a unit more than once. By comparing an unit before and after a **treatment**, we isolate the **treatment effect**.
+
+For example: Using CAR, event study compares stock prices before and after the event and estimate the effect of the event, taking into account expected stock price movements. This is only possible with panel data.
+
+What else can we do with panel data?
+
+## 8.1 Difference in differences (DiD)
+
+Example from <https://bookdown.org/ccolonescu/RPoE4/indvars.html#the-difference-in-differences-estimator>
+
+The famous Card and Krueger minimum wage study in the AER:
+
+New Jersey (nj) raised hourly minimum wage from \$4.25 to \$5.05 in mid 1992. In neighboring Pennsylvania, the minimum wage stayed at \$4.25. fte is employment. d: = 1 - late 1992; 0 - early 1992.
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+# basedirectory = 'C://Users//yzhan//Dropbox//Teaching教学//金融硕金融计量//'
+basedirectory = 'D://Dropbox//Teaching教学//金融硕金融计量//'
+subdirectory = 'Rfiles//'
+workdirectory = paste(basedirectory, subdirectory, sep = '')
+opts_knit$set(root.dir = workdirectory)
+```
+
+```{r}
+library(foreign)
+library(dplyr)
+library(stargazer)
+njmin <- read.dta('6_CK1994_old.dta')
+njmin <- njmin %>% 
+mutate(fte = nmgrs + empft + (0.5 * emppt), nj= state==1, d=time, bk= chain==1, roys= chain==3, kfc= chain==2, wendys= chain==4)
+stargazer(njmin, type='text')
+```
+
+```{r}
+library(stargazer)
+reg_after <- lm(fte ~ nj, data = njmin, subset=(d==1))
+stargazer(reg_after, type='text')
+```
+
+It seems higher minimum wage reduced employment but insignificant. Is this the whole story?
+
+```{r}
+reg_before <- lm(fte ~ nj, data = njmin, subset=(d==0))
+stargazer(reg_before, type='text')
+```
+
+No! employment was much lower in NJ before the minimum wage increase. Can we say that the minimum wage increased employment?
+
+Consider the following difference-in-differences (DiD) regression model:
+
+$$ fte = b_0 + b_1*nj + b_2*d + b_3*(nj*d) + e $$
+
+PA, before: $$b_0$$
+
+PA, after: $$b_0 + b_2$$
+
+NJ, before: $$b_0 + b_1$$
+
+NJ, after: $$b_0 + b_1 + b_2 + b_3. $$
+
+$$ TreatmentEffect = {[(NJ, after) - (NJ, before)]} - {[(PA, after) - (PA, before)]} = b_3. $$ In general, the DID specification is:
+
+$$ y_{it} = b_0 + b_1*Treated_{i} + b_2*Post_{t} + b_3*(Treated_{i}*Post_{t}) + e_{it} $$
+
+where $b_3$ is the treatment effect.
+
+```{r}
+# Joint regression including an interaction term 
+
+DiD      <- lm(fte ~ nj*d                    , data=njmin)
+DiD2      <- lm(fte ~ nj + d + nj:d          , data=njmin)
+DiD3      <- lm(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1          , data=njmin)
+stargazer(DiD,DiD2,DiD3,type="text")
+```
+
+The answer is borderline: The minimum wage increase leads to an increase of 2.8 persons in employment per restaurant, significant at the 10% level after controlling for various characteristics of the restaurants.
+
+With a treatment variable, DiD is possible with panel data. Strictly speaking, DiD only requires data with at least two periods, and is possible even without panel data. Do you know why?
+
+Because DID only requires repeated cross-section data.
+
+Why do we usually panel data to estimate DID models?
+
+Because panel data allow us to control for fixed effects at the individual level, which addresses the effect of all time-invariant heterogeneity at the individual level.
+
+(Let's read together IE Chapter 13 and 14 on DID and fixed effects, where I will outline what is important and what is not for the purpose of this course.
+
+Read 13.2, 13.4
+
+Do not worry about GLS in 13.4 -- nowadays finance research use clustered standard error --- see two subsections below --- to address serially-correlated residuals.
+
+Read some of 13.3, 13.5a (FD "doubles" the impact of outliers)
+
+)
+
+## 8.2 Fixed Effects (IE 14.1)
+
+Second, panel data allows you to control for unobservable characteristics that are time-invariant. You can do this with fixed effects.
+
+In the previous example, you may worry that restaurants in NJ and in PA are inherently different, and we have not controlled for enough restaurant charateristics.
+
+14.1a-b is similar to 13.4-5. Read 14.1c.
+
+No one in finance use random effects - ignore 14.2-3
+
+```{r eval=FALSE}
+if(!require(Rcpp)){
+    install.packages("Rcpp")
+}
+if(!require(fixest)){
+    install.packages("fixest")
+}
+```
+
+There are many packages that can perform regression with fixed effects. Today we use the **lfm** and the **fixest** package.
+
+With individual fixed effects:
+
+$$ y_{it} = \alpha_i + b_1*Treated_{i} + b_2*Post_{t} + b_3*(Treated_{i}*Post_{t}) + e_{it} $$
+
+$$ y_{it} = \alpha_i + b_2*Post_{t} + b_3*(Treated_{i}*Post_{t}) + e_{it} $$
+
+With individual and time fixed effects:
+
+$$ y_{it} = \alpha_i + \gamma_t + b_1*Treated_{i} + b_2*Post_{t} + b_3*(Treated_{i}*Post_{t}) + e_{it} $$
+
+$$ y_{it} = \alpha_i + \gamma_t + b_3*(Treated_{i}*Post_{t}) + e_{it} $$
+
+```{r}
+library(lfe)
+DiD4 <- felm(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1, 
+                                     data=njmin)
+DiD5 <- felm(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1 | store | 0 | 0, 
+                                     data=njmin) # first part is regression fromula, second part is fixed effect, 3rd part is IV formula, 4th part is clustered standard error
+DiD6 <- felm(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1 | store + time| 0 | 0, 
+                                     data=njmin) # first part is regression fromula, second part is fixed effect, 3rd part is IV formula, 4th part is clustered standard error
+
+stargazer(DiD4, DiD5, DiD6, type='text')
+```
+
+The package **fixest** is a new package. It is much faster on big data (not here.)
+
+```{r}
+library(fixest)
+DiD4f <- feols(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1, data=njmin)
+DiD5f <- feols(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1     |  store   , data=njmin)
+DiD6f <- feols(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1     |  store + time  , data=njmin)
+etable(DiD4f, DiD5f, DiD6f, vcov = "iid") # vcov = 'hetero', vocv = 'cluster', vcov = 'twoway'
+```
+
+## 8.3 Clustered standard errors
+
+The canonical OLS standard error assumes that the sample is independently random, and the variance of the regression residual is the same (homoskedasticity.)
+
+With panel data, the sample is usually not independently random. For example, for the minimum wage data, regression residual for the same restaurant over time is likely correlated. As another example, in the stock return data, the returns for the same day across stocks is likely correlated.
+
+This creates problem for the OLS standard error. Briefly, when the correlation is positive, the OLS standard error is too small, rejecting the null too often. When the correlation is negative, the OLS standard error is too large, too often failing to reject the null.
+
+Clustered standard errors solves this problem. It can handle correlated errors in one dimension, and even in multiple dimensions.
+
+In IE, clustered standard errors are introduced in Appendix 13A.2
+
+```{r}
+library(lfe)
+DiD4c <- felm(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1 | 0 | 0 | store, 
+                                     data=njmin) # We cluster standard errors at the store level. (We present standard errors at the store level. 标准误聚类在店铺层面。)
+DiD5c <- felm(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1 | store | 0  | store, 
+                                     data=njmin) # first part is regression fromula, second part is fixed effect, 3rd part is IV formula, 4th part is clustered standard error
+DiD6c <- felm(fte ~ nj*d + kfc+roys+wendys+co_owned+
+             southj+centralj+pa1 | store + time| 0 | store, 
+                                     data=njmin) # first part is regression fromula, second part is fixed effect, 3rd part is IV formula, 4th part is clustered standard error
+
+stargazer(DiD4, DiD4c, DiD5, DiD5c, DiD6, DiD6c, type='text', column.labels = c('iid', 'clustered', 'iid', 'clustered', 'iid', 'clustered'))
+```
+
+```{r}
+library(fixest)
+etable(DiD4f, DiD5f, DiD6f, vcov = cluster ~ store) # vcov = 'hetero', vocv = 'cluster', vcov = 'twoway'
+```
+
+## 8.4 Back to the Event study regression:
+
+Can we implement the event study using fixed effect regression with clustered standard errors?
+
+```{r}
+# 显示ret和evt数据集的前几行
+head(ret)  # 查看回报数据的前几行
+head(evt)  # 查看事件数据的前几行
+```
+
+```{r}
+# 使用dplyr包将回报数据与事件数据按公司代码合并
+library(dplyr)  # 加载dplyr包
+evt_ret <- inner_join(ret, evt, by="firm")  # 将回报数据与事件数据按"firm"列进行内连接
+head(evt_ret)  # 查看合并后的数据的前几行
+```
+
+```{r}
+# 设置事件窗口的起始和结束位置
+evtstart <- -5  # 事件窗口开始位置（相对事件日的日期）
+evtend <- 5  # 事件窗口结束位置（相对事件日的日期）
+
+# 对于每一个事件开始到前一天的时间，创建"before"虚拟变量
+for (t in evtstart:-1) {
+  evt_ret[[paste0('before', -t)]] <- ((evt_ret$idate - evt_ret$evtidate) == t)  # 判断每个日期是否与事件日期差t天
+}
+
+# 对于每一个事件结束到后一天的时间，创建"after"虚拟变量
+for (t in 0:evtend) {
+  evt_ret[[paste0('after', t)]] <- ((evt_ret$idate - evt_ret$evtidate) == t)  # 判断每个日期是否与事件日期差t天
+}
+
+head(evt_ret)  # 查看添加虚拟变量后的数据
+```
+
+Estimate the following slightly model with firm fixed effects and clustered standard errors by date, using the evt_ret data:
+
+$$ R_{it} = \alpha_i + \beta R_{mt} + \sum_{s=\tau_1}^{s=\tau_2}\gamma_{s} 1\{t=s\} + \epsilon_{it} $$
+
+```{r}
+# 设置回归模型的公式，包括公司固定效应和按日期聚类的标准误
+# 我们的模型为：R_it = α_i + β R_mt + ∑γ_s 1{t=s} + ε_it
+# 其中，"beforenam"和"afternam"表示事件窗口前后的时间段虚拟变量
+afternam <- paste('after', 0:evtend, sep="")  # 生成事件窗口后期的虚拟变量名称（after0到after5）
+beforenam <- paste('before', seq(-evtstart, 1, -1), sep="")  # 生成事件窗口前期的虚拟变量名称（before-5到before-1）
+
+# 构造回归公式，包含了公司固定效应和日期聚类标准误
+fmla <- as.formula(paste("ret ~ indexret + ", 
+                         paste(beforenam, collapse="+"), "+",  # 添加事件窗口前的虚拟变量
+                         paste(afternam, collapse="+"), "| firm | 0 | date"))  # "| firm" 表示公司固定效应，"| 0 | date"表示按日期聚类标准误差
+fmla  # 查看回归公式
+```
+
+```{r}
+# 使用lfe包进行事件研究回归，计算公司固定效应和按日期聚类的标准误
+library(lfe)  # 加载lfe包
+library(stargazer)  # 加载stargazer包，用于输出回归结果
+event_study <- felm(fmla, data=evt_ret)  # felm函数进行回归分析，第一个参数为回归公式，第二个参数为数据集
+stargazer(event_study, type='text')  # 使用stargazer输出回归结果
+```
+
+```{r}
+# 使用fixest包进行事件研究回归，计算公司固定效应和按日期聚类的标准误
+library(fixest)  # 加载fixest包
+# 构造回归公式，类似于lfe的回归模型，但是不包括日期聚类标准误
+fmla_f <- as.formula(paste("ret ~ indexret + ", 
+                         paste(beforenam, collapse="+"), "+", 
+                         paste(afternam, collapse="+"), "| firm"))  # 公司固定效应
+event_study <- feols(fmla_f, data=evt_ret)  # feols函数进行回归分析
+etable(event_study, vcov = cluster ~ date)  # 输出回归结果，按日期聚类标准误
+```
+
+```{r}
+# 提取回归结果中的系数和标准误差
+coef_estimates <- coef(event_study)  # 提取系数估计值
+se_estimates <- sqrt(diag(vcov(event_study)))  # 计算标准误差，协方差矩阵的对角线是标准误差的平方
+
+# 创建一个数据框来存储系数估计和标准误差
+coefficients_df <- data.frame(
+  term = names(coef_estimates), 
+  estimate = coef_estimates, 
+  se = se_estimates
+)
+
+# Exclude "indexret" from the plot
+coefficients_df <- coefficients_df[coefficients_df$term != "indexret", ]  # Remove the "indexret" row
+
+# 查看 term 列中的唯一值，检查是否能够提取出天数
+unique(coefficients_df$term)
+
+# 手动映射"before"和"after"到对应的时间天数
+coefficients_df$event_day <- NA  # 初始化event_day列
+
+# 将"before"系列转为负数，"after"系列转为正数，去掉"TRUE"部分
+coefficients_df$event_day[grepl("before", coefficients_df$term)] <- 
+  -as.integer(gsub("before(\\d+)TRUE", "\\1", coefficients_df$term[grepl("before", coefficients_df$term)]))
+
+coefficients_df$event_day[grepl("after", coefficients_df$term)] <- 
+  as.integer(gsub("after(\\d+)TRUE", "\\1", coefficients_df$term[grepl("after", coefficients_df$term)]))
+
+# 查看 event_day 列，确保其正确映射
+head(coefficients_df)
+
+# Plot the event study coefficients
+library(ggplot2)
+
+ggplot(coefficients_df, aes(x = event_day, y = estimate)) +
+  geom_point(, size = 3) +
+  geom_errorbar(aes(ymin = estimate - 1.96 * se, ymax = estimate + 1.96 * se), width = 0.2) + 
+  labs(x = "Event Days (Relative to Event Date)", y = "Coefficient Estimate", 
+       title = "Event Study: Estimated AR") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) + 
+  scale_color_manual(values = c("Significant" = "red", "Not Significant" = "black"))+
+  geom_hline(yintercept = 0, linetype = "dashed", color = "blue")  # Add horizontal line at y=0
+
+
+```
+
+## 8.5 Dividend policy with Fix Effects
+
+Finally, recall that we analyzed how dividend policy is associated with firm characteristics in the cross-section in Week 4. Will our answers change with fixed effects regressions?
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+# basedirectory = 'C://Users//yzhan//Dropbox//Teaching教学//金融硕金融计量//'
+basedirectory = 'D://SynologyDrive//Dropbox//Teaching教学//金融硕金融计量//'
+subdirectory = 'Rfiles//'
+workdirectory = paste(basedirectory, subdirectory, sep = '')
+opts_knit$set(root.dir = workdirectory)
+```
+
+```{r}
+library(reticulate)
+ak <- import("akshare") 
+income_statement_2022 <- ak$stock_lrb_em(date= "20221231")
+income_statement_2022$公告日期 <- as.Date(unlist(income_statement_2022$公告日期))
+save(income_statement_2022, file = "6_income_statement_2022.RData")
+```
+
+```{r}
+load("6_income_statement_2022.RData")
+```
+
+```{r}
+print(summary(income_statement_2022))
+```
+
+```{r echo=FALSE}
+library(dplyr)
+library(DescTools)
+ourdata_2022 <- income_statement_2022 %>% 
+  # rename variables
+    rename(营业支出='营业总支出-营业支出') %>%
+  # rename  variables
+    rename(销售费用='营业总支出-销售费用',
+           管理费用='营业总支出-管理费用',
+           财务费用='营业总支出-财务费用',
+           营业总支出='营业总支出-营业总支出') %>%
+  # generate variables
+    mutate(上市板块=substr(股票代码,1,1)) %>%
+    mutate(毛利率=1-营业支出/营业总收入) %>%
+    mutate(净利率=净利润/营业总收入) %>%
+    mutate(销售费用比率=Winsorize(销售费用/营业总收入,quantile(销售费用/营业总收入,probs=c(0.05,0.95),na.rm=TRUE))) %>%
+    mutate(管理费用比率=Winsorize(管理费用/营业总收入,quantile(管理费用/营业总收入,probs=c(0.05,0.95),na.rm=TRUE))) %>%
+    mutate(营业总收入同比增长率=Winsorize(营业总收入同比/100,quantile(营业总收入同比/100,probs=c(0.01,0.99),na.rm=TRUE))) %>%
+    mutate(净利润同比增长率=Winsorize(净利润同比/100,quantile(净利润同比/100,probs=c(0.01,0.99),na.rm=TRUE))) %>%
+    mutate(log10营业总收入=log10(营业总收入)) %>%
+    mutate(year=2022) %>% 
+    arrange(股票代码)
+ourdata_2022$上市板块_factorized <- factor( ourdata_2022$上市板块, 
+                          levels = c("0","3","6"), # levels = unique(ourdata$上市板块), 
+                          labels = c("深证主板","创业板","上证主板") )
+save(ourdata_2022, file="6_income_statement_ourdata.RData")
+```
+
+```{r}
+load("2_income_statement_ourdata.RData")
+ourdata<-ourdata %>% mutate(year=2023) %>% arrange(股票代码)
+```
+
+```{python}
+import akshare as ak
+stock_fhps_em_df = ak.stock_fhps_em(date="20221231")
+stock_fhps_em_df['预案公告日'] = stock_fhps_em_df['预案公告日'].astype(str)
+stock_fhps_em_df['股权登记日'] = stock_fhps_em_df['股权登记日'].astype(str)
+stock_fhps_em_df['除权除息日'] = stock_fhps_em_df['除权除息日'].astype(str)
+stock_fhps_em_df['最新公告日期'] = stock_fhps_em_df['最新公告日期'].astype(str)
+stock_fhps_em_df.to_csv('stock_fhps_em_df_2022.csv')
+```
+
+```{r}
+dividend_announcement <- read.csv(file = 'stock_fhps_em_df.csv', colClasses=c("代码"="character"))
+dividend_announcement_2022 <- read.csv(file = 'stock_fhps_em_df_2022.csv', colClasses=c("代码"="character"))
+print(dividend_announcement_2022)
+```
+
+```{r}
+library(dplyr)
+income_and_dividend <- left_join(ourdata, dividend_announcement, by=c("股票代码" = "代码"))
+income_and_dividend$是否现金分红 <-  ifelse(is.na(income_and_dividend$现金分红.股息率), 0, 1)
+income_and_dividend[sapply(income_and_dividend, is.infinite)] <- NA
+income_and_dividend_2022 <- left_join(ourdata_2022, dividend_announcement_2022, by=c("股票代码" = "代码"))
+income_and_dividend_2022$是否现金分红 <-  ifelse(is.na(income_and_dividend_2022$现金分红.股息率), 0, 1)
+income_and_dividend_2022[sapply(income_and_dividend_2022, is.infinite)] <- NA
+(incanddiv <- rbind(income_and_dividend, income_and_dividend_2022) %>% arrange(股票代码, year))
+```
+
+```{r}
+library(lmtest)
+library(sandwich)
+library(stargazer)
+# Estimate linear probability model
+div_model_lpm <- lm(是否现金分红~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+I(上市板块_factorized)+销售费用比率+管理费用比率,data=incanddiv)
+# Regression table with heteroscedasticity-robust SE and t tests:
+coeftest(div_model_lpm,vcov=vcovHC, type='HC0')
+# Adjust standard errors
+cov1         <- vcovHC(div_model_lpm, type = "HC0") # White's estimator
+div_robust_se    <- sqrt(diag(cov1))
+
+# Stargazer summary statistics for the data
+for (vvar in c('是否现金分红','log10营业总收入','净利率','营业总收入同比增长率','净利润同比增长率','销售费用比率','管理费用比率')) {
+  stargazer(na.omit(income_and_dividend[vvar]), type='text')
+}
+
+# Stargazer output (with and without RSE)
+stargazer(div_model_lpm, div_model_lpm, type = "text",
+          se = list(div_robust_se, NULL))
+```
+
+DIY (as part of HW3, which you do not need to submit):
+
+1.  Please modify the above LPM to a set of fixed effect regression with (1) firm f.e., (2) year f.e., (3) firm and year f.e., and compare the results with the pooled OLS results.
+
+```{r}
+library(lfe)
+library(stargazer)
+
+# Pooled OLS (Baseline)
+pooled_lpm <- felm(
+  # This formula represents a pooled OLS model without fixed effects,
+  # but clusters standard errors by 股票代码.
+  是否现金分红 ~ log10营业总收入 + 净利率 + 营业总收入同比增长率 + 净利润同比增长率 + 
+    I(上市板块_factorized) + 销售费用比率 + 管理费用比率 | 0 | 0 | 股票代码, 
+  data = incanddiv
+)
+
+# Firm Fixed Effects
+firm_fe_lpm <- felm(
+  # This formula includes firm-level fixed effects (股票代码) and clusters standard errors by 股票代码.
+  是否现金分红 ~ log10营业总收入 + 净利率 + 营业总收入同比增长率 + 净利润同比增长率 + 
+    I(上市板块_factorized) + 销售费用比率 + 管理费用比率 | 股票代码 | 0 | 股票代码, 
+  data = incanddiv
+)
+
+# Year Fixed Effects
+year_fe_lpm <- felm(
+  # This model includes year fixed effects (year) and clusters standard errors by 股票代码.
+  是否现金分红 ~ log10营业总收入 + 净利率 + 营业总收入同比增长率 + 净利润同比增长率 + 
+    I(上市板块_factorized) + 销售费用比率 + 管理费用比率 | year | 0 | 股票代码, 
+  data = incanddiv
+)
+
+# Firm and Year Fixed Effects
+firm_year_fe_lpm <- felm(
+  # This model includes both firm-level (股票代码) and year (year) fixed effects,
+  # with standard errors clustered by 股票代码.
+  是否现金分红 ~ log10营业总收入 + 净利率 + 营业总收入同比增长率 + 净利润同比增长率 + 
+    I(上市板块_factorized) + 销售费用比率 + 管理费用比率 | 股票代码 + year | 0 | 股票代码, 
+  data = incanddiv
+)
+
+# Use Stargazer for comparison
+stargazer(
+  pooled_lpm, firm_fe_lpm, year_fe_lpm, firm_year_fe_lpm,
+  type = "text",
+  title = "Comparison of Pooled OLS and Fixed Effects Models",
+  dep.var.labels = c("是否现金分红"),
+  covariate.labels = c(
+    "Log Total Revenue", "Net Profit Margin", "YoY Revenue Growth", "YoY Profit Growth", 
+    "Listing Board", "Selling Expense Ratio", "Admin Expense Ratio"
+  ),
+  column.labels = c("Pooled OLS", "Firm FE", "Year FE", "Firm + Year FE"),
+  add.lines = list(
+    c("Firm Fixed Effects", "No", "Yes", "No", "Yes"),
+    c("Year Fixed Effects", "No", "No", "Yes", "Yes")
+  ),
+  keep.stat = c("n", "rsq"),
+  digits = 3
+)
+
+```
+
+2.  How does different clustering assumptions for the standard errors change the statistical significance of your results above?
+
+Hint: You can just modify the formula.
+
+felm( 是否现金分红 \~ log10营业总收入 + 净利率 \| 股票代码 \| 0 \| 股票代码+year, data = incanddiv ) \# Two-way clustering
+
+felm( 是否现金分红 \~ log10营业总收入 + 净利率 \| 股票代码 \| 0 \| 0, data = incanddiv ) \# By default, felm uses heteroskedasticity-consistent standard errors
+
+felm( 是否现金分红 \~ log10营业总收入 + 净利率 \| 股票代码 \| 0 \| 0, data = incanddiv, robust = FALSE \# Ensures that OLS standard errors are used )

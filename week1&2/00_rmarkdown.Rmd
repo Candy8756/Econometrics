@@ -1,0 +1,41 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
+
+You can find more help here (<https://bookdown.org/yihui/rmarkdown/notebook.html>).
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*.
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+```{r}
+1+1
+```
+
+Please install Python (if you are new to Python, download the Python 3.11 installer from <https://www.python.org/downloads/release/python-3119/>).
+
+```{python}
+# Select Yes if asked "Would you like to create a default Python environment for the reticulate package"
+# You will see something like:
+# "Using Python: C:/Users/xxx/AppData/Local/Programs/Python/Python311/python.exe
+# Creating virtual environment "r-reticulate" ... 
+# + "C:/Users/xxx/AppData/Local/Programs/Python/Python311/python.exe" -m venv "C:/Users/xxx/Documents/.virtualenvs/r-reticulate"
+# Done!" 
+# 
+# This means that R has set up a "virtual env" of Python. 
+# A "virtual env" is like a clean install of Python that will not interfere with 
+# your existing Python installs
+# 
+1+2
+```
+
+If your click *Knit*, an HTML file containing the code and output will be produced and saved.

@@ -1,0 +1,580 @@
+---
+title: "Financial Econometrics Week 5 Part A"
+subtitle: "Measurement Errors, Sample Selection, and Outliers"
+date: "2025-10-19"
+author: Yu Zhang
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+---
+
+```{r}
+if(!require(rmdformats)){
+    install.packages("rmdformats")
+}
+```
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+# basedirectory = 'C://Users//yzhan//Dropbox//Teaching教学//金融硕金融计量//'
+basedirectory = 'D://Dropbox//Teaching教学//金融硕金融计量//'
+subdirectory = 'Rfiles//'
+workdirectory = paste(basedirectory, subdirectory, sep = '')
+opts_knit$set(root.dir = workdirectory)
+```
+
+
+# 4 Properties of OLS under Measurement Error (IE 9-4, p. 311 '287'; URfIE 9.2.)
+（都考，例如对于beta=cov(y,x)/var(x)的影响）
+
+## 4.1 Measurement Error in the Dependent Variable (IE 9-4a)
+
+```{r}
+# Set the random seed
+set.seed(1234567)
+n_simulation <- 1000
+# set true parameters: intercept & slope
+b0<-1.0; b1<-1.0
+# initialize b1hat to store "n_simulation" results:
+b1hat <- numeric(n_simulation)
+b1hat.me <- numeric(n_simulation)
+# Draw a sample of x, fixed over replications:
+x <- rnorm(100, mean = 4, sd = 1)
+# repeat r times:
+for(j in 1:n_simulation) {
+# Draw a sample of u
+u <- rnorm(100, mean = 0, sd = 3)
+# Draw a sample of ystar:
+ystar <- b0 + b1*x+u
+# regress ystar on x and store slope estimate at position j
+bhat <- coef( lm(ystar~x) )
+b1hat[j] <- bhat["x"]
+# Measurement error and mismeasured y:
+e0 <- rnorm(100, mean = 0, sd = 6)
+y <- ystar+e0
+# regress y on x and store slope estimate at position j
+bhat.me <- coef( lm(y~x) )
+b1hat.me[j] <- bhat.me["x"]
+}
+```
+
+$$ \frac{\sigma^2}{(n-1)*\sigma^2_x} $$
+True model: 9/(99*1) = 1/11
+Model with M.E. in y: (9+36)/(99*1) = 45/99
+
+```{r}
+# Mean with and without ME
+c( mean(b1hat), mean(b1hat.me) )
+# Variance with and without ME
+c( var(b1hat), var(b1hat.me) )
+# Std. Err. with and without ME
+c( sd(b1hat), sd(b1hat.me) )
+# T-value with and without ME
+c( mean(b1hat)/sd(b1hat), mean(b1hat.me)/sd(b1hat.me) )
+```
+
+
+### 4.1.1 binscatter 
+
+(given bins of x, take average of y, which eliminates M.E. in y)
+
+```{r}
+library(wooldridge)
+source('binscatter.R') # https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "wage ~ educ", key_var = 'educ', data=wage1, bins = 18, partial=FALSE)
+ggplot(data = wage1, aes(x=educ, y=wage)) + geom_point() + geom_smooth(method = 'lm')
+```
+
+```{r warning=FALSE}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "salary ~ roe", key_var = 'roe', data=ceosal1, bins = 8, partial=FALSE)
+```
+
+```{r}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+binscatter(formula = "voteA ~ shareA", key_var = 'shareA', data=vote1, bins = 8, partial=FALSE)
+```
+
+```{r warning=FALSE}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+ceosal1$log_salary = log(ceosal1$salary)
+binscatter(formula = "log_salary ~ roe", key_var = 'roe', data=ceosal1, bins = 8, partial=FALSE)
+```
+
+```{r warning=FALSE}
+source('binscatter.R') # modified version of https://www.timlrx.com/blog/binscatter-for-r
+ceosal1$log_salary = log(ceosal1$salary)
+ceosal1$log_sales = log(ceosal1$sales)
+binscatter(formula = "log_salary ~ log_sales", key_var = 'log_sales', data=ceosal1, bins = 8, partial=FALSE)
+```
+
+```{r}
+source('binscatter.R') # https://www.timlrx.com/blog/binscatter-for-r
+wage1$log_wage = log(wage1$wage)
+binscatter(formula = "log_wage ~ educ", key_var = 'educ', data=wage1, bins = 18, partial=FALSE)
+```
+
+- Why is binscatter valid? 
+The y value in a binscatter plot, in theory is 
+$$E[y|x]$$
+
+The beta1 coef in a binscatter plot, is then:
+
+$$\hat{\beta_{1}} = cov(E[y|x],x)/var(x)$$
+
+$$cov(E[y|x],x) = cov(y,x)$$
+$$cov(E[y|x],x) = E[E[y|x]*x] - E[E[y|x]] * E[x] = E[E[xy|x]] - E[y] * E[x] = E[xy]- E[y] * E[x] = cov(y,x)$$
+
+
+## 4.2 Measurement Error in an Explanatory Variable, Attenuation bias (IE 9-4b; URfIE 9.2)
+
+Note that IE Equation [9.29] ($x_{1} = x^{*}_{1} + e_{1}$ and $Cov(x_{1},e_{1})=0$) is never the relevant case. In real world, there are two relevant cases of measurement errors in the x variable:
+
+- Input errors (Unit errors: 11 instead of 11%; Key-in errors: misplaced or neglected numbers): We treat in the outliers section
+
+- Proxy variables: This is what we consider here (IE Equation [9.31]). We consider the most harmless case, which is classical measurement error, or what IE calls the classical errors-in-variables (CEV) --- $x_{1} = x^{*}_{1} + e_{1}$ and $Cov(x^{*}_{1},e_{1})=0$
+
+In this case, the point estimate is biased (called the "attenuation bias") and inconsistent:
+
+$$plim(\hat{\beta_1}) = \beta_1 \left(\frac{\sigma^{2*}_{x_1}}{\sigma^{2*}_{x_1}+\sigma^{2}_{e_1}}\right)$$
+
+You can see that \hat{\beta_1} unambiguously become smaller.
+
+$s.e.(\hat{\beta_1})$ is also biased and inconsistent. However, it does not necessarily become smaller:
+
+$$s.e.(\hat{\beta_1}) = \frac{1}{\sqrt{n-1}}\sqrt{\frac{\sigma_u^2+\beta^2_1\sigma^2_e}{\sigma^{2*}_{x_1} + \sigma^2_e}} $$
+
+Consider the t-value for testing the null hypothesis $\beta_1 =0$:
+
+$$
+plim(t) =  \frac{\beta_1\left(\frac{\sigma^{2*}_{x_1}}{\sigma^{2*}_{x_1}+\sigma^{2}_{e_1}}\right)}{\frac{1}{\sqrt{n-1}}
+\sqrt{\frac{\sigma_u^2}{\sigma^{2*}_{x_1}}}
+\sqrt{\frac{\sigma^{2*}_{x_1}}{{\sigma_u^2}}}
+\sqrt{\frac{\sigma_u^2+\beta^2_1\sigma^2_e}{\sigma^{2*}_{x_1} + \sigma^2_e}}} 
+= t_{orig} \times \frac{\left(\frac{\sigma^{2*}_{x_1}}{\sigma^{2*}_{x_1}+\sigma^{2}_{e_1}}\right)}{\sqrt{\frac{\sigma^{2*}_{x_1}}{{\sigma_u^2}}}
+\sqrt{\frac{\sigma_u^2+\beta^2_1\sigma^2_e}{\sigma^{2*}_{x_1} + \sigma^2_e}}} 
+= t_{orig} \times \frac{\sqrt{\frac{\sigma^{2*}_{x_1}}{\sigma^{2*}_{x_1}+\sigma^{2}_{e_1}}}}{\sqrt{\frac{\sigma_u^2+\beta^2_1\sigma^2_e}{\sigma_u^2}}} < t_{orig}
+$$
+
+Therefore, we see that the t-value necessarily becomes smaller. 
+
+
+```{r}
+# Set the random seed
+set.seed(1234567)
+n_simulation <- 1000
+# set true parameters: intercept & slope
+b0<-1.0; b1<-1.0
+# initialize b1hat to store "n_simulation" results:
+b1hat <- numeric(n_simulation)
+b1hat.me <- numeric(n_simulation)
+# Draw a sample of x, fixed over replications:
+xstar <- rnorm(100,mean = 4, sd = 1)
+# repeat r times:
+for(j in 1:n_simulation) {
+# Draw a sample of u
+u <- rnorm(100,mean = 0, sd = 2)
+# Draw a sample of y:
+y <- b0 + b1*xstar+u
+# regress y on xstar and store slope estimate at position j
+bhat <- coef( lm(y~xstar) )
+b1hat[j] <- bhat["xstar"]
+# Measurement error and mismeasured x:
+e1 <- rnorm(100,mean = 0, sd = 3)
+x <- xstar+e1
+# regress y on x and store slope estimate at position j
+bhat.me <- coef( lm(y~x) )
+b1hat.me[j] <- bhat.me["x"]
+}
+```
+
+```{r}
+# Mean without and with ME
+c( mean(b1hat), mean(b1hat.me) )
+# Variance without and with ME
+c( var(b1hat), var(b1hat.me) )
+# Std. Err. without and with ME
+c( sd(b1hat), sd(b1hat.me) )
+# T-value without and with ME
+c( mean(b1hat)/sd(b1hat), mean(b1hat.me)/sd(b1hat.me) )
+```
+1^2/(1^2+3^2) = 0.1
+
+# 5 Missing Data, Nonrandom Samples (IE 9-5, p. 317 '293')
+
+## 5.1 Missing Data: The MCAR Assumption
+（知道怎么样的missing data不影响回归结果：missing completely at random, exogenous sample selection）
+Key: When the data is **missing completely at random** ("MCAR"), then missing data cause no statistical problems (just drop the observations with missing values.)
+
+Not required: Say you have several x variables. Some observations misses only one of the x variables. Can you somehow keep these partially missing observations and use the information stored in the other x variables? If MCAR holds, then keeping these observation is possible if you set the missing values for the partially missing variable to zero, and **add another dummy variable** that equals one if the partially missing variable is missing, and zero otherwise to the regression. 
+
+## 5.2 Nonrandom Samples: When will estimates be affected
+
+In the saving on age example, we want to estimate how annual saving (y) depends on age (x), and only people with age >= 35 is surveyed. This is "exogenous sample selection" based on x variables. Suppose there is a "true" population model: y = b0 + b1*age + u. Then such sample selection does NOT affect the estimate. (In practice, you sometimes would write a disclaimer that your estimate may be specific to the people older than 35, to guard against the possibility that age have different effect on saving for young people.)
+
+In the wealth on education example, we want to estimate how wealth (y) depends on education (x). Suppose that only people with wealth below $25,000 are included in the sample. Then the estimate WILL be affected: This is "endogenous sample selection" based on the y variable. (Briefly, this is because we are unable to see people with high wealth as a result of their high education. Likely, the effect of education on wealth will be underestimated.)
+
+## 5.3 The Tobit Model for Corner Solution Responses (IE 17-2, p. 560 '536'; URfIE 17.3)
+
+（知道Tobit和Heckman分别适用的场景，系数的解读）
+
+tobit (source:"The journal of finance" OR source:"journal of financial economics" OR source:"THE review of financial studies")
+
+Allen, Qian, Tu and Yu (JFE 2019) study the determinants of who makes entrusted loans (委托贷款). The y variable is "the amount of entrusted loans made to other firms/asset (%)", and the x variables are ln(Asset), ROA, Sales growth, Tobin's Q, Debt/Asset, Change of debt, Cash/Asset, and a dummy for SOE. The sample are the A-share listed firms. They point out that it is not impossible that some of these firms may want to borrow through entrusted loans, not make entrusted loans. However, only lending is observed. 
+
+This is a classic example of the corner solution problem.  The y variable in the true model is net supply of entrusted loans: >0 means lenders; <0 means borrowers. What we observe is y* = max(0, y). In other words, it does not make sense for a firm to simultaneously borrow and lend; therefore, for the firms that borrow, we observe y*=0. 
+
+This is also called the censored regression. 
+
+true model: y (net supply of entrusted loans) = b0 + b1*ln(Asset) + b2*ROA + b3* Sales growth + b4*Tobin's Q + b5*Debt/Asset + b6*Change of debt + b7*Cash/Asset +b8*SOE + u
+
+observed value: y* = max(0, y)
+
+The classical solution to estimating the model above is the Tobit model, which assumes that u follows a normal distribution u~N(0, \sigma^2). Then, the econometrician can write out the likelihood function (i.e. how likely the observed data is given some parameters b0, b1, b2, ..., sigma.) Software (R, Stata, ...) can then do maximum likelihood to find the estimated parameters that is most likely given the data. 
+
+(See IE Equations 17.18-17.22; For Tobit with heteroskedasticity, not required, see the advanced Wooldridge book and the survreg package)
+
+```{r warning=FALSE}
+data(mroz, package='wooldridge')
+
+# Estimate Tobit model using censReg:
+library(censReg)
+library(stargazer)
+tobitres <- censReg(hours~nwifeinc+educ+exper+I(exper^2)+ 
+                                    age+kidslt6+kidsge6, data=mroz )
+
+stargazer(tobitres, type='text')
+# Partial Effects at the average x:
+(tobitmfx <- summary(margEff(tobitres)))
+```
+
+```{r warning=FALSE}
+tobit_mfx_coef <- tobitmfx[,1]  
+tobit_mfx_se <- tobitmfx[,2] 
+ols_full <- lm(hours~nwifeinc+educ+exper+I(exper^2)+ 
+                                    age+kidslt6+kidsge6, data=mroz)
+ols_selected <-lm(hours~nwifeinc+educ+exper+I(exper^2)+ 
+                                    age+kidslt6+kidsge6, data=mroz, subset=(hours>0))
+
+stargazer(ols_full, ols_selected, tobitres, tobitres, type="text",title = "Tobit Model of Work Hours for Married Women",intercept.bottom=FALSE,
+          coef = list(NULL, NULL, NULL, tobit_mfx_coef),
+          se   = list(NULL, NULL, NULL, tobit_mfx_se), column.labels=c("OLS Full","OLS Selected","Coefficient","Marginal Effect"),
+          digits=4,align=TRUE) 
+
+```
+
+```{r}
+load("2_lrb_ourdata.RData")
+dividend_announcement <- read.csv(file = 'stock_fhps_em_df.csv', colClasses=c("代码"="character"))
+library(dplyr)
+income_and_dividend <- left_join(ourdata, dividend_announcement, by=c("股票代码" = "代码"))
+income_and_dividend$是否现金分红 <-  ifelse(is.na(income_and_dividend$现金分红.股息率), 0, 1)
+income_and_dividend[sapply(income_and_dividend, is.infinite)] <- NA
+```
+```{r}
+library(sandwich)
+# Estimate linear probability model
+div_model_lpm <- lm(是否现金分红~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+I(上市板块_factorized)+销售费用比率+管理费用比率,data=income_and_dividend)
+# Adjust standard errors
+cov1         <- vcovHC(div_model_lpm, type = "HC0") # White's estimator
+div_robust_se    <- sqrt(diag(cov1))
+# Stargazer output (with and without RSE)
+library(stargazer)
+stargazer(div_model_lpm, div_model_lpm, type = "text",
+          se = list(div_robust_se, NULL))
+```
+
+DIY: Please set a variable that equals zero if the firm has no cash dividends for 2021Y and equals the dividend ratio if otherwise.
+Compare OLS and Tobit regression for the same LHS variable (as defined above) and the same set of RHS variables (as in the LPM/logit regressions).
+
+```{r}
+library(tidyr)
+library(stargazer)
+library(lmtest); library(car); library(sandwich)
+income_and_dividend$dividend_ratio <- replace_na(income_and_dividend$现金分红.股息率,0)
+stargazer(income_and_dividend['dividend_ratio'], type='text', iqr=TRUE)
+
+div_tobitres <- censReg(dividend_ratio~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+I(上市板块_factorized)+销售费用比率+管理费用比率,data=income_and_dividend)
+
+# stargazer(div_tobitres, type='text')
+# Partial Effects at the average x:
+div_tobitmfx <- summary(margEff(div_tobitres))
+div_tobit_mfx_coef <- div_tobitmfx[,1]  
+div_tobit_mfx_se <- div_tobitmfx[,2] 
+div_ols_full <- lm(dividend_ratio~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+I(上市板块_factorized)+销售费用比率+管理费用比率,data=income_and_dividend)
+# Adjust standard errors
+div_ols_full_cov1         <- vcovHC(div_ols_full, type = "HC0") # White's estimator
+div_ols_full_robust_se    <- sqrt(diag(div_ols_full_cov1))
+
+div_ols_selected <-lm(dividend_ratio~log10营业总收入+净利率+营业总收入同比增长率+净利润同比增长率+I(上市板块_factorized)+销售费用比率+管理费用比率,data=income_and_dividend, subset=(dividend_ratio>0))
+# Adjust standard errors
+div_ols_selected_cov1         <- vcovHC(div_ols_selected, type = "HC0") # White's estimator
+div_ols_selected_robust_se    <- sqrt(diag(div_ols_selected_cov1))
+
+stargazer(div_ols_full, div_ols_selected, div_tobitres, div_tobitres, type="text",title = "Tobit Model of Dividend Ratio of Public Firms",intercept.bottom=FALSE,
+          coef = list(NULL, NULL, NULL, div_tobit_mfx_coef),
+          se   = list(div_ols_full_robust_se, div_ols_selected_robust_se, NULL, div_tobit_mfx_se), column.labels=c("OLS Full","OLS Selected","Coefficient","Marginal Effect"),
+          digits=4,align=TRUE) 
+
+
+```
+
+
+## 5.4 Sample Selection Corrections: Heckman's Selection Model (Not required; IE 17.5b; URfIE 17.5)
+
+heckman (source:"The journal of finance" OR source:"journal of financial economics" OR source:"THE review of financial studies")
+
+The previously mentioned Allen et al (JFE 2019) paper also studies the cumulated abnormal return (CAR) of entrusted loan announcements (y), how it depends on whether it is the first announcement of the same loan, the loan amount, the interest rate, the maturity, and the collateral. One problem is that requirement for entrusted loan announcement is vague -- firms are not required to announce entrusted loans made. Maybe larger loans, healthier firms, and SOEs will more likely announce entrusted loans. Some entrusted loans are only disclosed in annual reports and not announced. 
+
+In the public firm data that we are familiar with, suppose that some firms disclose environmental-friendly projects and the project returns, and you want to estimate the return characteristics of green projects for public firms. 
+
+The sample selection problem here is differ from the Tobit or censoring problem. Selection into the sample depends not on a censoring variable, but a binary outcome (binary choice) problem (in the above example, making an announcement). The idea is that maybe selection into the sample is because of some unobserved benefit, and this unobserved benefit explains the y variable. If we do not include the unobserved benefit, then there is a omitted variable bias in the OLS. 
+
+James Heckman at Chicago developed a method named after him that estimates:
+
+(1) A first-stage probit model of whether the data is observed (disclosed). The probit model is $s=1[z\gamma + \nu>=0]$, where $\nu$ is normal (this is another way of writing the probit model, equivalent from before).  How to measure the unobserved benefit? Notice that the smaller $z\gamma$ is, the larger $\nu$ must be --- the firm must have a lot of unobserved benefit for disclosure! 
+
+(2) Heckman then prove that $\lambda(z\gamma)$ where $\lambda(\cdot)$ is the inverse Mills ratio (normal pdf/normal cdf) is the correct measure of unobserved benefit under a normal distribution assumption. In the second step, calculate the inverse Mills ratio. Include it as a control in the second-stage OLS regression. This should solve the omitted variable bias problem. 
+
+```{r}
+# The Inverse Mills Ratio (IMR) function
+IMR <- Vectorize( function(x) exp( dnorm(x,log=T) - pnorm(x,log.p = T) ) )
+curve(IMR, -15, 15, n = 10000, lwd = 2, cex.axis=1.5, cex.lab=1.5, xlab="x", ylab="IMR", main = "Inverse Mills Ratio")
+```
+
+Wooldridge's example: Determinants of wage for married woman
+
+```{r warning=FALSE}
+library(sampleSelection)
+data(mroz, package='wooldridge')
+
+# Estimate OLS
+
+OLSRes <-lm(log(wage)~educ+exper+I(exper^2), data=mroz)
+
+# Estimate Heckman selection model (2 step version)
+HeckmanRes<-selection(inlf~educ+exper+I(exper^2)+nwifeinc+age+kidslt6+kidsge6,
+           log(wage)~educ+exper+I(exper^2), data=mroz, method="2step" )
+# Summary of results:
+stargazer(OLSRes,HeckmanRes,type="text")
+```
+Note that the second-stage x variables has to be a strict subset of the first-stage z variables. This is required by Heckman (and Wooldridge.) At least, there must be z variables that are not in x to ensure no multicolinearity. If you disobey their requirement, you often can still estimate the model, but the model estimates cannot be trusted (they are only estimated from the function form assumption of $\lambda(\cdot)$. See below). 
+
+```{r warning=FALSE}
+library(sampleSelection)
+data(mroz, package='wooldridge')
+
+# Estimate OLS
+
+OLSRes <-lm(log(wage)~educ+exper+I(exper^2), data=mroz)
+
+# Estimate Heckman selection model (2 step version)
+HeckmanRes<-selection(inlf~educ+exper+I(exper^2)+nwifeinc+age+kidslt6+kidsge6,
+           log(wage)~educ+exper+I(exper^2), data=mroz, method="2step" )
+
+# Estimate Heckman selection model (2 step version, but x is same with z)
+HeckmanRes2<-selection(inlf~educ+exper+I(exper^2),
+           log(wage)~educ+exper+I(exper^2), data=mroz, method="2step" )
+# Summary of results:
+stargazer(OLSRes,HeckmanRes,HeckmanRes2,type="text")
+```
+In column 3, because x is not a strict subset of z, strong collinearity makes the Heckman model coefficients insignificant.
+
+# 6 Outliers 
+
+(考winsorization和trimming)
+
+## 6.0 Introduction to Outliers (IE 9-5c, p. 320 '296', URfIE chapter 9.4, studres)
+
+Look at 5_figure_1_adams_et_al_outlier_2018.PNG
+
+```{r}
+data(rdchem, package='wooldridge')
+
+# Regression
+reg <- lm(rdintens~sales+profmarg, data=rdchem)
+stargazer(reg,type='text')
+```
+
+
+```{r}
+# Studentized residuals for all observations:
+studres <- rstudent(reg)
+rdchem$studres <- studres
+```
+
+
+```{r}
+# Display extreme values:
+min(studres)
+max(studres)
+
+# Histogram (and overlayed density plot):
+hist(studres, freq=FALSE)
+lines(density(studres), lwd=2)
+
+```
+
+
+```{r}
+library(ggplot2)
+ggplot(data = rdchem, aes(y=rdintens, x=sales,color=studres))+geom_point()+geom_smooth(method="lm")+scale_color_gradient2(midpoint=0, low="blue", mid="white",high="red", space ="Lab" )
+ggplot(data = rdchem, aes(y=rdintens, x=profmarg,color=studres))+geom_point()+geom_smooth(method="lm")+scale_color_gradient2(midpoint=0, low="blue", mid="white",high="red", space ="Lab" )
+```
+
+## 6.1 Winsorizing and Trimming
+
+Suppose some observations from the CEO salary example has its x variable (ROE) multiplied by 100. What happens now?
+
+```{r}
+data(ceosal1, package='wooldridge')
+# Estimate log-log model
+logmodel1 <- lm( log(salary) ~ roe, data=ceosal1)
+
+ceosal2 <- ceosal1
+ceosal2$roe[1] <-ceosal2$roe[1]*100
+ceosal2$salary[2] <-ceosal2$salary[2]*1000
+
+
+
+logmodel2 <- lm( log(salary) ~ roe, data=ceosal2)
+stargazer(logmodel1, logmodel2, type='text')
+```
+```{r}
+# Studentized residuals for all observations:
+studres <- rstudent(logmodel2)
+# Display extreme values:
+min(studres)
+max(studres)
+
+# Histogram (and overlayed density plot):
+hist(studres, freq=FALSE)
+lines(density(studres), lwd=2)
+ceosal2$studres <- studres
+head(ceosal2[c('salary','roe','studres')])
+```
+
+How to solve this issue? Finance research traditionally use winsorize (see package DescTools, or just write your own) instead of trimming. This is because winsorize do not throw away observations. 
+
+```{r}
+winsor <- 
+function (x, fraction=.01)
+{
+   if(length(fraction) != 1 || fraction < 0 ||
+         fraction > 0.5) {
+      stop("bad value for 'fraction'")
+   }
+   lim <- quantile(x, probs=c(fraction, 1-fraction))
+   x[ x < lim[1] ] <- lim[1]
+   x[ x > lim[2] ] <- lim[2]
+   x
+}
+```
+
+```{r}
+ceosal2$roe_w <- winsor(ceosal2$roe)
+ceosal2$salary_w <- winsor(ceosal2$salary)
+
+logmodel3 <- lm( log(salary_w) ~ roe_w, data=ceosal2)
+stargazer(logmodel1, logmodel2, logmodel3, type='text')
+
+ggplot(ceosal1, aes(x=roe,y=log(salary))) + geom_point() + geom_smooth(method='lm')
+ggplot(ceosal2, aes(x=roe,y=log(salary))) + geom_point() + geom_smooth(method='lm')
+ggplot(ceosal2, aes(x=roe_w,y=log(salary_w))) + geom_point() + geom_smooth(method='lm')
+```
+
+```{r}
+ttrim <- 
+function (x, fraction=.01)
+{
+   if(length(fraction) != 1 || fraction < 0 ||
+         fraction > 0.5) {
+      stop("bad value for 'fraction'")
+   }
+   lim <- quantile(x, probs=c(fraction, 1-fraction))
+   x[ x < lim[1] ] <- NA
+   x[ x > lim[2] ] <- NA
+   x
+}
+```
+
+```{r}
+ceosal2$roe_t <- ttrim(ceosal2$roe)
+ceosal2$salary_t <- ttrim(ceosal2$salary)
+
+logmodel4 <- lm( log(salary_t) ~ roe_t, data=ceosal2)
+stargazer(logmodel2, logmodel3, logmodel4, type='text', column.labels = c("Original", "Winsor", "Trim"))
+
+ggplot(ceosal1, aes(x=roe,y=log(salary))) + geom_point() + geom_smooth(method='lm')
+ggplot(ceosal2, aes(x=roe,y=log(salary))) + geom_point() + geom_smooth(method='lm')
+ggplot(ceosal2, aes(x=roe_w,y=log(salary_w))) + geom_point() + geom_smooth(method='lm')
+ggplot(ceosal2, aes(x=roe_t,y=log(salary_t))) + geom_point() + geom_smooth(method='lm')
+```
+
+## 6.2 LAD and quantile regressions (IE 9-6, p. 324 '300'; URfIE chapter 9.5, 不要求)
+
+Quantile regression is useful for small-scale outliers (not the above CEO salary example where the error is in the unit of measurement.)
+
+```{r}
+library(quantreg)
+logmodel5 <- rq( log(salary) ~ roe, data=ceosal2)
+stargazer(logmodel2, logmodel3, logmodel4, logmodel5, type='text', column.labels = c("Original", "Winsor", "Trim", "Quan"))
+
+```
+
+
+```{r}
+data(rdchem, package='wooldridge')
+
+# OLS Regression
+ols <- lm(rdintens ~ I(sales/1000) +profmarg, data=rdchem)
+# Studentized residuals for all observations:
+studres <- rstudent(ols)
+# Display extreme values:
+min(studres)
+max(studres)
+
+# Histogram (and overlayed density plot):
+hist(studres, freq=FALSE)
+lines(density(studres), lwd=2)
+```
+```{r}
+# LAD Regression
+library(quantreg)
+lad <- rq(rdintens ~ I(sales/1000) +profmarg, data=rdchem)
+
+# regression table
+library(stargazer)
+stargazer(ols,lad,  type = "text")
+```
+```{r}
+
+rdchem$rdintens_w <- winsor(rdchem$rdintens)
+rdchem$sales_w <- winsor(rdchem$sales)
+rdchem$profmarg_w <- winsor(rdchem$profmarg)
+
+ols_winsor <- lm( rdintens_w ~ I(sales_w/1000) +profmarg_w, data=rdchem)
+stargazer(ols,lad,ols_winsor,  type = "text")
+
+```
+
+https://cran.r-project.org/web/packages/quantreg/vignettes/rq.pdf (Figure 1)
+
+A better use of quantile regression is to highlight diversity in the data (heterogeneity)
+
+```{r}
+library(quantreg)
+data(engel)
+attach(engel)
+plot(income,foodexp,cex=.25,type="n",xlab="Household Income", ylab="Food Expenditure")
+points(income,foodexp,cex=.5,col="blue")
+abline(rq(foodexp~income,tau=.5),col="blue")
+abline(lm(foodexp~income),lty=2,col="red") #the ols line
+taus <- c(.05,.1,.25,.75,.90,.95)
+for( i in 1:length(taus)){
+  abline(rq(foodexp~income,tau=taus[i]),col="gray") #the quantile regression lines (.05,.1,.25,.75,.90,.95)
+  }
+```

@@ -1,0 +1,270 @@
+---
+title: "Remainder of URfIE Chapter 1"
+author: "FinEmt 2024"
+date: "2022/11/21"
+output: html_document
+---
+
+
+```{r setup, include=FALSE, echo=FALSE}
+require("knitr")
+# basedirectory = 'C://Users//yzhan//SynologyDrive//Dropbox//Teaching教学//金融硕金融计量//'
+basedirectory = 'D://SynologyDrive//Dropbox//Teaching教学//金融硕金融计量//'
+subdirectory = 'Rfiles//'
+workdirectory = paste(basedirectory, subdirectory, sep = '')
+opts_knit$set(root.dir = workdirectory)
+Sys.setlocale("LC_ALL", "zh_CN.UTF-8")
+```
+
+## 1.4 Base Graphics
+
+In R, a function plot can be generated using the command **curve( function(x), xmin, xmax )**
+
+```{r}
+curve( x^2, -2, 2)
+```
+```{r}
+curve( dnorm(x, mean=0.2, sd=0.4), -1, 1.5)
+```
+
+Base R plotting can also handle (1) overlays of multiple plots and (2) adding graph legends
+
+```{r}
+curve( dnorm(x,0,1), -10, 10, lwd=1, lty=1)
+curve( dnorm(x,0,2),add=TRUE, lwd=2, lty=2)
+curve( dnorm(x,0,3),add=TRUE, lwd=3, lty=3)
+# Add the legend
+# legend("topright",c("sigma=1","sigma=2","sigma=3"), lwd=1:3, lty=1:3)
+# Add the legend with greek sigma
+legend("topleft",expression(sigma==1,sigma==2,sigma==3),lwd=1:3,lty=1:3)
+# Add the text with the formula, centered at x=6 and y=0.3
+text(6,.3,
+expression(f(x)==frac(1,sqrt(2*pi)*sigma)*e^{-frac(x^2,2*sigma^2)}))
+```
+
+## 1.5 "Tidyverse": `ggplot2` + `dplyr`
+
+Tidyverse is a set of packages (e.g. `ggplot2` and `dplyr`) that makes the R workflow "pretty". 
+
+### 1.5.1 `ggplot2`
+
+First, let us use the `ret_im` data set that we constructed earlier with the package `ggplot2` to try out the command `ggplot`.
+
+```{r echo=FALSE}
+library(ggplot2)
+```
+```{r}
+load('1_moutai_hs300.RData')
+head(ret_im)
+```
+A simple scatter plot (`geom_point`)
+```{r}
+# ggplot() + geom_point( data=ret_im, aes(x=ret_m, y=ret_i) )
+ggplot(data=ret_im, aes(x=ret_m, y=ret_i) ) + geom_point()
+# ggplot(data=mpg, aes(x=displ, y=hwy)) + geom_point()
+```
+A scatter plot with regression line or smoothed line (`geom_point` + `geom_smooth`)
+```{r}
+# ggplot() + geom_point( data=ret_im, aes(x=ret_m, y=ret_i) ) + geom_smooth(data=ret_im, aes(x=ret_m, y=ret_i) )
+ggplot(data=ret_im, aes(x=ret_m, y=ret_i)) + geom_point() + geom_smooth()
+```
+```{r}
+# ggplot() + geom_point( data=ret_im, aes(x=ret_m, y=ret_i)) ) + geom_smooth(data=ret_im, aes(x=ret_m, y=ret_i), method='lm', formula = y~x )
+ggplot(data=ret_im, aes(x=ret_m, y=ret_i)) + geom_point() + geom_smooth(method='lm')
+```
+
+You can use `labs()` to modify the axis labels. 
+
+```{r}
+# ggplot() + geom_point( data=ret_im, aes(x=ret_m, y=ret_i) ) + geom_smooth(data=ret_im, aes(x=ret_m, y=ret_i), method='lm', formula = y~x )
+ggplot(data=ret_im, aes(x=ret_m, y=ret_i)) + geom_point() + geom_smooth(method='lm') + labs(x="Market return (HS300)",y="Stock return (Moutai)")
+```
+
+You can group the data using `color` or shape:
+
+```{r}
+ggplot(ret_im, aes(x=ret_m, y=ret_i)) + geom_point(aes(color=单数日))
+```
+```{r warning = FALSE, message=FALSE}
+ggplot(ret_im, aes(x=ret_m, y=ret_i, color=单数日, shape=单数日)) + geom_point() + geom_smooth(se=FALSE) 
+```
+
+### 1.5.2 `dplyr`
+
+Let us use the income statement data for the 2024 report year from akshare to illustrate the `dplyr` package
+
+```{r}
+library(reticulate)
+ak <- import("akshare") 
+income_statement <- ak$stock_lrb_em(date= "20241231")
+income_statement$公告日期 <- as.Date(unlist(income_statement$公告日期))
+save(income_statement, file = "2_income_statement.RData")
+```
+Let us examine the income statement data
+```{r}
+load("2_income_statement.RData")
+print(head(income_statement))
+```
+
+```{r}
+load("2_income_statement.RData")
+print(summary(income_statement))
+```
+
+```{r echo=FALSE}
+library(dplyr)
+```
+
+```{r}
+ourdata <- income_statement
+# rename variables
+ourdata <- rename(ourdata, 营业支出='营业总支出-营业支出')
+```
+```{r}
+ourdata <- rename(ourdata, 销售费用='营业总支出-销售费用',
+                           管理费用='营业总支出-管理费用',
+                           财务费用='营业总支出-财务费用',
+                           营业总支出='营业总支出-营业总支出')
+colnames(ourdata)
+```
+```{r}
+(testdata <- select(ourdata, 股票代码, 股票简称, 公告日期, 营业总收入同比))
+```
+
+```{r}
+# order by annoucement date (increasing)
+(ourdata <- arrange(ourdata, 公告日期))
+```
+
+```{r}
+# filter: only 创业板企业
+(testdata <- filter(testdata, substr(股票代码,1,1)=="3"))
+```
+
+```{r}
+if(!require('DescTools')) {
+  install.packages('DescTools')
+}
+library(DescTools)
+# mutate: generate new variables
+ourdata <- mutate(ourdata, 上市板块=substr(股票代码,1,1))
+ourdata <- mutate(ourdata, 毛利率=1-营业支出/营业总收入)
+ourdata <- mutate(ourdata, 净利率=净利润/营业总收入)
+ourdata <- mutate(ourdata, 销售费用比率=销售费用/营业总收入)
+ourdata <- mutate(ourdata, 管理费用比率=管理费用/营业总收入)
+ourdata <- mutate(ourdata, 营业总收入同比增长率=Winsorize(营业总收入同比/100,quantile(营业总收入同比/100,probs=c(0.01,0.99),na.rm=TRUE)))
+ourdata <- mutate(ourdata, 净利润同比增长率=Winsorize(净利润同比/100,quantile(净利润同比/100,probs=c(0.01,0.99),na.rm=TRUE)))
+```
+
+```{r}
+# Head and tail of data
+head(ourdata)
+tail(ourdata)
+# summary of data
+summary(ourdata)
+# 营业总收入增长率
+```
+
+`dplyr` also provides an equivalent way called the "pipe" (`%>%`)
+
+```{r}
+library(DescTools)
+remove(ourdata)
+ourdata <- income_statement %>% 
+  # rename variables
+    rename(营业支出='营业总支出-营业支出') %>%
+  # rename  variables
+    rename(销售费用='营业总支出-销售费用',
+           管理费用='营业总支出-管理费用',
+           财务费用='营业总支出-财务费用',
+           营业总支出='营业总支出-营业总支出') %>%
+  # generate variables
+    mutate(上市板块=substr(股票代码,1,1)) %>%
+    mutate(毛利率=1-营业支出/营业总收入) %>%
+    mutate(净利率=净利润/营业总收入) %>%
+    mutate(销售费用比率=Winsorize(销售费用/营业总收入,quantile(销售费用/营业总收入,probs=c(0.05,0.95),na.rm=TRUE))) %>%
+    mutate(管理费用比率=Winsorize(管理费用/营业总收入,quantile(管理费用/营业总收入,probs=c(0.05,0.95),na.rm=TRUE))) %>%
+    mutate(营业总收入同比增长率=Winsorize(营业总收入同比/100,quantile(营业总收入同比/100,probs=c(0.05,0.95),na.rm=TRUE))) %>%
+    mutate(净利润同比增长率=Winsorize(净利润同比/100,quantile(净利润同比/100,probs=c(0.01,0.99),na.rm=TRUE))) %>%
+    mutate(log10营业总收入=log10(营业总收入)) %>%
+  # order by announcement date (increasing)
+    arrange(公告日期)
+# Head and tail of data
+head(ourdata)
+tail(ourdata)
+```
+```{r}
+# Graph
+library(ggplot2)
+ggplot(data=ourdata, aes(x=log10营业总收入,y=营业总收入同比增长率,color=上市板块)) + 
+  geom_point() +
+  theme_light() + 
+  geom_smooth(method='lm') +
+  labs(title="营收增长率与营收规模的关系",
+       subtitle="数据来源：2021年A股上市公司年报",
+       y = "营业总收入同比增长率",
+       x = "营业总收入 (log10)",
+       color = "上市板块"
+       ) 
+```
+```{r}
+# Graph
+library(ggplot2)
+ggplot(data = ourdata, aes(x=销售费用比率,y=营业总收入同比增长率,color=上市板块)) + 
+  geom_point() +
+  geom_smooth(method='lm') +
+  theme_light() + 
+  labs(title="营收增长率与销售费用比率的关系",
+       subtitle="数据来源：2023年A股上市公司年报",
+       y = "营业总收入同比增长率",
+       x = "销售费用比率",
+       color = "上市板块"
+       ) 
+```
+
+The 上市板块 groups are not labeled in the above graph. To perfect it, we need to understand `factor` in R.
+
+```{r}
+unique(ourdata$上市板块)
+```
+R can `factor` the income groups into a more meaningful ordering. 
+
+```{r}
+# Order the levels meaningfully
+ourdata$上市板块_factorized <- factor( ourdata$上市板块, 
+                          levels = c("0","3","6"), # levels = unique(ourdata$上市板块), 
+                          labels = c("深证主板","创业板","上证主板") )
+unique(ourdata$上市板块_factorized)
+```
+```{r}
+# Graph
+library(ggplot2)
+ggplot(data=ourdata, aes(x=log10营业总收入,y=营业总收入同比增长率,color=上市板块_factorized)) + 
+  geom_point() +
+  theme_light() + 
+  geom_smooth(method='lm') +
+  labs(title="营收增长率与营收规模的关系",
+       subtitle="数据来源：2021年A股上市公司年报",
+       y = "营业总收入同比增长率",
+       x = "营业总收入 (log10)",
+       color = "上市板块"
+       ) 
+```
+```{r}
+# Graph
+library(ggplot2)
+ggplot(data = ourdata, aes(x=销售费用比率,y=营业总收入同比增长率,color=上市板块_factorized)) + 
+  geom_point() +
+  geom_smooth(method='lm') +
+  theme_light() + 
+  labs(title="营收增长率与销售费用比率的关系",
+       subtitle="数据来源：2021年A股上市公司年报",
+       y = "营业总收入同比增长率",
+       x = "销售费用比率",
+       color = "上市板块"
+       ) 
+```
+
+```{r}
+save(ourdata, file="2_income_statement_ourdata.RData")
+```
