@@ -1,0 +1,153 @@
+﻿                                                                          MultipleMultiple  RegressionRegression
+            Chapter 5                                                     Analysis:Analysis:  OLSOLS  
+                                                                          AsymptoticsAsymptotics
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a certain product or service 
+or otherwise on a password-protected website or school-approved learning management system for classroom use.   © kentoh/Shutterstock.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  OLSOLS  AsymptoticsAsymptotics
+
+        ● So far we focused on properties of OLS that hold for any 
+          sample
+
+        ● Properties of OLS that hold for any sample/sample size
+           • Expected values/unbiasedness under MLR.1 – MLR.4
+           • Variance formulas under MLR.1 – MLR.5
+           • Gauss-Markov Theorem under MLR.1 – MLR.5
+           • Exact sampling distributions/tests under MLR.1 – MLR.6
+
+        ● Properties of OLS that hold in large samples Without assuming nor-
+                                                       mality of the error term! 
+           • Consistency under MLR.1 – MLR.4
+           • Asymptotic normality/tests under MLR.1 – MLR.5
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  OLSOLS  AsymptoticsAsymptotics
+
+        ● Consistency
+
+          An estimator      is consistent for a population parameter   if
+
+                                for arbitrary            and             .
+
+         Alternative notation:
+                                            The estimate converges in proba-
+                                            bility to the true population value
+        ● Interpretation:
+           • Consistency means that the probability that the estimate is arbitrari-   
+             ly close to the true population value can be made arbitrarily high by 
+             increasing the sample size
+
+        ● Consistency is a minimum requirement for sensible estimators
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  OLSOLS  AsymptoticsAsymptotics
+
+    ● Theorem 5.1 (Consistency of OLS)
+
+
+    ● Special case of simple regression model
+
+
+                   One can see that the slope estimate is consistent 
+                   if the explanatory variable is exogenous, i.e. un-
+                   correlated with the error term.
+    ● Assumption MLR.4‘
+
+
+                 All explanatory variables must be uncorrelated with the 
+                 error term. This assumption is weaker than the zero 
+                 conditional mean assumption MLR.4.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  OLSOLS  AsymptoticsAsymptotics
+
+    ● For consistency of OLS, only the weaker MLR.4‘ is needed
+
+    ● Asymptotic analog of omitted variable bias
+
+                     True model
+
+                               Misspecified 
+                               model
+
+
+                                 Bias
+
+
+                There is no omitted variable bias if the omitted variable is 
+                irrelevant or uncorrelated with the included variable
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  OLSOLS  AsymptoticsAsymptotics
+
+        ● Asymptotic normality and large sample inference
+           • In practice, the normality assumption MLR.6 is often questionable
+           • If MLR.6 does not hold, the results of t- or F-tests may be wrong
+           • Fortunately, F- and t-tests still work if the sample size is large 
+             enough
+           • Also, OLS estimates are normal in large samples even without MLR.6
+
+        ● Theorem 5.2 (Asymptotic normality of OLS)
+
+            Under assumptions MLR.1 – MLR.5:
+
+                                  In large samples, the 
+                                  standardized estimates also 
+                                  are normally distributed
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  OLSOLS  AsymptoticsAsymptotics
+
+    ● Practical consequences
+     • In large samples, the t-distribution is close to the Normal(0,1) 
+       distribution
+     • As a consequence, t-tests are valid in large samples without MLR.6
+     • The same is true for confidence intervals and F-tests
+     • Important: MLR.1 – MLR.5 are still necessary, esp. homoskedasticity
+
+    ● Asymptotic analysis of the OLS sampling errors
+                          Converges to
+
+
+        Converges to    Converges to a fixed 
+                        number
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  OLSOLS  AsymptoticsAsymptotics
+
+    ● Asymptotic analysis of the OLS sampling errors (cont.)
+
+          shrinks with the rate 
+
+          shrinks with the rate 
+
+    ● This is why large samples are better
+
+    ● Example: Standard errors in a birth weight equation
+
+
+         Use only the first half of observations
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.

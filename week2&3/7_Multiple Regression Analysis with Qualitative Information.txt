@@ -1,0 +1,428 @@
+﻿          MultipleMultiple  RegressionRegression  
+          AnalysisAnalysis  withwith  
+  Chapter 7
+          QualitativeQualitative  
+          InformationInformation  
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a certain product or service 
+or otherwise on a password-protected website or school-approved learning management system for classroom use.   © kentoh/Shutterstock.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Qualitative Information
+     • Examples: gender, race, industry, region, rating grade, …
+     • A way to incorporate qualitative information is to use dummy 
+       variables
+     • They may appear as the dependent or as independent variables
+
+    ● A single dummy independent variable
+
+
+        = the wage gain/loss if the person Dummy variable:
+        is a woman rather than a man =1 if the person is a woman 
+        (holding other things fixed) =0 if the person is man 
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Graphical Illustration
+
+
+                       Alternative interpretation of coefficient:
+
+
+                       i.e. the difference in mean wage between 
+                       men and women with the same level of 
+                       education.
+
+
+                       Intercept shift
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Dummy variable trap
+                   This model cannot be estimated (perfect collinearity)
+
+
+   When using dummy variables, one category always has to be omitted:
+
+                          The base category are men
+
+                          The base category are women
+
+
+   Alternatively, one could omit the intercept: Disadvantages: 
+                           1) More difficult to test for diffe-
+                           rences between the parameters
+                           2) R-squared formula only valid
+                           if regression contains intercept
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Estimated wage equation with intercept shift
+
+
+                         Holding education, experience, 
+                         and tenure fixed, women earn 
+                         $1.81 less per hour than men
+
+
+    ● Does that mean that women are discriminated against?
+     • Not necessarily. Being female may be correlated with other produc-
+       tivity characteristics that have not been controlled for.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Comparing means of subpopulations described by dummies
+
+
+                      Not holding other factors constant, women 
+                      earn $2.51per hour less than men, i.e. the 
+                      difference between the mean wage of men 
+                      and that of women is $2.51.
+
+    ● Discussion
+     • It can easily be tested whether difference in means is significant
+     • The wage difference between men and women is larger if no other 
+       things are controlled for; i.e. part of the difference is due to differ-
+       ences in education, experience, and tenure between men and 
+       women
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Further example: Effects of training grants on hours of training
+
+    Hours training per employee Dummy variable indicating whether firm received a 
+                 training grant
+
+
+    ● This is an example of program evaluation
+     • Treatment group (= grant receivers) vs. control group (= no grant)
+     • Is the effect of treatment on the outcome of interest causal?
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Using dummy explanatory variables in equations for log(y)
+
+
+                           Dummy indicating 
+                           whether house is of 
+                           colonial style
+
+
+                          As the dummy for colonial 
+                          style changes from 0 to 1, 
+                          the house price increases 
+                          by 5.4 percentage points
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Using dummy variables for multiple categories
+     • 1) Define membership in each category by a dummy variable
+     • 2) Leave out one category (which becomes the base category)
+
+
+    Holding other things fixed, married 
+    women earn 19.8% less than single 
+    men (= the base category)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Incorporating ordinal information using dummy variables
+
+    ● Example: City credit ratings and municipal bond interest rates
+
+     Municipal bond rate Credit rating from 0-4 (0=worst, 4=best)
+
+
+   This specification would probably not be appropriate as the credit rating only contains 
+   ordinal information. A better way to incorporate this information is to define dummies:
+
+
+   Dummies indicating whether the particular rating applies, e.g. CR1=1 if CR=1, and CR1=0 
+   otherwise. All effects are measured in comparison to the worst rating (= base category).
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Interactions involving dummy variables
+                                Interaction term
+    ● Allowing for different slopes
+
+
+           =  intercept men =  slope men
+
+           =  intercept women =  slope women
+
+    ● Interesting hypotheses
+
+
+          The return to education is the The whole wage equation is 
+          same for men and women the same for men and women
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Graphical illustration
+
+
+                          Interacting both the intercept and 
+                          the slope with the female dummy 
+                          enables one to model completely 
+                          independent wage equations for men 
+                          and women
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Estimated wage equation with interaction term 
+
+
+                  Does this mean that there is no significant evidence of 
+    No evidence against hypothesis that lower pay for women at the same levels of educ, exper, 
+    the return to education is the same and tenure? No: this is only the effect for educ = 0. To 
+    for men and women answer the question one has to recenter the interaction 
+                  term, e.g. around educ = 12.5 (= average education).
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Testing for differences in regression functions across groups
+
+    ● Unrestricted model (contains full set of interactions)
+
+   College grade point average Standardized aptitude test score High school rank percentile
+
+
+                                Total hours spent
+                                in college courses
+    ● Restricted model (same regression for both groups)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Null hypothesis    All interaction effects are zero, i.e. the 
+                         same regression coefficients apply to 
+                         men and women
+
+    ● Estimation of the unrestricted model
+
+
+                             Tested individually, 
+                             the hypothesis that 
+                             the interaction effects 
+                             are zero cannot be 
+                             rejected
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+
+    ● Joint test with F-statistic Null hypothesis is rejected
+
+
+    ● Alternative way to compute F-statistic in the given case
+     • Run separate regressions for men and for women; the unrestricted 
+       SSR is given by the sum of the SSR of these two regressions
+     • Run regression for the restricted model and store SSR
+     • If the test is computed in this way it is called the Chow-Test
+     • Important: Test assumes a constant error variance accross groups
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● A Binary dependent variable: the linear probability model
+
+    ● Linear regression when the dependent variable is binary
+
+                          If the dependent variable only 
+                          takes on the values 1 and 0
+
+
+                              Linear probability 
+                              model (LPM)
+
+
+                     In the linear probability model, the coefficients 
+                     describe the effect of the explanatory variables 
+                     on the probability that y=1
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Example: Labor force participation of married women
+
+    =1 if in labor force, =0 otherwise Non-wife income (in thousand dollars per year)
+
+
+                           If the number of kids under six 
+                           years increases by one, the pro- 
+                           probability that the woman 
+                           works falls by 26.2%
+
+          Does not look significant (but see below)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Example: Female labor participation of married women (cont.)
+
+
+                         Graph for nwifeinc=50, exper=5, 
+                         age=30, kindslt6=1, and kidsge6=0
+
+
+                         The maximum level of education in 
+                         the sample is educ=17. For the gi-
+                         ven case, this leads to a predicted 
+                         probability to be in the labor force 
+                         of about 50%.
+
+                         Negative predicted probability but 
+                         no problem because no woman in 
+                         the sample has educ < 5.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Disadvantages of the linear probability model
+     • Predicted probabilities may be larger than one or smaller than zero
+     • Marginal probability effects sometimes logically impossible
+     • The linear probability model is necessarily heteroskedastic
+
+                               Variance of Ber-
+                               noulli variable
+
+     • Heteroskedasticity consistent standard errors need to be computed
+
+    ● Advantanges of the linear probability model
+     • Easy estimation and interpretation
+     • Estimated effects and predictions are often reasonably good in 
+       practice
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● More on policy analysis and program evaluation
+
+    ● Example: Effect of job training grants on worker productivity
+
+      The firm‘s scrap rate =1 if firm received training grant, =0 otherwise
+
+
+                              No apparent effect of 
+                              grant on productivity
+
+
+     Treatment group: grant receivers, Control group: firms that received no grant
+
+     Grants were given on a first-come, first-served basis. This is not the same as giving them out 
+     randomly. It might be the case that firms with less productive workers saw an opportunity to 
+     improve productivity and applied first.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Self-selection into treatment as a source for endogeneity
+     • In the given and in related examples, the treatment status is 
+       probably related to other characteristics that also influence the 
+       outcome
+     • The reason is that subjects self-select themselves into treatment 
+       depending on their individual characteristics and prospects
+
+    ● Experimental evaluation
+     • In experiments, assignment to treatment is random
+     • In this case, causal effects can be inferred using a simple regression
+
+                    The dummy indicating whether or not there was 
+                    treatment is unrelated to other factors affecting 
+                    the outcome. 
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression  AnalysisAnalysis  
+     withwith  QualitativeQualitative  InformationInformation  
+
+    ● Further example of an endogenous dummy regressor
+     • Are nonwhite customers discriminated against?
+
+   Dummy indicating whether Race dummy
+   loan was approved             Credit rating
+
+
+     • It is important to control for other characteristics that may be 
+       important for loan approval (e.g. profession, unemployment)
+     • Omitting important characteristics that are correlated with the non-
+       white dummy will produce spurious evidence for discrimination
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.

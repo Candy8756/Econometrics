@@ -1,0 +1,308 @@
+﻿                                                                          MultipleMultiple  
+                                                                          RegressionRegression
+            Chapter 6
+                                                                          Analysis:Analysis:  
+                                                                          FurtherFurther  IssuesIssues
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a certain product or service 
+or otherwise on a password-protected website or school-approved learning management system for classroom use.   © kentoh/Shutterstock.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+        ● More on Functional Form
+
+        ● More on using logarithmic functional forms
+           • Convenient percentage/elasticity interpretation
+           • Slope coefficients of logged variables are invariant to rescalings
+           • Taking logs often eliminates/mitigates problems with outliers
+           • Taking logs often helps to secure normality and homoskedasticity
+           • Variables measured in units such as years should not be logged
+           • Variables measured in percentage points should also not be logged
+           • Logs must not be used if variables take on zero or negative values
+           • It is hard to reverse the log-operation when constructing predictions
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Using quadratic functional forms
+
+    ● Example: Wage equation
+                      Concave experience profile
+
+
+                       The first year of experience increases 
+                       the wage by some $.30, the second 
+    ● Marginal effect of experience year by .298 - 2(.0061)(1) = $.29 etc.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Wage maximum with respect to work experience
+
+
+                       Does this mean the return to experience 
+                       becomes negative after 24.4 years?
+
+                       Not necessarily. It depends on how many 
+                       observations in the sample lie right of the
+                       turnaround point.
+
+                       In the given example, these are about 28% 
+                       of the observations. There may be a speci-
+                       fication problem (e.g. omitted variables). 
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression  AnalysisAnalysis::  
+                         FurtherFurther  IssuesIssues
+
+                   ●       Example: Effects of pollution on housing prices
+                                                                                                                                 Nitrogen oxide in the air, distance from 
+                                                                                                                                 employment centers, average 
+                                                                                                                                 student/teacher ratio
+
+
+                                                                                                Does this mean that, at a low number of rooms, 
+                                                                                                more rooms are associated with lower prices?
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Calculation of the turnaround point
+
+
+                       Turnaround point:
+
+       This area can be ignored as 
+       it concerns only 1% of the 
+       observations.
+
+                       Increase rooms from 5 to 6:
+
+
+                       Increase rooms from 6 to 7:
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Other possibilities
+
+
+    ● Higher polynomials
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Models with interaction terms
+
+                          Interaction term
+
+
+                         The effect of the number 
+                         of bedrooms depends on 
+                         the level of square footage
+
+    ● Interaction effects complicate interpretation of parameters
+
+      Effect of number of bedrooms, but for a square footage of zero
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Reparametrization of interaction effects
+                           Population means; may be 
+                           replaced by sample means
+
+
+               Effect of x2 if all variables take on their mean values
+
+    ● Advantages of reparametrization
+     • Easy interpretation of all parameters
+     • Standard errors for partial effects at the mean values available
+     • If necessary, interaction may be centered at other interesting values
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+        ● Average partial effects
+           • In models with quadratics, interactions, and other nonlinear 
+             functional forms, the partial effect depend on the values of one or 
+             more explanatory variables
+           • Average partial effect (APE) is a summary measure to describe the 
+             relationship between dependent variable and each explanatory 
+             variable
+           • After computing the partial effect and plugging in the estimated 
+             parameters, average the partial effects for each unit across the 
+             sample
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● More on goodness-of-fit and selection of regressors
+
+    ● General remarks on R-squared
+     • A high R-squared does not imply that there is a causal interpretation
+     • A low R-squared does not preclude precise estimation of partial 
+       effects
+
+    ● Adjusted R-squared
+     • What is the ordinary R-squared supposed to measure?
+
+                      is an estimate for
+
+
+                           Population R-squared
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+                            Correct degrees of freedom of 
+    ● Adjusted R-squared (cont.) numerator and denominator
+     • A better estimate taking into account degrees of freedom would be
+
+     •   
+     • The adjusted R-squared imposes a penalty for adding new 
+       regressors
+     • The adjusted R-squared increases if, and only if, the t-statistic of a 
+       newly added regressor is greater than one in absolute value
+
+    ● Relationship between R-squared and adjusted R-squared
+
+                              The adjusted R-squared 
+                              may even get negative
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+        ● Using adjusted R-squared to choose between nonnested 
+          models
+           • Models are nonnested if neither model is a special case of the other
+
+
+           • A comparison between the R-squared of both models would be 
+             unfair to the first model because the first model contains fewer 
+             parameters
+           • In the given example, even after adjusting for the difference in 
+             degrees of freedom, the quadratic model is preferred
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Comparing models with different dependent variables
+     • R-squared or adjusted R-squared must not be used to compare 
+       models which differ in their definition of the dependent variable
+
+    ● Example: CEO compensation and firm performance
+
+
+ There is much
+ less variation
+ in log(salary)
+ that needs to
+ be explained 
+ than in salary
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+        ● Controlling for too many factors in regression analysis
+
+        ● In some cases, certain variables should not be held fixed
+           • In a regression of traffic fatalities on state beer taxes (and other 
+             factors) one should not directly control for beer consumption
+           • In a regression of family health expenditures on pesticide usage 
+             among farmers one should not control for doctor visits
+
+        ● Different regressions may serve different purposes
+           • In a regression of house prices on house characteristics, one would 
+             only include price assessments if the purpose of the regression is to 
+             study their validity; otherwise one would not include them
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+        ● Adding regressors to reduce the error variance
+           • Adding regressors may excarcerbate multicollinearity problems
+           • On the other hand, adding regressors reduces the error variance 
+           • Variables that are uncorrelated with other regressors should be 
+             added because they reduce error variance without increasing 
+             multicollinearity
+           • However, such uncorrelated variables may be hard to find
+
+        ● Example: Individual beer consumption and beer prices
+           • Including individual characteristics in a regression of beer 
+             consumption on beer prices leads to more precise estimates of the 
+             price elasticity
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Predicting y when log(y) is the dependent variable
+
+
+     Under the additional assumption that     is independent of                  :
+
+
+         Prediction for y
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MultipleMultiple  RegressionRegression
+     Analysis:Analysis:  FurtherFurther  IssuesIssues
+
+    ● Comparing R-squared of a logged and an unlogged 
+     specification
+
+
+               These are the R-squareds for the predictions of the unlogged 
+               salary variable (although the second regression is originally for 
+               logged salaries). Both R-squareds can now be directly compared.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.

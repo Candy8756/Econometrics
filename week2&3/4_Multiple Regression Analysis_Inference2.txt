@@ -1,0 +1,704 @@
+﻿                                                                          MultipleMultiple  
+                                                                          RegressionRegression
+            Chapter 4
+                                                                          Analysis:Analysis:  
+                                                                          InferenceInference
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a certain product or service 
+or otherwise on a password-protected website or school-approved learning management system for classroom use.   © kentoh/Shutterstock.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Sampling distributions of the OLS estimators
+
+                   ●       Testing hypotheses about a single population parameter 
+
+                   ●       Confidence intervals
+
+                   ●       Testing hypotheses about a linear combination of the 
+                           parameters
+
+                   ●       Testing multiple linear restrictions: The F-test
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Statistical inference in the regression model
+                           •     Hypothesis tests about population parameters
+
+                   ●       Sampling distributions of the OLS estimators
+                           •     We already know their expected values and their variances
+                           •     However, for hypothesis tests we need to know their distribution
+                           •     In order to derive their distribution we need additional assumptions
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                     ●      Assumption MLR.6 (Normality of error terms)
+
+                                                                            independently of
+
+
+                                                                                                                     It is assumed that the unobserved
+                                                                                                                     factors are normally distributed around 
+                                                                                                                     the population regression function.
+
+                                                                                                                     It follows that:
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  InferenceInference
+
+        ● Discussion of the normality assumption
+           • In many cases, normality is questionable or impossible by definition
+           • Examples where normality cannot hold:
+               • Wages (nonnegative; also: minimum wage)
+               • Number of arrests (takes on a small number of integer values)
+               • Unemployment (indicator variable, takes on only 1 or 0)
+           • In some cases, normality can be achieved through transformations    
+             of the dependent variable (e.g. use log(wage) instead of wage)
+           • Important: For the purposes of statistical inference, the assumption   
+             of normality can be replaced by a large sample size
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Terminology
+
+
+                              “Gauss-Markov assumptions”                                         “Classical linear model (CLM) assumptions”
+
+                   ●       Theorem 4.1 (Normal sampling distributions)
+                             Under assumptions MLR.1 – MLR.6:
+
+
+                       The estimators are normally distributed                                             The standardized estimators follow a 
+                       around the true parameters with the                                                 standard normal distribution
+                       variance that was derived earlier
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            MultipleMultiple  RegressionRegression
+            Analysis:Analysis:  InferenceInference
+
+         ●   Testing hypotheses about a single population parameter
+
+         ●   Theorem 4.2 (t-distribution for the standardized estimators)
+              Under assumptions MLR.1 – MLR.6:
+
+                                           If the standardization is done using the estimated 
+                                           standard deviation (= standard error), the normal 
+                                           distribution is replaced by a t-distribution
+
+              Note: The t-distribution is close to the standard normal distribution if n-k-1 is large.
+
+
+         ●   Null hypothesis (for more general hypotheses, see below)
+
+                                      The population parameter is equal to zero, i.e. after 
+                                      controlling for the other independent variables, there 
+
+                                      is no effect of xj on y 
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       t-statistic (or t-ratio)
+
+
+                                                                          The t-statistic measures how many estimated 
+                                                                          standard deviations the estimated coefficient is 
+                                                                          away from zero.   
+
+                   ●       Distribution of the t-statistic if the null hypothesis is true
+
+
+                   ●       Goal: Define a rejection rule so that, if it is true, H0 is rejected 
+                           only with a small probability (= significance level, e.g. 5%)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            MultipleMultiple  RegressionRegression
+            Analysis:Analysis:  InferenceInference
+
+     ●   Testing against one-sided alternatives (greater than zero)
+
+
+                                                      Test                    against                   .
+
+                                                      Reject the null hypothesis in favour of the 
+                                                      alternative hypothesis if the estimated coef-
+                                                      ficient is “too large” (i.e. larger than a criti-
+                                                      cal value).
+
+                                                      Construct the critical value so that, if the 
+                                                      null hypothesis is true, it is rejected in,
+                                                      for example, 5% of the cases.
+
+                                                      In the given example, this is the point of the t-
+                                                      distribution with 28 degrees of freedom that is 
+                                                      exceeded in 5% of the cases.
+
+                                                      Reject if t-statistic is greater than 1.701
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Wage equation
+                           •     Test whether, after controlling for education and tenure, higher 
+                                 work experience leads to higher hourly wages
+
+
+                                                                                                Standard errors
+
+                       Test                              against                           .
+
+                                    One would either expect a positive effect of experience on hourly wage or no effect at all.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Wage equation (cont.)
+
+                                                                                                                           t-statistic
+
+                                                                                                                                              Degrees of freedom;
+                                                                                                                                              here the standard normal 
+                                                                                                                                              approximation applies
+
+
+                                                                        Critical values for the 5% and the 1% significance level (these 
+                                                                        are conventional significance levels). 
+
+                                                                        The null hypothesis is rejected because the t-statistic exceeds 
+                                                                        the critical value.
+
+                   “The effect of experience on hourly wage is statistically greater 
+                   than zero at the 5% (and even at the 1%) significance level.”
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            MultipleMultiple  RegressionRegression
+            Analysis:Analysis:  InferenceInference
+
+      ●   Testing against one-sided alternatives (less than zero)
+
+                                                      Test                    against                   .
+
+                                                      Reject the null hypothesis in favour of the 
+                                                      alternative hypothesis if the estimated coef-
+                                                      ficient is “too small” (i.e. smaller than a criti-
+                                                      cal value).
+
+                                                      Construct the critical value so that, if the 
+                                                      null hypothesis is true, it is rejected in,
+                                                      for example, 5% of the cases.
+
+                                                      In the given example, this is the point of the t-
+                                                      distribution with 18 degrees of freedom so that 
+                                                      5% of the cases are below the point.
+
+                                                      Reject if t-statistic is less than -1.734
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Student performance and school size
+                           •     Test whether smaller school size leads to better student 
+                                 performance
+
+       Percentage of students                            Average annual tea-                       Staff per one thou-                      Student enrollment
+       passing maths test                                cher compensation                         sand students                            (= school size)
+
+
+                    Test                              against                            .
+
+                                 Do larger schools hamper student performance or is there no such effect?
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Student performance and school size (cont.)
+
+
+                                                                                                                                         t-statistic
+
+                                                                                                                                              Degrees of freedom;
+                                                                                                                                              here the standard normal 
+                                                                                                                                              approximation applies
+
+                                                                        Critical values for the 5% and the 15% significance level.
+
+                                                                        The null hypothesis is not rejected because the t-statistic is 
+                                                                        not smaller than the critical value.
+
+                   One cannot reject the hypothesis that there is no effect of school size on 
+                   student performance (not even for a lax significance level of 15%).
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Student performance and school size (cont.)
+                           •     Alternative specification of functional form:
+
+
+                                                                                                         R-squared slightly higher 
+
+                     Test                                      against                                   .
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Student performance and school size (cont.)
+
+                                                                                                                                              t-statistic
+
+
+                                                                             Critical value for the 5% significance level; reject null hypothesis
+
+                      The hypothesis that there is no effect of school size on student performance 
+                      can be rejected in favor of the hypothesis that the effect is negative.
+
+                      How large is the effect?
+                                                                                 + 1% enrollment ; -0.0129 percentage points 
+                                                                                 students pass test
+
+                                                                                                                                                  (small effect)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            MultipleMultiple  RegressionRegression
+            Analysis:Analysis:  InferenceInference
+
+    ●   Testing against two-sided alternatives
+
+
+                                                      Test                    against                   .
+
+                                                      Reject the null hypothesis in favour of the 
+                                                      alternative hypothesis if the absolute value 
+                                                      of the estimated coefficient is too large.
+
+                                                      Construct the critical value so that, if the 
+                                                      null hypothesis is true, it is rejected in,
+                                                      for example, 5% of the cases.
+
+                                                      In the given example, these are the points 
+                                                      of the t-distribution so that 5% of the cases
+                                                      lie in the two tails.
+
+                                                      Reject if absolute value of t-statistic is less than -
+                                                      2.06 or greater than 2.06
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Determinants of college GPA
+
+                                                                                                                                       Lectures missed per week
+
+
+                                                                                     For critical values, use standard normal distribution
+
+                                                                                                                      The effects of hsGPA and skipped are 
+                                                                                                                      significantly different from zero at the 
+                                                                                                                      1% significance level. The effect of ACT 
+                                                                                                                      is not significantly different from zero, 
+                                                                                                                      not even at the 10% significance level.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Testing more general hypotheses about a regression 
+                           coefficient
+
+                   ●       Null hypothesis
+                                                                                         Hypothesized value of the coefficient
+
+                   ●       t-statistic
+
+
+                   ●       The test works exactly as before, except that the hypothesized 
+                           value is substracted from the estimate when forming the 
+                           statistic
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Campus crime and enrollment
+                           •     An interesting hypothesis is whether crime increases by one percent   
+                                 if enrollment is increased by one percent
+
+
+                                                                                                                                      Estimate is different from 
+                                                                                                                                      one but is this difference 
+                                                                                                                                      statistically significant?
+
+
+                                                                                                                                                       The hypothesis is 
+                                                                                                                                                       rejected at the 5% 
+                                                                                                                                                       level
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            MultipleMultiple  RegressionRegression
+            Analysis:Analysis:  InferenceInference
+
+         ●   How the p-value is computed (here: two-sided test)?
+
+
+                                                       The p-value is the significance level at which 
+                                                       one is indifferent between rejecting and not 
+                                                       rejecting the null hypothesis. 
+
+     These would be the 
+     critical values for a                             In the two-sided case, the p-value is thus the 
+     5% significance level                             probability that the t-distributed variable takes 
+                                                       on a larger absolute value than the realized 
+                                                       value of the test statistic, e.g.:
+
+
+                                                       From this, it is clear that a null hypothesis is 
+                                                       rejected if and only if the corresponding p-
+                                                       value is smaller than the significance level.
+                     value of test statistic
+                                                       For example, for a significance level of 5% the 
+                                                       t-statistic would not lie in the rejection region.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          MultipleMultiple  RegressionRegression
+          Analysis:Analysis:  InferenceInference
+
+        ● Guidelines for discussing economic and statistical significance
+           • If a variable is statistically significant, discuss the magnitude of the 
+             coefficient to get an idea of its economic or practical importance
+           • The fact that a coefficient is statistically significant does not 
+             necessarily mean it is economically or practically significant!
+           • If a variable is statistically and economically important but has the 
+             “wrong” sign, the regression model might be misspecified  
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                                                                                                                                            Critical value of
+                   ●       Confidence intervals                                                                                             two-sided test
+
+                   ●       Simple manipulation of the result in Theorem 4.2 implies that
+
+
+                                        Lower bound of the                                  Upper bound of the                                         Confidence level
+                                        Confidence interval                                 Confidence interval
+
+                   ●       Interpretation of the confidence interval
+                           •     The bounds of the interval are random
+                           •     In repeated samples, the interval that is constructed in the above 
+                                 way will cover the population regression coefficient in 95% of the 
+                                 cases 
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●      Confidence intervals for typical confidence levels
+
+
+                                                                       Use rules of thumb
+
+                   ●      Relationship between confidence intervals and hypotheses 
+                          tests
+                                                                      reject                         in favor of 
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Example: Model of firms‘ R&D expenditures
+
+                             Spending on R&D                                        Annual sales                          Profits as percentage of sales
+
+
+    The effect is significantly different from zero because                                                The effect is not statistically significant because 
+    zero is outside the interval.                                                                          zero lies in the interval.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Testing hypotheses about a linear combination of the 
+                           parameters
+
+                   ●       Example: Return to education at two-year vs. at four-year 
+
+                           colleges                  Years of education                       Years of                              Months in the 
+                                                     at two year colleges                     education at four                     workforce
+                                                                                              year colleges
+
+                     Test                                against                              .
+
+                         A possible test statistic would be:
+
+                                                                       The null hypothesis would have to be rejected if the 
+                                                                       statistic is “too negative”.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+               ●       Impossible to compute with standard regression output 
+                       because
+
+
+               ●       Alternative method                                                                      Usually not available in regression output
+
+                 Define                          and test                       against                     .
+
+
+                              Insert into original regression                                   a new regressor (= total years of college)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Estimation results
+                                                                                                                                 Total years of college
+
+
+                                                                                                                        Hypothesis is rejected at 10% 
+                                                                                                                        level but not at 5% level
+
+
+                   ●       This method works always for single linear hypotheses
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Testing multiple linear restrictions: The F-test
+
+                   ●       Testing exclusion restrictions 
+
+                       Salary of major lea-                             Years in                       Average number of 
+                       gue baseball player                              the league                     games per year
+
+
+                                       Batting average                  Home runs per year                      Runs batted in per year
+
+                                                                                                    against
+
+                     Test whether performance measures have no effect/can be excluded from regression.
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Estimation of the unrestricted model
+
+
+                                                   None of these variabels is statistically significant when tested individually
+
+
+                                Idea: How would the model fit be if these variables were dropped from the regression?
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Estimation of the restricted model
+
+
+                        The sum of squared residuals necessarily increases, but is the increase statistically significant?
+
+                   ●       Test statistic                                   Number of restrictions
+
+                                                                                                                             The relative increase of the sum of 
+                                                                                                                             squared residuals when going from
+
+                                                                                                                             H1 to H0 follows a F-distribution (if
+                                                                                                                             the null hypothesis H0 is correct)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Rejection rule
+
+
+                                                                                                              A F-distributed variable only takes on positive 
+                                                                                                              values. This corresponds to the fact that the 
+                                                                                                              sum of squared residuals can only increase if 
+
+                                                                                                              one moves from H1 to H0.
+
+
+                                                                                                           Choose the critical value so that the null hypo-
+                                                                                                           thesis is rejected in, for example, 5% of the 
+                                                                                                           cases, although it is true.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Test decision in example                                                           Number of restrictions to be tested 
+
+
+                                                                                                                           Degrees of freedom in
+                                                                                                                           the unrestricted model
+
+                                                                                                                           The null hypothesis is overwhel-
+                                                                                                                           mingly rejected (even at very 
+                                                                                                                           small significance levels).
+
+                   ●       Discussion
+                           •     The three variables are “jointly significant”
+                           •     They were not significant when tested individually
+                           •     The likely reason is multicollinearity between them 
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Test of overall significance of a regression
+
+
+                                                                                                       The null hypothesis states that the explanatory 
+                                                                                                       variables are not useful at all in explaining the 
+                                                                                                       dependent variable
+
+                                                                                   Restricted model 
+                                                                                   (regression on constant) 
+
+
+                   ●       The test of overall significance is reported in most regression 
+                           packages; the null hypothesis is usually overwhelmingly 
+                           rejected
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            MultipleMultiple  RegressionRegression
+            Analysis:Analysis:  InferenceInference
+
+         ●   Testing general linear restrictions with the F-test
+
+         ●   Example: Test whether house price assessments are rational
+
+                               The assessed housing value    Size of lot
+        Actual house price
+                               (before the house was sold)   (in square feet)
+
+
+                                 Square footage    Number of bedrooms
+
+                                                            In addition, other known factors should 
+                                                            not influence the price once the assessed 
+                                                            value has been controlled for.
+      If house price assessments are rational, a 1% change in the 
+      assessment should be associated with a 1% change in price.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                    ●       Unrestricted regression
+
+
+                    ●       Restricted regression                                                             The restricted model is actually a 
+
+                                                                                                              regression of [y-x1] on a constant
+
+
+                    ●       Test statistic
+
+
+                                                                                                                   cannot be rejected
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         MultipleMultiple  RegressionRegression
+                         Analysis:Analysis:  InferenceInference
+
+                   ●       Regression output for the unrestricted regression
+
+
+                                                                                                                                      When tested individually, 
+                                                                                                                                      there is also no evidence 
+                                                                                                                                      against the rationality of 
+                                                                                                                                      house price assessments
+
+                   ●       The F-test works for general multiple linear hypotheses
+
+                   ●       For all tests and confidence intervals, validity of assumptions 
+                           MLR.1 – MLR.6 has been assumed. Tests may be invalid 
+                           otherwise.
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
