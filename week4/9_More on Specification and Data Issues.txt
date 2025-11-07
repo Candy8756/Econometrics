@@ -1,0 +1,348 @@
+﻿                                                                          MoreMore  onon  
+            Chapter 9                                                     SpecificationSpecification  
+                                                                          andand  DataData  IssuesIssues  
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a certain product or service 
+or otherwise on a password-protected website or school-approved learning management system for classroom use.   © kentoh/Shutterstock.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Tests for functional form misspecification
+     • One can always test whether explanatory should appear as squares 
+       or higher order terms by testing whether such terms can be 
+       excluded
+     • Otherwise, one can use general specification tests such as RESET
+
+    ● Regression specification error test (RESET)
+     • The idea of RESET is to include squares and possibly higher order 
+       fitted values in the regression (similarly to the reduced White test) 
+
+
+      Test for the exclusion of these terms. If they cannot be excluded, this is evidence for 
+      omitted higher order terms and interactions, i.e. for misspecification of functional form.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Example: Housing price equation
+
+
+                                 Evidence for
+                                 misspecification
+
+
+                               Less evidence for
+                               misspecification
+    ● Discussion
+     • One may also include higher order terms, which implies complicated 
+       interactions and higher order terms of all explanatory variables
+     • RESET provides little guidance as to where misspecification comes 
+       from
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Testing against nonnested alternatives
+                             Which specification
+    Model 1:                 is more appropriate? 
+
+    Model 2:
+
+    Define a general model that contains both models as subcases and test:
+
+
+    ● Discussion
+     • Can always be done; however, a clear winner need not emerge
+     • Cannot be used if the models differ in their definition of the dep. var.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Using proxy variables for unobserved explanatory variables
+
+    ● Example: Omitted ability in a wage equation Replace by proxy 
+
+
+     In general, the estimates for the returns to education and experience will be biased because 
+     one has omit the unobservable ability variable. Idea: find a proxy variable for ability which is 
+     able to control for ability differences between individuals so that the coefficients of the other 
+     variables will not be biased. A possible proxy for ability is the IQ score or similar test scores.
+
+    ● General approach to use proxy variables
+
+
+                         Omitted variable, e.g. ability
+
+                   Regression of the omitted variable on its proxy
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Assumptions necessary for the proxy variable method to work
+     • The proxy is “just a proxy” for the omitted variable, it does not 
+       belong into the population regression, i.e. it is uncorrelated with its 
+       error
+                  If the error and the proxy were correlated, the proxy 
+                  would actually have to be included in the population 
+                  regression function
+
+     • The proxy variable is a “good” proxy for the omitted variable, i.e. 
+       using other variables in addition will not help to predict the omitted 
+       variable  
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Under these assumptions, the proxy variable method works:
+
+
+      In this regression model, the error term is uncorrelated with all the explanatory variables. As 
+      a consequence, all coefficients will be correctly estimated using OLS. The coefficents for the 
+
+      explanatory variables x1 and x2 will be correctly identified. The coefficient for the proxy va-
+      riable may also be of interest (it is a multiple of the coefficient of the omitted variable).
+
+    ● Discussion of the proxy assumptions in the wage example
+     • Assumption 1: Should be fullfilled as IQ score is not a direct wage 
+       determinant
+     • Assumption 2: Most of the variation in ability should be explainable 
+       by variation in IQ score, leaving no rest to educ and exper
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+
+                        As expected, the measured return to 
+                        education decreases if IQ is included 
+                        as a proxy for unobserved ability.
+
+                        The coefficient for the proxy suggests 
+                        that ability differences between indivi-
+                        duals are important (e.g. +15 points 
+                        IQ score are associated with a wage 
+                        increase of 5.4 percentage points).
+
+                        Even if IQ score imperfectly soaks up 
+                        the variation caused by ability, inclu-
+                        ding it will at least reduce the bias in 
+                        the measured return to education.
+
+                        No significant interaction effect bet-
+                        ween ability and education.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Using lagged dependent variables as proxy variables
+     • In many cases, omitted unobserved factors may be proxied by the 
+       value of the dependent variable from an earlier time period
+
+    ● Example: City crime rates
+
+
+     • Including the past crime rate will at least partly control for the many 
+       omitted factors that also determine the crime rate in a given year
+     • Another way to interpret this equation is that one compares cities 
+       which had the same crime rate last year; this avoids comparing 
+       cities that differ very much in unobserved crime factors
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Models with random slopes (= random coefficient models)
+
+                     The model has a random 
+                     intercept and a random slope 
+
+    Average Random Average Random 
+    intercept component slope component
+                       Error term
+
+                          The individual random com-
+                          ponents are independent of 
+    Assumptions:          the explanatory variable
+
+
+                        WLS or OLS with robust standard 
+                        errors will consistently estimate the 
+                        average intercept and average 
+                        slope in the population
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Properties of OLS under measurement error
+
+    ● Measurement error in the dependent variable
+
+              Mismeasured value = True value + Measurement error
+
+                          Population regression
+
+                              Estimated regression
+
+    ● Consequences of measurement error in the dependent variable
+     • Estimates will be less precise because the error variance is higher
+     • Otherwise, OLS will be unbiased and consistent (as long as the mea-
+       surement error is uncorrelated to the values of the explanatory 
+       variables)
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Measurement error in an explanatory variable
+                Mismeasured value = True value + Measurement error
+
+                           Population regression
+
+                               Estimated regression
+
+                                 Error 
+    Classical errors-in-variables assumption: uncorrelated to 
+                                 true value
+
+                                The mismeasured 
+
+                                variable x1 is cor-
+                                related with the 
+                                error term
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Consequences of measurement error in an explanatory variable
+     • Under the classical errors-in-variables assumption, OLS is biased and 
+       inconsistent because the mismeasured variable is endogenous
+     • One can show that the inconsistency is of the following form:
+
+                      This factor (which involves the error 
+                      variance of a regression of the true value 
+
+                      of x1 on the other explanatory variables) 
+                      will always be between zero and one
+     • The effect of the mismeasured variable suffers from attenuation 
+       bias, i.e. the magnitude of the effect will be attenuated towards zero
+     • In addition, the effects of the other explanatory variables will be 
+       biased
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Missing data and nonrandom samples
+
+    ● Missing data as sample selection
+     • Missing data is a special case of sample selection (= nonrandom 
+       sampling) as the observations with missing information cannot be 
+       used
+     • If the sample selection is based on independent variables there is no 
+       problem as a regression conditions on the independent variables
+     • In general, sample selection is no problem if it is uncorrelated with 
+       the error term of a regression (= exogenous sample selection)
+     • Sample selection is a problem, if it is based on the dependent 
+       variable or on the error term (= endogenous sample selection)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Example for exogenous sample selection
+
+
+   If the sample was nonrandom in the way that certain age groups, income groups, or household sizes 
+   were over- or undersampled, this is not a problem for the regression because it examines the savings 
+   for subgroups defined by income, age, and hh-size. The distribution of subgroups does not matter.
+
+    ● Example for endogenous sample selection
+
+
+   If the sample is nonrandom in the way individuals refuse to take part in the sample survey if their 
+   wealth is particularly high or low, this will bias the regression results because these individuals may 
+   be systematically different from those who do not refuse to take part in the sample survey.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Outliers and influential observations
+     • Extreme values and outliers may be a particular problem for OLS 
+       because the method is based on squaring deviations
+     • If outliers are the result of mistakes that occured when keying in the 
+       data, one should just discard the affected observations
+     • If outliers are the result of the data generating process, the decision 
+       whether to discard the outliers is not so easy
+
+    ● Example: R&D intensity and firm size 
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Example: R&D intensity and firm size (cont.)
+
+
+   The outlier is not the result of a mistake: 
+   One of the sampled firms is much larger The regression without the 
+   than the others.    outlier makes more sense.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+     MoreMore  onon  SpecificationSpecification  andand  DataData  
+     IssuesIssues
+
+    ● Least absolute deviations estimation (LAD)
+     • The least absolute deviations estimator minimizes the sum of 
+       absolute deviations (instead of the sum of squared deviations, i.e. 
+       OLS)
+
+
+     • It may be more robust to outliers as deviations are not squared
+     • The least absolute deviations estimator estimates the parameters of 
+       the conditional median (instead of the conditional mean with OLS)
+     • The least absolute deviations estimator is a special case of quantile 
+       regression, which estimates parameters of conditional quantiles
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.

@@ -1,0 +1,330 @@
+﻿                                                                          HeteroskedasticityHeteroskedasticity  
+            Chapter 8
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a certain product or service 
+or otherwise on a password-protected website or school-approved learning management system for classroom use.   © kentoh/Shutterstock.
+          HeteroskedasticityHeteroskedasticity
+
+        ●  Consequences of heteroskedasticity for OLS
+           • OLS still unbiased and consistent under heteroskedastictiy!
+
+           • Also, interpretation of R-squared is not changed
+
+                                   Unconditional error variance is unaffected 
+                                   by heteroskedasticity (which refers to the 
+                                   conditional error variance) 
+
+           • Heteroskedasticity invalidates variance formulas for OLS estimators
+
+           • The usual F tests and t tests are not valid under heteroskedasticity 
+
+           • Under heteroskedasticity, OLS is no longer the best linear unbiased 
+             estimator (BLUE); there may be more efficient linear estimators
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          HeteroskedasticityHeteroskedasticity
+
+        ● Heteroskedasticity-robust inference after OLS estimation
+           • Formulas for OLS standard errors and related statistics have been 
+             developed that are robust to heteroskedasticity of unknown form
+           • All formulas are only valid in large samples
+           • Formula for heteroskedasticity-robust OLS standard error
+                                    Also called White/Huber/Eicker standard errors. They 
+                                    involve the squared residuals from the regression and 
+
+                                    from a regression of xj on all other explanatory 
+                                    variables.
+           • Using these formulas, the usual t test is valid asymptotically
+           • The usual F statistic does not work under heteroskedasticity, but 
+             heteroskedasticity robust versions are available in most software
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            HeteroskedasticityHeteroskedasticity
+
+         ●   Example: Hourly wage equation
+
+
+                                                  Heteroskedasticity robust standard errors may be 
+                                                  larger or smaller than their nonrobust counterparts. 
+                                                  The differences are often small in practice.
+
+
+                                           F statistics are also often not too different.
+
+                                      If there is strong heteroskedasticity, differences may be larger. 
+                                      To be on the safe side, it is advisable to always compute robust 
+                                      standard errors.
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                    ●      Testing for heteroskedasticity
+                            •     It may still be interesting whether there is heteroskedasticity 
+                                  because then OLS may not be the most efficient linear estimator 
+                                  anymore
+
+                    ●      Breusch-Pagan test for heteroskedasticity
+
+
+                                                                                                                                                                    Under MLR.4
+
+
+                                                                                                                                              The mean of u2 must not 
+
+                                                                                                                                              vary with x1, x2, …, xk
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            HeteroskedasticityHeteroskedasticity
+
+         ●   Breusch-Pagan test for heteroskedasticity (cont.)
+
+
+                                                          Regress squared residuals on all expla-
+                                                          natory variables and test whether this 
+                                                          regression has explanatory power.
+
+                                                                 A large test statistic (= a high R-
+                                                                 squared) is evidence against the 
+                                                                 null hypothesis.
+
+                                          Alternative test statistic (= Lagrange multiplier statistic, LM). 
+                                          Again, high values of the test statistic (= high R-squared) lead 
+                                          to rejection of the null hypothesis that the expected value of u2 
+                                          is unrelated to the explanatory variables.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+
+                ●      Example: Heteroskedasticity in housing price equations
+
+
+                                                                                                                                                                Heteroskedasticity
+
+
+                                                           In the logarithmic specification, homoskedasticity cannot be rejected
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       The White test for heteroskedasticity
+                                                                                                                             Regress squared residuals on all expla-
+                                                                                                                             natory variables, their squares, and in-
+                                                                                                                             teractions (here: example for k=3)
+
+
+                                                                                                                  The White test detects more general 
+                                                                                                                  deviations from heteroskedasticity 
+                                                                                                                  than the Breusch-Pagan test
+
+                   ●       Disadvantage of this form of the White test
+                           •     Including all squares and interactions leads to a large number of 
+                                 estimated parameters (e.g. k=6 leads to 27 parameters to be 
+                                 estimated)
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       Alternative form of the White test
+
+
+                                              This regression indirectly tests the dependence of the squared residuals 
+                                              on the explanatory variables, their squares, and interactions, because the 
+                                              predicted value of y and its square implicitly contain all of these terms. 
+
+
+                   ●       Example: Heteroskedasticity in (log) housing price equations
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       Weighted least squares estimation
+
+                   ●       Heteroskedasticity is known up to a multiplicative constant
+
+                                                                                                                                              The functional form of the 
+                                                                                                                                              heteroskedasticity is known
+
+
+                                                                                                                                                            Transformed model
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       Example: Savings and income
+
+
+                                                                                                                                                  Note that this regression 
+                                                                                                                                                  model has no intercept
+                   ●       The transformed model is homoskedastic
+
+
+                   ●       If the other Gauss-Markov assumptions hold as well, OLS 
+                           applied to the transformed model is the best linear unbiased 
+                           estimator
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       OLS in the transformed model is weighted least squares (WLS)
+
+
+                                                                                                                                                 Observations with a large 
+                                                                                                                                                 variance get a smaller weight 
+                                                                                                                                                 in the optimization problem
+                   ●       Why is WLS more efficient than OLS in the original model?
+                           •     Observations with a large variance are less informative than 
+                                 observations with small variance and therefore should get less 
+                                 weight
+
+                   ●       WLS is a special case of generalized least squares (GLS)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       Example: Financial wealth equation
+                                                                                                                                  Net financial wealth
+
+                                                                                                                                   Assumed form of heteroskedasticity
+
+
+                                                                                                                                   WLS estimates have considerably 
+                                                                                                                                   smaller standard errors (which is 
+                                                                                                                                   line with the expectation that 
+                                                                                                                                   they are more efficient).
+
+
+                                                                                                                                    Participation in 401K pension plan 
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+            HeteroskedasticityHeteroskedasticity
+
+         ●   Important special case of heteroskedasticity
+             •  If the observations are reported as averages at the 
+                city/county/state/-country/firm level, they should be weighted by 
+                the size of the unit
+
+          Average contribution to   Average earnings    Percentage firm    Heteroskedastic 
+          pension plan in firm i    and age in firm i   contributes to plan error term
+
+
+                                                                         Error variance if errors 
+                                                                         are homoskedastic at 
+                                                                         the individual-level
+
+
+          If errors are homoskedastic at the individual-level, WLS with weights equal to firm size mi should 
+          be used. If the assumption of homoskedasticity at the individual-level is not exactly right, one can 
+          calculate robust standard errors after WLS (i.e. for the transformed model).
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       Unknown heteroskedasticity function (feasible GLS)
+
+                                                                                                                                                            Assumed general form 
+                                                                                                                                                            of heteroskedasticity; 
+                                                                                                                                                            exp-function is used to 
+                                                                                                                                                            ensure positivity
+
+                                                                                                                                       Multiplicative error (assumption: 
+                                                                                                                                       independent of the explanatory 
+                                                                                                                                       variables)
+
+                                                                                                                                      Use inverse values of the 
+                                                                                                                                      estimated heteroskedasticity 
+                                                                                                                                      funtion as weights in WLS
+
+
+                        Feasible GLS is consistent and asymptotically more efficient than OLS.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       Example: Demand for cigarettes
+
+                   ●       Estimation by OLS                                                                                                                 Smoking 
+                                                                                                                                                             restrictions in 
+                                                                                                                                                             restaurants
+                      Cigarettes smoked per day                                   Logged income and cigarette price
+
+
+                                                                                                                                                                        Reject homo-
+                                                                                                                                                                        skedasticity
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       Estimation by FGLS
+
+                                                                                           Now statistically significant
+
+
+                   ●       Discussion
+                           •     The income elasticity is now statistically significant; other 
+                                 coefficients are also more precisely estimated (without changing 
+                                 qualit. results)
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+          HeteroskedasticityHeteroskedasticity
+
+        ● What if the assumed heteroskedasticity function is wrong?
+           • If the heteroskedasticity function is misspecified, WLS is still 
+             consistent under MLR.1 – MLR.4, but robust standard errors should 
+             be computed
+           • WLS is consistent under MLR.4 but not necessarily under MLR.4‘
+
+
+           • If OLS and WLS produce very different estimates, this typically indi-
+             cates that some other assumptions (e.g. MLR.4) are wrong
+           • If there is strong heteroskedasticity, it is still often better to use a 
+             wrong form of heteroskedasticity in order to increase efficiency
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+                         HeteroskedasticityHeteroskedasticity
+
+                   ●       WLS in the linear probability model
+
+
+                                                                                                                         In the LPM, the exact form of 
+                                                                                                                         heteroskedasticity is known
+
+                                                                                         Use inverse values 
+                   ●       Discussion                                                    as weights in WLS
+                           •     Infeasible if LPM predictions are below zero or greater than one
+                           •     If such cases are rare, they may be adjusted to values such as 
+                                 .01/.99
+                           •     Otherwise, it is probably better to use OLS with robust standard 
+                                 errors
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
