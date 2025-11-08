@@ -1,0 +1,140 @@
+﻿课程大纲 
+
+ 
+
+金融计量经济学 
+Financial Econometrics  
+
+ 
+课程编号： 02812070                                授课对象： 硕士 
+
+学分： 2                     任课教师： 张宇 
+
+课程类型：  必修                                       开课学期： 2025 年秋学期 
+
+选修课程： 
+
+任课教师简历（500 字左右）： 
+
+Yu Zhang is an Assistant Professor of Finance at Guanghua School of Management, Peking University. 
+
+He received a Ph.D. degree in economics from Princeton University after studying at the Department 
+
+of Economics and the Bendheim Center for Finance. His empirical research focuses on the intersection 
+
+of macroeconomics and finance, with applications on housing, household finance, asset pricing, and 
+
+supply chain finance, and has been published in journals including the Review of Financial Studies and 
+
+the Review of Economics and Statistics.  
+
+ 
+
+任课教师联系方式： 
+
+yuzhang@gsm.pku.edu.cn 
+
+ 
+
+助教姓名及联系方式： 
+
+ 
+
+辅导、答疑时间： 
+
+By appointment 
+
+ 
+
+一、课程概述 
+
+Financial econometrics is the study of drawing associations and causal relationships from financial 
+
+data. This course assumes no prior knowledge of econometrics.   
+
+ 
+
+二、 课程目标 
+
+You should be able to (1) perform OLS estimation and inference using appropriate standard errors, (2) 
+
+estimate binary choice models, (3) point out endogeneity and reason the choice of methods dealing 
+
+with endogeneity (IV, difference-in-differences, RDD), (4) carry out event studies,. You should be fluent 
+
+in R and Rmarkdown.  
+
+ 
+
+三、 内容提要及学时分配 
+
+Week 1: R and Rmarkdown 
+
+Week 2: OLS basics 
+
+Week 3: OLS inference 
+
+Week 4: OLS additional issues (outliers, autocorrelation, heteroskedasticity) 
+
+Week 5: Binary choice and missing data 
+
+Week 6: Endogeneity, instrumental variables, RDD 
+
+Week 7: Event study, difference-in-differences, panel data, fixed effect model 
+
+Week 8: Prediction and time-series basics 
+
+
+
+                                          
+
+ 
+
+期末考试 Closed book 
+
+ 
+
+四、 教学方式 
+
+The course material will be taught in an interaction way.  
+ 
+
+五、教学过程中 IT 工具等技术手段的应用 
+
+ 
+
+The course involves heavy use of Rmarkdown (or PyStata).  
+
+ 
+
+六、 教材 
+
+ 
+
+七、参考书目 
+
+Introductory Econometrics (6ed), Wooldridge.  
+
+Using R for Introductory Econometrics (2ed). 
+
+The Econometrics of Financial Markets (Campbell, Lo and MacKinlay, 1997). 
+
+ 
+
+八、教学辅助材料，如 CD、录影等 
+
+You are required to bring a laptop to class.  
+
+ 
+
+九、 课程学习要求及课堂纪律规范 
+
+ 
+
+Please show respect to classmates, lecturers, every one’s time, and most importantly yourself. 
+
+ 
+
+十、学生成绩评定办法 
+
+40% HW + 60% Final.
