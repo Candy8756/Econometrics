@@ -1,0 +1,134 @@
+﻿Family Firms
+
+•  Family rms prevalent around the world (Shleifer et al.)
+      Berle and Means (1932)
+
+•  Two aspects:
+      (Founder, heir) management
+      Family ownership
+
+•  Main question: Are heirs better or worse managers?
+      implicit contract, long termism (renegotiate longterm implicit con-
+       tracts as soon as outside management take over), reputation
+      Carnegie conjecture: give your heir not too few, not too much
+
+•  Important Implications for taxtion (estate taxation, capital taxation, etc.)
+•  Large share of big companies with family majority ownership (more so in
+   Civil Laws 50%, than in Common Laws 37%)
+
+•  Anderson and Reeb (JF, 2003):
+      10% family ownership denes family rm (20% typical sucient for
+       control), which gets 30% of S&P 500 US rms.
+      within those, 15% founder CEO, 30% descendant CEO, 55% profes-
+       sional CEO.
+      look at performance of (young/old) family rms, eect of CEO hire,
+       etc.
+
+•  France: employment half and half. within family rms, employment half
+   and half (between family management and pro management)
+
+      Just looking at the cross-section, family rms managed by heirs have
+       higher performance. But these are the rms that we exactly expect
+       to perform the worst...
+
+•  Something obvious missing from the regressions. What is it?
+•  Endogenous decision for family founders to cash out (widely held rms
+   mostly were once family rms). Which way is the bias?
+
+      Cash out when anticipate bad things in future. Fool the buyers.
+      Cash out when anticipate good things in future. Best time to avoid
+       lemon's problem.
+
+•  Want IV to control for this endogeneity.
+
+                                 1
+•  Perez-Gonzales (AER, 2005):
+
+      Look at transitions in management: start with all rms in 1994 (year
+       in which Edgar database started), look at family rms that are likely
+       to have transistions and use news search to identify actual transi-
+       tions. 335 rms. 122 within family successions and 213 unrelated
+       successions.
+      Cumulative Abnormal Return of Succession Announcements is posi-
+       tive for unrelated successions and negative for family heirs.
+      Evidence opposite to Anderson and Reeb - what could be happening?
+      Inconsistency a problem.
+
+•  What is an instrument?
+
+      ROAit  = αt + βF amilyHeiri · P ostt + εit.
+      But worry about endogeneity
+      Three possible sources of endogeineity
+         ∗ Omitted variable: wage: ability of individuals is a key factor of
+           wage but usually not measured
+           Error in variables:    ∗   . Using  instead of ∗ introduced
+         ∗                  xk = xk+e        xk          xk
+           a correlation between xk and the perturbation. (attenuation
+           bias)
+         ∗ Simultaneity: shock on demand is transmitted to price.
+      Instrument: exogenous to error term (exclusion restriction - some-
+       thing that you cannot test - must use economic reasoning/ or over-
+       identifying test when you have more IVs than needed), correlated to
+
+       xk conditional on other exogenous variables.
+         ∗ related to transitions but exogenous to rm return.
+      Weak instrument problem: will be rejecting the null too often. Rule
+       of thumb in rst stage: one IV, t-stat>3.3; multiple IVs, F>10.
+
+•  A Really Bad Instrument:
+
+      Anderson and Reeb (2004)
+      Size, Square of Size, and Return Volatiliy
+      Does this aect rm return only through whether a rm is a family
+       rm?
+      Fails exclusion restriction, big time.
+
+•  IV: Sex of rst child of departing CEO, z
+
+      Benedsen et al (2007)
+
+                                 2
+      Danish economists working on Danish data.
+      Can match rms with CEO (social security data)
+      Is this a good instrument?
+      randomization test: compare, before transition, the observable char-
+       acteristics for rms with z = 1 and z = 0. IV → those should be
+       similar.
+      Not a proof of exclusion restriction (because u is not observed), but
+       pretty good already.
+      Number of male children or Ratio of male children are not good IVs
+       because they might be correlated to the founder's dynastic concerns.
+      Ways to do IV:
+
+         ∗ GMM:   E[ziui] = 0
+         ∗ TSLS: rst stage/second stage
+         ∗ Reduced form: regress outcome y directly on the instrument z
+         ∗ Should report naive OLS too
+      Finds greater negative eect of family heir (possible OLS bias because
+       worse rms resorts to professional management)
+         ∗ ways IV nding larger eects:
+             · true eect as decribed above
+             · measurement error in OLS? IV might not subject to attenu-
+               ation bias
+             · weak instrument
+•  Breaking Down Dierences in ROA
+      ROA  = (L/A)  × (Y/L − w).
+      ∆ROA   =unconditional dierence in productivity - unconditional dif-
+       ference in wage + unconditional dierence in capital intensity + dif-
+       ference in covariance
+      French data has precise wage records.
+      Founder CEO: higher labor productivity (long run implicit contract:
+       not going to re when things goes sour, but short term pay is lower
+       - needs reputation - founder CEO)
+      Heir CEO & Professional CEO: lower wages
+      Implicit contract assumption: Founder CEO rms should have less
+       ring response to industry-wide demand shocks. French data nds
+       that heir rms reacts the least instead.
+
+•  ROAit = α+βF amit  +εit. Not identied because within 1800 rms, only
+   21 transitions.
+         j                                  j . This is identied (think
+•  ∆Empit  =  α + βF ami × ∆ log(salesjt) + uit
+   about why).
+
+                                 3

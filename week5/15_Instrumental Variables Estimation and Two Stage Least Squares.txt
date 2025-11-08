@@ -1,0 +1,307 @@
+﻿          InstrumentalInstrumental  
+          VariablesVariables  
+  Chapter 15 EstimationEstimation  andand  
+          TwoTwo  StageStage  LeastLeast  
+          SquaresSquares
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a certain product or service 
+or otherwise on a password-protected website or school-approved learning management system for classroom use.   © kentoh/Shutterstock.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● The endogeneity problem is endemic in social 
+      sciences/economics
+      • In many cases important personal variables cannot be observed
+      • These are often correlated with observed explanatory information
+      • In addition, measurement error may also lead to endogeneity
+      • Solutions to endogeneity problems considered so far:
+         • Proxy variables method for omitted regressors
+         • Fixed effects methods if 1) panel data is available, 2) endogeneity is 
+          time-constant, and 3) regressors are not time-constant
+
+     ● Instrumental variables method (IV)
+      • IV is the most well-known method to address endogeneity problems
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Motivation: Omitted Variables in a Simple Regression Model
+
+     ● Example: Education in a wage equation
+                              Error terms contains factors 
+                              such as innate ability which 
+                              are correlated with education
+     ● Definition of a instrumental variable:
+      • 1) It does not appear in the regression
+      • 2) It is highly correlated with the endogenous variable
+      • 3) It is uncorrelated with the error term
+
+     ● Reconsideration of OLS in a simple regression model
+
+                     and assume
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● An simple consistency proof for OLS under exogeneity:
+
+                  (Exogeneity)
+
+
+       This holds as long as the data are such that sample variances and cova-
+       riances converge to their theoretical counterparts as n  1, i.e. if a LLN 
+       holds. OLS will basically be consistent if, and only if, exogeneity holds.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Assume existence of an instrumental variable   :
+
+               (but                            )
+
+
+                           The instrumental variable is un-
+                           correlated with the error term
+
+
+     IV-estimator:                The instrumental 
+                                  variable is correlated 
+                                  with the explanatory 
+                                  variable
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Example: Father‘s education as an IV for education
+
+   OLS:                         Return to education 
+                                probably overestimated
+
+
+                           Is the education of the father a good IV?
+                           1) It doesn‘t appear as regressor
+                           2) It is significantly correlated with educ
+                           3) It is uncorrelated with the error (?)
+
+                                The estimated return to 
+                                education decreases 
+   IV:                          (which is to be expected)
+                                It is also much less 
+                                precisely estimated
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Other IVs for education that have been used in the literature:
+
+     ● The number of siblings
+      • 1) No wage determinant, 2) Correlated with education because of 
+        resource constraints in hh, 3) Uncorrelated with innate ability
+
+     ● College proximity when 16 years old
+      • 1) No wage determinant, 2) Correlated with education because 
+        more education if lived near college, 3) Uncorrelated with error (?)
+
+     ● Month of birth
+      • 1) No wage determinant, 2) Correlated with education because of 
+        compulsory school attendance laws, 3) Uncorrelated with error
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Properties of IV with a poor instrumental variable
+      • IV may be much more inconsistent than OLS if the instrumental 
+        variable is not completely exogenous and only weakly related to   
+
+
+                               There is no problem if the 
+                               instrumental variable is really 
+                               exogenous. If not, the asymp-
+                               totic bias will be the larger the 
+                               weaker the correlation with x.
+
+
+    IV worse than OLS if:      e.g.
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● IV estimation in the multiple regression model
+
+
+            endogenous exogenous variables 
+                                In a regression of the 
+     ● Conditions for instrumental variable endogenous explanatory 
+                                variable on all exogenous 
+      • 1) Does not appear in regression equation variables, the instrumental 
+                                variable must have a non-
+      • 2) Is uncorrelated with error term zero coefficient.
+      • 3) Is partially correlated with endogenous explanatory variable
+
+
+                                  This is the so called 
+                                  “reduced form regression”
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Computing IV estimates in the multiple regression case:
+
+       Exogeneity conditions:
+
+                         as well as
+
+       Use sample analogs of the exogeneity conditions:
+
+
+       This yields k+1 equations from which the k+1 estimates                         can be obtained.
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Two Stage Least Squares (2SLS) estimation
+      • It turns out that the IV estimator is equivalent to the following     
+        procedure, which has a much more intuitive interpretation:
+
+
+     First stage (= reduced form regression): The endogenous explanatory variable y2 is 
+                           predicted using only exogenous information
+
+                                  Additional exogenous 
+                                  variable (= instrument)
+
+
+             Second stage (= OLS with y2 replaced by its prediction from the first stage):
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Why does Two Stage Least Squares work?
+      • All variables in the second stage regression are exogenous because    
+
+        y2 was replaced by a prediction based on only exogenous 
+        information
+
+      • By using the prediction based on exogenous information, y2 is 
+        purged of its endogenous part (the part that is related to the error 
+        term)
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Properties of Two Stage Least Squares
+      • The standard errors from the OLS second stage regression are 
+        wrong. However, it is not difficult to compute correct standard 
+        errors.
+      • If there is one endogenous variable and one instrument then 2SLS = 
+        IV
+      • The 2SLS estimation can also be used if there is more than one 
+        endo-genous variable and at least as many instruments
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Example: 2SLS in a wage equation using two instruments
+
+       First stage regression (regress educ on all exogenous variables):
+
+
+                                 Education is significantly 
+                                 partially correlated with the 
+                                 education of the parents
+
+       Two Stage Least Squares estimation results:
+
+
+                        The return to education is much lower but 
+                        also much more imprecise than with OLS
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Using 2SLS/IV as a solution to errors-in-variables problems
+      • If a second measurement of the mismeasured variable is available, 
+        this can be used as an instrumental variable for the mismeasured 
+        variable
+
+     ● Statistical properties of 2SLS/IV-estimation
+      • Under assumptions completely analogous to OLS, but conditioning 
+        on     rather than on    , 2SLS/IV is consistent and asymptotically 
+        normal
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+      • 2SLS/IV is typically much less precise because there is more 
+        multicollinearity and less explanatory variation in the second stage 
+        regression
+      • Corrections for heteroskedasticity/serial correlation analogous to 
+        OLS
+      • 2SLS/IV easily extends to time series and panel data situations
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.
+      InstrumentalInstrumental  VariablesVariables  EstimationEstimation  
+      andand  TwoTwo  StageStage  LeastLeast  SquaresSquares
+
+     ● Testing for endogeneity of explanatory variables
+
+
+                      Variable that is suspected to be endogenous
+
+         Reduced form regression:
+
+
+     Variable y2 is exogenous if and only if v2 is uncorrelated with u1, i.e. if 
+     the parameter      is zero in the regression:
+
+
+                    The null hypothesis of exogeneity of y2 is rejected, 
+                    if in this regression the parameter     is significantly 
+     Test equation: different from zero
+
+
+© 2016 Cengage Learning®. May not be scanned, copied or duplicated, or posted to a publicly accessible website, in whole or in part, except for use as permitted in a license distributed with a 
+certain product or service or otherwise on a password-protected website or school-approved learning management system for classroom use.

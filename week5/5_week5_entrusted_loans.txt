@@ -1,0 +1,1609 @@
+﻿                                                      Journal of Financial Economics 133 (2019) 18–41 
+
+                                                      Contents lists available at ScienceDirect 
+
+                                             Journal          of    Financial            Economics 
+
+                                                journal homepage: www.elsevier.com/locate/jfec 
+
+
+Entrusted             loans:        A    close       look       at   China’s          shadow            banking 
+               R 
+system 
+
+                                                                          ∗                  
+Franklin Allen a,          Yiming Qian b,          Guoqian Tu c,          , Frank Yu d
+  
+a Imperial College London, Greater London SW7 2AZ, London, UK 
+  
+b The University of Iowa, Tippie College of Business, Iowa City, IA 52242-1994, USA 
+  
+c Southwestern University of Finance and Economics, School of Accounting, 555 Liutai Avenue, Chengdu, China 
+  
+d China Europe International Business School, 699 Hongfeng Road, Shanghai, China 
+
+
+a  r  t  i c  l  e    i  n  f  o                      a  b  s t  r  a  c  t 
+
+Article history:                                      We perform transaction-level analyses of entrusted loans, one of the largest components 
+Received 18 September 2017                            of shadow banking in China. Entrusted loans involve ﬁrms with privileged access to cheap 
+                         
+Revised  22 March  2018                               capital channeling funds to less privileged ﬁrms, and the increase when credit is tight. 
+Accepted 28 March 2018 
+                                                      Nonaﬃliated loans have much higher interest rates than both aﬃliated loans and oﬃcial 
+Available online 10 January 2019 
+                                                      bank loans, and they largely ﬂow into real estate. The pricing of entrusted loans, especially 
+                                                                                                                                                             
+JEL classiﬁcation:                                    of nonaﬃliated    loans, incorporates   fundamental    and  informational   risks. Stock  market   re-
+                                                                                                                                                             
+G23                                                   actions  suggest  that both  aﬃliated   and  nonaﬃliated    loans  are  fairly compensated    invest-
+G28                                                   ments. 
+                                                                                                               © 2019 Elsevier B.V. All rights reserved. 
+Keywords: 
+Shadow banking 
+Entrusted loans 
+Credit shortage 
+Fundamental risk 
+Informational risk 
+
+
+1.  Introduction                                                                  undergone      tremendous       growth     worldwide       in  the   last 
+                                                                                  decade. It is particularly prevalent in China. The size of the 
+    Shadow     banking,    that  is, credit   intermediation      involv-         sector has doubled since 2011 and was equivalent to 82% 
+ing   activities  outside   the   traditional   banking    system,    has         of the country’s gross domestic product (GDP) by the ﬁrst 
+                                                                                  half of 2016 ( Moody’s, 2017 ). The phenomenon has gener- 
+                                                                                  ated heated debate on the net beneﬁts of the sector. Reg- 
+    
+ R  We   would   like to  thank  Wei   Jiang, Andrew   Karolyi, Jun  Qian,        ulators are ambivalent about how and to what extent                    to 
+Wei   Xiong,  Yunqi  Zhang,  and  seminar   participants at Bank   of Fin-        regulate this sector. 
+land, ShanghaiTech University, 2015 Symposium on Emerging Financial 
+                                                                                      We provide a large-sample transaction-level analysis of 
+Markets, 2015 Cheung Kong Graduate School of Business (CKGSB) and 
+                                                                                                                                                             
+Shanghai Advanced Institute of Finance (SAIF) Summer Institute of Fi-             an  important     part  of China’s   shadow     banking    system:    en-
+nance Conference, and 2015 China International Conference in Finance for          trusted   loans.   Entrusted    loans   are  loans   made    by  a  non- 
+useful comments. We are particularly grateful to Toni Whited (the edi-            bank    party   (e.g., an  industrial    ﬁrm)    to  another,   using   a 
+                                                                           
+tor) and  Mauricio  Larrain (the referee) for their suggestions. We thank         bank    as  a  servicing   agent.   The   bank    earns   a  fee  for  its 
+Miranda Sun for excellent research assistance. All errors are ours. We 
+                                                                                                                                                             
+acknowledge ﬁnancial support from the National Natural Science Foun-              service   but  does    not  bear   the  investment     risk.  Entrusted
+dation of China (under #71232004 , 71172082 , and 71172083 ), the Social          loans were the largest component of the sector until 2014 
+Science Foundation of the Ministry of Education of China ( 14XJC790 0 09 ),       and   are  now    the   second    largest,  having    been    surpassed 
+and China Europe International Business School (under #17ELAC).                   by wealth management products (WMPs). By the ﬁrst half 
+  ∗                        
+    Corresponding   author.                                                       of  2016,   outstanding      entrusted    loans   amounted       to  12.1 
+    E-mail address: tuguoqian@cqu.edu.cn (G. Tu). 
+
+https://doi.org/10.1016/j.jﬁneco.2019.01.006 
+0304-405X/© 2019 Elsevier B.V. All rights reserved. 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41            19 
+
+trillion renminbi  (RMB)   ($1.8 trillion). Wall Street Jour-       are they priced commensurate with their risk levels? Fur- 
+nal (2014)  described  the situation: “Loans  between   com-        ther, can the  price of a  loan (i.e., the interest rate) pre- 
+panies is the fastest-growing category of shadow banking            dict the future loan performance (i.e., the likelihood of de- 
+in China, but  with  next to  no data  on  where  such  loans       fault)? (5) Do entrusted loans create or destroy value for 
+are going, their effect on the economy is a black box.”             the shareholders of the lending ﬁrms? 
+   By examining transaction-level data, we shed light on               Our   investigation reveals  that  entrusted  loans  allow 
+four general  issues surrounding   shadow   banking:  (1) the       privileged  ﬁrms   with  access  to cheap   capital (such  as 
+reasons behind its rise, (2) the risk of the sector, (3) the        large state-owned   enterprises)  to provide  credit to  less- 
+pricing eﬃciency    of transactions,  and  (4) how   shadow         privileged ﬁrms   (such  as small  and  medium-size   private 
+banking   should  be  regulated.  With   regard  to the  ﬁrst       ﬁrms). Lenders of entrusted loans tend to be large, well- 
+issue, researchers hypothesize that shadow banking arises           capitalized ﬁrms. Their cost of borrowing is similar to or 
+as a reaction to imperfections and distortions in ﬁnancial          lower than the oﬃcial bank loan rate, and they lend out at 
+markets. The oﬃcial ﬁnancial system in China (consisting            similar or higher rates. We also ﬁnd that these loans are 
+of banks   and  stock  and  bond  markets),  after  long  and       more likely to happen when credit is tight. In other parts 
+gradual  reforms,  is still not accessible  to  most  private       of the world, nonﬁnancial ﬁrms are unlikely to engage in 
+ﬁrms, especially small and medium-size ﬁrms ( Allen and             making loans because they typically lack a comparative ad- 
+Qian, 2014 and the references therein). Our study provides          vantage to do so. But China’s highly regulated banking sys- 
+evidence  on  how   distorted the  system   is by comparing         tem  provides  an  incentive for  privileged ﬁrms   to act as 
+the interest rate of nonaﬃliated    entrusted  loans and  the       credit intermediaries. Although many of the loans are pro- 
+oﬃcial bank loans and on how capital ﬂows to ﬁrms and               vided to ﬁrms within the same geographic area, they tend 
+industries with restricted access to capital.                       to ﬂow from prosperous provinces or areas to poorer ones 
+   The second general issue regarding shadow banking is             and from coastal to inland areas. 
+whether   it ampliﬁes  or disseminates   systemic  risk. How           Our  study  also shows   that different  types of shadow 
+much   risk shadow   banking  adds  to the  economy   and  to       banking activities can be very different in terms of the mo- 
+the ﬁnancial  system  depends   on  two  factors. The ﬁrst  is      tives, the types of investments they fund, and their pricing. 
+what  real investment   projects  the sector  funds  and  the       The category of entrusted loans has two distinctive types: 
+risk of these projects. The second is how shadow banking            aﬃliated and nonaﬃliated loans. Most aﬃliated loans are 
+is ﬁnanced. We have little systematic evidence concerning           made   by a  parent  ﬁrm  to a  subsidiary. Some   others are 
+these factors. Most of the discussion is at the theoretical         between   a customer   and  a supplier or  between   business 
+level or based  on  anecdotal  observations.  Our  study  ex-       partners in a joint investment. Nonaﬃliated loans are be- 
+amines the asset side of entrusted loans and the ﬁnancial           tween two parties without any prior relation. 
+structure of the lending ﬁrms and, thus, provides a micro-             Examining the lender characteristics suggests different 
+foundation for the discussion of the riskiness of the sector.       motives behind these two types of loans. Lenders of aﬃli- 
+   The third issue is pricing eﬃciency. Little understand-          ated loans tend to be state-owned enterprises (SOEs) with 
+ing exists  in the  literature about  the  pricing  eﬃciency        high proﬁtability and, thus, are in good positions to sup- 
+of shadow   credit. On  the  one  hand, market   competition        port their aﬃliated parties. Lenders of nonaﬃliated loans 
+should lead to eﬃcient pricing. On the other hand, alter-           have excess cash but low growth rates and, therefore, use 
+native lenders perhaps do not have the experience and ex-           the loans as an alternative investment channel. 
+pertise to price the  credit eﬃciently.  Our  study  provides          The  two  types  of loans  have  striking differences. Re- 
+in-depth evidence on this matter as well.                           garding the industry distribution of borrowers, most aﬃl- 
+   The fourth general issue is how shadow banking should            iated loans are within-industry loans. In contrast, close to 
+be  regulated.  Shadow   banking   arguably   should  be  re-       half of the  nonaﬃliated   loan amount   ﬂows   into the  real 
+stricted or eliminated to ensure ﬁnancial stability because         estate and  construction  industry, which   regulators try to 
+it often involves avoiding regulation in the formal sector.         restrict credit from reaching to avoid exacerbating risks in 
+We  show   that this view  is too  simplistic. In the case of       the sector. 
+entrusted  loans, our  evidence  suggests  they can  increase          The interest rates of nonaﬃliated loans reﬂect the mar- 
+ﬁnancial stability.                                                 ket rate, while  those of  aﬃliated  loans do  not. Aﬃliated 
+   We take advantage of the mandatory disclosure require-           loans are essentially pass-through loans. That is, the bor- 
+ment   on  listed ﬁrms  when    they  make   entrusted  loans       rowing ﬁrms borrow at the same rate as the lending ﬁrms, 
+and collect loan-level data from companies’ annual reports          which is approximately the same as the oﬃcial bank loan 
+and public announcements. We examine the following re-              rate. Unlike  aﬃliated  lenders,  which  tend  to  have  high 
+search  questions: (1) What   kinds  of ﬁrms   tend to  make        proﬁtability, lenders of nonaﬃliated loans have low growth 
+entrusted loans? What motivates lending ﬁrms to lend in-            rates and use entrusted loans as an alternative investment 
+stead of invest in their main businesses? (2) Who are the           channel to their main businesses. Through entrusted loans, 
+borrowers?   Are entrusted   loans likely to allocate capital       they pursue immediate proﬁts by acting as credit interme- 
+in certain types of industries or in certain geographic ar-         diaries. The loan rates for nonaﬃliated loans, which aver- 
+eas? (3) At what prices are entrusted loans provided? How           age 13.9%, are about twice the average oﬃcial bank loan 
+do these prices compare with the oﬃcial bank loan rate?             rate of 6%. The signiﬁcant difference between these rates 
+(The  difference sheds  light on  the  degree  to which   the       suggests that the oﬃcial ﬁnancial system is distorted; that 
+oﬃcial  ﬁnancing   system  is distorted.) (4)  Are entrusted        is, the oﬃcial loan rate does not properly reﬂect the true 
+loans economic-   and  information-based?    In other words,        demand and supply of capital. 
+20                              F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+   Consistent   with   nonaﬃliated    loans   being  market-        desirability of multi-tiered regulation in which the regula- 
+oriented  transactions, we   ﬁnd  strong  evidence   that the       tors consider the detailed operation of the shadow bank- 
+pricing  of nonaﬃliated    loans  depends   on  both   funda-       ing sector and distinguish between cases in which ﬁnancial 
+mental and informational risks. The adjusted interest rate          stability is decreased and cases in which it is increased. 
+increases  if the borrower   is in a high-risk  industry  and          The  authorities  issued new   rules in 2015  to curb  the 
+decreases  if it is an  SOE  or when   the  lender  is in the       fast growth of entrusted loans, which resulted in an imme- 
+same industry or located in the same city as the borrower           diate slowdown of new entrusted loans. But these transac- 
+(hence,  the information   asymmetry    between   the parties       tions bounced back shortly after. The amount of entrusted 
+is lower). Moreover,   the  likelihood of default  and  other       loans decreased by 37% in 2015, accounting for 10% of the 
+payback diﬃculties increases with the loans’ interest rates,        total social ﬁnancing.  In 2016,  the numbers   increased  by 
+conﬁrming that the pricing of these loans is risk-based. In         37%  to  account  for 12%  of  the total social ﬁnancing.   In 
+comparison, the evidence that aﬃliated loans incorporate            the ﬁrst quarter of 2017, the annualized growth rate was 
+risk is weaker.                                                     also high  at 16%. 1 Often, when   regulators  increase regu- 
+   We examine whether entrusted loans create or destroy             lation of  one  form  of shadow    banking,  other forms   in- 
+value  to lending   shareholders  by  considering  the  stock       crease in response. In 2015, while entrusted loans declined, 
+price  reaction  upon  the  announcement     of  these  loans.      wealth  management     products  (another  form   of shadow- 
+Our  evidence  suggests  that  nonaﬃliated   loans  are fairly      ing  banking)  surged.  Starting from  2016,  the authorities 
+compensated    investments,   although   investors  do  react       intensiﬁed  efforts  to reduce leverage  with  tighter mone- 
+negatively the ﬁrst time a ﬁrm announces such a loan and            tary policy and more stringent regulations on WMPs. Re- 
+thus  reveals to the market   that it lacks good  investment        sponding to that, there has been a resurgence of entrusted 
+opportunities in its main business. Announcement returns            loans. 2 Shadow   banking  in China  continues   to grow  be- 
+for aﬃliated loans are not signiﬁcantly different from zero,        cause  private  ﬁrms   are still restricted from  the  oﬃcial 
+suggesting that they do not destroy value. In other words,          banking  system   and  banks  still have strong incentives  to 
+although the interest rates are low, the market views these         evade regulatory constraints (e.g., high reserve ratios and 
+loans as fairly priced investments in the aﬃliated parties.         strict bank  loan quota). Hence,  both  demand    and  supply 
+   This  study  adds  understanding   to four  important  as-       remain strong. 
+pects of shadow banking activities. First, we show evidence            The   literature on  China’s  shadow   banking   has  been 
+that China’s oﬃcial banking system is highly distorted in           growing recently. Wang et al. (2016) and Hachem and Song 
+that the bank loan rate is way below the market interest            (2016) provide theoretical explanations for the growth of 
+rate and that entrusted loans involve privileged ﬁrms with          the sector. Chen et al. (2017) show how China’s stimulus 
+cheap  access  to capital channel   funds  to less privileged       package led to its rapid growth. Acharya et al. (2016) study 
+ﬁrms. Second, we provide evidence on the riskiness of the           the  role of banks   in issuing  wealth  management     prod- 
+real investments   these loans  fund. We   show  that  nonaf-       ucts, another important form of shadow banking in China. 
+ﬁliated loans are riskier than aﬃliated loans given that a          Within  this  literature on the  sector, three papers  exam- 
+much larger proportion of nonaﬃliated loans ﬂow into the            ine  entrusted  loans. Each   uses a  much   smaller  sample 
+real estate industry and they are more likely to have prob-         size than  our  paper  and,  more   important,  each  focuses 
+lematic performance ex post. Third, we ﬁnd that entrusted           on  different research  questions. Chen   et al. (2019) study 
+loans, especially nonaﬃliated loans, are priced commensu-           the  role of banks   and  ﬁnd  that  banks,  especially small 
+rate with fundamental and informational risk and that they          banks, channel more entrusted loans when monetary pol- 
+are fairly compensated investments. Our evidence also sug-          icy tightens. Yu  et al. (2015) ﬁnd  that  mature  and  cash- 
+gests that because shadow banking can differ markedly in            rich ﬁrms with lower growth opportunities are more likely 
+risk and eﬃciency depending on the transaction type, we             to make high-interest entrusted loans (which roughly cor- 
+must be careful when drawing conclusions about the sec-             respond  to  nonaﬃliated   loans), consistent with  our  ﬁnd- 
+tor as a whole.                                                     ings. He  et al. (2016) look  at the  announcement    returns 
+   Fourth,  our paper   provides insights  into regulation of       of entrusted loans, but they do not differentiate between 
+shadow   banking   activities. Shadow   banking   arguably  is      a ﬁrm’s ﬁrst and subsequent loans. None of these papers 
+problematic  because   it involves avoiding  banking  regula-       compares   lenders’ costs  of borrowing   with  their lending 
+tions in the formal sector and, as a result, increases sys-         rates or studies the asset side and pricing eﬃciency of en- 
+temic  risks. Entrusted loans  provide  an interesting  coun-       trusted loans. 
+terexample to this view of shadow banking. Our analysis                Our   examination   of  aﬃliated   loans  is related  to a 
+shows that nonaﬃliated entrusted loans are often used to            number of existing studies of intra-business group loans. 
+channel funds to risky ﬁrms in the real estate and related          Gopalan et al. (2007) and Buchuk et al. (2014) investigate 
+sectors. If banks were to lend to such ﬁrms, systemic risk          intra-group loans in India and Chile, respectively, and ﬁnd 
+would be increased. However, entrusted loans have the ad-           beneﬁts of these loans such as reducing the likelihood of 
+vantage that they are the assets of the lending ﬁrms. These         bankruptcy, alleviating ﬁnancial constraints, and increasing 
+ﬁrms   are mostly  well  capitalized and  have  much   higher 
+equity  ratios than banks.  Their  large equity  buffers thus 
+                                                               
+act as a ﬁrebreak  between   the risky real estate sector and          
+                                                                      1 Data source is the People’s Bank of China web site: http://www.pbc. 
+the banking sector and reduce systemic risk. For these rea- 
+                                                                    gov.cn/diaochatongjisi/116219/index.html . 
+                                                                       
+sons, the  entrusted loan  market  is beneﬁcial  for decreas-         2 See Moody’s (2016, 2017 ) for more discussion of these zigs and zags 
+ing systemic risk and increasing stability. This points to the      of the sector’s growth. 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41           21 
+
+investments  in  the borrowing   ﬁrms. 3 Our  work   comple-        around the “entrusted loan” hits to decide whether the in- 
+ments   both  studies  by  providing  evidence  that  pricing       formation is relevant. An annual report discloses all loans 
+of aﬃliated  loans  is economic-based    and  that the  loans       outstanding  by  the year-end.  To  ensure  each observation 
+on  average are  fair investments. Jiang  et al. (2010) show        corresponds  to  a newly  originated  loan, we  compare   the 
+that controlling shareholders of Chinese-listed ﬁrms used           list of loans with those in the ﬁrm’s previous annual re- 
+intra-group  loans for  tunneling  during  the period  1996–        port to identify new loans. For each new loan, we identify 
+2006  and  that  the practice  was  ended   by  2006  after a       the lender and the borrower and record loan characteris- 
+series of regulatory rules and directives. 4 Using post-2004        tics such as the loan amount, the interest rate, the matu- 
+Chinese  data,  Chen  et  al. (2015)  present  evidence  that       rity, and whether the two parties are aﬃliated. 
+state-owned   intra-group  capital ﬂows   likely go  to ﬁrms           We supplement the annual report data with entrusted 
+with low investment opportunities, and private groups do            loan  announcements.     Not  all ﬁrms   make    interim  an- 
+the opposite. Such support activities perhaps are not inef-         nouncements    about  their entrusted  loans. The  regulatory 
+ﬁcient after considering  factors such  as bankruptcy   costs       requirement   on  such  announcements     is vague.  That  is, 
+( Gopalan et al., 2007 ). Our wealth effect tests suggest that      ﬁrms   need  to  make  announcements     about   material in- 
+the market does not believe aﬃliated loans destroy value            vestments   and  events, but  no  technical deﬁnition   exists 
+for lenders. 5 To the best of  our knowledge,   our  paper  is      of what is considered material. When announcements are 
+the ﬁrst  to systematically  study  the  pricing and  wealth        available, we use them to cross-check data from annual re- 
+effects of aﬃliated loans.                                          ports and to ﬁll in any missing information. Knowing the 
+   The   rest  of  this  paper   is  organized   as  follows.       announcement dates also allows us to examine stock price 
+Section  2 describes  the  sample  and  data.  Section 3  ex-       reactions to these loans. 
+amines    who     makes    entrusted    loans   and    when.           In  Appendix   A , we  use  a few   detailed examples   to 
+Section  4  shows   which   types  of  ﬁrms   are  borrowing        show   how  we   identify new   loans and   locate the  infor- 
+and  at  what  price.  Section  5 examines    the  pricing of       mation we need. Appendix A also illustrates how we use 
+entrusted loans. Section 6 examines the wealth effects of           annual reports and interim announcements to cross-check 
+entrusted loans. Section 7 concludes.                               information. 
+                                                                       We   obtain  additional  information   about  the  lenders 
+2. Sample and data                                                  from  Wind   Database,  which  provides  accounting  and  re- 
+                                                                    turn data for listed ﬁrms. In our sample, the majority of 
+   According   to the  regulations  of the  China  Securities       borrowers (99%) are private ﬁrms, so we have limited in- 
+Regulatory  Commission    (CSRC),  listed companies   are re-       formation about them. We collect data on a borrower’s in- 
+quired to disclose, in audited annual reports, the entrusted        dustry and headquarters location and on whether it is an 
+loans they make. Corporations can receive warnings or face          SOE,  based  on information   provided  by the  lender  or by 
+lawsuits  from  CSRS  for  failing to comply   with  the dis-       our own search. 
+closure requirements. The data quality on entrusted loans              Our sample contains 2995 entrusted loans made by 498 
+should therefore be as good as other accounting variables           unique  ﬁrms   that correspond   to  1107  ﬁrm-years   during 
+from  annual   reports, which  are  widely  used   in studies       the  period  2004–2013.   In this period,  the  entire public 
+about Chinese ﬁrms.                                                 market of China had 2467 unique nonﬁnancial ﬁrms that 
+   We   collect our sample   and  data by  searching  for the       corresponded to 18,001 ﬁrm-years. 
+term “entrusted loan” in all public nonﬁnancial ﬁrms’ an-              Table 1 reports by year the number of listed ﬁrms that 
+nual reports during the period 2004–2013. We use a key-             make new entrusted loans, the number of loans, and the 
+word  search  because   the disclosure  format  lacks unifor-       total loan  amount.   We  observe   a fast-growing  trend  of 
+mity, especially  before 2011. 6 We  then  read  the  context       entrusted  loans. The  number    of ﬁrms   making   entrusted 
+                                                                    loans increases from 55 in 2004 to 220 in 2013. The total 
+                                                                    amount of the loans takes more than a tenfold leap, from 
+ 3 For a discussion of the general literature on business groups and in- 
+                                                                                                                              
+ternal capital markets, see Buchuck et al. (2014) .                 12.6 billion RMB  in 2004  to 219.2 billion RMB  in 2013.
+   
+ 4 La Porta et al. (2003) also ﬁnd that related lending by banks in Mex- 
+ico in the 1990s is a form of looting.                              3. Who makes entrusted loans and when? 
+   
+ 5 Consistent with Chen et al. (2015) , we ﬁnd that the announcement 
+                                                              
+returns of aﬃliated loans tend to be higher for loans made by non-SOE  We   investigate  what  types  of  ﬁrms  make    entrusted 
+lenders than those by SOE lenders. Nonetheless, the differences are not 
+                                                                                                                                  
+statistically signiﬁcant. Our sample is different from that of Chen et al. loans. What motivates lending ﬁrms to lend instead of in-
+(2015) . While they examine capital ﬂows among ﬁrms with the same ul- vest in their main businesses?  What   differentiates ﬁrms 
+timate controlling shareholder, our aﬃliated loans are mostly between that make  loans  from  those  that  do  not?  In addition, 
+listed parent ﬁrms and subsidiaries. The motives and results of support we compare lenders  of  aﬃliated   loans  with  those  of 
+in these two relationships can be very different. Their data do not reveal 
+                                                                    nonaﬃliated loans. 
+the repayment of the loans and trade credit. Our data clearly show that 
+                                                                                                                                  
+the majority of the loans (91.4%) are fully repaid on time.            Table 2  reports the descriptive statistics of lender char-
+   
+ 6 In earlier years of the sample period, information about entrusted acteristics. The ﬁrst two columns show the mean values of 
+loans can often be found in footnotes to the balance sheet or in other sec- variables for ﬁrm-years with and without entrusted loans. 
+tions, such as Major Events. In 2011, CRSC speciﬁed that the information Columns 3 and 4 report characteristics of lenders of non- 
+should be disclosed in the section The Board’s Report—Investments Anal- 
+                                                                    aﬃliated and aﬃliated loans, respectively. Compared with 
+ysis. After 2011, all the loans are listed in the speciﬁed section, but some 
+                                                                                                                                  
+relevant information (e.g., loan characteristics) is sometimes discussed in nonlenders, both types of lenders are much larger in as-
+other parts of the annual report.                                   set value terms (10.6 billion RMB for nonaﬃliated lenders 
+22                                     F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+Table 1 
+Entrusted loans over time. 
+  The sample contains 2995 entrusted loans during the period 2004–2013. All renminbi (RMB) values are adjusted to constant year 2013 RMBs. 
+
+  Characteristic                                   2004      2005     2006      2007      2008     2009      2010      2011      2012      2013      Total 
+
+  Number of ﬁrms that make entrusted loans          55        51        53       65        99        95       116      176        177      220       1107 
+  Number of entrusted loans                         116       98       102       151      209       208       280      530       626       675       2995 
+  Aggregate loan amount (billions of RMB)          12.6       9.3      12.6     23.6      38.2      32.5      41.1    100.5      202.2     219.2     691.8 
+
+Table 2 
+Summary statistics. 
+  The sample contains the 18,001 ﬁrm-year observations for all the listed nonﬁnancial Chinese ﬁrms during the period 2004–2013. Variable deﬁnitions are 
+in Appendix B . All renminbi RMB values are adjusted to constant year 2013 RMBs. Continuous variables are winsorized at 1% and 99%. We use t -test for 
+differences in means. ∗∗∗, ∗∗, and ∗ denote the difference is signiﬁcant at the 1%, 5%, and 10% level, respectively. 
+
+                                Loan            Loan 
+                            dummy = 0       dummy = 1       Nonaﬃliated    Aﬃliated loan 
+  Variable                  ( N = 16,894)    ( N = 1107)   loan ( N = 289)   ( N = 800) 
+                                 (1)             (2)             (3)             (4)          (2) −(1)        (3) −(1)        (4) −(1)        (4) −(3) 
+
+  Assets (billions of RMB)       5 .8           18 .1           10.6            21.0           12 .3 ∗∗∗        4.8  ∗∗∗       15.2  ∗∗∗       10.4  ∗∗∗
+  ROA (%)                        6 .9            7.6             7.4             7.6            0.7  ∗∗∗        0.5             0.7  ∗∗         0.2  
+  Sales growth (%)              23 .6           24 .4           18 .0           26.5            0.8           −5.6  ∗           2.9             8.5  ∗∗
+  Firm age                       8 .1            9.8             9.5             9.9            1 .7 ∗∗∗        1.4  ∗∗∗        1.8  ∗∗∗        0.4  
+  Tobin’s q                      1 .8            1.6             1.7             1.6          −0.2  ∗∗∗       −0.1            −0.2  ∗∗∗       −0.1  
+  Debt/assets (%)               20.7            21.6            16.7            23.5            0.9  ∗        −4.0  ∗∗∗         2.8  ∗∗∗        6.8  ∗∗∗
+  Change of debt (%)             4 .0            7.8             5.0             8.7            3 .8 ∗∗∗        1.0             4.7  ∗∗∗        3.7  ∗∗∗
+  Cash/assets (%)               19 .4           18 .4           21 .4           17.2          −1.0  ∗∗          2.0  ∗∗       −2.2  ∗∗∗       −4.2  ∗∗∗
+  SOE lender (%)                54 .6           73.8            56 .7           79.9           19 .2 ∗∗∗        2.1            25.3  ∗∗∗      23.2  ∗∗∗
+  Real estate lender (%)         8 .4           10.4             7.3            11.8            2 .0 ∗∗       −1.1              3.4  ∗∗∗        4.5  ∗∗
+
+
+and 21.0 billion RMB for aﬃliated lenders versus 5.8 billion                          Unlike    aﬃliated     lenders,    ﬁrms    making     nonaﬃliated 
+RMB for nonlenders). Both types of lenders are also well-                         loans   do  not   differ  signiﬁcantly    from   nonlenders     in  ROA, 
+capitalized ﬁrms, although aﬃliated lenders’ average debt                         new debt, and the likelihood of being an SOE or a real es- 
+ratio is slightly higher than nonlenders’ (16.7% for nonaf-                       tate company. In fact, they have lower sales growth rates 
+ﬁliated lenders, 23.5% for aﬃliated lenders, and 20.7% for                        (average 18.0% versus 23.6%), lower debt ratios (16.7% ver- 
+nonlenders).                                                                      sus 20.7%), and higher cash holdings (21.4% versus 19.4%) 
+    The two types of lenders differ in other aspects. Again,                      than   nonlenders.     These    characteristics    suggest   that   large 
+benchmarked        against   nonlenders,     aﬃliated     lenders   have          ﬁrms with excess cash but a low growth rate tend to make 
+higher    proﬁtability    measured      by  return   on   assets   (ROA;          nonaﬃliated loans. 
+7.6% versus 6.9%), higher debt ratios (23.5% versus 20.7%),                           Borrower size is not typically disclosed in lenders’ an- 
+more recently issued debt (change of debt ratio 8.7% ver-                         nual reports. In unreported results, we are able to ﬁnd as- 
+sus   4%),  and   less  cash   holding   as  a  percentage     of  assets         set  values   of  borrowers     in  509   loan  announcements.        For 
+(17.2% versus 19.4%). Aﬃliated lenders are also more likely                       those 509 transactions, the median borrower asset value is 
+to be SOEs (79.9% versus 54.6%) and in the real estate busi-                      0.4 billion RMB (versus 4 billion RMB for lenders). Accord- 
+ness (11.8% versus 8.4%). These characteristics suggest that                      ing  to  the  size  classiﬁcation     criteria  of the   China   Bureau 
+larger, SOE ﬁrms with higher proﬁtability are more likely                         of Statistics, the asset value is associated with a medium- 
+to provide aﬃliated loans and that these ﬁrms likely de-                          size company. As noted before, 99% of the borrowers in our 
+pend on external ﬁnancing instead of internal cash for the                        data are private ﬁrms. So, a typical borrower is a private 
+lending. 7                                                                        medium-size company. 
+                                                                                      We    then   run   multivariate    regressions     to  explore    the 
+                                                                                  determinants      of  the  loan   decisions.    Table   3  reports   two 
+                                                                                  types of regressions. In the ﬁrst three columns, we report 
+  7                                                                        
+    This  is suggested  by aﬃliated  lenders’ low  cash  holdings and  in-        logit  regressions    using   Loan    dummy     (an  indicator    for  an 
+creased debt ratios before loan issuance. Although we usually cannot pin 
+                                                                                                                                                             
+down lenders’ sources of funds for entrusted loans, we observe anecdotal          entrusted    loan  in the  ﬁrm-year)     as the  dependent     variable.
+evidence that ﬁrms borrow externally, e.g., by issuing bonds, to fund en-         For each regression, we include both ﬁrm-years with and 
+trusted loans. For example, Guangxi Guiguan Electric Power Co. issued 2           without    loans.   The  loan   sample    contains    ﬁrm-years     with 
+billion RMB of bonds in January 2013 with a maturity of three years and           both types of loan, nonaﬃliated loans only, and aﬃliated 
+                                                                           
+a coupon  rate of 5.6%. Within 50 days of the bond  issuance, the company         loans   only   (Columns     1–3,   respectively).   In  the   last three 
+spent 0.94 billion RMB on ﬁve entrusted loans to ﬁve majority- or wholly 
+                                                                                                                                                             
+owned subsidiaries, each with an interest rate of 5.535% and a maturity           columns,    we   report  Tobit  regressions    using   the  ratio of  the
+of three years. In another case, Foshan NationStar Optoelectronics Co. is-        amount of loan to total assets as the dependent variable 
+sued 500 million RMB of bonds in May 2012, with a maturity of ﬁve years           and zero as the lower limit. In Table 3 Panel A, industry 
+                                                                           
+and  a coupon  rate of 6.8%. Two months  later, the company  lent 300 mil-        and year ﬁxed effects are included. In Panel B, we include 
+lion RMB to a majority-owned subsidiary at a rate of 7%, maturing in 3.5 
+                                                                                                                                                             
+years. The company stated explicitly in the loan announcement that it             a  measure    for  the  condition    of  the  economy,     namely,    the
+used the proceeds of the bond issuance to make the entrusted loans.               Shanghai interbank offered rate (SHIBOR), which indicates 
+                                      F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41                               23 
+
+Table 3 
+Determinants of loan decisions. 
+  The sample contains the 18,001 ﬁrm-years observations for all the listed nonﬁnancial Chinese ﬁrms during the period 2004–2013. We run logit re- 
+gressions using Loan dummy as the dependent variable, and we run Tobit regressions using Loan amount/assets (%) as the dependent variable. Variable 
+deﬁnitions are in Appendix B . Financial variables are winsorized at 1% and 99%. p -values are based on standard errors double-clustered by ﬁrm and year . 
+∗∗∗, ∗∗, and ∗ denote signiﬁcance at the 1%, 5%, and 10% level, respectively. 
+
+  Variable                                     Logit regression: Loan dummy                              Tobit regression: Loan amount/assets (%) 
+
+                                                                                                                     Firm-years with 
+                                                        Firm-years with       Firm-years with                          nonaﬃliated       Firm-years with 
+                                                      nonaﬃliated loans       aﬃliated loans                             loans and        aﬃliated loans 
+                                                         and without           and without                               without           and without 
+                                 All ﬁrm-years          entrusted loans       entrusted loans      All ﬁrm-years      entrusted loans     entrusted loans 
+                                      (1)                     (2)                   (3)                 (4)                 (5)                 (6) 
+
+  Panel A: Regressions with year ﬁxed effects 
+  Ln(assets)                     0.48  (0.00) ∗∗∗        0.38  (0.00) ∗∗∗       0.49  (0.00) ∗∗∗   3.12  (0.00) ∗∗∗    2.62  (0.00) ∗∗∗    3.09  (0.00) ∗∗∗
+  ROA (%)                        0.01  (0.12)            0.007  (0.60)          0.013  (0.05) ∗∗   0.08  (0.00) ∗∗∗    0.07  (0.20)        0.08  (0.00) ∗∗∗
+  Sales growth (%)             −0.001   (0.03) ∗∗      −0.004   (0.01) ∗∗∗    −0.001  (0.20)      −0.02  (0.02) ∗∗    −0.03  (0.00) ∗∗∗   −0.01  (0.25) 
+  Ln(Firm age)                   0.20  (0.03) ∗∗         0.33  (0.06) ∗         0.13  (0.18)       1.79  (0.00) ∗∗∗    2.77  (0.00) ∗∗∗    1.02  (0.06) ∗
+  Tobin’s Q                    −0.02  (0.63)           −0.08  (0.25)          −0.01  (0.85)        0.01  (0.92)       −0.49  (0.16)        0.20  (0.00) ∗∗∗
+  Debt/assets (%)              −0.01  (0.12)           −0.02  (0.00) ∗∗∗      −0.001  (0.86)      −0.07  (0.00) ∗∗∗   −0.16  (0.00) ∗∗∗   −0.02  (0.31) 
+  Change of debt (%)             0.01  (0.00) ∗∗∗        0.005  (0.14)          0.01  (0.00) ∗∗∗   0.09  (0.00) ∗∗∗    0.05  (0.14)        0.08  (0.00) ∗∗∗
+  Cash/assets (%)                0.006  (0.24)           0.004  (0.58)          0.005  (0.32)      0.06  (0.00) ∗∗∗    0.06  (0.02) ∗∗     0.02  (0.18) 
+  SOE lender                     0.37  (0.01) ∗∗∗      −0.30  (0.20)            0.69  (0.00) ∗∗∗   2.27  (0.01) ∗∗∗   −2.49  (0.09) ∗      3.86  (0.00) ∗∗∗
+  Year ﬁxed effect                    Yes                     Yes                   Yes                 Yes                 Yes                 Yes 
+  Industry ﬁxed effect                Yes                     Yes                   Yes                 Yes                 Yes                 Yes 
+  N                                 18,001                   17,183               17,694              18,001              17,183              17,694 
+             
+  Pseudo R 2                          0.11                    0.09                  0.14               0.05                0.06                0.07 
+
+  Panel B: Regressions including Shibor 
+  Ln(assets)                     0.50  (0.00) ∗∗∗        0.40  (0.00) ∗∗∗       0.52  (0.00) ∗∗∗   3.27  (0.00) ∗∗∗    2.79  (0.00) ∗∗∗    3.23  (0.00) ∗∗∗
+  Shibor (%)                     0.25  (0.00) ∗∗∗        0.30  (0.00) ∗∗∗       0.24  (0.00) ∗∗∗   1.91  (0.00) ∗∗∗    2.37  (0.00) ∗∗∗    1.67  (0.00) ∗∗∗
+  ROA (%)                        0.01  (0.09) ∗          0.006  (0.64)          0.014  (0.03) ∗∗   0.09  (0.00) ∗∗∗    0.06  (0.20)        0.09  (0.00) ∗∗∗
+  Sales growth (%)             −0.002   (0.01) ∗∗∗     −0.004   (0.01) ∗∗∗    −0.001  (0.10) ∗    −0.02  (0.01) ∗∗∗   −0.03  (0.00) ∗∗∗   −0.01  (0.21) 
+  Ln(Firm age)                   0.23  (0.01) ∗∗∗        0.35  (0.04) ∗∗        0.18  (0.08) ∗     2.02  (0.00) ∗∗∗    2.94  (0.00) ∗∗∗    1.24  (0.02) ∗∗
+  Tobin’s Q                    −0.004   (0.91)         −0.06  (0.32)            0.02  (0.73)       0.14  (0.68)       −0.36  (0.22)        0.35  (0.34) 
+  Debt/assets (%)              −0.01  (0.11)           −0.02  (0.00) ∗∗∗      −0.001  (0.87)      −0.07  (0.00) ∗∗∗   −0.17  (0.00) ∗∗∗   −0.02  (0.32) 
+  Change of debt (%)             0.01  (0.00) ∗∗∗        0.005  (0.11)          0.01  (0.00) ∗∗∗   0.09  (0.00) ∗∗∗    0.05  (0.13)        0.08  (0.00) ∗∗∗
+  Cash/assets (%)                0.007  (0.18)           0.005  (0.51)          0.007  (0.23)      0.06  (0.00) ∗∗∗    0.06  (0.01) ∗∗∗    0.03  (0.09) ∗
+  SOE lender                     0.33  (0.01) ∗∗∗      −0.35  (0.12)            0.64  (0.00) ∗∗∗   1.90  (0.02) ∗∗    −2.96  (0.04) ∗∗     3.56  (0.00) ∗∗∗
+  Industry ﬁxed effect                Yes                     Yes                   Yes                 Yes                 Yes                 Yes 
+  N                                 18,001                   17,183               17,694              18,001              17,183              17,694 
+             
+  Pseudo R 2                          0.11                    0.09                  0.14               0.05                0.05                0.07 
+
+
+the overall availability of liquidity and credit in the econ-                     make high interest rate entrusted loans. Given that high in- 
+omy.   We    obtain    daily  data   on   SHIBOR     from    the   China          terest rate entrusted loans roughly correspond to nonaﬃli- 
+Center    for  Economic     Research     (CCER)    database    and   use          ated loans (see Section 4 for rate comparison), our ﬁndings 
+the  yearly   average    in  the  regression.   The   yearly   averages           on cash holding and ﬁrm age are consistent with theirs. 8 
+for our sample periods range from 1.1% in 2009 to 3.4% in                             Table 3 , Panel B, reports the regression results when in- 
+2013.   When     including   the   yearly   measure,    we   drop   year          cluding   Shibor .  We   ﬁnd   positive   coeﬃcients      on  Shibor   in 
+ﬁxed effects (Panel B). In both panels, standard errors are                       all six  regressions.   This   suggests    that  entrusted    loans   in- 
+double-clustered by ﬁrm and year in each regression.                              crease when credit is tight in the economy. In terms of the 
+    For the logit regression results in Table 3 , Panel A, the                    economic signiﬁcance, when Shibor increases from its 25th 
+coeﬃcient on ln(assets) is signiﬁcant and positive in both                        percentile to 75th percentile, the probability of making a 
+Columns     2  and   3,  suggesting    that   larger  ﬁrms    are  more           nonaﬃliated loan increases from 1.4% to 1.8% and the prob- 
+likely  to  make    both   types   of  loan.  Other   than   this  com-           ability of making an aﬃliated loan increases from 4.0% to 
+mon determinant, the decision to make aﬃliated or nonaf-                          4.7%, assuming all other explanatory variables are at their 
+ﬁliated loans is inﬂuenced by several different factors. The                      means. 
+likelihood of aﬃliated loans increases if the ﬁrm has higher                          We also examine whether the results are different for 
+proﬁtability (measured by ROA), if the ﬁrm has raised more                        different   periods   of  time.  We    divide   the  sample    into  be- 
+debt recently, and if the ﬁrm is an SOE. The likelihood of                        fore and after (including) 2010 and reestimate Table 3 re- 
+nonaﬃliated loans decreases with the ﬁrm’s sales growth                           gressions   (results   are   reported    in  the  Online    Appendix). 
+rate and its debt ratio and increases with ﬁrm age. 
+    The Tobit regression results are similar. In addition, Col- 
+                                                                                    8                                                                       
+umn 5 shows that cash-rich ﬁrms tend to make more non-                                We  do not ﬁnd that the likelihood of nonaﬃliated loans depends  on a
+                                                                                  ﬁrm’s Tobin’s q. We do ﬁnd that ﬁrms with a higher growth rate are less 
+                                                                           
+aﬃliated    loans.  Yu  et al. (2015)   ﬁnd   that  older,  more   cash-          likely to make nonaﬃliated loans. The coeﬃcient on Tobin’s q remains 
+rich ﬁrms and ﬁrms with lower Tobin’s q are more likely to                        not statistically signiﬁcant if we exclude sales growth rate. 
+24                              F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+Overall, the main   results are similar in both  subsamples.           For these reasons, entrusted loans are unlikely to pose 
+One difference is that Shibor is signiﬁcant only in the sec-        high risk or liquidity problems to lenders. We verify this 
+ond  period. Further  investigation reveals  that Shibor  is a      by examining the likelihood of a lender being sued due to 
+less suitable measure   for the  credit market   condition in       debt  default in the  three years  following  making   an en- 
+earlier years and  has  become   a  valid benchmark   rate in       trusted loan. We obtain data from the CCER database Major 
+more recent years. 9                                                Events—Lawsuits and Arbitrations and search for lawsuits 
+   In  summary,   both   types  of loans  increase  with  the       due to debt default. We ﬁnd that the likelihood of default 
+lender’s size  and  when   credit is tight  in the  economy.        and being sued is lower for entrusted loan lenders (1.1% for 
+These  ﬁndings   indicate that  entrusted  loans  are market        aﬃliated lenders, 1.0% for nonaﬃliated lenders) than other 
+reactions  to credit shortage.  They  allow  privileged ﬁrms        listed ﬁrms (2.5%). 
+(large listed ﬁrms) with cheap access to capital to channel            In  addition, although   lenders  do  not  have  the  gen- 
+funds to less privileged ﬁrms (small and medium-size pri-           eral expertise  of monitoring   borrowing   ﬁrms,  they  tend 
+vate ﬁrms). However, the two types of lenders have impor-           to lend  to ﬁrms   they are  familiar with, that  is, those in 
+tant differences. Lenders of aﬃliated loans tend to be SOEs,        the same industry or in geographical proximity (details in 
+have high proﬁtability, and have raised new debt recently.          Section 4 ). Such measures should largely reduce informa- 
+These  characteristics suggest  that they  are in good  posi-       tion asymmetry problems and make monitoring easier. We 
+tions to support their aﬃliated parties and that they do not        also verify that the loss ratios of aﬃliated and nonaﬃliated 
+mind raising new capital to ﬁnance the loans. Lenders of            loans  are small:  0.57%  for nonaﬃliated   loans  and  0.29% 
+nonaﬃliated loans have excess cash but low growth rates             for aﬃliated  loans  compared   with  0.61%  for listed banks 
+and, therefore, use the loans as a new channel to generate          (details in Section 5 ) . 
+proﬁts and growth.                                                     Altogether,  the evidence suggests that   entrusted  loans 
+                                                                    pose  limited  risk to lending  ﬁrms.  By moving   the  credit 
+3.1. Entrusted lending ﬁrms versus banks                            from the balance sheet of banks to these well-capitalized 
+                                                                    ﬁrms,   entrusted  loans  can  decrease   systemic  risk  and 
+   Lenders   of entrusted  loans,  being  nonﬁnancial   ﬁrms,       increase stability. 
+do  not   have  comparative    advantages   to  intermediate 
+credit. They  became   a phenomenon     in China  due  to the 
+segmented    credit markets  and   the motive   of regulatory       4. Which ﬁrms are borrowing and at what price? 
+arbitrage. They also do not have diversiﬁed loan portfolios. 
+Nonetheless,   entrusted  loans  pose   limited  risk to  the          We now examine the entrusted loans at the transaction 
+lenders  in  our  sample   for several  reasons. First, these       level, as opposed to the ﬁrm-year level. Out of the 2995 
+lenders  are large listed ﬁrms   and  have  privileged access       loans in our sample, we can identify the borrower and loan 
+to debt and equity capital. 10 Second, they make a limited          characteristics in 2960 cases. Aﬃliated loans constitute 80% 
+number of loans and the capital involved consists of small          of the sample in terms of the number of loans and 93% in 
+percentages of their capital. The average lender makes 6.0          terms of the loan amount. 
+loans during the whole sample period and 2.7 loans a year 
+when   it does  make   any loan.  For those  ﬁrm-years   with       4.1. Interest rate: aﬃliated loans versus nonaﬃliated loans 
+loans, the  average  ratio of  loan amount    to the  lending 
+ﬁrm’s assets is 5.1%, and the mean loan amount relative to             The   most  striking  difference  between   aﬃliated   and 
+the lenders’ mean operating cash ﬂow is 37%.                        nonaﬃliated   loans  is in the interest rate. Aﬃliated  loans 
+   Third, the lenders are well-capitalized ﬁrms with high           command about half the rate that nonaﬃliated loans do. 
+liquidity ratios. Comparing    lenders  in  our  sample   and       Table  4  reports the  average  interest rate  for each  type 
+listed banks (results are reported in the Online Appendix),         of loan  by industry. The  average  interest rate is 6.4%  for 
+lenders have lower leverage ratios and higher liquidity ra-         aﬃliated  loans  versus  13.9%  for  nonaﬃliated   loans. We 
+tios than  banks.  For example,  the  median   debt-to-assets       calculate adjusted  interest rate as the difference  between 
+and  liabilities-to-assets ratios are 20%  and  51%,  respec-       the loan rate and the oﬃcial bank loan rate speciﬁed by 
+tively, for entrusted  lenders,  and  both  ratios are  more        the central bank categorized by maturity. The oﬃcial rate 
+than 90% for banks. The median current ratio is 132% for            ranges from 4.9% to 7.8% in our sample period and has a 
+lenders, and the ratio is 77% for listed banks.                     mean of 6.1%. The average adjusted rates for aﬃliated and 
+                                                                    nonaﬃliated loans are 0.3% and 7.9%, respectively. 
+   
+  9 A 2009 China Daily article states, “But aside from a few signs of in- The near zero  adjusted   interest rate  suggests  that 
+terest spurred mostly by central bank prodding, SHIBOR has largely been aﬃliated loans charge about the same rate as oﬃcial bank 
+collecting dust. Money market traders long shunned it, complaining that loans. In China, the cost of borrowing for most  ﬁrms,  a 
+contributors of the quotes—mostly cash-rich Chinese banks overwhelm- 
+                                                                    small group of privileged ﬁrms (i.e., the large SOE ﬁrms) 
+ingly on the offering side of transactions—tended to manipulate ﬁxings to 
+                                                                                                                                   
+keep rates high and maximize their proﬁts.” The same article also points excluded, is much higher than the oﬃcial bank  loan  rate
+out that a number of changes in 2009, including tightening monetary pol- ( Song et al., 2011 ). The low interest rate indicates that 
+icy and increased use of ﬂoating rate notes and interest rate swaps, lifted aﬃliated loans are used to support a subsidiary or  to 
+                                                               
+the prospects of SHIBOR as a benchmark rate. Over time, as China’s in- build a long-term relation with a supplier or a customer. 
+terbank borrowing market continues to grow (from 1.4 trillion in 2004 to 
+                                                                                                                                   
+35.5 trillion in 2013), SHIBOR has become a valid indicator for the credit For example, in 2006, SAIC Motor, the largest listed auto
+market.                                                             company    in the China  A-share   stock market,  provided  a 
+   
+ 10 See Section 4.1 and Table 5 for more detailed discussion.       ﬁve-year  low-interest  loan  of 94 million  RMB   to Ningbo 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41           25 
+
+Table 4 
+Interest rates. 
+  This table reports the average interest rate for nonaﬃliated and aﬃliated loans, and by industry. 
+
+ Industry of the borrower                          Nonaﬃliated loans                                Aﬃliated loans 
+
+                                      N     Interest rate(%) Adjusted interest rate (%) N  Interest rate(%) Adjusted interest rate (%) 
+
+ All sample                          587         13 .9               7.9            2373        6.4                  0.3  
+ Agriculture                           5         11 .2               5.4              9         7.4                  1.3  
+ Auto and auto parts                   3         9 .4                3.0            211         5.2                −0.8  
+ Building materials                    11        10 .1               4.4             50         6.0                  0.2  
+ Chemicals                            14         10 .5               4.5            173         5.8                −0.2  
+ Coal and mining                       5         9 .2                3.3            155         6.3                  0.1  
+ Commerce                             39         13 .4               7.5             20         6.5                  0.4  
+ Conglomerate                         88         12 .5               6.6             18         7.9                  1.7  
+ Culture and media                     7         9 .5                3.6              1         6.2                  0.0  
+ Education, ﬁnance, and others        15         11 .0               5.1              7         7.3                  1.3  
+ Electrical household appliances      12         14 .8               8.8             32         6.5                  0.4  
+ Electronics and information technology 11       12 .9               6.8             80         6.3                  0.2  
+ Food                                  9         15 .7               9.7            154         5.5                −0.6  
+ Hotel and tourism                    23         15 .9               9.9             31         5.1                −1.2  
+ Machinery                             9         12 .2               6.5            148         5.8                −0.2  
+ Nonferrous metal                      1         ——24                                           5.9                  0.1  
+ Other light industry                  9         11 .6               5.6              4         7.1                  0.9  
+ Paper and printing                    5         16 .1              10.3             55         5.5                −0.6  
+ Pharmacy                              9         12 .4               6.5            127         6.4                  0.3  
+ Real estate and construction        269         15 .5               9.5            364         9.1                  3.0  
+ Steel                                 8         11 .8               5.8             27         5.9                −0.0  
+ Transportation                       26         11 .4               5.4            230         5.6                −0.4  
+ Textile and garment                   2         6 .9                1.2             68         5.9                −0.1  
+ Utility                               7         11 .1               5.0            385         6.0                −0.1  
+
+
+Huaxiang Electronic, a major supplier of automotive com-            (excluding  nonﬁnancial   ﬁrms).  Within   this sample,   247 
+ponents.  SAIC Motor   stated in its annual  report  that the       ﬁrm-years   made   entrusted  loans  (244  have  non-missing 
+purpose of the loan was to ensure that the supplier would           cost of bond information). The lenders of entrusted loans 
+provide  quality components    on  schedule.  Whether   these       are much more likely to issue bonds than ﬁrms in general 
+loans with below-market rates are ineﬃcient subsidies or            (22% versus 7%), suggesting they either have better access 
+long-term  investments   is an  open  question.  The  lenders       to the  bond   market  or  issue  bonds  to  make   entrusted 
+could gain long-term beneﬁts, such as returns from equity           loans, or both. 
+investment   of  the subsidiaries,  stable and   high-quality          Table 5 presents the summary statistics of bond costs 
+supplies from suppliers, or stable demand from customers.           for lenders of entrusted loans. Panel A reports the adjusted 
+   The rates of nonaﬃliated loans reﬂect the market cost            cost of bonds, benchmarked against the oﬃcial bank loan 
+of borrowing for small and medium-size private ﬁrms, typ-           rate. If a ﬁrm  has  multiple bonds   in a year, we  use  the 
+ically double the oﬃcial bank loan rate. This reﬂects how           weighted average cost of the bonds. We divide the sample 
+distorted the oﬃcial banking system is. The regulatory re-          into SOE versus non-SOE ﬁrms. Panel A shows that lenders’ 
+strictions on bank loan access give nonﬁnancial ﬁrms in-            bond cost is lower than the bank loan rate, which is not 
+centives to act  as credit intermediaries, which   they  have       surprising. Moreover, SOE lenders of entrusted loans enjoy 
+no comparative advantages to do in a market-oriented ﬁ-             even lower rates than non-SOE lenders. Panel B compares 
+nancial system.                                                     lenders’ cost of  borrowing  with  the  rate they  charge  on 
+   Also clear from Table 4 is that the high interest rates of       the entrusted loans they make. Here we use each entrusted 
+nonaﬃliated loans are broadly based, not concentrated in            loan as an observation, and we calculate the difference be- 
+a few  industries. The  average rates  for various industries       tween the adjusted interest rate of the entrusted loan and 
+range from 6.9% to 16.1% and are higher than 10% for 19             the ﬁrm’s  adjusted  cost  of bonds.  The  panel  shows  that 
+out of 23 industries.                                               both SOE and non-SOE lenders enjoy rate proﬁts, that is, 
+   We   also try to  gauge  the  lenders’ cost of  borrowing        the rate  they charge  is higher  than  their cost of  bonds. 
+for comparison. We use the yields of newly issued bonds             They  charge  about   a 1.2–1.8  percentage-point   premium 
+as a measure for ﬁrms’ cost of borrowing. 11    The Chinese         when making aﬃliated loans and a 9–10 percentage-point 
+database WIND provides comprehensive coverage for bond              premium when making nonaﬃliated loans. We do not ﬁnd 
+issuances  in China. We   obtain  2052  bond  issuances  cor-       that the  rate premiums    differ signiﬁcantly between   SOE 
+responding  to  1425  ﬁrm-years   during  our sample   period       and non-SOE lenders. 
+                                                                       Table 5 shows that lenders of entrusted loans enjoy low 
+                                                                    borrowing costs, and they use their advantageous positions 
+                                                                                                                          
+ 11 A caveat of the analysis is that the corporate bond market in China either to support their aﬃliates or to make proﬁts.
+is not nearly as developed as that in the United States, and the majority In summary, borrowers   of  aﬃliated  loans  pay  simi- 
+of listed ﬁrms do not issue public bonds. Their main borrowing source is lar rates as the lenders do when borrowing, that  is, the 
+bank loans. 
+26                              F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+  Table 5 
+  Cost of borrowing for ﬁrms that make entrusted loans. 
+   The bond issuance data are from Chinese database WIND. Panel A reports the adjusted cost of bonds (benchmarked against the oﬃcial bank loan 
+  rate). Panel B compares these ﬁrms’ cost of borrowing versus the rate they charge on the entrusted loans they make. ∗∗∗ denotes signiﬁcance at the 1% 
+  level. SOE = state-owned enterprise. 
+
+   Panel A: Lender’s adjusted cost of bond (%) = Lender’s cost of bond (%) − Oﬃcial bank loan rate (%) 
+
+   Firm sample                 N             Mean           STD           25th perc         Median           75th perc 
+
+   All sample                 244          −1.34 ∗∗∗        1.34           −2.02            −1.42 ∗∗∗         −0.53 
+   SOE lender                 193          −1.52 ∗∗∗        1.28           −2.07            −1.55 ∗∗∗         −0.81 
+   Non-SOE lender              51          −0.64 ∗∗∗        1.31           −1.43            −0.50 ∗∗∗          0.00 
+   SOE versus non-SOE                      −0.88 ∗∗∗                                        −1.05 ∗∗∗
+
+   Panel B: Interest rate difference (%) = Adjusted interest rate of entrusted loan (%) − Lender’s adjusted cost of bond (%) 
+
+   Loan sample                        SOE lender                            Non-SOE lender                  SOE versus non-SOE 
+
+                          N           Mean          Median         N          Mean           Median        Mean         Median 
+
+   Aﬃliated loan          698         1.78 ∗∗∗      1.60 ∗∗∗       154        1.60 ∗∗∗       1.24 ∗∗∗      0.18         0.36 
+   Nonaﬃliated loan       80          9.86 ∗∗∗      10.17 ∗∗∗      42         8.95 ∗∗∗       9.05 ∗∗∗      0.91         1.12 
+
+
+oﬃcial bank loan rate or lower. The nonaﬃliated lenders             1.35 trillion in 2012. 12 In our sample, the total borrowing 
+act  as credit  intermediaries  and  charge   a market   rate,      of nonaﬃliated loans by the industry jumped to 16.2 bil- 
+which is much higher than the oﬃcial bank loan rate. The            lion RMB during the period 2011–2013, compared with a 
+substantial differences in these rates indicate that the oﬃ-        total of 5.7 billion RMB   during  2004–2010.   This suggests 
+cial banking system is distorted. The artiﬁcially low bank          that nonaﬃliated   loans  do  help to circumvent   regulatory 
+loan  rates and  the restricted access  to the  banking  sys-       restrictions and channel more capital into the real estate 
+tem for the more productive private sector have led to the          and  construction  industry. Given  that the  industry’s high 
+exponential growth of shadow banking.                               return  volatility and the fact that it is widely  viewed  as 
+                                                                    overheated, concentrating on this industry makes nonaﬃl- 
+4.2. Industry distribution of lenders and borrowers                 iated loans riskier than aﬃliated loans. The overall risk of 
+                                                                    entrusted loans increases with the fraction of nonaﬃlitated 
+   The  second   striking difference between   aﬃliated   and       loans. 
+nonaﬃliated loans is the industry distribution of the bor-             Our  study  focuses  on  entrusted  loans made   by  listed 
+rowers. Questions abound as to whether shadow banking               ﬁrms. In recent years (starting in 2009, the year of the 4 
+helps  circumvent  the  regulatory  restrictions on  the red-       trillion RMB stimulus package), another type of lender, pri- 
+hot real estate and construction industry and mainly pro-           vate equity funds, has gained an increasing market share 
+vides  capital to that industry. Our  study  shows   that the       of entrusted  loans. Although   we  do  not have  direct data 
+two types of loans are very different in this regard.               on this group of loans, our understanding based on inter- 
+   Most of the aﬃliated loans (80.6%) are within-industry           views with practitioners is that these loans are driven by 
+loans. Table  6 , Panel A,  presents  the  amount,   in RMB,        the pursuit of immediate proﬁts. Therefore, they have char- 
+of  entrusted  loans  by  lender  and   borrower   industries.      acteristics associated  with  nonaﬃliated   loans.  Most  no- 
+The  real estate and  construction   industry receives  12.2%       ticeably, they command high interest rates and are more 
+of the  total aﬃliated  loan  amounts    (77.8 billion out  of      likely to ﬂow into restricted industries such as real estate 
+638.5  billion RMB).  According   to International  Monetary        and construction. In January 2015, the CBRC instituted new 
+Fund (2014 , p. 22) on China, real estate and construction          rules on  entrusted   loans. One  important   change  is that 
+“directly accounted   for  15%  of 2012   GDP,  a  quarter  of      debt-ﬁnanced funds are prohibited from making entrusted 
+ﬁxed-asset  investment,   14%  of total  urban  employment,         loans, which aims to exclude these private equity players 
+and  around   20%   of bank   loans.” Benchmarked     against       from this market. 
+these  numbers,   the  amount   of aﬃliated   loans going  to 
+the real estate and construction industry is not high. The          4.3. Geographic distribution of lenders and borrowers 
+percentage of aﬃliated loans to the industry is lower than 
+that of bank   loans. Moreover,  the  rest of the loans  have          Table  6 , Panel B, presents  the geographic   distribution 
+a  reasonably  diverse  distribution among    more   than  20       of lenders  and  borrowers.  It shows  the  RMB   amounts   of 
+broadly deﬁned industries.                                          lending  and  borrowing   from   each  province  or area,  for 
+   A much larger portion of nonaﬃliated loans ﬂows into             both aﬃliated and nonaﬃliated loans. 13 Fig. 1 presents the 
+real estate and construction. The industry’s borrowing ac-          geographic distribution on the China map. 
+counts  for 46.1%  of the total amount   of the  nonaﬃliated 
+loans. Since 2011, the China Banking Regulatory Commis- 
+                                                                     12                                            
+                                                                       Data source is the People’s Bank of China website.
+sion (CBRC)  has tried to restrict bank loans  to the real es-         
+                                                                     13 In addition to 23 provinces, China has four municipalities (Beijing, 
+tate and  construction  industry  because  it is perceived to 
+                                                                    Chongqing, Shanghai, and Tianjin), ﬁve autonomous regions (Guangxi, In- 
+                                                               
+be overheated.  Bank  lending to the industry  shrank by  38%       ner Mongolia, Ningxia, Tibet, and Xinjiang) and two special administrative 
+from 2.02 trillion RMB in 2010 to 1.26 trillion in 2011 and         regions (Hong Kong and Macau). 
+                                      F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41                               27 
+
+Table 6 
+Industry and geographic distributions of entrusted loans. 
+  Panel A shows the amount of loans [in billions of renminbi (RMB)] by lender and borrower industries. Panel B shows the amount of lending and 
+borrowing by province or area. All values are in billions of constant year 2013 RMBs. The sample contains 2960 entrusted loans during the period 2004–
+2013. We exclude 35 entrusted loans (5.8 billion RMB) with unknown borrowers. 
+
+  Panel A: Industry distribution 
+
+  Industry                                                         Lenders                                                Borrowers 
+
+                                             All sample    Nonaﬃliated loans      Aﬃliated Loans     All sample     Nonaﬃliated loans      Aﬃliated loans 
+
+  Agriculture                                     0.5               0.5                   0.0             1.3               0.6                   0.7  
+  Auto and auto parts                            48.7               1.9                 46.8             46.4               0.4                  46 .0 
+  Building materials                              9.2               0.2                   9.0            10.7               1.7                   9.0  
+  Chemicals                                      25.5               5.0                 20.5             21.2               1.1                  20.1  
+  Coal and mining                               248.9               1.8                247 .1           257.6               0.7                256 .9 
+  Commerce                                       16.8               9.3                   7.5             4.5               1.8                   2.7  
+  Conglomerate                                    7.8               0.6                   7.2            11.8               8.6                   3.2  
+  Culture and media                               5.0               2.9                   2.1             0.3               0.2                   0.1  
+  Education, ﬁnance, and others                   0.0               0.0                   0.0             2.0               1.0                   1.0  
+  Electrical household appliances                 3.5               1.7                   1.8             2.5               0.6                   1.9  
+  Electronics and information technology         10.4               4.0                   6.4             5.8               0.8                   5.0  
+  Food                                           11.7               1.0                 10.7             10.7               0.3                  10.4  
+  Hotel and tourism                               1.1               0.3                   0.8             4.5               2.5                   2.0  
+  Machinery                                      14.9               1.6                 13.3             13 .5              0.9                  12 .6 
+  Nonferrous metal                                4.7               1.6                   3.1             6.6               0.1                   6.5  
+  Other light industry                            1.1               0.7                   0.4             0.3               0.3                   0.0  
+  Paper and printing                              7.6               0.3                   7.3             7.2               0.3                   6.9  
+  Pharmacy                                       11.5               1.4                 10.1              9.7               0.3                   9.4  
+  Real estate and construction                   53.1               4.2                 48.9             99.7              21.9                  77 .8 
+  Steel                                          12.1               0.2                  11.9             4.3               0.4                   3.9  
+  Textile and garment                             6.8               2.6                   4.2             2.3               0.1                   2.2  
+  Transportation                                 38.5               3.5                 35.0             31.5               2.7                  28 .8 
+  Utility                                       146.6               2.2                144.4            131 .6              0.2                 131 .4 
+  Total                                        686.0               47.5                638.5            686.0              47.5                638 .5 
+
+  Panel B: Geographic distribution 
+
+  Province or area                                                 Lenders                                                Borrowers 
+
+                                             All sample    Nonaﬃliated loans      Aﬃliated loans     All sample     Nonaﬃliated loans      Aﬃliated loans 
+
+  Anhui                                           8.0               2.5                   5.5            10.3               2.6                   7.7  
+  Beijing                                       351 .9              2.7                349.2            292.8               2.9                289 .9 
+  Chongqing                                       2.7               2.0                   0.7             5.1               1.6                   3.5  
+  Fujian                                          6.7               0.3                   6.4             5.0               0.7                   4.3  
+  Gansu                                           2.8               0.0                   2.8             1.9               0.1                   1.8  
+  Guangdong                                      30.5               3.3                 27.2             28.9               1.9                  27 .0 
+  Guangxi                                         5.7               0.2                   5.5             6.1               1.8                   4.3  
+  Guizhou                                         2.6               0.1                   2.5             4.0               0.7                   3.3  
+  Hainan                                          0.8               0.2                   0.6             2.7               0.2                   2.5  
+  Hebei                                          27.6               0.5                 27.1             18 .9              0.7                  18 .2 
+  Heilongjiang                                    0.8               0.0                   0.8             1.6               0.0                   1.6  
+  Henan                                           5.3               1.2                   4.1             7.9               1.2                   6.7  
+  Hong Kong                                       0.0               0.0                   0.0             2.7               0.0                   2.7  
+  Hubei                                           5.7               1.1                   4.6            11.2               1.5                   9.7  
+  Hunan                                           2.1               1.9                   0.2             5.8               2.1                   3.7  
+  Inner Mongolia                                  0.0               0.0                   0.0            34.4               0.0                  34.4  
+  Jiangsu                                        16.9               4.3                 12.6             39.5               4.8                  34.7  
+  Jiangxi                                         0.7               0.4                   0.3             4.5               0.2                   4.3  
+  Jilin                                           0.9               0.2                   0.7             1.3               0.0                   1.3  
+  Liaoning                                        3.9               0.1                   3.8            10.7               0.2                  10.5  
+  Ningxia                                         0.0               0.0                   0.0             1.5               0.0                   1.5  
+  Qinghai                                         1.0               0.1                   0.9             0.8               0.2                   0.6  
+  Shaanxi                                         2.5               0.0                   2.5            12.0               0.3                  11 .7 
+  Shandong                                       45.6               2.4                 43.2             24 .1              2.4                  21 .7 
+  Shanghai                                       82.4               2.9                 79.5             69.5               5.3                 64 .2 
+  Shanxi                                          2.6               0.0                   2.6             9.0               0.0                   9.0  
+  Sichuan                                         3.2               0.2                   3.0            10.6               0.5                  10.1  
+  Tianjin                                        11.6               0.5                  11.1             6.5               0.3                   6.2  
+  Tibet                                           0.1               0.1                   0.0             0.9               0.0                   0.9  
+  Xinjiang                                        2.9               0.4                   2.5             7.7               0.4                   7.3  
+  Yunnan                                          1.5               0.3                   1.2             7.1               0.4                   6.7  
+  Zhejiang                                       57.0              19 .6                37.4             40.1              14.5                  25 .6 
+  Foreign borrower                               ——                                      —0.9                               0.0                   0.9  
+  Total                                        686.0               47.5                638.5            686.0              47.5                638 .5 
+28                              F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+
+                                         Fig. 1. Geographic distribution of lending and borrowing. 
+
+   Aﬃliated   loans  are  largely concentrated   in  the  two       terms  of per  capita disposable  income   in 2013. 15 Except 
+biggest  cities directly controlled  by the  central  govern-       for Beijing, they are all located in coastal areas. 
+ment:  Beijing  and  Shanghai.  Lenders  from   Beijing make           The ﬁve largest borrowing provinces or areas are Bei- 
+up about 54.7% of the total aﬃliated loans and those from           jing, Shanghai, Jiangsu, Inner Mongolia, and Guangdong. It 
+Shanghai make up 12.4%. They are followed by Shandong,              is not surprising  that three  of these  are also among   the 
+Zhejiang, and Guangdong provinces. One important reason             provinces or  areas that  lend  the most:  51.6% of  aﬃliated 
+for the concentration   is that 83.3%  of aﬃliated  loans are       loans are between parties from the same province or area, 
+made   by  SOEs.  Many    SOEs,  especially  large SOEs,  are       and 35.7% of aﬃliated loans are within the same city. 
+                                             
+headquartered   in  Beijing  or Shanghai. 14  Another  driver          Inner Mongolia stands out as the area with the highest 
+for  the loans’  geographic   distribution is  the  economic        net borrowing amount (borrowing minus lending amount). 
+prosperity  of different provinces  and  areas. According  to       It lends zero and borrows 34.4 billion RMB. The next four 
+the WIND database, the ﬁve provinces or areas that lend             provinces in terms of net borrowing are Jiangsu, Shaanxi, 
+most are ranked as ﬁrst (Shanghai), second (Beijing), third         Sichuan, and Liaoning. These provinces’ per capita dispos- 
+(Zhejiang), sixth  (Guangdong),   and  ninth  (Shandong)   in       able incomes in 2013 are ranked Jiangsu (ﬁfth out of 32), 
+                                                                    Liaoning (eighth), Inner Mongolia (tenth), Shaanxi (22nd), 
+                                                                    and Sichuan (23rd). Inner Mongolia, Shaanxi, and Sichuan 
+                                                                    are located inland. These data suggest that entrusted loans 
+   
+ 14 By the end of 2013, 4.4% and 4.3% of all listed SOE ﬁrms were 
+headquartered in Beijing and Shanghai, respectively (top two among 
+all provinces and areas), and these ﬁrms controlled 24.5% and 7.2% of 
+all listed SOE ﬁrms’ market value of assets (again, top two among all 
+                                                                       
+provinces and areas).                                                15 Ranks exclude data for Hong Kong, Macau, and Taiwan. 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41           29 
+
+
+                                                         Fig. 1. Continued 
+
+spill over from  prosperous   provinces  or  areas to  poorer       (1.0%) exceed 1% of the total amount of nonaﬃliated loans. 
+ones and from coastal to inland areas (see Fig. 1 ).                Guangxi and Guizhou are poor provinces. Their per capita 
+   Nonaﬃliated loan activities are most active in Zhejiang          disposable incomes in 2013 are ranked 25th and 29th, re- 
+province, which   also has  the highest  per  capita disposal       spectively, out of 32  areas. So, nonaﬃliated   loans mostly 
+income after Shanghai and Beijing. Private enterprises are          happen in prosperous areas with already active commer- 
+very active in Zhejiang. It is second only to Guangdong in          cial and economic activities. But, again, some evidence ex- 
+terms  of market  value  of assets  of non-SOE   listed ﬁrms.       ists that capital ﬂows from prosperous provinces or areas 
+The lending amount from Zhejiang alone is 41.4% of total            to poorer ones and from coastal to inland areas. 
+nonaﬃliated loans, and its borrowing amount is 30.6% of 
+total loans.                                                        4.4. Other loan characteristics 
+   Nonaﬃliated loans are even more likely than aﬃliated 
+loans to occur between parties from the same province or               Table 7 presents summary statistics for other loan char- 
+area (73.9%) or even from the same city (51.3%). Following          acteristics, as well as borrower and lender characteristics. 
+Zhejiang, the other provinces or areas active in nonaﬃli-           Compared    with  nonaﬃliated   loans,  aﬃliated  loans  tend 
+ated loan activities are, in order of lending plus borrow-          to be larger (with a mean of 269 million RMB versus 81 
+ing, Jiangsu, Shanghai, Beijing, and Guangdong. These are           million  RMB),  have  longer  maturity   (18  months   versus 
+all prosperous provinces or areas.                                  12  months),   and  be  less likely to  need   collateral and 
+   In terms   of net  lending  (i.e., lending minus  borrow-        guarantee   (11%  versus  74%). In  addition, only  aﬃliated 
+ing amount), Zhejiang (10.8% of total amount) and Guang-            loans  can be  used  to retire earlier debt  (3%  versus 0%). 
+dong (3.0%) lend the most. The net borrowing amounts of             Aﬃliated loans are also more likely to be used for speci- 
+Shanghai (5.1%), Guangxi (3.3%), Guizhou (1.3%) and Jiangsu         ﬁed projects (6% versus 3%). These ﬁndings are consistent 
+30                              F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+
+                                                         Fig. 1. Continued 
+
+with prior studies that ﬁnd borrowers who have relations            5. The pricing of the loans 
+with lenders receive favorable terms such as greater credit 
+availability and  lower   collateral requirements   ( Petersen         In  this section, we  examine   the  pricing of  entrusted 
+and Rajan, 1994; Berger and Udell, 1995 ).                          loans. 
+   The percentage of SOE borrowers for nonaﬃliated loans 
+is much   lower  than  that for aﬃliated  loans  (20%  versus       5.1. Do loan rates depend on risk? 
+78%). This suggests that the least privileged ﬁrms, that is, 
+the small non-SOE ﬁrms, are taking entrusted loans from                In this subsection, we investigate what determines the 
+nonaﬃliated parties at market interest rates that are much          interest rate of the entrusted loans. Allen et al. (2019) ar- 
+higher than the oﬃcial bank loan rates.                             gue that constructive (information-based) informal ﬁnanc- 
+   Table 7 shows that lenders tend to lend to ﬁrms they             ing plays an important role in China’s ﬁnancial market. We 
+are familiar  with, i.e., those in the  same  industry  or  in      investigate whether the pricing depends on the borrower’s 
+geographical  proximity.  A  large share  of  aﬃliated  loans       fundamental and informational risks. 
+is made   within  the  same   industry (81%   versus 10%   for         Because most (99%) of the borrowers are private ﬁrms, 
+nonaﬃliated   loans). Nonaﬃliated   lenders  are more   likely      the available information about them is limited. We obtain 
+to lend  to  ﬁrms  in  the  same  city (51%  versus  36%   for      each borrower’s name from the lender’s disclosure state- 
+aﬃliated loans).                                                    ment and collect information about its industry, location, 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41           31 
+
+
+                                                         Fig. 1. Continued 
+
+and whether it is an SOE either from the lenders’ disclo-           despite the general increase in housing prices during our 
+sure or from searching its information on the internet.             sample   period, ﬁrm   performance   in  the industry  varies 
+   To  measure   a  borrower’s  business  risk, we   consider       widely.  For example,   its average  (across years)  industry 
+its industry risk and whether the ﬁrm is an SOE. We use             sales growth   dispersion  is 106%,  the  highest  among   all 
+three  variables to  measure   industry   risk: (1) Borrower        industries, and its average (across years) industry median 
+industry return  volatility high , a dummy   equal to  one  if      return volatility is 3.09%, sixth among   all industries. The 
+the industry return volatility is above median during the           correlation of Real estate borrower and borrower industry 
+year before the loan is made, with industry return volatil-         sales growth dispersion is 0.70, and the correlation of Real 
+ity computed   as  the  median   of the  standard  deviations       estate borrower and borrower    industry  return volatility is 
+of daily returns  for ﬁrms   in the  borrower   industry; (2)       0.17. At the ﬁrm level, a ﬁrm tends to have lower debt risk 
+Borrower  industry  sales growth  dispersion high , a dummy         if it is an SOE  because  SOEs  typically have  better access 
+equal  to one  if the  industry  sales growth   dispersion  is      to oﬃcial ﬁnancing and, therefore, have higher abilities to 
+above  median   during  the  year before  the  loan is made,        meet their debt obligations. 
+with  the dispersion  computed    as the  standard  deviation          We   use two  variables  to measure   the extent  of infor- 
+of sales growth of ﬁrms in the borrower industry; and (3)           mation asymmetry between the borrower and the lender: 
+Real estate borrower , a dummy equal to one if the ﬁrm is           a  dummy    variable  indicating whether    they  are in  the 
+in the real estate and construction industry. Firms in the          same   city and   a dummy     indicating  whether   they  are 
+real estate and construction industry are often considered          from  the  same   industry.  Prior research  on  bank   loans 
+to be  of high  risk, as many   worry  about  the  bubble  in       shows that banks located closer to borrowing ﬁrms incur 
+the  housing  market   (e.g., Wu  et al., 2012 ). In addition,      lower  information  production   and  monitoring  costs  (e.g., 
+32                                     F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+              Table 7 
+              Descriptive statistics for entrusted loans. 
+                The sample contains 2960 entrusted loans during the period 2004–2013. The number of non-missing observations for Ad- 
+              justed interest rate and Maturity (months) are 2812 and 2863, respectively. Variable deﬁnitions are in Appendix B . All renminbi 
+              (RMB) values are adjusted to constant year 2013 RMBs. Financial variables are winsorized at 1% and 99%. We use t -test for 
+              differences in means. ∗∗∗, ∗∗, and ∗ denote the difference is signiﬁcant at the 1%, 5%, and 10% level, respectively. 
+
+                Variable                                            All sample       Nonaﬃliated loan        Aﬃliated loan        Difference 
+
+                Loan characteristics 
+                Loan amount (millions of RMB)                          231 .8               80.9                 269.1            −188 .2 ∗
+                Interest rate (%)                                        7.9                13 .9                   6.4               7.5  ∗∗∗
+                Adjusted interest rate (%)                               1.8                 7 .9                   0.3               7.6  ∗∗∗
+                Maturity (months)                                       16.4                11 .8                  17.5             −5.7  ∗∗∗
+                Collateral or Guarantee (%)                             23.9                74.1                   11.4              62.7  ∗∗∗
+                Collateral (%)                                          18 .0               55 .4                   8.8              46.6  ∗∗∗
+                Guarantee (%)                                           15.0                55 .7                   5.0              50.7  ∗∗∗
+                Purpose of loan—debt retirement dummy (%)                2.4                 0.0                    3.0             −3.0  ∗∗∗
+                Purpose of loan—speciﬁed project dummy (%)               5.2                 3 .1                   5.8             −2.7  ∗∗∗
+                Borrower characteristics 
+                Same city (%)                                           38.8                51 .3                  35 .7             15.6  ∗∗∗
+                Same industry (%)                                       66.5                 9 .7                  80.6            −70.9  ∗∗∗
+                SOE borrower (%)                                        66.3                19 .9                  77 .8           −57.9  ∗∗∗
+                Real estate borrower (%)                                21.8                46 .0                  15.8              30.2  ∗∗∗
+                Borrower industry return volatility high                53.1                66.2                   49.8              16.4  ∗∗∗
+                Borrower industry sales growth dispersion high          50.5                67 .0                  46.4              20.6  ∗∗∗
+                Lender characteristics 
+                SOE lender (%)                                          79.5                64 .1                  83.3            −19.2  ∗∗∗
+                Real estate lender (%)                                   8.4                 4 .9                   9.3             −4.4  ∗∗∗
+                Assets (billions of RMB)                                34.8                13 .3                  40.1            −26.8  ∗∗∗
+                Debt/assets (%)                                         22.9                16.0                   24 .5            −8.5  ∗∗∗
+                Change of debt (%)                                       7.9                 5 .2                   8.6             −3.4  ∗∗∗
+                N                                                      2960                 587                   2373 
+
+
+              Table 8 
+              Adjusted interest rate of nonaﬃliated loans versus aﬃliated loans. 
+                This table compares the mean adjusted interest rates between subsamples of loans differing in borrower risk measures. The 
+              sample contains 2812 entrusted loans that have interest rate information during the period 2004–2013. Variable deﬁnitions are 
+              in Appendix B . We use t -test for differences in means. ∗∗∗, ∗∗, and ∗ denote the difference is signiﬁcant at the 1%, 5%, and 10% 
+              level, respectively. 
+
+                Variable                                                   Nonaﬃliated loans                        Aﬃliated loans 
+
+                                                                     Yes        No        Difference       Yes         No         Difference 
+
+                Same city                                            7.2       8 .6        −1.4  ∗∗∗       0.2         0.4         −0.2  ∗
+                Same industry                                        6.0       8 .1        −2.1  ∗∗∗       0.1         1.3         −1.2  ∗∗∗
+                SOE borrower                                         4.2       8 .8        −4.6  ∗∗∗       0.2         0.7         −0.5  ∗∗∗
+                Real estate borrower                                 9.5       6 .6          2.9  ∗∗∗      2.8        −0.2           3.0  ∗∗∗
+                Borrower industry return volatility high             9.0       6 .7          2.3  ∗∗∗      0.5         0.1           0.4  ∗∗∗
+                Borrower industry sales growth dispersion high       8.5       6 .8          1.7  ∗∗∗      0.8        −0.2           1.0  ∗∗∗
+
+
+Degryse and Ongena, 2005; Mian, 2006 ). It is also reason-                        the  percentage     of  same-city    loans   is higher    for  nonaﬃli- 
+able to think that lenders understand borrowers from the                          ated loans. This is consistent with the notion that ﬁrms are 
+same industry better.                                                             more willing to lend to a nonaﬃliated ﬁrm if it is in the 
+    Table   8  presents    univariate    analysis   of  the   impact    of        same city and, therefore, presents lower informational risk. 
+these    risk  measures     on   interest   rates.  We    compare     the         In comparison, geographic distance is not as important a 
+mean adjusted interest rates between subsamples of loans                          factor  for  aﬃliated    loans.   These   lenders    could   have   good 
+that differ by risk measures.                                                     information about aﬃliated parties regardless of whether 
+    Consistent    with    the  informational     risk  hypothesis,    the         they are from the same city. It also could be that aﬃliated 
+results   show    that,   for  nonaﬃliated      loans,   borrowers     lo-        lenders are less sensitive to risk. 
+cated in the same city as lenders pay lower interest rates                            Also consistent with the informational risk hypothesis 
+(the mean adjusted interest rate is 7.2% versus 8.6%, and                         is our ﬁnding that the interest rate is lower if both parties 
+the difference is statistically signiﬁcant at the 1% level). For                  are from the same industry. In our sample, 81% of aﬃli- 
+aﬃliated loans, the rate is also lower for same-city loans,                       ated   loans   and   10%   of nonaﬃliated      loans   occur   between 
+but the difference is much smaller (0.2% versus 0.4%, and                         two   ﬁrms    in  the   same   industry.    The   high   proportion    of 
+the difference is signiﬁcant at the 10% level). In addition,                      within-industry loans for aﬃliated loans is determined by 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41           33 
+
+the nature  of  the ownership   or  business  aﬃliations. For       dispersion, the  adjusted  rate increases by  1.4 percentage 
+nonaﬃliated loans, within-industry loans command lower              points for nonaﬃliated loans and 0.4 percentage points for 
+adjusted  interest rates  (6.0% versus  8.1%).  For aﬃliated        aﬃliated loans. If the borrower is in the real estate indus- 
+loans, within-industry   loans   also have   lower   adjusted       try, the adjusted rate is higher by 2.5 percentage points for 
+interest rates (0.1% versus 1.3%). The same-industry factor         nonaﬃliated loans and 2.7 percentage points for aﬃliated 
+seems  to  have  a larger impact  on  the  interest rate than       loans. The coeﬃcient on SOE borrower is signiﬁcantly neg- 
+the same-city factor has for aﬃliated loans, but the impact         ative for nonaﬃliated loans. If the borrower is an SOE, the 
+is again smaller than that for the nonaﬃliated loans.               interest rate is on average lower by 3.1 percentage points. 
+   Table  8 also  shows  that  borrowers  with  higher  busi-       The coeﬃcient on SOE borrower is nonsigniﬁcant for aﬃli- 
+ness  risk pay  higher  interest rates. Real  estate borrow-        ated loans, possibly because aﬃliated parties receive favor- 
+ers pay  higher  adjusted  interest rates than  non-real  es-       able rates regardless of their SOE status. 
+tate borrowers   (9.5% versus  6.6%  for nonaﬃliated   loans,          Informational   risk also has  a positive  impact  on  the 
+and 2.8% versus −0.2% for aﬃliated loans), borrowers with           interest rate of both  types  of loans,  and  the effects are 
+above-median    industry  return volatility pay higher  rates       stronger for nonaﬃliated loans. If located in the same city 
+than those with below-median volatility (9.0% versus 6.7%           as the lender, a borrower pays on average a lower inter- 
+for nonaﬃliated loans, and 0.5% versus 0.1% for aﬃliated            est rate (0.9–1.6 percentage points lower for nonaﬃliated 
+loans), and  borrowers   with  above-median   industry  sales       borrowers  and  0.3–0.4  percentage  points  lower  for aﬃli- 
+growth dispersion pay higher rates than those with below-           ated borrowers). A borrower in the same industry as the 
+median dispersion (8.5% versus 6.8% for nonaﬃliated loans,          lender  is also charged   a lower   rate (1.6–2.1 percentage 
+and 0.8% versus −0.2% for aﬃliated loans). All the differ-          points lower for nonaﬃliated borrowers and 0.2–0.8 per- 
+ences are statistically signiﬁcant. Table 8 also reports the        centage points lower for aﬃliated borrowers). 
+mean   adjusted  interest rate conditional  on  whether   the          For  both  types of  loans, the adjusted  interest rate  is 
+borrower is an SOE. In China, SOEs usually enjoy better ac-         negatively related to the loan maturity and positively re- 
+cess to bank  loans  as major  banks   are also state-owned.        lated to the use of collateral or guarantees. This suggests 
+The  majority  of the  lenders of  both  aﬃliated  loans  and       that these contract terms are used simultaneously as com- 
+nonaﬃliated   loans  are SOEs  (83%  and  64%,  respectively),      plements to each other to control the investment risk. That 
+but, for nonaﬃliated loans, only 20% of borrowers are SOEs          is, in addition to charging higher rates, lenders limit their 
+(versus 66%  for  aﬃliated  loans), suggesting  that borrow-        risk exposure by forcing riskier borrowers to take shorter- 
+ers of nonaﬃliated   loans  are  underprivileged  ﬁrms   with       term loans and to secure the debt with collateral or a guar- 
+restricted access to oﬃcial  ﬁnancing.   Non-SOE   borrowers        antee. This observation is consistent with existing studies 
+pay  signiﬁcantly higher  adjusted  interest rates than  SOE        on bank loans (e.g., Flannery, 1986; Berger and Udell, 1990; 
+borrowers   (8.8% versus  4.2%  for nonaﬃliated   loans, and        Dennis  et al., 20 0 0 ). The effects of maturity and  use of 
+0.7% versus 0.2% for aﬃliated loans). This reﬂects non-SOE          collateral or guarantee are stronger for nonaﬃliated loans 
+ﬁrms’  higher  ﬁrm  risk (they  are often  smaller  ﬁrms)  as       than for aﬃliated loans. 
+well as their lower bargaining power due to their restricted           In  summary,   Table  9 shows   that the  pricing of  both 
+access to oﬃcial ﬁnancing.                                          nonaﬃliated   loans  and  aﬃliated  loans  take into account 
+   Next,  we   estimate   multivariate   regressions  to  see       the  borrowers’   fundamental   risk  and  information   risk. 
+whether borrower risk still explains the variation in inter-        Nonetheless,  the  rates  of nonaﬃliated    loans  are  much 
+est rate after controlling for other factors. The dependent         more sensitive to informational risk (whether the borrower 
+variable is the adjusted interest rate. For control variables,      is in the same city or same industry as the lender) than 
+we  include  the  loan-  and  lender-characteristic variables       those of aﬃliated loans. As more information asymmetry 
+listed in  Table 7 . For  aﬃliated  loans,  we  also  include       exists between nonaﬃliated lenders and borrowers, being 
+two  additional variables: Ownership ,  which  measures   the       in the same   city or industry  helps to  mitigate the  infor- 
+lender’s  equity  ownership   in  the  borrower,  and   Trade       mation problem. An SOE borrower also provides stronger 
+relationship , which is  a dummy     variable  equal  to  one       assurance to nonaﬃliated lenders. 
+if the borrower   is a customer,  a  supplier, or a  business 
+partner  of the lender  in joint investments.   Industry and 
+year  ﬁxed  effects are included,  and  standard   errors are       5.2. Loan rate and loan performance 
+double-clustered by ﬁrm and year in each regression. 
+   Table  9 reports the  regression  results for the samples           As  an  alternative way  to  test whether  the  pricing of 
+of nonaﬃliated loans (Panel A) and aﬃliated loans (Panel            entrusted  loans  eﬃciently  incorporates  risk, we  examine 
+B). The results suggest that the interest rate increases with       whether   the interest  rate can  predict the  future perfor- 
+a borrower’s risk. For both types of loans, the coeﬃcients          mance of loans. That is, if riskier loans command higher 
+on all three borrower-industry risk measures ( Borrower in-         rates, then higher rates should be associated with higher 
+dustry return volatility high, Borrower industry sales growth       likelihoods of default or other payback diﬃculties. 
+dispersion high , and Real estate borrower ) are positive and          We collect information about the outcome of entrusted 
+statistically signiﬁcant at the 1%  level. If the borrower  is      loans from   ﬁrms’  annual  reports. The  lending  ﬁrm  must 
+in a high-risk industry based on return volatility, the ad-         disclose when a loan is delinquent, overdue, or extended. 
+justed rate increases by 1.0 percentage point for nonaﬃli-          By interviewing practitioners, we learned that loan exten- 
+ated loans and 0.6 percentage points for aﬃliated loans. If         sions are  usually due  to borrowers   having  diﬃculty  pay- 
+the borrower   is in a high-risk industry  based  on  growth        ing their loan back on time. We include 2243 loans in this 
+34                                     F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+      Table 9 
+      Determinants of interest rates of entrusted loans. 
+        The sample contains 2808 entrusted loans for which the information of interest rate and maturity are available during the period 2004–2013. 
+      Variable deﬁnitions are in Appendix B . Financial variables are winsorized at 1% and 99%. p -values are based on standard errors double-clustered 
+      by ﬁrm and year . ∗∗∗, ∗∗, and ∗ denote signiﬁcance at the 1%, 5%, and 10% level, respectively. 
+
+                                                                                             Adjusted interest rate (%) 
+
+                                                                    (1)                     (2)                    (3)                     (4) 
+
+        Panel A: Nonaﬃliated loans 
+        Loan characteristics 
+        Maturity (months)                                     −0.13 (0.00) ∗∗∗       −0.14 (0.00) ∗∗∗        −0.15 (0.00) ∗∗∗        −0.11 (0.01) ∗∗∗
+        Collateral or guarantee                                2.40 (0.02) ∗∗          2.36 (0.02) ∗∗         2.40 (0.01) ∗∗∗        2.36 (0.01) ∗∗∗
+        Purpose of loan—speciﬁed project dummy                 −0.74 (0.42)            −0.84 (0.34)           −0.79 (0.31)            −0.41 (0.66) 
+        Borrower characteristics 
+        Same city                                             −1.39 (0.01) ∗∗∗        −1.41 (0.01) ∗∗∗       −1.62 (0.00) ∗∗∗         −0.89 (0.12) 
+        Same industry                                         −2.11 (0.00) ∗∗∗        −1.77 (0.02) ∗∗        −1.56 (0.04) ∗∗        −2.03 (0.00) ∗∗∗
+        Borrower industry return volatility high               1.03 (0.01) ∗∗∗
+        Borrower industry sales growth dispersion high                                1.36 (0.00) ∗∗∗
+        Real estate borrower                                                                                  2.50 (0.00) ∗∗∗
+        SOE borrower                                                                                                                −3.05 (0.00) ∗∗∗
+        Lender characteristics 
+        SOE lender                                              0.84 (0.15)             0.80 (0.15)            0.91 (0.11)             0.75 (0.17) 
+        Ln (assets)                                             0.19 (0.60)             0.20 (0.58)            0.15 (0.63)             0.27 (0.43) 
+        Debt/assets ( % )                                      0.06 (0.05) ∗∗         0.06 (0.04) ∗∗          0.06 (0.02) ∗∗           0.05 (0.12) 
+        Change of debt ( % )                                   0.04 (0.01) ∗∗∗        0.04 (0.00) ∗∗∗         0.04 (0.03) ∗∗         0.04 (0.01) ∗∗∗
+        Year ﬁxed effect                                            Yes                    Yes                     Yes                    Yes 
+        Industry ﬁxed effect                                        Yes                    Yes                     Yes                    Yes 
+        N                                                           573                    573                     573                    573 
+               
+        Adj R 2                                                    0.46                    0.46                   0.50                    0.49 
+
+        Panel B: Aﬃliated loans 
+        Loan characteristics 
+        Maturity (months)                                      −0.006 (0.25)          −0.006 (0.26)           −0.006 (0.22)          −0.007 (0.22) 
+        Collateral or guarantee                                0.67 (0.01) ∗∗∗        0.70 (0.01) ∗∗∗         0.75 (0.00) ∗∗∗        0.64 (0.01) ∗∗∗
+        Purpose of loan—debt retirement dummy                   −0.16 (0.17)           −0.07 (0.55)            0.04 (0.66)            −0.10 (0.41) 
+        Purpose of loan—speciﬁed project dummy                −0.81 (0.03) ∗∗         −0.81 (0.03) ∗∗         −0.63 (0.06) ∗         −0.82 (0.04) ∗∗
+        Borrower characteristics 
+        Same city                                             −0.39 (0.05) ∗∗         −0.38 (0.05) ∗∗        −0.43 (0.02) ∗∗         −0.34 (0.07) ∗
+        Same industry                                         −0.70 (0.02) ∗∗        −0.74 (0.01) ∗∗∗         −0.22 (0.14)           −0.76 (0.01) ∗∗∗
+        Borrower industry return volatility high               0.55 (0.01) ∗∗∗
+        Borrower industry sales growth dispersion high                                0.42 (0.01) ∗∗∗
+        Real estate borrower                                                                                  2.71 (0.00) ∗∗∗
+        SOE borrower                                                                                                                  −0.59 (0.23) 
+        Ownership                                             −1.11 (0.00) ∗∗∗        −1.12 (0.00) ∗∗∗       −1.12 (0.00) ∗∗∗        −1.06 (0.00) ∗∗∗
+        Trade relationship                                    −1.45 (0.00) ∗∗∗       −1.54 (0.00) ∗∗∗        −1.31 (0.01) ∗∗∗        −1.78 (0.00) ∗∗∗
+        Lender characteristics 
+        SOE lender                                             −0.14 (0.53)            −0.11 (0.60)           −0.05 (0.82)             0.33 (0.47) 
+        Ln (assets)                                           −0.31 (0.00) ∗∗∗       −0.30 (0.00) ∗∗∗        −0.30 (0.00) ∗∗∗       −0.30 (0.00) ∗∗∗
+        Debt/assets ( % )                                       0.01 (0.22)             0.01 (0.25)            0.01 (0.38)             0.01 (0.25) 
+        Change of debt ( % )                                   0.02 (0.00) ∗∗∗        0.02 (0.00) ∗∗∗         0.02 (0.00) ∗∗∗        0.02 (0.00) ∗∗∗
+        Year ﬁxed effect                                            Yes                    Yes                     Yes                    Yes 
+        Industry ﬁxed effect                                        Yes                    Yes                     Yes                    Yes 
+        N                                                          2225                   2225                    2225                    2225 
+               
+        Adj R 2                                                    0.35                    0.34                   0.41                    0.34 
+
+
+analysis that were originally due by the end of 2013 (1782                        and   extended     loans   are  51   million,   99  million,   and   139 
+aﬃliated loans and 461 nonaﬃliated loans).                                        million   RMB,    respectively.    The   average    amount     for  non- 
+    Panel A of Table 10 presents the number of incidences                         problematic loans is 229 million RMB. This suggests that 
+of delinquent, overdue, and extended loans by 2013. It also                       lenders   tend   to  lend   smaller    amounts     to  riskier  borrow- 
+shows     the  distribution    of  these   cases   between     aﬃliated           ers and that when large amounts are involved, lenders can 
+and nonaﬃliated loans. There are a total of 194 such cases:                       have more incentive to extend the loans. 16 
+130 for aﬃliated loans and 64 for nonaﬃliated loans. Thus, 
+the   percentage     of  problematic     aﬃliated    loans   is  smaller 
+                                                                                   16                                                                        
+than that of nonaﬃliated loans (7.3% versus 13.9%), again                             We  also gauge  the loss ratio of entrusted loans. The 194  loans that
+                                                                                  are delinquent, overdue, or extended involve 25 billion RMB (out of 466 
+                                                                           
+conﬁrming      that aﬃliated    loans  are  less  risky. When    a prob-          billion RMB total loan amount). By examining these lending ﬁrms’ sub- 
+lem arises, a higher proportion of aﬃliated loans are ex-                         sequent annual reports, we ﬁnd that, in most of these cases, the lenders 
+tended (88%) than nonaﬃliated loans (70%). Panel A also                           received full payments in the end. The exceptions are that in ﬁve cases, 
+                                                                                                                                                             
+reports    the  average    loan   amount     for each    type  of  prob-          the lenders lost 0.15 billion RMB, out  of 0.21 billion RMB loan  amount,
+                                                                                  and another 17 loans (involving a total of 1.66 billion RMB) are still in 
+                                                                           
+lematic   loan.  The   average   amounts    for  delinquent,    overdue,          the middle of lawsuits or waiting for the verdicts being executed, and 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41           35 
+
+     Table 10 
+     Performance of entrusted loans. 
+       The sample contains 2243 entrusted loans during the period 2004–2013. We exclude loans that are not due by the end of year 2013. Renminbi 
+     (RMB) values are adjusted to constant year 2013 RMBs. We use t -test for differences in means. ∗∗∗, ∗∗, and ∗ denote the difference is signiﬁcant 
+     at the 1%, 5%, and 10% level, respectively. 
+
+      Panel A: Frequency of loan delinquency or extension or overdue 
+
+      Performance of loan                   All sample  Nonaﬃliated loans Aﬃliated loans  Average loan amount (millions of RMB) 
+
+      Delinquency due to borrower bankruptcy    3              0                3                       50.8 
+      Overdue                                  32             19               13                       98.8 
+      Extended (on average by 11 months)       159            45               114                      138.6 
+      Total                                 194 (8.6%)     64 (13.9%)       130 (7.3%) 
+
+      Panel B: Adjusted interest rates (%) for nonproblematic loans versus problematic loans 
+
+         Type of loan    Delinquent loans Overdue loans   Extended loans  Nonproblematic loans (1) - (4)  (2) - (4) (3) - (4) 
+                               (1)             (2)             (3)                (4) 
+
+      Nonaﬃliated loan        n/a              10.2           10.9                7.8             n/a      2.4  ∗    3 .1 ∗∗∗
+      Aﬃliated loan            0.5            −0.1             0.6                0.3             0.2     −0.4       0.3  
+      All sample               0.5              6.1            3.5                1.8            −1.3      4.3  ∗∗∗  1 .7 ∗∗∗
+
+
+   Panel B of Table 10 compares the adjusted interest rate          nonaﬃliated loans, the adjusted interest rate is positively 
+between   problematic   and  nonproblematic   loans. For  the       related  to the  likelihood  of  the  loan  being  extended, 
+subsample of nonaﬃliated loans, the ex ante interest rates          overdue,  or  delinquent.  The  coeﬃcient   on  the  adjusted 
+are higher for problematic loans than for nonproblematic            rate is positive and signiﬁcant at the 1% level. Given that 
+loans. The average adjusted interest rate for loans that are        all other explanatory  variables  are at their means,   when 
+overdue  and  extended   are 10.2%  and  10.9%,  respectively.      Adjusted interest rate increases from its 25th percentile to 
+The average adjusted rate for nonproblematic loans is 7.8%.         75th  percentile, the probability of  a delinquent,  overdue, 
+The  difference in rates is statistically signiﬁcant between        or extended loan increases from 10.5% to 18.5%. Thus, the 
+each  group  of problematic  loans  and  the nonproblematic         interest rate of nonaﬃliated loans strongly predicts future 
+loans.                                                              loan performance. This is consistent with the notion that 
+   These differences are absent for aﬃliated loans. The av-         riskier loans are  charged  with  a  higher  interest rate ex 
+erage adjusted interest rate for loans that are delinquent,         ante and end up with more defaults ex post. 
+overdue, or extended is 0.5%, −0.1%, and 0.6%, respectively.           Furthermore, Column 1 shows that, after including the 
+None is signiﬁcantly different from the rate for nonprob-           interest rate, borrowers’ characteristics mostly have no pre- 
+lematic loans, which is 0.3%. This suggests that the pricing        dictive power   for loan  performance.   This  indicates that 
+of the aﬃliated   loans, although  taking  into account  bor-       the  interest rate has  incorporated   the  risk information 
+rowers’ risk to  some  extent, does  not  incorporate risk in       contained in these variables. Thus, nonaﬃliated loans are 
+a full and eﬃcient way.                                             priced in a fairly eﬃcient way. One exception is Same city 
+   We   next   estimate  multivariate   logit regressions  to       dummy , which has a signiﬁcantly negative coeﬃcient, sug- 
+examine   the determinants   of loan  performance.   The  de-       gesting that the likelihood of problematic loans is smaller 
+pendent   variable is a  dummy    equal  to one  if the  loan       if the lender and the borrower are in the same city. In unt- 
+is delinquent,  overdue,  or  extended.  Our   main  variable       abulated results, we observe that 7.5% of same-city nonaf- 
+of interest is Adjusted  interest rate . We also  control for       ﬁliated loans turn out to be problematic and that the ra- 
+other  loan  characteristics, borrower   characteristics, and       tio more than doubles for nonaﬃliated loans across cities 
+lender characteristics, as in Table 9 . For borrower industry       (20.8%). This  is consistent with  the  notion  that less in- 
+risk, we  use  the  industry-median    return volatility. Our       formation asymmetry exists if lenders and borrowers are 
+main  results are  robust if we  use  industry  sales growth        in the same geographic location. When in the same city, 
+dispersion or a real estate borrower dummy.                         a  lender  is better at  screening  borrowers   or  enforcing 
+   Table 11  reports the regression results for nonaﬃliated         the loan  payment,   or both. Although   same-city  loans re- 
+loans (Column 1) and aﬃliated loans (Column 2). Consis-             ceive lower interest rates ( Table 9 ), Table 11  suggests that 
+tent with the univariate results, Column 1 shows that, for          the interest  rate still underreacts to  the location-related 
+                                                                    information. 
+                                                                       Column 2 presents strikingly different results for aﬃl- 
+                                                              
+their lenders took impairment provisions of 1.28 billion RMB in aggre- iated loans. The adjusted interest rate has no  predictive 
+gate. Based on these numbers, the total loss of the entrusted loans in our 
+                                                                                                                                  
+sample is 1.43 billion RMB ( = 1.28 + 0.15), which is 0.31% of total loan power for loan performance. This suggests that the pricing
+amount (0.57% for nonaﬃliated loans and 0.29% for aﬃliated loans). In of this type of loan does not incorporate risk information 
+comparison, we looked up the item “impairment losses on loans” of the suﬃciently. Again, this is consistent with the notion that 
+                                                              
+income statements of listed banks for the period 2004-2013. The average aﬃliated loans are not driven by short-term proﬁts but to 
+loan loss ratio for banks is 0.61%. Hence, entrusted loans have lower loss 
+                                                                    support aﬃliated parties. 
+ratios. 
+36                                     F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+                  Table 11 
+                  Determinants of loan performance: logistic regressions. 
+                    The sample contains 440 nonaﬃliated loans and 1636 aﬃliated loans for which the information of interest rate, 
+                  maturity, and ownership are available during the period 2004–2013. We exclude loans that are not due by the end 
+                  of 2013. Variable deﬁnitions are in Appendix B . Financial variables are winsorized at 1% and 99%. p -values are based 
+                  on standard errors double-clustered by ﬁrm and year . ∗∗∗, ∗∗, and ∗  denote signiﬁcance at the 1%, 5%, and 10% level, 
+                  respectively. 
+
+                    Variable                                                            Delinquent or overdue or extend dummy 
+
+                                                                                 Nonaﬃliated loans                       Aﬃliated loans 
+                                                                                         (1)                                   (2) 
+
+                    Loan characteristics 
+                    Adjusted interest rate (%)                                      0.14  (0.00) ∗∗∗                      0.05  (0.36) 
+                    Maturity (months)                                               0.08  (0.01) ∗∗∗                     −0.01  (0.50) 
+                    Collateral or guarantee                                         0.37  (0.41)                         −0.46  (0.26) 
+                    Purpose of loan—debt retirement dummy                                                                −1.01  (0.41) 
+                    Purpose of loan—speciﬁed project dummy                          1.30  (0.00) ∗∗∗                      1.18  (0.01) ∗∗∗
+                    Borrower characteristics 
+                    Same city                                                      −0.93  (0.00) ∗∗∗                      0.02  (0.93) 
+                    Same industry                                                   0.61  (0.41)                          0.10  (0.78) 
+                    SOE borrower                                                    0.28  (0.59)                         −0.48  (0.27) 
+                    Borrower industry return volatility high                        0.13  (0.81)                          0.02  (0.97) 
+                    Ownership                                                                                            −0.56  (0.35) 
+                    Trade relationship                                                                                   −1.61  (0.00) ∗∗∗
+                    Lender characteristics 
+                    SOE lender                                                      0.91  (0.10) ∗                        0.85  (0.11) 
+                    Real estate lender                                              0.12  (0.91)                          0.05  (0.92) 
+                    Ln (assets)                                                    −0.39  (0.18)                          0.11  (0.54) 
+                    Debt/assets (%)                                                −0.0  0 0 (0.99)                      −0.002  (0.88) 
+                    Change of debt (%)                                             −0.004  (0.82)                        −0.003  (0.81) 
+                    Year ﬁxed effect                                                     Yes                                   Yes 
+                    N                                                                    440                                  1636 
+                            
+                    Adj. R 2                                                            0.21                                  0.06 
+
+
+5.3.  The role of loan trustees                                                   the big ﬁve group. 17 Most nonbank trustees are the ﬁnan- 
+                                                                                  cial branches of conglomerate ﬁrms. They mainly facilitate 
+    An   entrusted     loan   involves   a  bank    or  a  nonbank     ﬁ-         aﬃliated loans. We observe that the percentages of non- 
+nancial company as a servicing agent. The agent is called                         aﬃliated loans channeled by big ﬁve banks, small banks, 
+a  trustee.   In  principle,   the  trustee   is  not  responsible     for        and   nonbank     trustees   are  42%,   55%,   and   3%,  respectively. 
+matching a lender with a borrower, does not provide any                           The   respective    numbers     for  aﬃliated    loans   are  28%,  42%, 
+guarantee     to  the  loan   payment,     and,   therefore,   does   not         and 30%. 18 
+bear any investment risk. Some ﬁnancial ﬁrms could have                               Taking into account the role of trustees, we redo all of 
+more    incentives    to  channel    entrusted     loans   than   others.         our   loan-level   analyses.    For  summary      statistics,  we   redo 
+Chen    et  al. (2019)   ﬁnd   that,  in  response    to  tighter  mon-           the analyses for subsamples based on the type of trustee. 
+etary   policies,  banks,   especially    small   banks   due   to  their         For regression analyses, we include two additional dummy 
+sensitivity to policy changes, channel more entrusted loans                       variables: Big 5 banks and Small banks . We do not ﬁnd sys- 
+than   nonbank      ﬁnancial    ﬁrms.   We    examine     whether     the         tematic differences in industry or geographic distribution 
+identity    of  the   trustees   affect   answers     to  the   research          of loans or in lender, borrower, and loan characteristics. 
+questions we focus on.                                                                We reestimate the regressions in Tables 9 (determinant 
+    We ﬁnd trustee names from lenders’ annual reports and                         of  loan   rate)  and   11  (predicting    loan   performance)      after 
+interim    announcements.        However,     trustee   information     is        adding the big5 and small bank dummies. The tables show 
+not always disclosed. We are able to collect this informa- 
+tion   for  1516   loans   (out  of  the   original   sample    of  2960 
+                                                                                      
+loans). In comparison, Chen et al. (2019) examine 644 en-                          17 Commercial banks in China can be categorized into four types: (1) 
+trusted loans made by listed ﬁrms that have interim an-                           the big ﬁve banks, (2) seven additional national banks, (3) more than one 
+nouncements.                                                                      thousand regional, city, and rural banks, and (4) dozens of private and 
+                                                                                                                                                             
+    Like Chen et al. (2019) , we classify trustees into three                     foreign banks. The  12 national banks are all joint-stock banks controlled
+                                                                                  by the state. Most of the regional, city, and rural banks are also majority- 
+                                                                           
+types:   big  ﬁve   banks,   small   banks,   and   nonbank     trustees.         owned by the state. Our results hold if we deﬁne the 12 national joint- 
+Big   ﬁve  banks    are  the   ﬁve   largest  state-owned      commer-            stock banks as big banks and the others as small banks. 
+                                                                                      
+cial banks: Industrial and Commercial Bank of China, the                           18 Despite the sample-size difference, the distribution of trustees in our 
+Bank of China, the Construction Bank of China, the Agri-                          sample is similar to Chen et al. (see their Table 3 ). We are also able to 
+                                                                                                                                                             
+cultural Bank of China, and the Bank of Communications.                           replicate their main results. That is, in response to monetary  tightening
+                                                                                  (measured by growth in M2), banks increase entrusted lending more than 
+                                                                           
+Their   combined      share   of total  bank    deposits   was    49%   in        nonbank trustees, and small banks increase entrusted lending more than 
+2013. Small banks are all other banks that are not part of                        large banks. 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41           37 
+
+that the coeﬃcients of the bank dummies are generally not           revelation hypothesis, we divide the loans into two groups: 
+statistically signiﬁcant in the regressions of loan rate, sug-      ﬁrms’  ﬁrst announcements     versus  subsequent  announce- 
+gesting that the type of trustee does not affect loan pricing.      ments,  depending   on  whether   it is the ﬁrst time  a ﬁrm 
+We do ﬁnd positive coeﬃcients for both bank dummies in              announces such a loan during our sample period. If the ab- 
+predicting problematic performance of nonaﬃliated loans,            normal returns are concentrated in ﬁrms’ ﬁrst loans only, 
+which is due to the fact that only ten out 387 nonaﬃliated          then they are more likely due to information revelation as 
+loans (3%) are channeled by nonbank trustees and none of            opposed   to value creation. The  value  creation hypothesis 
+those ten observations was problematic. If we include only          predicts that  the abnormal   returns  should  be present  in 
+Big 5 banks but not Small banks , its coeﬃcient is not sig-         ﬁrst and subsequent loans. 
+niﬁcant, suggesting bank type cannot predict loan perfor-              Table 12 , Panel A, presents the mean CARs for aﬃliated 
+mance. More important, our previous main results all hold.          loans and nonaﬃliated loans separately. We compute CARs 
+That is, loan rates depend on borrowers’ risk, and loan rate        for three time windows, trading days [ −1, 1], [ −3, 3], and 
+can predict the performance of nonaﬃliated loans. (Results          [ −5, 5] around the loan announcement, where day 0 is the 
+are available upon request.) The evidence suggests that the         announcement day. The results are consistent for all three 
+research questions we focus on do not depend on the type            CAR measures. The mean CAR is not statistically signiﬁcant 
+of trustees.                                                        for aﬃliated loans and signiﬁcantly negative for nonaﬃli- 
+   In short, the evidence in this section suggests that the         ated loans. This suggests that aﬃliated loans neither create 
+pricing of both types of loans depends on borrower risk,            nor  destroy value  but  instead are  zero-NPV  investments. 
+and that the rate of nonaﬃliated loans incorporates risk in         Despite  their lower  than  market  interest rates, investors 
+a more eﬃcient way.                                                 view  them  not  as ineﬃcient   subsidization but  as a form 
+                                                                    of investment   that receives fair compensation    in the fu- 
+6. Wealth effects of entrusted loans                                ture. The negative CARs for nonaﬃliated loans suggest that 
+                                                                    this type of loan either destroys value or conveys negative 
+   In this section, we analyze the wealth effects of the en-        information about the lender. 
+trusted loans on the lenders. We have shown that nonaf-                We next divide each type of aﬃliated and nonaﬃliated 
+ﬁliated entrusted loans charge much higher interest rates           loans  into ﬁrms’  ﬁrst versus  subsequent   loan announce- 
+than aﬃliated loans and that the aﬃliated loan rates are            ments. For aﬃliated loans, no signiﬁcant differences exist 
+much lower than the market rate. This evidence alone does           between the two groups of transactions. For nonaﬃliated 
+not imply that nonaﬃliated loans create value and aﬃli-             loans, only the ﬁrst announcements exhibit negative CARs. 
+ated loans destroy value. The lower than market rates of            Subsequent announcements are associated with nonsignif- 
+aﬃliated loans can be a form of long-term investment in             icant and near zero CARs. The differences between the two 
+aﬃliated  parties instead  of ineﬃcient  cross-subsidization.       groups  are all signiﬁcant  at the 5%  level. Take the  mean 
+Nonaﬃliated loans can create value, destroy value, or re-           CARs around days [ −5, 5], for example. The average CAR 
+ceive fair compensation depending on whether the interest           for all nonaﬃliated loans is −1.39%, signiﬁcant at the 10% 
+rates are high enough for the risk.                                 level. The mean for ﬁrms’ ﬁrst nonaﬃliated loan is −3.78%, 
+   To  address  the  question  of  whether   entrusted  loans       signiﬁcant  at the 1%  level, and the  mean   for subsequent 
+create value,  we  examine   the  stock market   reactions to       nonaﬃliated loans is a nonsigniﬁcant 0.33%. The difference 
+the loan announcement, assuming the market is eﬃcient               between ﬁrst and subsequent loans is signiﬁcant at the 1% 
+in incorporating the value consequence. For this analysis,          level. The fact  that the  negative CAR   is concentrated  in 
+we  focus  on the  547  cases (358  aﬃliated  loans  and  189       ﬁrms’  ﬁrst announcements     of nonaﬃliated   loans  is con- 
+nonaﬃliated loans) in which the lending ﬁrms announced              sistent with  the  information  revelation  hypothesis.  That 
+the loans before their annual reports. A sample selection           is, upon learning of a ﬁrm making nonaﬃliated loans, in- 
+issue arises because not all ﬁrms make entrusted loan an-           vestors realize that the ﬁrm lacks good investment oppor- 
+nouncements. We describe and address this issue in mul-             tunities in their main businesses. The loans themselves do 
+tivariate regressions below.  We   estimate  the  cumulative        not destroy value, as evidenced by nonsigniﬁcant CARs for 
+abnormal returns (CARs) around the announcement based               subsequent similar transactions. 
+on  the market   model,  using  the  index  return  of stocks          Next,  we   estimate  multivariate  regressions  of  CARs. 
+traded on the Shanghai and Shenzhen stock exchanges as              We include A ﬁrm’s ﬁrst announcement , a dummy equal to 
+the market proxy and the trading days [ −150, −10] as the           one if it is the ﬁrst time it announces an aﬃliated (or a 
+estimation period, where day 0 is the announcement day.             nonaﬃliated) loan, in the regression because the univariate 
+   We   ﬁrst examine   whether   the announcement     returns       results show this factor to be important. In addition, the 
+are signiﬁcantly different from zero. If they are not, it sug-      abnormal   returns can  depend   on the  terms  of the loans. 
+gests that these deals neither create nor destroy value, i.e.,      So, we   include log(loan  amount),   adjusted  interest rate, 
+they  are on  average  zero-net  present  value investments.        maturity, and a dummy for collateral or guarantee. 
+Two possibilities emerge if CARs are signiﬁcantly positive             A selection issue exists in examining the announcement 
+(negative). One possibility is that these loans do create (de-      returns because not all ﬁrms make such announcements. 
+stroy) values. The  second   possibility is that these  loans       Instead, many make the required disclosure in their annual 
+do  not create  (or destroy)  values, but  the fact  that the       reports  along  with  other important   disclosures, such  as 
+lenders  are making   these  loans  can  reveal to  the mar-        earnings  announcements.    The  regulatory  requirement   on 
+ket new positive (negative) information about the lenders.          making   entrusted  loan  announcements     is  vague.  Firms 
+To distinguish  the  value creation  versus  the information        need  to  make   announcements     for material  investments 
+38                                     F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+                  Table 12 
+                  Market reaction to entrusted loan announcements. 
+                    The cumulative abnormal return (CAR) is calculated based on the market model, in which the index return of stocks 
+                  traded on Shanghai and Shenzhen stock exchanges is used as the market proxy and the estimation period is during 
+                  trading days [ −150, −10], where day 0 is the announcement day. Variable deﬁnitions are in Appendix B . Financial 
+                  variables are winsorized at 1% and 99%. We use t -test for differences in means. ∗∗∗, ∗∗, and ∗ denote the difference is 
+                  signiﬁcant at the 1%, 5%, and 10% level, respectively. p -values are based on standard errors double clustered by ﬁrm and 
+                  year . OLS = ordinary least squares. 
+
+                    Panel A: Univariate analysis 
+
+                    Type of loans                                   CAR [ −1, + 1] (%)       CAR [ −3, + 3] (%)        CAR [ −5, + 5] (%) 
+
+                    Aﬃliated loans ( N = 358)                            0.16                      0.34                      0.47  
+                    A ﬁrm’s ﬁrst announcement ( N = 134)                 0.47                      0.87                      1.36  ∗
+                    Subsequent announcements ( N = 224)                 −0.02                      0.02                    −0.06  
+                    Difference                                           0.49                      0.85                      1.42  
+                    Nonaﬃliated loans ( N = 189)                        −0.73  ∗∗                −1.26  ∗∗                 −1.39  ∗
+                    A ﬁrm’s ﬁrst announcement ( N = 79)                 −1.62  ∗∗∗               −2.78  ∗∗∗                −3.78  ∗∗∗
+                    Subsequent announcements ( N = 110)                 −0.10                    −0.17                       0.33  
+                    Difference                                          −1.52  ∗∗                −2.61  ∗∗∗                −4.11  ∗∗∗
+
+                    Panel B: Regressions 
+
+                    Variable                                                        CAR [ −5, + 5] (%) 
+
+                                                             Nonaﬃliated loans                              Aﬃliated loans 
+
+                                                        OLS          Heckman second stage           OLS          Heckman second stage 
+                                                        (1)                    (2)                   (3)                   (4) 
+
+                    A ﬁrm’s ﬁrst announcement     −4.94  (0.00) ∗∗∗     −4.89  (0.00) ∗∗∗       1 .62 (0.00) ∗∗∗        1.51  (0.12) 
+                    Ln (loan amount)              −0.04  (0.94)           0.02  (0.98)         −0.44  (0.24)          −0.47  (0.21) 
+                    Adjusted interest rate (%)    −0.28  (0.16)         −0.27  (0.16)           0.22  (0.56)            0.21  (0.26) 
+                    Maturity (months)             −0.05  (0.59)         −0.05  (0.68)           0.04  (0.03) ∗∗         0.04  (0.25) 
+                    Collateral or guarantee       −2.07  (0.48)         −2.00  (0.42)          −0.42  (0.53)          −0.50  (0.63) 
+                    Inverse mills ratio                                   0.62  (0.79)                                −0.55  (0.75) 
+                           
+                    Adj R 2                             0.06                                        0.02 
+                    N                                   189                                         353 
+
+                    Panel C: Heckman ﬁrst stage 
+
+                    Variable                                       Heckman ﬁrst stage                               Heckman ﬁrst stage 
+                                                                           (1)                                              (2) 
+
+                    Ln (loan amount)                                   0.46  (0.00) ∗∗∗                                 0.19  (0.00) ∗∗∗
+                    Ln (assets)                                      −0.67  (0.00) ∗∗∗                                −0.32  (0.00) ∗∗∗
+                    ROA (%)                                          −0.02  (0.05) ∗∗                                 −0.003  (0.65) 
+                    Debt/assets (%)                                  −0.001  (0.76)                                     0.002  (0.48) 
+                    SOE lender                                       −0.03  (0.82)                                    −0.18  (0.03) ∗∗
+                               
+                    Wald chi 2                                            56.8                                              64.9 
+                    Sigma                                                 9.71                                              8.34 
+                    N                                                      587                                              2373 
+
+
+and   events,   but   there   is no   technical    deﬁnition    of  what          the   univariate    results.   Consistent     with   the   notion    that 
+is  considered     material.    To   address    this,  we    investigate          these   loan   terms    are  endogenously       chosen,    we   ﬁnd    no 
+whether     the   choice    of  loan   announcement        depends     on         evidence that loan characteristics such as loan amount or 
+loan   amount     and    lender   characteristics.    We    then   run   a        interest rate have a signiﬁcant impact on market reactions. 
+two-stage Heckman test, in which the ﬁrst stage is a logit                        For  aﬃliated    loans,   the  only   coeﬃcient     signiﬁcant    at  the 
+regression     of  whether     or   not   a  loan   announcement        is        conventional     levels  is  that  on   A ﬁrm’s   ﬁrst  announcement 
+made, and the second stage is a regression of CARs.                               in  the  OLS   regression.    The   signiﬁcance    disappears     in  the 
+    Table   12 , Panel   B,  reports   the   regression    of  CARs    for        Heckman      regression.    The   regression    results  are   robust   if 
+aﬃliated and nonaﬃliated loans. The dependent variable is                         we   include    the   dummies      Big  5  banks    and   Small   banks . 
+the 11-day     CAR. Results are similar if we use the three-day                   The coeﬃcients of the bank dummies are not statistically 
+or   seven-day     CARs.    We   report    both   the   ordinary    least         signiﬁcant, suggesting the type of trustee is not related to 
+squares    (OLS)   and   the   Heckman      second-stage     regression           announcement returns. 
+results, which yield similar results. For nonaﬃliated loans,                          Panel C displays the results of the Heckman ﬁrst-stage 
+the   most   important     determinant      of  CARs    is the   dummy            regressions for aﬃliated and nonaﬃliated loans. For both 
+of  A  ﬁrm’s   ﬁrst  announcement .      It has  a  highly   signiﬁcant           types   of  loans,  the  likelihood    of  loan  announcements in- 
+and   negative    coeﬃcient,     suggesting    that   ﬁrms’   ﬁrst  non-          creases with the loan amount and decreases with the ﬁrm 
+aﬃliated     loan  announcements         are  associated    with   much           size in terms of assets. This makes sense because the larger 
+more negative abnormal returns, a ﬁnding consistent with                          the loan size relative to the lender’s asset value the more 
+                                F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41           39 
+
+material the transaction is. In addition, for aﬃliated loans,       reports the entrusted loans they make. We search for the 
+SOE lenders are less likely to make announcements.                  term “entrusted loan” in all annual reports of listed non- 
+   In  summary,   the  results in this section  suggest  that       ﬁnancial ﬁrms during the period 2004–2013. We identify 
+both  aﬃliated  and  nonaﬃliated   loans are  fairly compen-        the lender and the borrower and record loan characteris- 
+sated investments. Despite the lower than market interest           tic information. We make sure each observation is a newly 
+rates, aﬃliated loans do not destroy value. Firms’ ﬁrst non-        originated  loan. Firms also  make  interim  announcements 
+aﬃliated loans reveal lenders’ poor investment opportuni-           about entrusted loans when the loans are deemed mate- 
+ties in their main businesses, to which investors respond           rial investments. We collect all the interim announcements 
+negatively.                                                         about  entrusted  loans during  the  sample  period. We   use 
+                                                                    these  announcements    to cross-check  and  supplement   in- 
+                                                                                                     
+7. Conclusions                                                      formation  from  annual reports.
+                                                                       In 2011, CRSC speciﬁed that entrusted loans should be 
+                                                                                                                                  
+   We   conduct  a  large-sample  transaction-level study  of       disclosed  in the  section of  an annual   report called  The
+                                                                                                                                  
+China’s shadow banking system. We examine the entrusted             Board’s Report—Investments    Analysis. All loans since  then
+                                                                                                                                  
+loans made   by  listed ﬁrms.  These  nonﬁnancial  ﬁrms   en-       have  been  listed in this section. However,  some   relevant
+                                                                                                                                  
+gage in entrusted loans because they can take advantage             information  can still be found in other parts of the annual
+                                                                            
+of their privileged access  to the  oﬃcial  ﬁnancing  system        report.
+(such as bank loans and the stock market) to provide credit 
+                                                              
+to less privileged ﬁrms.  The likelihood and  the amount   of       A.1. Example 1: Shantou Dongfeng Printing Inc 
+entrusted loans increase when credit is tight in the econ- 
+                                                              
+omy. Thus, these  loans are market  reactions to credit short-         In  its  annual   report  for  the  year   2012,  Shantou 
+     
+age.                                                                Dongfeng   Printing  included  a table  in the  section  “The 
+                                                              
+   Aﬃliated  and  nonaﬃliated  loans  have different motives.       Board’s Report—Investment Analysis—Entrusted Loans” (see 
+                                                              
+Lenders  of aﬃliated loans are highly proﬁtable  and  use the       Table A1 ). The  related paragraphs   explain that  the com- 
+                                                              
+loans to support  their subsidiaries, suppliers, or customers.      pany used its extra cash to provide entrusted loans to Nan- 
+                                                              
+Lenders  of nonaﬃliated   loans suffer low growth   rates and       jing Chengwang    Real  Estate Inc. and  Guangxi  Baide  Real 
+                                                              
+use the loans as an alternative investment  channel  to boost       Estate Inc. The  trustee for both  loans  is China Minsheng 
+                
+their earnings.                                                     Bank Shantou Branch. Neither the company nor its insiders 
+                                                              
+   Consistent  with the different motives, three striking dif-      (the controlling shareholder, 5% blockholders, directors, su- 
+                                                              
+ferences exist between   the two  loan types. First, nonaﬃli-       pervisors, and top manager) had business aﬃliations with 
+                                                              
+ated loans charge  the market   interest rate, which is about       either of the borrowers. Thus, both loans are nonaﬃliated 
+                                                              
+twice the  oﬃcial  bank  loan rate, and the  average rate for       loans. 
+                                                              
+aﬃliated  loans is close to the oﬃcial  rate. This shows  the          The  company   also  discloses both  entrusted  loans in a 
+                                                              
+oﬃcial  banking  system   is signiﬁcantly distorted. Second,        footnote  to the balance  sheet  item  “other  long term  as- 
+                                                              
+most  aﬃliated  loans  are within-industry  loans, and  close       sets.” The loan  agreement   with  Nanjing  Chengwang    Real 
+                                                              
+to half of the nonaﬃliated   loans ﬂow   into real estate and       Estate was signed on December 3, 2012, with a loan period 
+                                                              
+construction, an industry that regulators try to restrict cap-      from December 6, 2012 to December 6, 2014. The annual 
+                                                              
+ital from reaching. Third, we ﬁnd  evidence  that the pricing       interest rate was  15%.  The loan  agreement   with  Guangxi 
+                                                              
+of both  types of loans  depends  on  borrowers’  fundamen-         Baide Real Estate was signed on December 14, 2012, with a 
+                                                              
+tal and information   risks. The rates of nonaﬃliated   loans       loan period from December 17, 2012 to December 17, 2014. 
+                                   
+incorporate risk more  eﬃciently.                                   The annual interest rate was 15%. 
+                                                              
+   Finally, our investigation of announcement    returns sug-          The  company    made   respective public  announcements 
+                                                              
+gests that both  aﬃliated  and  nonaﬃliated  loans  are fairly      about  the  loans  on   December    1, 2012   and  December 
+                                                              
+compensated   investments.  Thus, the lower  than market  in-       15, 2012. The announcements conﬁrm information in the 
+                                                              
+terest rates of aﬃliated loans  are viewed  as a  form of in-       annual  report  and  contain  additional  information   about 
+                                               
+vestment  instead of ineﬃcient  subsidization.                      the borrowers.   Nanjing  Chengwang    Real  Estate is a  real 
+                                                                    estate company    located  in Nanjing,  Jiangsu  Province.  It 
+Appendix A.   Examples of entrusted loan data collection            had  total assets  of 966.75   million  RMB   as of  Septem- 
+                                                                    ber  30, 2012.  Guangdon   Chengwang     is the parent  com- 
+   The   China  Securities  Regulatory  Commission    (CRSC)        pany  of the  borrower  and  holds  100%  of its shares. Two 
+stipulates that all listed ﬁrms  disclose in audited  annual        individuals, Wang   Man   and  Wang   Chun,   each  own  50% 
+
+Table A1 
+Table in Shantou Dongfeng Printing 2012 annual report. 
+
+ Borrower           Amount      Maturity     Rate    Use of fund   Collateral or        Aﬃliated Overdue  Extended Any legal 
+                                                                   guarantee            loans                     dispute 
+
+ Nanjing Chengwang  150 million 24 months    15%     Real estate   Nanjing Chengwang’s  No       No       No      No 
+ Real Estate Inc.   RMB                              development   100% equity 
+ Guangxi Baide Real 150 million 24 months    15%     Real estate   Guangxi Baide’s      No       No       No      No 
+ Estate Inc.        RMB                              development   100% equity 
+40                                     F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41 
+
+of  the   parent    company.     Thus,    Nanjing    Chengwang       is  a        and the borrower are business partners. We therefore clas- 
+non-SOE     ﬁrm.    Guangxi    Baide   Real   Estate   is a  real  estate         sify this loan as an aﬃliated loan. 
+company      located    in  Nanning,     Guangxi     Province.    It  had 
+total assets of 91.11 million RMB as of September 30, 2012. 
+                                                                                                                                                     
+Shanghai     Chengwang       is the   parent   company      of  the  bor-         A.3.  Example    3:  Shenzhen    Tianma    Microelectronics    Inc
+rower and holds 100% of its shares. Two individuals, Wang 
+                                                                                                                                                             
+Man and Ma Si, own 90% and 10% of the parent company,                                 In  the  Shenzhen      Tianma     Microelectronics      Inc. annual
+                                                                                                                                                             
+respectively. Thus, Guangxi Baide is also a non-SOE ﬁrm.                          report   for the  year  2008,   we  ﬁnd   information     about   an  en-
+                                                                                                                                                             
+    In  the   Shantou     Dongfeng     annual    report   for  the   year         trusted   loan  in the  section   “Corporate    Governance—Related
+                                                                                                                                                             
+2013, we ﬁnd the same disclosure about the loans in both                          Party   Transactions.” The       board   approved     a  one-year     en-
+                                                                                                                                                             
+the section “The Board’s Report—Investment Analysis” and                          trusted   loan   of 150   million   RMB    to  Shanghai    Tianma    Mi-
+                                                                                                                                                             
+the section “Footnote—other long term assets.” We do not                          croelectronics    Co.  at  an  interest  rate  set  at  10%  above    the
+                                                                                                                                                             
+treat these loans as new loans in 2013.                                           benchmark      rate of  commercial     banks.   We  calculate   the  rate
+                                                                                  using 1.1 times the benchmark rate. 
+                                                                                                                                                             
+A.2.  Example 2 : Gemdale Corporation                                                 We    ﬁnd   similar   information     in  the  section    “Financial
+                                                                                  Report—Internal Control Evaluation—Related Party Transac- 
+                                                                                                                              
+    In  Gemdale      Corporation’s     annual    report   for  the   year         tions” and cross-check the details.
+                                                                                                                                                             
+2006,    a  footnote    to  the   balance    sheet   item   “long   term              We    then   search   the  name     of  the  borrower,     Shanghai
+                                                                                                                                                             
+debt   investment” reports        that  the   company      provided    an         Tianma    Microelectronics,     in  the  annual    report.  In  the  sec-
+                                                                                                                                                             
+entrusted     loan  of  253.23    million   RMB    to  Shanghai    CRED           tion  “Board    Report—Performance         of Aﬃliated     Firms,” it   is
+                                                                                                                                                             
+Real   Estate   Inc. The   loan   period   was    from   December      27,        noted    that  Shenzhen      Tianma    Microelectronics      Inc.  owns
+                                                                                                                                                             
+2006    to  December      26,  2008.   The   annual    interest   rate  is        30%   of the  borrower.    Thus,  we   classify  this loan   as an  aﬃl-
+                                                                                                
+6.3%.   The   purpose    of  the  loan   is for  real  estate  develop-           iated  loan.
+                                                                                                                                                             
+ment    of  two   pieces   of  land.  The   borrower     uses   the  two              In  a   public   announcement        dated    on   September      25,
+                                                                                                                                                             
+pieces of land as collateral.                                                     2008,   we  ﬁnd   the  following    additional   information:    the  in-
+                                                                                                                                                             
+    In  the  section    “The   Board’s   Report—Daily      Operations,”           dustry   of  the  borrower,    the   use  of  the  loan,  and   the  fact
+                                                                                                                                           
+Gemdale discloses that it would develop two pieces of land                        that  there  is no   collateral  used   for this  loan.
+with the borrower and provided the borrower an entrusted 
+                                                                           
+loan.   The   additional    information     reveals   that   the  lender          Appendix B.      Variable deﬁnitions 
+
+
+   A ﬁrm’s ﬁrst announcement —Dummy equal to one if it is the ﬁrst time a ﬁrm announces an (aﬃliated or nonaﬃliated) entrusted loan and zero 
+   otherwise. 
+   Adjusted interest rate —A loan’s interest rate minus the oﬃcial bank lending rate of same maturity, in percent. 
+   Aﬃliated loan —Dummy equal to one if a ﬁrm made a loan to an aﬃliated party and zero otherwise. 
+   Assets —Total assets at the beginning of the year when the loan is made, adjusted to constant year 2013 RMBs. 
+   Borrower industry return volatility high —Dummy equal to one if the industry return volatility is above median during the year before the loan is 
+   made. Industry return volatility is computed as the median of the standard deviations of daily returns for ﬁrms in the borrower industry. 
+   Borrower industry sales growth dispersion high —Dummy equal to one if the industry sales growth dispersion is above median during the year 
+   before the loan is made. Sales growth dispersion is computed as the standard deviation of sales growth of ﬁrms in the borrower industry. 
+   Cash/assets —Ratio of cash to assets at the beginning of the year when the loan is made, in percent. 
+   CAR [ −5, + 5] —Cumulative abnormal return 11 days around the loan announcement, calculated based on the market model, in percent. The 
+   estimation period for the market model is during trading days [ −150, −10], where day 0 is the announcement day. 
+   Change of debt —Change of total debt in year t − 1, divided by the average of assets at the beginning and the end of the year, where year  t is the 
+   year in which the loan is made, in percent. 
+   Collateral —Dummy equal to one if a loan requires collateral and zero otherwise. 
+   Collateral or Guarantee —Dummy equal to one if a loan requires collateral or third-party guarantee and zero otherwise. 
+   Debt/assets —Ratio of total debt to assets at the beginning of the year when the loan is made, in percent. 
+   Delinquent or overdue or extend dummy —Dummy equal to one if a loan is delinquent, overdue, or extended and zero otherwise. 
+   Guarantee —Dummy equal to one if a loan requires third-party guarantee and zero otherwise. 
+   Shibor—Daily average of China’s oﬃcial interbank offered rate in the year when the loan is made, in percent. 
+   Firm age —Firm’s age from the listed year to the year when the loan is made. 
+   Loan amount —RMB amount of a loan, in millions, adjusted to constant year 2013 RMBs. 
+   Loan amount/assets —Total loan amount a ﬁrm made during a year, divided by ﬁrm assets at the beginning of the year when the loan is made, in 
+   percent. 
+   Loan dummy —Dummy equal to one if a ﬁrm made a loan in a certain year and zero otherwise. 
+   Maturity (Months) —Maturity of a loan. 
+   Ownership —Lender’s equity ownership in the borrower (in decimals). This variable is deﬁned only for aﬃliated loans. 
+   Purpose of loan —debt retirement dummy —Dummy equal to one if the stated purpose of a loan is for debt retirement and zero otherwise. 
+  Purpose of loan —speciﬁed project dummy —Dummy equal to one if the stated purpose of a loan is for a speciﬁc investment project and zero 
+  otherwise. 
+                                                                                                                                    ( continued on next page ) 
+                                      F. Allen, Y. Qian and G. Tu et al. / Journal of Financial Economics 133 (2019) 18–41                               41 
+
+ ( continued ) 
+
+  Real estate borrower —Dummy equal to one if the borrower is in the real estate and construction industry and zero otherwise. 
+  Real estate lender —Dummy equal to one if the lender is in the real estate and construction industry and zero otherwise. 
+  ROA —Return on assets in the year before the entrusted loan is made, in percent. 
+  Sales growth —Sales growth rate in the year before the entrusted loan is made, in percent. 
+  Same city —Dummy equal to one if the borrower is in the same city as the lender and zero otherwise. 
+  Same industry —Dummy equal to one if the borrower is in the same industry as the lender and zero otherwise. 
+  SOE borrower —Dummy equal to one if the borrower is a state-owned enterprise and zero otherwise. 
+  SOE lender —Dummy equal to one if the lender is a state-owned enterprise and zero otherwise. 
+  Tobin’s q —Tobin’s q as of the beginning of the year when the loan is made. 
+  Trade relationship —Dummy equal to one if the borrower is a customer, supplier, or joint-venture partner of the lender. This variable is deﬁned only 
+  for aﬃliated loans. 
+
+
+References                                                                        Hachem, K. , Song, Z. , 2016. Liquidity Regulation and Unintended Financial 
+                                                                                      Transformation in China. NBER Unpublished Working Paper . 
+                                                                                                                                                            
+Acharya, V. , Qian, J. , Yang, Z. , 2016. In the Shadow of Banks: Wealth Man-     He, Q., Lu, L., Ongena, S., 2016. Who Gains from Credit Granted  Between
+                                                                                                                                                            
+    agement Products and Issuing Banks’ Risk in China. New York Univer-               Firms? Evidence  From  Inter-Corporate Loan Announcements    Made  in
+                                                                                                                                                            
+    sity Draft paper .                                                                China. Bank of Finland, Institute for Economies in Transition, Finland
+                                                                                                                    
+Allen, F. , Qian, J. , 2014. China’s ﬁnancial system and the law. Cornell Int.        Unpublished  Working  PAPER.
+                                                                                                                                                            
+    Law J. 47, 499–553 .                                                          International Monetary  Fund, 2014, IMF Country  Report  No. 14/235: Peo-
+                                                                                                                                                            
+Allen, F., Qian, M., Xie, J., 2018. Understanding informal ﬁnancing. J. Fi-           ple’s Republic of China.  International Monetary  Fund,  Washington,
+                                                                                          
+    nanc. Intermed. doi: 10.1016/j.jﬁ.2018.06.004 .                                   D.C.
+                                                                                                                                                            
+Berger, A. , Udell, G. , 1990. Collateral, loan quality, and bank risk. J. Monet. Jiang, G., Lee, C.M.C., Yue, H., 2010. Tunneling  through  intercorporate
+                                                                                                                                             
+    Econ. 25, 21–42 .                                                                 loans: the China experience. J. Financ. Econ. 98, 1–20.
+                                                                                                                                                            
+Berger, A. , Udell, G. , 1995. Relationship lending and lines of credit in small  La Porta, R., Lopez-de-Silanes, F., Zamapripa, G., 2003. Related lending. Q.
+                                                                                                             
+    ﬁrm ﬁnance. J. Bus. 68, 351–381 .                                                 J. Econ. 118, 231–268.
+                                                                                                                                                            
+Buchuk, D. , Larrain, B. , Munoz, F. , Urzua, F. , 2014. The internal capital mar- Mian, A., 2006. Distance constraints: the limits of foreign lending in poor
+                                                                                                                           
+    kets of business groups: evidence from intra-group loans. J. Financ.              economies. J. Financ. 61, 1465–1505.
+                                                                                                                                                            
+    Econ. 112, 190–212 .                                                          Moody’s,  2016. Quarterly China  Shadow   Banking  Monitor.  Moody’s   In-
+                                                                                                                 
+Chen, D. , Jiang, D. , Ljungqvist, A. , Lu, H. , Zhou, M. , 2015. State Capitalism    vestors Service, New York.
+                                                                                                                                                            
+    vs. Private Enterprise. Nanjing University, Nanjing, China Unpublished        Moody’s,  2017. Quarterly China  Shadow   Banking  Monitor.  Moody’s   In-
+                                                                                                                 
+    Working Paper .                                                                   vestors Service, New York.
+                                                                                                                                                            
+Chen, Z. , He, Z. , Liu, C. , 2017. The Financing of Local Government in China:   Petersen, M.A., Rajan, R.G., 1994. The beneﬁts of lending relationships: ev-
+                                                                                                                                           
+    Stimulus Loan Wanes and Shadow Banking Waxes. NBER Unpublished                    idence from small business  data. J. Financ. 49, 3–37.
+                                                                                                                                                            
+    Working Paper .                                                               Song, Z., Storesletten, K., Zilibotti, F., 2011. Growing like China. Am. Econ.
+                                                                                                             
+Chen, K. , Ren, J. , Zha, T. , 2018. The Nexus of Monetary Policy and Shadow          Rev. 101 (1), 196–233.
+                                                                                                                                                            
+    Banking in China. Am. Econ. Rev. 108 (12), 3891–3936 .                        Wang,  H., Wang,  H., Wang, L., Zhou, H.,2016.Shadow     Banking: China’s
+                                                                                                                                                            
+Degryse, H. , Ongena, S. , 2005. Distance, lending relationships, and compe-          Dual-Track Interest Rate  Liberalization. Tsinghua University, Beijing,
+                                                                                                                          
+    tition. J. Financ. 60, 231–266 .                                                  China Unpublished  Working  Paper.
+                                                                                                                                                            
+Dennis,  S. , Nandy, D. , Sharpe, I. , 20 0 0. The determinants of contract       Wall Street Journal, A Partial Primer to China’s Biggest Shadow: Entrusted
+                                                                                                                                 
+    terms in bank revolving credit agreements. J. Financ. Quant. Anal. 35,            Loans. McMahon,   D., Wei, L., May 2, 2014.
+                                                                                                                                                            
+    87–110 .                                                                      Wu, J., Gyourko, J., Deng, Y., 2012. Evaluating conditions in major Chinese
+                                                                                                                                           
+Flannery, M. , 1986. Asymmetric    information  and  risky debt  maturity             housing markets. Reg. Sci. Urban Econ. 42, 531–543.
+                                                                                                                                                            
+    choice. J. Financ. 41, 18–38 .                                                Yu, Y., Lee, Y., Fok, C., 2015. Speculative Motive for Holding Cash and High-
+                                                                                                                                                            
+Gopalan, R. , Nanda, V. , Seru, A. , 2007. Aﬃliated ﬁrms and ﬁnancial sup-            -Interest Entrusted Loans. Beijing Technology and Business University,
+                                                                                                                                  
+    port: evidence  from   Indian business  groups.  J. Financ. Econ.  86,            Beijing, China Unpublished Working  Paper.
+    759–795 . 

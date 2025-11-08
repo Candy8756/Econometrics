@@ -1,0 +1,119 @@
+﻿Fig. 2. Growth in the Overall Value of Homes is Positively Associated with Growth in
+Household (Non-housing) Wealth
+                 (a)                                   (b)
+    Wealth measure including housing.     Wealth measure excluding housing.
+        Slope of ﬁtted line: 1.16.            Slope of ﬁtted line: 0.97.
+
+   1.5                                   1.5
+
+
+    1                                     1
+
+
+    .5                                    .5
+
+
+    0                                     0
+
+
+   -.5                                    -.5
+   Residual  Change in Value of All Homes, 2003-2012 Residual  Change in Value of All Homes, 2003-2012
+    -1                                    -1
+      -1   -.5   0     .5    1    1.5       -1     -.5    0      .5      1
+        Residual Change in Household Wealth (Net Worth) Residual Change in Household Wealth (Bank Savings)
+
+  Note: This ﬁgure plots the 2003-2012 growth rate in (residual) housing value over the growth
+  rate in (residual) household wealth. The residuals are constructed by regressing log housing value
+  and log household wealth on log income and log population. Left: Wealth including housing.
+  Right: Wealth excluding housing (which is simply household bank savings).
+
+homes. The coeﬃcients on log(wealth) are similar whether I include or exclude housing
+from household wealth, suggesting that the estimated tight relationship is not due simply
+to regressing housing on housing.
+  Figure 2 graphically illustrates the tight relationship between increases in the total
+value of homes and increases in household (total or non-housing) wealth. Log housing
+value and log household wealth are ﬁrst regressed on log income and log population. I
+take the regression residuals and plot the 2003–2012 growth rate in (residual) housing
+value over the growth rate in (residual) household wealth, including or excluding housing.
+Again, the slope of the ﬁtted line representing the association between increases in the
+total value of homes and increases in household wealth is similar and close to one, whether
+I include or exclude housing from household wealth.
+  The one-to-one association between increases in the total value of homes and increases
+in household (total or non-housing) wealth is quite robust. Speciﬁcally, it is robust to: (1)
+additional proxies of purchasing power and of levels of economic activity as controls in the
+
+                                    11
+ is uncorrelated with growth in income, electricity use, industrial proﬁts, the number of
+ taxis, elementary school population and bank loans; among the seven dimensions of local
+ economy examined, only population growth is correlated with famine severity, but the
+ correlation is negative, and unlikely to explain the positive instrumental variable results.
+
+          Table 3: Famine Severity as Instrument for Wealth Accumulation
+
+
+                                     (1)        (2)         (3)
+
+         Dependent Variable           9-year Growth in Housing Value
+
+                                  Net Worth Net Worth Net Worth
+
+         Model                      OLS         IV        IV (w/o
+                                                        prov capitals)
+
+         9-year Growth in Wealth   1.12∗∗∗    1.23∗∗∗      1.26***
+
+         9-year Growth in Income    -0.01      -0.04        -0.01
+
+         9-year Growth in Population 0.05      0.05         0.10
+
+         Observations                99         99           76
+
+         First-stage F-stat                    11.65        9.85
+
+        Note: All variables are deﬂated by the consumer price index at the province level.
+        Standard errors are clustered at the province level. ∗∗∗ indicates signiﬁcance at the
+        1% level.
+
+3.    Proposed Mechanism and Institutional Background
+
+   Financial market frictions together with an upward transition in Chinese household
+wealth provide a mechanism that potentially explains the large increase in housing prices,
+the large and declining housing return premium, and the faster-than-income-growth in-
+crease in housing values that is linked one-to-one with the increase in household wealth.
+   The mechanism operates as follows. A low initial wealth and borrowing constraints
+limit the amount of investable funds, thereby generating a low price for homes in 2003.
+Subsequently, household savings from low initial household wealth generate a transitional
+
+                                     13
+Table A4: Placebo Tests for the Famine Severity Instrument for Wealth Accumulation
+
+
+                          (1)        (2)         (3)        (4)      (5)        (6)        (7)
+
+ Dependent Variable     Income   Electricity Ind. Proﬁt   #Taxi     Pop.    Enrollment   Credit
+
+                        Growth     Growth      Growth     Growth   Growth     Growth     Growth
+
+
+ Model                   OLS        OLS         OLS        OLS      OLS        OLS        OLS
+
+
+ Famine Severity         -0.17      0.31        0.89       0.19    -0.24**     -0.20      0.26
+
+ (P-value)              (0.257)    (0.305)     (0.120)    (0.430)  (0.013)    (0.364)    (0.254)
+
+
+ Observations             99         99          98         98       99         98         99
+
+ Adj. R2                 0.003      0.001       0.015     -0.004    0.052      -0.001     0.003
+
+    Note: This table reports placebo tests for the famine severity instrument for wealth accumula-
+    tion. The dependent variables are 9-year long growth rates of income, electricity use, industrial
+    proﬁts, number of taxis, population, elementary school enrollment, as well as bank credit at
+    the city-level, during 2003-2012. The independent variable is famine severity, as measured by
+    the abnormal loss of birth cohort size during 1959-1961 at the local level in the 1990 Census,
+    following Meng, Qian and Yared (2015). Standard errors are clustered at the province level.
+    ∗∗ indicates signiﬁcance at the 5% level.
+
+
+                                             53
