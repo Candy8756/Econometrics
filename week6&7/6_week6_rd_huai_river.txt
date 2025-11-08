@@ -1,0 +1,569 @@
+﻿Evidence on the impact of sustained exposure to air
+pollution on life expectancy from China’s Huai
+River policy
+Yuyu Chena,1, Avraham Ebensteinb,1, Michael Greenstonec,d,1,2, and Hongbin Lie,1
+
+aApplied Economics Department, Guanghua School of Management, Peking University, Beijing 100871, China; bDepartment of Economics, Hebrew University
+of Jerusalem, Mount Scopus 91905, Israel; cDepartment of Economics, Massachusetts Institute of Technology, Cambridge, MA 02142; dNational Bureau of
+Economic Research, Cambridge, MA 02138; and eChina Data Center and Department of Economics, School of Economics and Management, Tsinghua
+University, Beijing 100084, China
+
+Edited by William C. Clark, Harvard University, Cambridge, MA, and approved May 28, 2013 (received for review January 2, 2013)
+
+This paper’s findings suggest that an arbitrary Chinese policy that causes). The estimates suggest that the 500 million residents of
+greatly increases total suspended particulates (TSPs) air pollution Northern China during the 1990s experienced a loss of more than
+is causing the 500 million residents of Northern China to lose more 2.5 billion life years owing to the Huai River policy.
+than 2.5 billion life years of life expectancy. The quasi-experimen- Furthermore, a research design based on this policy allows for a
+tal empirical approach is based on China’s Huai River policy, which unique opportunity to estimate the effect of TSPs on human health,
+provided free winter heating via the provision of coal for boilers in which can be applied to other countries, time periods, and settings.
+cities north of the Huai River but denied heat to the south. Using The resulting estimates suggest that long-term exposure to an
+a regression discontinuity design based on distance from the Huai additional 100 μg/m3 of TSPs is associated with a reduction in life
+River, we find that ambient concentrations of TSPs are about 184 expectancy at birth of about 3.0 y (95% CI: 0.4, 5.6). This estimate
+μg/m3 [95% confidence interval (CI): 61, 307] or 55% higher in the is more than five times larger than the estimated impact of TSPs
+north. Further, the results indicate that life expectancies are about on life expectancy from fitting a conventional ordinary least-
+5.5 y (95% CI: 0.8, 10.2) lower in the north owing to an increased squares equation on the same data.
+incidence of cardiorespiratory mortality. More generally, the anal- The study addresses several shortcomings in our understanding
+ysis suggests that long-term exposure to an additional 100 μg/m3 about the health effects of air pollution. First, the research design
+of TSPs is associated with a reduction in life expectancy at birth of provides estimates of the impact of long-run exposure to TSPs on
+about 3.0 y (95% CI: 0.4, 5.6). life expectancy. The policy caused long-run differences in TSP
+
+concentrations between cities north and south of the Huai River
+airborne particulate matter | unintended consequences of policy | (6). Moreover, during the period in question, the hukou (house-
+premature mortality | health costs of coal combustion | hold registrations) system restricted mobility, so in general indi-
+Chinese environmental quality viduals will be observed where they lived most of their lives. In
+
+contrast, studies that use data for the United States or other
+
+Air quality in China is notoriously poor and recently has become developed countries must assume no migration, which is under-
+an issue associated with increasing social unrest. Ambient mined by the high rates of migration in the United States and the
+
+concentrations of total suspended particulates (TSPs) between potential selection of location based on air pollution concen-
+1981–2001 were more than double China’s National Annual Mean trations, or alternatively assume that short-run variation in air
+Ambient Air Quality Standard of 200 μg/m3 (1) and five times the pollution is informative about life expectancy (7, 8). Second, the
+level that prevailed in the United States before the passage of the availability of a regression discontinuity design based on the Huai
+CleanAir Act in 1970. Furthermore, air quality is especially poor in River policy provides an appealing quasi-experimental approach
+Northern China, which is home to several of the world’s most that can help to move the existing literature from documenting a
+polluted cities (2). Following a career in the Southern China city of robust association between particulates and health toward doc-
+Shanghai, Premier Zhu Rongi reportedly quipped in 1999: “If I umenting a causal relationship (9). Third, China’s air is extremely
+work in your Beijing [in Northern China], I would shortenmy life at polluted and we are unaware of any previous direct evidence on the
+least five years” (3). impact of air pollution on life expectancy at these concentrations,
+This paper examines the health consequences of these ex- although important research has applied results from the United
+
+traordinary pollution levels by exploiting a seemingly arbitrary States to the Chinese setting (10). Fourth, the analysis is conducted
+Chinese policy that produced dramatic differences in air quality with the most comprehensive data file ever compiled on mortality
+within China. During the 1950–1980 period of central planning, and air pollution in China or any other developing country.
+the Chinese government established free winter heating of homes Data Sources
+and offices via the provision of free coal for fuel boilers as a basic
+right. The combustion of coal in boilers is associated with the re- The dataset for this analysis is based on several sources. We
+lease of air pollutants, and in particular emission of particulate collected information on annual daily average concentrations of
+matter that can be extremely harmful to human health (4, 5). Due
+to budgetary limitations, however, this right was only extended to
+areas located in North China, which is defined by the line formed Author contributions: Y.C., A.E., M.G., and H.L. designed research, performed research,
+
+analyzed data, and wrote the paper.
+by the Huai River and Qinling Mountain range (Fig. 1). Even
+today, the long-lived heating systems continue to make indoor The authors declare no conflict of interest.
+
+heating much more common in the north. This article is a PNAS Direct Submission.
+
+This paper finds that the Huai River policy had dramatic Freely available online through the PNAS open access option.
+
+impacts on pollution and human health. To the north of the Huai See Commentary on page 12861.
+
+River, particulate concentrations are 184 μg/m3 [95% confidence 1Y.C., A.E., M.G., and H.L. contributed equally to this work.
+interval (CI): 61, 307], or 55% higher, and life expectancies are 2To whom correspondence should be addressed. E-mail: mgreenst@mit.edu.
+5.5 y (95% CI: 0.8, 10.2) lower, almost entirely due to an increased This article contains supporting information online at www.pnas.org/lookup/suppl/doi:10.
+incidence of cardiorespiratory mortality (and no effect on other 1073/pnas.1300018110/-/DCSupplemental.
+
+12936–12941 | PNAS | August 6, 2013 | vol. 110 | no. 32 www.pnas.org/cgi/doi/10.1073/pnas.1300018110
+
+Downloaded from https://www.pnas.org by 205.198.68.59 on December 13, 2024 from IP address 205.198.68.59.
+
+
+
+Importantly, the cause of death is also recorded after multiple
+validation checks. We classify causes of death as either cardiore-
+spiratory or noncardiorespiratory. The cardiorespiratory causes of
+death that are those that have been linked to ambient air quality
+and include heart disease (17), stroke (18–20), lung cancer (21),
+and respiratory illnesses (22, 23). Causes of death presumably
+unrelated to air quality include other cancers, accidental or violent
+deaths, and various stomach ailments. Together, these two cate-
+gories cover all causes of death.
+We collected a range of determinants of mortality and life ex-
+
+pectancy, besides TSPs, that are used as control variables in the
+subsequent statistical analysis. We obtained daily average tem-
+perature data for each location in the air pollution sample from
+theWorld Meteorological Organization that was used to calculate
+annual heating and cooling degree days (24). We also compiled
+a series of variables from China’s 2000 census that are potentially
+related to health outcomes: average education of county residents,
+manufacturing’s share of employment, the percentage of residents
+with urban registration, and the percentage of residents with ac-
+cess to tap water. The data file also includes an income variable
+taken from the DSP, which placed each site into one of four
+income categories.
+
+Fig. 1. The cities shown are the locations of the Disease Surveillance Points. To estimate the impact of long-run exposure to pollution, the
+Cities north of the solid line were covered by the home heating policy. location-level panel data are collapsed to a 125-observations, lo-
+
+cation-level, cross-sectional dataset, because the Huai River re-
+gression discontinuity design is fundamentally a cross-sectional
+
+TSPs for 90 cities from 1981 to 2000. These data were compiled design. This data file is obtained by averaging the annual location-
+through a combination of hand entry from Chinese-language specific measures of mortality rates, life expectancies, pollution
+publications and access to electronic files (11). We obtained the concentrations, weather variables, and other covariates across the
+data by combining the results of a World Bank project with in- available years. Additionally, we used a geographic information
+formation from hard copies of China Environment Yearbook to system to identify the degrees latitude that each city centroid is
+generate a single comprehensive file of air pollution across north of the Huai River line and merged this information into the
+Chinese cities for our period. final dataset. SI Appendix provides more details on the procedure
+Although there is recent evidence that air pollution readings in used to collapse the data file and the data sources.
+
+Chinese cities are manipulated by policymakers, with a tendency
+for officials to underreport pollution, we believe that manipulation Econometric Model
+was not a serious issue during the period we study (12). First, for We use two approaches to estimate the relationship between TSPs
+the period of our study, government officials’ evaluations were and human health. The first approach is a “conventional” strategy
+primarily based on economic growth rather than environmental that uses ordinary least squares to fit the following equation to the
+indices (13). Second, the readings were also generally not widely cross-sectional data file:
+available, which reduced the incentive to publish inaccurate in-
+formation. Indeed, it has been reported extensively that Chinese Y
+of j = β0 + β1TSPj +XjΓ+ «j; [1]
+ficials monitored air pollution concentrations beginning in the
+
+late 1970s but this information was not publicly released until 1998 where TSP
+(14). Also, our analysis relies on testing for differences in air j is the total suspended particulates concentration in
+
+city j, Xj is a vector of the observable characteristics of the city
+pollution readings near the Huai River, so unless the data were
+manipulated differently north and south of the river, mis- that might influence health outcomes other than air quality,
+measurement would not bias the results in an obvious fashion. and «j is a disturbance term. The dependent variable is Yj,
+Moreover, even in the presence of manipulation of pollution which is either a measure of mortality rates in city j or its
+concentrations, the estimates of the health impacts of living residents’ life expectancy, which is a simple function of age-
+north of the Huai River will not be affected. specific mortality rates.
+The mortality data are derived from China’s Disease Surveil- The coefficient β1 measures the effect of TSP exposure on
+
+lance Points (DSPs) system (15). The DSP is a set of 145 sites mortality, after controlling for the available covariates. Consistent
+chosen to be nationally representative (benchmarked against the estimation of β1 requires that unobserved determinants of mor-
+1990 China census) so that it captures China’s variation in wealth, tality do not covary with TSPj after adjustment for Xj. Thus, the
+urbanicity, and geographic dispersion. The DSP records all deaths conventional approach rests on the assumption that linear ad-
+and population counts at the sites and yields a nationally repre- justment for the limited set of variables available in the census
+sentative annual sample of deaths (16). The analysis will rely on removes all sources of confounding. With data from the United
+the data taken from roughly 500,000 deaths recorded at sites States, Chay et al. (9) have documented the sensitivity of the es-
+between 1991 and 2000, and population counts by age and sex timated TSP–adult mortality relationship to small changes in
+that are used to convert the recorded deaths into city-level specification and sample, which is consistent with the possibility
+mortality rates for ages 1, 5, and 10 y and 5-y increments through that omitted variables bias plagues the conventional approach.
+age 80. Additionally, these mortality rates are used to calculate The second approach leverages the regression discontinuity
+an overall mortality rate based on China’s age distribution in (RD) design implicit in the Huai River policy to measure its im-
+2000 and life expectancy at birth, both measured annually for pact on TSP concentrations and life expectancy. The RD design
+the 125 locations. In SI Appendix, we discuss why the results are was developed more than five decades ago and has been used suc-
+unlikely to be driven by mismeasurement in a location’s mor- cessfully to test the causal nature of relationships in a wide range of
+tality rate from either migration or the transfer of sick rural fields including psychology, education, statistics, biostatistics, and
+residents to urban hospitals. economics (25, 26).
+
+Chen et al. PNAS | August 6, 2013 | vol. 110 | no. 32 | 12937
+
+Downloaded from https://www.pnas.org by 205.198.68.59 on December 13, 2024 from IP address 205.198.68.59.
+
+SUSTAINABILITY ENVIRONMENTAL SEE COMMENTARY
+SCIENCE SCIENCES
+
+
+
+Table 1. Summary statistics
+
+Difference Adjusted difference
+South North in means in means P value
+
+Variable (1) (2) (3) (4) (5)
+
+Panel 1: Air pollution exposure at China’s
+Disease Surveillance Points
+TSPs, μg/m3 354.7 551.6 196.8*** 199.5*** <0.001/0.002
+SO2, μg/m3 91.2 94.5 3.4 −3.1 0.812/0.903
+NOx, μg/m3 37.9 50.2 12.3*** −4.3 <0.001/0.468
+
+Panel 2: Climate at the Disease Surveillance Points
+Heating degree days 2,876 6,220 3,344*** 482 <0.001/0.262
+Cooling degree days 2,050 1,141 −910*** −183 <0.001/0.371
+
+Panel 3: Demographic features of China’s
+Disease Surveillance Points
+Years of education 7.23 7.57 0.34 −0.65 0.187/0.171
+Share in manufacturing 0.14 0.11 −0.03 −0.15*** 0.202/0.002
+Share minority 0.11 0.05 −0.05 0.04 0.132/0.443
+Share urban 0.42 0.42 0.00 −0.20* 0.999/0.088
+Share tap water 0.50 0.51 0.02 −0.32** 0.821/0.035
+Rural, poor 0.21 0.23 0.01 −0.33* 0.879/0.09
+Rural, average income 0.34 0.33 0.00 0.24 0.979/0.308
+Rural, high income 0.21 0.19 −0.02 0.27 0.772/0.141
+Urban site 0.24 0.25 0.01 −0.19 0.859/0.241
+Predicted life expectancy 74.0 75.5 1.54*** −0.24 <0.001/0.811
+Actual life expectancy 74.0 75.5 1.55 −5.04** 0.158/0.044
+
+The sample (n = 125) is restricted to DSP locations within 150 km of an air quality monitoring station. TSP (μg/m3) in the years 1981–2000 before the DSP
+period is used to calculate city-specific averages. Degree days are the deviation of each day’s average temperature from 65°F, averaged over the years 1981–
+2000 before the DSP period. The results in column (4) are adjusted for a cubic in degrees of latitude north of the Huai River boundary. Predicted life
+expectancy is calculated by OLS using all of the demographic and meteorological covariates shown. All results are weighted by the population at the DSP
+location. One DSP location is excluded due to invalid mortality data. *Significant at 10%, **significant at 5%, ***significant at 1%. Sources: China Disease
+Surveillance Points (1991–2000), China Environment Yearbook (1981–2000), and World Meteorological Association (1980–2000).
+
+This paper’s RD design exploits the discrete increase in the impact of units of TSPs on life expectancy, so the results are
+availability of free indoor heating as one crosses the Huai River applicable in other settings. The second-stage equation is
+line (with no availability to the south and, in principle, complete  
+availability north of the line). Specifically, we separately test Yj = β0 + β1TŜPj + β2f Lj +XjΓ + «j ; [2c]
+whether the Huai River policy caused a discontinuous change in
+TSPs at the river and a discontinuous change in life expectancy. where TŜPj represents the fitted values from estimating (Eq. 1)
+The respective necessary assumptions are that any unobserved and the other variables are as described above. The 2SLS ap-
+determinants of TSPs or mortality change smoothly as they proach offers the prospect of solving the confounding or omitted
+cross the river. If the relevant assumption is valid, adjustment
+for a sufficiently flexible polynomial in distance from the river
+will remove all potential sources of bias and allow for causal
+inference. The estimated change in TSP 
+
+In practice, we estimate the following equations to test for the (and height of the brace) just 
+north of the Huai River is  
+
+impacts of the Huai River policy: 247.5 µg3
+
+and is statistically significant 
+
+  (95% CI: 114.5, 380.6).
+
+TSPj = α0 + α1Nj + α2f Lj +Xjκ+ νj [2a]
+
+ 
+Yj = δ0 + δ1Nj + δ2f Lj +Xjϕ+ uj; [2b]
+
+where j references a city or location in China. TSPj is the average
+annual ambient concentration of TSPs in city j over the period
+1980–2000 and Yj is a measure of city j’s mortality or life expec-
+tancy at birth. Nj is an indicator variable equal to 1 for locations
+that are north of the Huai River line, f(Lj) is a polynomial in the
+degrees north of the Huai River, and Xj is a vector of the de- -20 -10 0 10 20
+
+mographic and city characteristics, other than air quality, that are Degrees North of the Huai River Boundary
+
+associated with mortality rates (SI Appendix gives details). TSP in South TSP in North Fitted Values from Cubic in Latitude
+
+This design can also be used to develop estimates of the im-
+pact of TSP concentrations on life expectancy. Specifically, if the Fig. 2. Each observation (circle) is generated by averaging TSPs across the Dis-
+
+Huai River policy only influences mortality through its impact on ease Surveillance Point locations within a 1° latitude range, weighted by the
+population at each location. The size of the circle is in proportion to the total
+
+TSPs, then it is valid to treat Eq. 2a as the first stage in a two- population at DSP locations within the 1° latitude range. The plotted line reports
+stage least-squares (2SLS) system of equations. An important the fitted values from a regression of TSPs on a cubic polynomial in latitude using
+appeal of the 2SLS approach is that it produces estimates of the the sample of DSP locations, weighted by the population at each location.
+
+12938 | www.pnas.org/cgi/doi/10.1073/pnas.1300018110 Chen et al.
+
+Downloaded from https://www.pnas.org by 205.198.68.59 on December 13, 2024 from IP address 205.198.68.59.
+
+TSP(µg³)
+
+0 200 400 600 800
+
+
+
+The estimated change in life expectancy concentrations are approximately equal on the two sides of the
+(and height of the brace) just north of the Huai River.
+Huai River is -5.04 years and is statistically 
+significant (95% CI: -8.81, -1.27). Fig. 3 repeats the graphical exercise in Fig. 2, except here it plots
+
+life expectancy against degrees north of the Huai River boundary.
+The striking finding is that there is a discrete decline in life ex-
+pectancy at the border of roughly 5 y, which mirrors the increase in
+TSPs. Together, Figs. 2 and 3 reveal a sharp increase in TSPs and
+a sharp decline in life expectancy at precisely the location where
+theHuai River policy went into effect. The results in Fig. 3 are also
+evident in SI Appendix, Fig. S3 in the sample of DSP sites within
+5° latitude of the Huai River.
+Fig. 4 graphically assesses the validity of this paper’s approach
+
+by testing whether predicted life expectancy, calculated as the
+fitted value from an ordinary least-squares (OLS) regression of life
+expectancy on all covariates except TSPs (just as in Table 1), dif-
+
+-20 -10 0 10 20
+Degrees North of the Huai River Boundary fers at the Huai River’s border. Specifically, this equation includes
+
+all of the covariates listed in panels 2 and 3 of Table 1, and these
+L.E. in South L.E. in North Fitted Values from Cubic in Latitude variables collectively explain a substantial portion of the variation
+
+in life expectancy (R2 = 0.265). It is evident that predicted life ex-
+Fig. 3. The plotted line reports the fitted values from a regression of life pectancy is essentially equal just to the north and south of the border
+expectancy on a cubic in latitude using the sample of DSP locations, (Table 1 reports a P value of 0.81 from a test of equal life expec-
+weighted by the population at each location. tancy). Also note that SI Appendix, Table S2 demonstrates that di-
+
+etary and smoking patterns are similar in the North and South,
+variables problem associated with the estimation of the air pol- suggesting that these determinants of life expectancy are unlikely to
+lution–health effects relationship and is a solution to the atten- explain the sharp decline in life expectancy north of the border.
+uation bias associated with the mismeasurement of TSP.
+
+Regression Results. Table 2 reports the results from the application
+Results of the conventional OLS approach. The estimation of Eq. 1 with
+
+four different dependent variables is reported: the overall mortality
+Summary Statistics. Table 1 reports the summary statistics for rate, the cardiorespiratorymortality rate, the noncardiorespiratory-
+several of the key determinants of mortality rates and provides related mortality rate, and life expectancy. The set of controls are
+evidence on the validity of the RD design. Columns (1) and (2) reported at the bottom of the table. The first three rows indicate
+report the means in cities south and north of the Huai River line. that a 100 μg/m3 increase in TSPs is associated with a statistically
+Column (3) reports the mean difference between the North and significant 3% increase in the mortality rate that is entirely due to
+the South. Column (4) also reports the difference, but this time it an increase in cardiorespiratory causes of death. The column (2)
+is adjusted for a cubic polynomial in degrees north of the Huai specification in the final row indicates that a 100 μg/m3 increase in
+River so that it is a test for a discontinuous change at the Huai TSPs is associated with a loss in life expectancy of about 0.52 y
+River line. A direct test of the RD design’s identifying assumption (95% CI: 0.07, 0.97).
+that unobservables change smoothly at the boundary is, of course, Table 3 presents the RD results from the estimation of Eqs. 2a
+impossible, but it would nevertheless be reassuring if observable and 2b in panel 1 and the 2SLS results from Eq. 2c in panel 2. In
+determinants change smoothly at the boundary. (This is analo- column (1), the specification includes a cubic in distance from the
+gous to the test in randomized control trials that observable Huai River (measured in degrees of latitude). Column (2) adds the
+determinants of the outcome are independent of treatment sta- available covariates to the specification. Column (3) uses an al-
+tus.) Column (5) reports the P values associated with the tests that ternative RD approach, which limits the sample to locations within
+the differences in columns (3) and (4) are equal to zero.
+Two key points emerge from this table. First, there are large
+
+differences in TSP exposure among Southern and Northern
+Chinese residents, but not for other forms of air pollution (e.g.,
+sulfur dioxide and nitrous oxides) owing to the greater distances The estimated change in predicted life 
+
+expectancy (and height of the brace) just 
+that they travel. Second, there are substantial differences in the north of the Huai River is -0.47 years and 
+determinants of mortality rates (e.g., temperature and predicted is not statistically different from zero 
+
+(95% CI: -2.39, 1.27).
+life expectancy) between the South and North, but adjustment
+for the cubic polynomial in latitude greatly reduces these dif-
+ferences and causes them to become statistically insignificant.
+This finding supports the validity of the RD design and the 2SLS
+approach to inferring the causal relationship between TSPs and
+life expectancy.
+
+Graphical Analysis. The paper’s primary findings are presented
+graphically in Figs. 2–4. Fig. 2 plots cities’ TSP concentration
+against their degrees north of the Huai River boundary. The line is
+the fitted value from the estimation of the first-stage Eq. 1, without -20 -10 0 10 20
+adjustment for Xj. The circles represent the average TSP con- Degrees North of the Huai River Boundary
+centration across locations within 1° latitude distance bins from
+the Huai River; each circle’s size is proportional to the number of Predicted L.E. in South Predicted L.E. in North Fitted Values from Cubic in Latitude
+
+DSP locations within the relevant 1° bin. The discontinuous Fig. 4. The plotted line reports the fitted values from a regression of pre-
+change in ambient TSP concentrations to the north of the border dicted life expectancy on a cubic in latitude using the sample of DSP loca-
+indicates that the Huai River policy increased TSP concentrations tions, weighted by the population at each location. Predicted life expectancy
+in the North by about 200 μg/m3. In contrast, SI Appendix, Figs. S1 is calculated by OLS using demographic and meteorological covariates (ex-
+and S2 graphically confirm that sulfur dioxide and nitrous oxide cluding TSPs).
+
+Chen et al. PNAS | August 6, 2013 | vol. 110 | no. 32 | 12939
+
+Downloaded from https://www.pnas.org by 205.198.68.59 on December 13, 2024 from IP address 205.198.68.59.
+
+Life EExpectancy(Years)
+
+65 70 75 80 85 90 95
+
+Life Expectancy(Years)
+
+65 70 755 80 85 90 95
+
+SUSTAINABILITY ENVIRONMENTAL SEE COMMENTARY
+SCIENCE SCIENCES
+
+
+
+Table 2. Impact of TSPs (100 μg/m3) on health outcomes using The heterogeneity in the results across the population is ex-
+conventional strategy (ordinary least squares) plored in SI Appendix. SI Appendix, Table S3 reveals that the
+Dependent variable (1) (2) mortality and life expectancy findings hold for men and women.
+
+SI Appendix, Table S4 and Fig. S4 demonstrate that the impacts
+ln(All cause mortality rate) 0.03* (0.01) 0.03** (0.01) on cardiorespiratory mortality rates are generally evident over
+ln(Cardiorespiratory 0.04** (0.02) 0.04** (0.02) the entire course of the life cycle, not just for the young and old.
+
+mortality rate) The basic results are also robust to a wide variety of specifi-
+ln(Noncardiorespiratory 0.01 (0.02) 0.01 (0.02) cation checks. SI Appendix, Tables S5 and S6 document that the
+
+mortality rate) results are qualitatively unchanged by using alternative methods
+Life expectancy, y −0.54** (0.26) −0.52** (0.23) to assign TSP concentrations to DSP locations. SI Appendix,
+Climate controls No Yes Table S7 shows that the panel 1 results are qualitatively unchanged
+Census and DSP controls No Yes by expanding the sample to the full set of 144 DSP locations (with
+
+valid mortality data) from the 125 locations with TSP data. Fur-
+n = 125. Each cell in the table represents the coefficient from a separate ther, the results are unchanged by adjustment for distance from
+
+regression, and heteroskedastic-consistent SEs are reported in parentheses. the coast (SI Appendix, Table S8).
+The cardiorespiratory illnesses are heart disease, stroke, lung cancer and We additionally explored the robustness of the results to al-
+other respiratory illnesses. The noncardiorespiratory-related illnesses are vi- ternative approaches to implementing the RD design. SI Ap-
+olence, cancers other than lung, and all other causes. Models in column (2)
+include demographic controls and climate controls reported in Table 1. pendix, Table S9 reports a set of goodness-of-fit tests that lead us
+Regressions are weighted by the population at the DSP location. *Significant to emphasize modeling distance from the Huai River with a cubic
+at 10%, **significant at 5%, ***significant at 1%. Sources: China Disease polynomial in latitude. SI Appendix, Table S10 documents that
+Surveillance Points (1991–2000), China Environment Yearbook (1981–2000), a first- or second-order polynomial in latitude best fits the data in
+and World Meteorological Association (1980–2000). the sample that is restricted to locations within 5° latitude of the
+
+river, and that the results are qualitatively similar using either
+approach. SI Appendix, Table S11 reports on specifications that
+
+5° latitude of the Huai River and reduces the sample size from allow the polynomial to differ to the north and south of the river.
+125 to 69. With this smaller sample, latitude is modeled with The goodness-of-fit statistics support separate quadratics north
+a first-order polynomial. The specification details are noted at the and south of the Huai River, and this specification suggests
+bottom of the table. a somewhat smaller increase in TSPs at the border but a larger
+The first row of Table 3, panel 1 confirms that the impact of decline in life expectancy.
+
+the Huai River policy on TSPs is robust to adjustment for the A natural concern related to the research design is that the
+covariates and the alternate RD approach (SI Appendix, Fig. government used the Huai River as the demarcation line for
+S3). The remaining rows suggest that this policy increases changes in other government policies related to public health, and
+mortality rate by 22–30% and that this is almost entirely due this would confound the estimates of TSPs on health. This possi-
+to higher rates of mortality among cardiorespiratory causes. bility is mitigated by the fact that the Huai River is not a border
+The estimates in the final row indicate that there is a discon- used for administrative purposes. The Huai River follows the
+tinuous decrease in life expectancy of ∼5 y to the north of the January 0° average temperature line (Celsius), and this was in fact
+boundary. the basis of its choice as a method to divide the country for free
+Panel 2 in Table 3 reports on the 2SLS estimates. Column (2) heating. Further, local policies generally hew to administrative
+
+estimates suggest that a 100 μg/m3 increase in TSPs is associated boundaries associated with cities and provinces; indeed, the Huai
+with an increase in the overall mortality rate of 14% or 0.14 ln River cuts through several provinces. Nevertheless, we compiled
+points (95%CI: 0.005, 0.275) and a decline in life expectancy of 3.0 y some additional variables on city-level policies that are plausibly
+(95% CI: 0.39, 5.61). Again, the results seem to be driven entirely related to health from the China City Statistical Yearbook. We
+by higher mortality rates from cardiorespiratory causes of death. examine whether there is any discontinuity in these variables at the
+
+Table 3. Using the Huai River policy to estimate the impact of TSPs (100 μg/m3) on health outcomes
+
+Dependent variable (1) (2) (3)
+
+Panel 1: Impact of “North” on the listed variable, ordinary least squares
+TSPs, 100 μg/m3 2.48*** (0.65) 1.84*** (0.63) 2.17*** (0.66)
+ln(All cause mortality rate) 0.22* (0.13) 0.26* (0.13) 0.30* (0.15)
+ln(Cardiorespiratory mortality rate) 0.37** (0.16) 0.38** (0.16) 0.50*** (0.19)
+ln(Noncardiorespiratory mortality rate) 0.00 (0.13) 0.08 (0.13) 0.00 (0.13)
+Life expectancy, y −5.04** (2.47) −5.52** (2.39) −5.30* (2.85)
+
+Panel 2: Impact of TSPs on the listed variable, two-stage least squares
+ln(All cause mortality rate) 0.09* (0.05) 0.14** (0.07) 0.14* (0.08)
+ln(Cardiorespiratory mortality rate) 0.15** (0.06) 0.21** (0.09) 0.23** (0.10)
+ln(Noncardiorespiratory mortality rate) 0.00 (0.05) 0.04 (0.07) 0.00 (0.06)
+Life expectancy, y −2.04** (0.92) −3.00** (1.33) −2.44 (1.50)
+Climate controls No Yes Yes
+Census and DSP controls No Yes Yes
+Polynomial in latitude Cubic Cubic Linear
+Only DSP locations within 5° latitude No No Yes
+
+The sample in columns (1) and (2) includes all DSP locations (n = 125) and in column (3) is restricted to DSP locations within 5° latitude of the Huai River
+boundary (n = 69). Each cell in the table represents the coefficient from a separate regression, and heteroskedastic-consistent SEs are reported in parentheses.
+Models in column (1) include a cubic in latitude. Models in column (2) additionally include demographic and climate controls reported in Table 1. Models in
+column (3) are estimated with a linear control for latitude. Regressions are weighted by the population at the DSP location. *Significant at 10%, **significant
+at 5%, ***significant at 1%. Sources: China Disease Surveillance Points (1991–2000), China Environment Yearbook (1981–2000), and World Meteorological
+Association (1980–2000).
+
+12940 | www.pnas.org/cgi/doi/10.1073/pnas.1300018110 Chen et al.
+
+Downloaded from https://www.pnas.org by 205.198.68.59 on December 13, 2024 from IP address 205.198.68.59.
+
+
+
+Huai River in SI Appendix, Table S12. The results demonstrate invalid, although the estimated mortality effects of the Huai River
+that the null hypothesis that these variables are equal on both sides heating policy (e.g., panel 1 of Table 3) would still be valid. Ulti-
+of theHuai River generally cannot be rejected.We also reestimate mately, the estimated impacts of TSPs on mortality should be
+our Table 3 specification with the addition of these variables in SI interpreted with these caveats in mind because the necessary data
+Appendix, Table S13. We find that the addition of these variables to test for these behavioral responses are unavailable.
+to the Table 3 specifications leaves our results largely unchanged,
+and even suggests modestly larger losses of life expectancy than Conclusions
+those reported in Table 3. The analysis suggests that the Huai River policy, which had the
+
+laudable goal of providing indoor heat, had disastrous con-
+Interpretation. The 2SLS estimates suggest that a 100 μg/m3 in-
+crease in TSPs leads to a decline in life expectancy of 3.0 y (95% sequences for health, presumably due to the failure to require the
+CI: 0.4, 5.6). This estimate is more than five times larger than one installation of sufficient pollution abatement equipment. Specif-
+obtained from the application of a conventional least-squares ically, it led to TSP concentrations that were 184 μg/m3 higher
+approach to the same data. The difference suggests that the OLS (95% CI: 60, 308) or 55% higher in the North and reductions in
+estimates understate the true effect owing to some combination of life expectancies of 5.52 y (95% CI: 0.8, 10.2) in the North due to
+omitted variables bias (e.g., unobserved factors that improve elevated rates of cardiorespiratory mortality.
+health and are positively correlated with TSPs, such as income and The population in Northern China between 1990 and 2000
+hospital quality) and measurement error. Further, it is about half exceeded 500 million. Consequently, our results imply that the
+the magnitude of the estimated impact of an equal unit of par- Huai River policy led to a staggering loss of over 2.5 billion life
+ticulate matter smaller than 2.5 μm (PM2.5) from the pioneering years. Furthermore, data from 2003 to 2008 indicate that PM10
+study of Pope et al. (27). There are at least three important dif- (particulate matter smaller than 10 μm) concentrations are 22.9
+ferences between the studies that complicate direct comparisons: μg/m3 higher (95%CI: 13.5, 23.3) or 26% higher north of theHuai
+(i) PM2.5 is believed to be more lethal than the larger particles that River, suggesting that residents of the North continue to have
+also qualify as TSPs; (ii) the setting for the PM2.5 results is the shortened lifespans. The TSP concentrations that prevailed during
+United States between 1980 and 2000, when particulate concen- the study period greatly exceed the current concentrations in de-
+trations were just a fraction of current concentrations in China; veloped countries but are not atypical formany cities in developing
+and (iii) this study’s results are based on a RD design, which can countries today, such as India and China. These results may help
+produce causal estimates in nonexperimental settings. explain why China’s explosive economic growth has led to rela-
+A related issue is whether the Huai River heating policy caused
+
+behavioral responses that amplify or mitigate the estimated mor- tively anemic growth in life expectancy. More broadly, this paper’s
+tality impacts of TSPs. For example, the heating policy very likely results may be useful in forming policy as developing countries
+leads people in the North to spend more time indoors, where search for the optimal balance between economic growth and
+temperatures are presumably higher; this would be protective of environmental quality (28).
+human health. Alternatively, the greater time indoors may cause
+people to reduce their exercise and increase their exposure to ACKNOWLEDGMENTS. We thank Douglas Almond for his insightful com-
+
+ments, criticisms, and support on all aspects of this paper and Janet Currie,
+indoor air pollution that would be harmful to health. Further, the Lucas Davis, Amy Finkelstein, Panle Jia, Damon Jones, Zhigang Li, Doug
+free provision of coal is an in-kind transfer that increases house- Miller, and Paulina Oliva for valuable comments. Ilya Faibushevitch, Joan
+holds’ disposable income, and this may cause northern households Fang, Alison Flamm, Eyal Frank, Michael Freedman, Christine Pal, Susan
+to alter their consumption patterns in ways that are protective Schwartz, and Yufei Wu provided excellent research assistance. Generous
+
+(e.g., medical care) or harmful (e.g., tobacco or alcohol) for health. financial support was given by the Robert Wood Johnson Foundation, the
+Falk Institute, the Israel Foundation Trustees, and the National Natural
+
+In the case where these behavioral responses affect mortality, the Science Foundation of China: 71025004 and 71121001 (to H.L.), and
+2SLS estimates of the impact of TSPs on mortality would be 71073002 and 70903003 (to Y.C.).
+
+1. Bi X, Feng Y, Wu J, Wang Y, Zhu T (2007) Source apportionment of PM10 in six cities 15. Anonymous (1991–2001) China’s Disease Surveillance Points (Chinese Center for Dis-
+of Northern China. Atmos Environ 41(5):903–912. ease Control, Beijing).
+
+2. World Bank (2007) Cost of Pollution in China: Economic Estimates of Physical Dam- 16. Yang G, et al. (2005) Mortality registration and surveillance in China: History, current
+ages (The World Bank, Washington, DC), Conference Ed. situation and challenges. Popul Health Metr 3(1):3.
+
+3. Anonymous (August 21, 2004) Special report: A Great Wall of waste—China’s envi- 17. Dominici F, et al. (2006) Fine particulate air pollution and hospital admission for
+ronment.” Economist, pp 55–57. cardiovascular and respiratory diseases. JAMA 295(10):1127–1134.
+
+4. Dockery DW, et al. (1993) An association between air pollution and mortality in six 18. Hong YC, Lee JT, Kim H, Kwon HJ (2002) Air pollution: A new risk factor in ischemic
+U.S. cities. N Engl J Med 329(24):1753–1759. stroke mortality. Stroke 33(9):2165–2169.
+
+5. Pope CA, 3rd, et al. (2002) Lung cancer, cardiopulmonary mortality, and long-term 19. Hong YC, et al. (2002) Effects of air pollutants on acute stroke mortality. Environ
+
+exposure to fine particulate air pollution. JAMA 287(9):1132–1141. Health Perspect 110(2):187–191.
+
+6. Almond D, Chen Y, Greenstone M, Li H (2009) Winter heating or clean air? Un- 20. Wellenius GA, Schwartz J, Mittleman MA (2005) Air pollution and hospital admissions
+
+intended impacts of China’s Huai River policy. Am Econ Rev 99(2):184–190. for ischemic and hemorrhagic stroke among medicare beneficiaries. Stroke 36(12):
+
+7. Ransom MR, Pope CA, 3rd (1992) Elementary school absences and PM10 pollution in 2549–2553.
+21. Kabir Z, Bennett K, Clancy L (2007) Lung cancer and urban air-pollution in Dublin: A
+
+Utah Valley. Environ Res 58(2):204–219.
+temporal association? Ir Med J 100(2):367–369.
+
+8. Chay K, GreenstoneM (2003) The impact of air pollution on infantmortality: Evidence from
+22. Pope CA, 3rd (1989) Respiratory disease associated with community air pollution and
+
+geographic variation in pollution shocks induced by a recession. Q J Econ 118(3):1121–1167.
+a steel mill, Utah Valley. Am J Public Health 79(5):623–628.
+
+9. Chay K, Dobkin C, Greenstone M (2003) The Clean Air Act of 1970 and adult mortality.
+23. Dab W, et al. (1996) Short term respiratory health effects of ambient air pollution:
+
+J Risk Uncertain 27(3):279–300. results of the APHEA project in Paris. J Epidemiol Community Health 50(1, Suppl 1):
+10. Cropper M 2010. What are the health effects of air pollution in China? Is Economic s42–s46.
+
+Growth Sustainable? (Palgrave-Macmillan, London). 24. World Meteorological Association. Data taken from theWorldWeatherWatch Program
+11. Anonymous (1981–2001) China Environment Yearbook (China Environment Pro- according to WMO Resolution 40 (Cg-XII). Available at http://www.ncdc.noaa.gov/.
+
+tection Agency and National Bureau of Statistics, Beijing). 25. Cook TD, Campbell DT (1979) Quasi-Experimentation: Design and Analysis for Field
+12. Andrews SQ (2008) Inconsistencies in air quality metrics: Blue sky days and PM10 Settings (Rand McNally, Chicago).
+
+concentrations in Beijing. Environ Res Lett 3(3):034009. 26. Lee D, Lemieux T (2010) Regression discontinuity designs in economics. J Econ Lit
+13. Li H, Zhou L (2005) Political turnover and economic performance: The incentive role of 48(2):281–355.
+
+personnel control in China. J Public Econ 89:1743–1762. 27. Pope CA, 3rd, Ezzati M, Dockery DW (2009) Fine-particulate air pollution and life
+14. Andrews SQ 2008. Seeing through the smog: Understanding the limits of Chinese air expectancy in the United States. N Engl J Med 360(4):376–386.
+
+pollution reporting. Woodrow Wilson International Center for Scholars China Envi- 28. Alberini A, et al. (1997) Valuing health effects of air pollution in developing countries:
+ronment Forum 10, pp 5–32. The case of Taiwan. J Environ Econ Manage 34:107–126.
+
+Chen et al. PNAS | August 6, 2013 | vol. 110 | no. 32 | 12941
+
+Downloaded from https://www.pnas.org by 205.198.68.59 on December 13, 2024 from IP address 205.198.68.59.
+
+SUSTAINABILITY ENVIRONMENTAL SEE COMMENTARY
+SCIENCE SCIENCES

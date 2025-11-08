@@ -1,0 +1,1588 @@
+﻿THE JOURNAL OF FINANCE • VOL. LXVII, NO. 3 • JUNE 2012
+
+Threshold Events and Identification: A Study
+of Cash Shortfalls
+
+TOR-ERIK BAKKE and TONI M. WHITED∗
+
+ABSTRACT
+Threshold events are discrete events triggered when an observable continuous
+variable passes a known threshold. We demonstrate how to use threshold events
+as identification strategies by revisiting the evidence in Rauh (2006, Investment
+and financing constraints: Evidence from the funding of corporate pension plans,
+Journal of Finance 61, 33–71) that mandatory pension contributions cause invest-
+ment declines. Rauh’s result stems from heavily underfunded firms that constitute a
+small fraction of the sample and that differ sharply from the rest of the sample. To al-
+leviate this issue, we use observations near funding thresholds and find causal effects
+of mandatory contributions on receivables, R&D, and hiring, but not on investment.
+We also provide useful suggestions and diagnostics for analyzing threshold events.
+
+THE IDENTIFICATION OF CAUSAL EFFECTS is of central interest in empirical cor-
+porate finance. One particularly interesting class of identification strategies
+involves the use of threshold events, in which a discrete event or treatment oc-
+curs when an observable continuous variable passes a known threshold. These
+thresholds can occur because of accounting conventions, government regula-
+tions, or contractual agreements, among other things. Given the increasing use
+of identification strategies based on threshold events, the intent of this paper
+is threefold.
+
+First, we provide general guidance on how one can and cannot use threshold
+events to identify causal relationships. We do so in the context of one of the first
+and most prominent examples of the use of threshold events to obtain identifi-
+cation: Rauh (2006). This paper is an ideal setting for understanding threshold
+events because the institutional framework provides more than one type of
+threshold to examine. The threshold events are the mandatory contributions
+that firms must make to their defined benefit (DB) pension plans. These contri-
+butions are a direct function of the level of pension plan funding (assets minus
+liabilities), and they jump up discretely at several different funding thresholds.
+The paper is also an ideal setting because it tackles the important question
+of whether the cash shortfalls accompanying mandatory contributions cause
+
+∗Bakke is from the University of Oklahoma and Whited is from the University of Rochester.
+Tim Werner and Heqing Zhu provided excellent research assistance. We are grateful for help-
+ful comments from two anonymous referees; an Associate Editor; Cam Harvey; John Graham;
+Harry DeAngelo; Nathalie Moyen; Beau Page; Michael Roberts; Ilya Strebulaev; Jerry Warner;
+Josef Zechner; and seminar participants at Claremont-McKenna College, Columbia University,
+Stockholm School of Economics, Norwegian School of Management, Norwegian School of Eco-
+nomics and Business Administration, and Wirtschaftsuniversität Wien.
+
+1083
+
+
+
+1084 The Journal of Finance©R
+
+declines in investment. The challenge in identifying a causal relation is the
+possibility that mandatory contributions are endogenously determined with
+investment. Rauh finds that firms cut their capital expenditures 70 cents for
+every dollar of mandatory contributions to their pension plans. The paper then
+argues that this effect is causal because the jumps and kinks in the relation
+between contributions and funding provide a source of exogenous variation
+in cash flow and therefore identification of a causal effect of contributions on
+investment.
+
+However, although the use of pension funding rules to obtain identification
+is clever, the result of a sharp cut in investment is puzzling because mandatory
+contributions are on average tiny relative to capital expenditures. It is hard
+to imagine that capital expenditures are sufficiently divisible to produce such
+a strong effect, especially in light of evidence of substantial capital stock ad-
+justment costs (Cooper and Haltiwanger (2006)). Given this background, the
+second purpose of this paper is to understand the result of sharp investment
+declines. Finally, the third purpose of the paper is to exploit in detail the rich
+institutional setting of pension funding to determine exactly how firms respond
+to cash shortfalls.
+
+In short, we find that the strong sensitivity of investment to mandatory
+contributions stems from heavily underfunded firms that constitute a small
+fraction of the sample and that are different from the rest of the sample in
+important ways, that is, the control group differs from the treated group. Thus,
+though we find some evidence that this sensitivity is causal, one cannot ex-
+trapolate or generalize the result beyond those severely underfunded firms,
+and it is difficult to rule out the possibility that firm characteristics cause both
+the pension underfunding and the investment declines. By closely examining
+those observations near the various discontinuities in the rule relating contri-
+butions to funding status, we find strong causal evidence that firms respond
+to these cash shortfalls by managing accounts receivable. This result makes
+sense given the existence of active secondary markets for receivables. We also
+find less robust evidence that these shortfalls induce changes in other types of
+working capital, employment growth, and R&D.
+
+We also provide guidance on using threshold events to obtain identification.
+Teasing out the direct causal effect of a threshold event can be difficult because
+the forces that bring a firm to a threshold can also affect a firm’s actions, that is,
+the variable (such as pension funding status) that defines the threshold is often
+endogenous. We therefore frame our discussion in terms of the econometric
+technique called regression discontinuity design (RDD), which sidesteps this
+difficulty in an intuitive way. The discontinuous event induced by the threshold
+rule induces a discontinuity in the actions taken by firms at the threshold.
+Because observations immediately to one side of the threshold are unlikely to
+differ in systematic ways from the observations immediately to the other side,
+the former group acts as a valid control for the latter. Therefore, as long as firms
+have imperfect control over their location vis-à-vis the threshold, a researcher
+can measure the causal effect of the event.
+
+Pension funding is an ideal setting for understanding how to use threshold
+events for identification because it is not a strict application of RDD. Instead,
+
+
+
+A Study of Cash Shortfalls 1085
+
+it shares some important features of RDD, in particular, threshold events.
+Therefore, although examining the identification strategy in Rauh (2006) is
+only somewhat useful for understanding when RDD works and when its results
+can be misleading, such an examination is useful for exploring the broader
+question of when it is valid to extend the intuition behind RDD to more general
+regression settings.
+
+We distill several important econometric takeaways from our analysis of
+pension funding. We demonstrate that including discontinuous variables in
+generic regressions usually does not provide identification, even if one controls
+for the threshold variable that induces the discontinuity. This conclusion fol-
+lows from the important point that RDD has strong local validity but weak ex-
+ternal validity. Put differently, RDD ameliorates the endogeneity problems that
+compromise clean inference only for those observations close to the threshold.
+In this regard, using threshold events to obtain identification is analogous to
+using any instrumental variables (IV) estimator. Just as IV estimators ob-
+tain identification from those observations that are affected by the instrument,
+threshold events usually only provide identification for those observations close
+to the cutoff. To address these identification issues, we offer some useful robust-
+ness checks for determining when threshold events are likely to be providing
+identification.
+
+In addition, our analysis highlights the importance of understanding firm
+incentives and behavior when using threshold events as the basis for identifi-
+cation strategies. First, unobserved firm behaviors can change at thresholds,
+and these unobserved changes can have important effects on any outcome of
+interest. Here, we provide guidance for detecting such situations. Second, and
+more importantly, firms optimize subject to the constraints imposed by thresh-
+old rules and endogenously choose whether they want to be close to a threshold.
+That firms actively manage and anticipate future mandatory contributions is
+vividly illustrated in this quote from Ford Motor Company’s 2005 10K:
+
+In 2005, we made $2.5 billion of cash contributions to our funded pension
+plans. During 2006, we expect to contribute $1.5 billion to our worldwide
+pension plans. . . . Based on current assumptions and regulations, we do
+not expect to have a legal requirement to fund our major U.S. pension
+plans in 2006.1
+
+Clearly, Ford is planning its contributions in 2005 and 2006 to avoid having to
+face unanticipated financial shocks in 2006. We point out that, although RDD
+can remedy the endogeneity problems induced by such behavior, the identifica-
+tion afforded by RDD can be invalidated if this behavior leads firms to bunch
+on one side of a threshold or another. Fortunately, bunching does not pose a
+problem in the case of pension funding because the distance from the threshold
+is largely a function of stock market values, which are difficult to manipulate.
+
+Third, threshold events are most likely to provide significant evidence when
+these events are themselves significant. This point is illustrated by our finding
+
+1 Available at http://www.sec.gov/Archives/edgar/data/37996/000003800906000031/fmc10K2005.
+htm (p. FS-40).
+
+
+
+1086 The Journal of Finance©R
+
+that the strongest evidence of changes in firm behavior occur around disconti-
+nuities that entail the largest cash shortfalls.
+
+Our paper clearly fits into the rapidly growing set of studies in finance and
+economics that examine threshold events. Examples include changes in ac-
+counting standards when a firm’s public float exceeds a certain level (Gao,
+Wu, and Zimmerman (2009)) or cash inflows that stem from option exercise
+(Babenko, Lemmon, and Tserlukevich (2011)). Further studies that explicitly
+use RDD include Chava and Roberts (2008), Beshears (2010), Cuñat, Gine, and
+Guadalupe (2011), and Keys, et al. (2010). These studies use RDD to measure
+the causal effects of bond covenant violations, strategic alliances, shareholder
+proposals, and loan securitization. Our paper also falls into a group of recent
+applied econometrics papers that provide guidance to empirical researchers by
+sorting through theoretical econometric results in concrete settings. For exam-
+ple, Bertrand, Duflo, and Mullainathan (2004) consider inference in difference-
+in-difference estimators, and Petersen (2009) examines the bias in standard
+errors calculated with panel data. In terms of economic content, our paper
+contributes to the extensive literature on financing constraints surveyed, for
+example, in Stein (2003) and Hennessy and Whited (2007). In particular, our
+paper helps clarify the common practice, dating back to the influential work of
+Fazzari, Hubbard, and Petersen (1988), of using the sensitivity of investment
+to cash flow as a metric for gauging the severity of finance constraints.
+
+The rest of the paper proceeds as follows. In Section I, we provide a brief
+review of the identification conditions for RDD. Sections II and III describe the
+institutional setting and the data, respectively. Sections IV and V contain the
+results, and Section VI concludes.
+
+I. Review of Regression Discontinuity Design
+We now outline the basic features of RDD, which was first introduced by
+
+Thistlethwaite and Campbell (1960). More detailed presentations can be found
+in Van der Klaauw (2002) and Imbens and Lemieux (2008). Our description fol-
+lows the presentation in Hahn, Todd, and Van der Klaauw (2001). We start with
+the intuitive description in the introduction that firms just above and below
+the threshold can be thought of as close-to-randomly assigned to a treatment,
+for example, a pension funding violation. Therefore, by calculating the average
+differences between the investment (or any other variable of interest) of these
+two groups of firms, one can estimate the causal effect of the treatment.
+
+More formally, let yi be a variable of interest, such as investment, employ-
+ment, liquid assets, or external financing. We define yi1 as the outcome of firm
+i given treatment (pension funding violation) and yi0 as the outcome of firm i
+in the absence of treatment. The goal is to estimate yi1 − yi0, which is the effect
+of treatment on firm i. It is important to note that yi1 and yi0 are the pair of
+potential outcomes for firm i and that we only observe one of these variables for
+each firm. We cannot roll back history and observe the other outcome, so this
+unobserved outcome is the counterfactual, which we have to estimate. This
+constraint forces us to focus on average effects of treatment over
+(sub)populations rather than on individual effects.
+
+
+
+A Study of Cash Shortfalls 1087
+
+RDD comes in two flavors: sharp and fuzzy. We focus mainly on sharp in as
+much as it is the type of RDD that is most relevant to the pension funding
+threshold. Sharp RDD is distinguished by the key identifying assumption that
+firms are assigned to treatment solely on the basis of an observed, continuous
+measure s, called the selection (forcing, running, assignment) variable. The
+restriction that s must be observable rules out threshold events such as ac-
+counting disclosures in which the selection variable can only be observed on
+one side of the threshold. The selection variable can be either a single variable
+or a real-valued function of several variables. The observations that fall below
+some deterministic cutoff point s̄ are placed in the control group, which we
+denote by setting an indicator variable, wi, equal to zero. Those observations
+on or above that point are placed in the treatment group, that is, wi = 1. To
+summarize
+
+wi = w (si) = 1 {si ≥ s̄} . (1)
+
+A second identifying assumption is that the forcing variable, s, has a positive
+density in a neighborhood of the cutoff s̄. This assumption rules out manip-
+ulation of the forcing variable, which might result in either no observations
+near the threshold or bunching of observations on one side of the threshold.
+McCrary (2008) notes that some manipulation of the assignment variable can
+be tolerated before identification is compromised, and he provides a test for de-
+tecting manipulation. Of course, visual inspection of the density of the forcing
+variable is the first way in which to address this issue because gross violations
+are usually easily visible.
+
+Note that si is allowed to affect the outcome. In other words, assignment to
+treatment is not random. This condition is important because funding status
+(si) depends on firm financial health, which in turn affects investment. To
+understand how RDD identifies a causal effect in the face of this endogeneity
+problem, we write the treatment effect estimation problem as a regression,
+
+yi = β + αwi + ui, (2)
+
+where β is a constant and α is the average treatment effect. For simplicity,
+we assume that the treatment effect is constant across observations.2 The
+regression error, ui, can be thought of as what would happen in the absence of
+treatment. Running ordinary least squares (OLS) on this regression does not
+produce causal inference because assignment to treated and control groups is
+by definition not random, so the error, ui, is correlated with the regressor, wi.
+In this setting, the key identifying assumption for sharp RDD—that si is the
+sole determinant of treatment—can be restated as saying that the probability
+of assignment jumps from zero to one at the cutoff. Formally,
+
+lim Pr(wi = 1 | si) = 1
+s↓s̄
+
+)
+lim Pr(wi = 1 | si) = (3
+
+0.
+s↑s̄
+
+2 See Imbens and Lemieux (2008) for the more general case.
+
+
+
+1088 The Journal of Finance©R
+
+We now use this condition to show that the treatment effect, α, can be defined
+as:
+
+α = lim E (yi | si) − lim E yi | si) . (4)
+s↓ s↑ (
+
+s̄ s̄
+
+This quantity is simply the difference between expected outcomes for those
+observations just above and below the cutoff. To show that (4) holds, we first
+subtract the right limit of (2) from the l(eft limit of (2). We obtain )
+
+lim E (yi | si) − lim E
+s↑ (yi | si) = α lim E
+
+s↓ (wi | si) − lim E (w
+s↓s̄ s↑ i | si)
+
+s̄ ( s̄ s̄ )
++ lim E (u | si) − lim E (ui | si) .
+
+s↓ i
+s̄ s↑s̄ (5)
+
+If we assume that E (ui | si) is continuous in si, then the last term goes to zero
+and we hav(e ) / ( )
+
+α = lim E (y | s) − lim E (y | s) lim E (w | s) − lim E (w | s) . (6)
+s↓s̄ s↑s̄ s↓s̄ s↑s̄
+
+If the probability of treatment does jump from zero to one at s̄, then the denom-
+inator of (6) equals one, and we have (4). Equation (6) implies that a simple
+way to estimate α is as the difference in means for the groups of observations
+just above and below the cutoff. Expression (6) also makes it clear that the
+assumption of a continuous density is crucial. Because limits of expectations
+define the average treatment effect, if the density is discontinuous at s̄, these
+limits do not exist.
+
+The assumption that E (ui | si) is continuous in si is also crucial, and it is
+therefore important to understand what this assumption means in economic
+terms. On one level, if one takes regression (2) seriously, it states that the only
+variable that should determine the outcome variable yi (investment, employ-
+ment, etc.) is the selection variable. This interpretation is, of course, extreme,
+but it points out that many determinants of yi are omitted from (2) and are
+therefore implicitly contained in the error term, ui. The continuity assump-
+tion then implies that none of these variables exhibits a discontinuity at the
+exact threshold point. On another level, the continuity assumption formalizes
+the notion that observations just above and below the cutoff are comparable.
+Therefore, the continuity assumption goes hand-in-hand with the observation
+that RDD provides sharp causal inference only near the cutoff.
+
+Although RDD is typically a technique with strong internal (near the thresh-
+old) validity and weak external (far from the threshold) validity, it is useful to
+examine when one can extrapolate inferences that are valid near the thresh-
+old to points away from the threshold. We start by examining sharp RDD and
+applying the concept of a control function from Heckman and Robb (1985). In
+sharp RDD, the only determinant of treatment is the selection variable, si, so
+one can write the regression error, ui, in (2) as
+
+ui = E (ui | si) + ei, (7)
+
+
+
+A Study of Cash Shortfalls 1089
+
+where ei is, by definition, orthogonal to wi = w (si) . Substituting (7) into (2)
+then gives
+
+yi = β + αw (si) + E (ui | si) + ei
+= β + (
+
+αw (si) + k (si) + e 8)
+i,
+
+where k (si) ≡ E (ui | si). In general, k (si) is a smooth function of si. If one esti-
+mates (8) on points away from the cutoff, one can no longer rely on the local
+continuity of ui to ensure that the treated and control groups are similar. One
+must then not only include k (si) in the regression (and get the functional form
+correct), but one must also control for the fact that observations away from
+the cutoff may be systematically different from observations close to the cutoff.
+These requirements are important for understanding the specific identifying
+assumptions in Rauh (2006), which we discuss in detail in the next section.
+
+II. Motivation and Institutional Setting
+The identification strategy in this paper is not strictly based on RDD. How-
+
+ever, it does share several features of RDD, in particular, the use of a threshold
+rule. The rule states that a firm must make mandatory contributions when its
+pension assets fall below its pension liabilities. Further, both the rate and level
+of mandatory contributions can change at additional institutionally determined
+levels of underfunding. The question is then whether the local identification
+given by RDD can be extended to provide identification in the more general case
+of using discontinuous variables, such as mandatory contributions in generic
+regressions. To answer this question, we first review the institutional details
+surrounding corporate defined benefit pension plans and then discuss the ex-
+tent to which these details can deliver identification of causal effects.
+
+Companies with DB pension plans promise employees a prespecified monthly
+benefit at retirement. Typically, this benefit is calculated as a function of em-
+ployee salary and service, and government rules state that firms must con-
+tribute to their pension plans to be able to meet these future pension liabil-
+ities. If the market value of these contributions (pension assets) exceeds the
+expected future pension liabilities, the pension plan is considered overfunded.
+Conversely, if the value of the pension assets is less than the pension liabilities,
+the plan is considered underfunded. If the pension plan is overfunded, the firm
+is free to either contribute or not contribute to the plan, although contributions
+above a specified ceiling receive unfavorable tax treatment. If the firm with-
+draws funds from an overfunded pension plan, it can be subject to severe excise
+taxes. On the other hand, if the plan is underfunded, the firm is required to con-
+tribute more funds to its pension plan. These mandatory pension contributions
+(MPCs) are determined according to a government rule that is a discontinuous
+and kinked function of the funding gap (the difference between pension assets
+and liabilities).
+
+Pension funding rules are interesting because they generate a clear thresh-
+old event. In fact, because the rule has both discontinuities and kinks, the rule
+
+
+
+1090 The Journal of Finance©R
+
+provides more than one threshold event. Pension funding is also interesting
+because the selection variable, the funding gap, is not likely to be completely
+manipulable. Fluctuations in the funding gap are driven by the present value
+of the pension liabilities, by plan contributions, and by the performance of
+the invested pension assets. Firms have limited control over the actuarial as-
+sumptions used to calculate the value of liabilities because these assumptions
+are governed by restrictive Internal Revenue Service (IRS) rules. Therefore,
+although the firm can actively manipulate the pension funding gap by vol-
+untary contributions, changes in employment, and changes in plan benefits,
+fluctuations in the market value of pension assets and in the present value of
+liabilities that accompany market interest rate changes are largely beyond the
+firm’s control. Limitations on firms’ ability to manipulate the funding gap are
+important for the use of threshold rules as identification strategies.
+
+The example is interesting, finally, because of the transparency of the endo-
+geneity problem. The question is whether internal resources affect investment,
+and this question is interesting because the answer sheds light on whether
+financial frictions affect real economic activity. However, it is difficult to de-
+termine whether internal cash flows have a causal effect on firm investment
+because unobservable changes in investment opportunities can drive both in-
+vestment and cash flows. Further, the usual measure of investment opportuni-
+ties, the market-to-book ratio, is unlikely to capture all of the variation in true
+investment opportunities (Erickson and Whited (2000)). However, if one can
+find a source of variation in cash flows that is uncorrelated with unobserved in-
+vestment opportunities, then, even though a regression of investment on cash
+flow may omit these unobservables, one can still estimate the causal effect of
+cash flow on investment.
+
+Rauh (2006) argues that the pension funding setting can identify inde-
+pendent variation in cash flow. Even though pension funding status is en-
+dogenously determined with investment opportunities, the rule that relates
+mandatory contributions to funding status contains discontinuities and kinks.
+Therefore, as long as one controls for funding status in a regression of invest-
+ment on proxies for investment opportunities, and the relation between invest-
+ment opportunities and funding status does not contain the same kinks and
+discontinuities as the relation between mandatory contributions and funding
+status, mandatory contributions are conditionally (on funding status) uncorre-
+lated with investment opportunities.
+
+This logic is analogous to the logic that provides identification in RDD, in
+particular, the part that requires that the error term in the regression not have
+any discontinuities at the threshold. However, this analogy does not extend to
+a generic regression setting, and it is primarily in this sense that Rauh (2006)
+is not an exact application of RDD.
+
+The identification strategy in this paper is based on the idea that invest-
+ment opportunities do not jump down at the point of underfunding or change
+in slope at the point at which the mandatory contribution function changes
+slope. Therefore, investment opportunities cannot be correlated with manda-
+tory contributions, conditional on funding status. This assumption is plausible.
+
+
+
+A Study of Cash Shortfalls 1091
+
+Simulated "Funding Status" Simulated "Mandatory Contribuons"
+0.5
+
+0.4
+
+0.3
+
+0.2
+
+0.1
+
+0
+0.01 0.51 1.01 1.51 2.01 2.51 3.01 3.51 4.01 4.51
+
+-0.1
+
+-0.2
+
+-0.3
+Simulated "Investment Opportunities"
+
+Figure 1. Simulated mandatory contributions. On the horizontal axis is simulated invest-
+ment opportunities. Simulated funding status is a logistic function of investment opportunities,
+and simulated mandatory contributions are a kinked function of funding status.
+
+However, although these kinks and jumps clearly diminish any correlation that
+might be present, they do not necessarily set it to zero. This point is easiest to
+see in a more general setting. Suppose that two random variables are corre-
+lated, and a third is a nonlinear function of the second. Then the claim is that
+the third is necessarily uncorrelated with the first, conditional on the second.
+This statement cannot be true if the conditional correlation is calculated via a
+linear regression because a linear regression cannot provide perfect condition-
+ing in the presence of nonlinear relationships.
+
+We also provide a simple counter example to illustrate this point. Suppose a
+random variable, y, has a standard lognormal distribution; a random variable,
+x, is a logistic function of y; and a third variable, z, is zero if x > 0 but equals
+0.2 + 0.4 (0.4 − x) if x < 0. This example captures the main features of the gen-
+eral relation between investment opportunities, funding status, and mandatory
+contributions; the relations between these variables are depicted in Figure 1.
+When we simulate a sample of 5,000 observations using these assumptions,
+we find that z (mandatory contributions) is correlated with y (investment op-
+portunities), conditionally on x (funding status). The t-statistic is around 20.
+To summarize, it is entirely possible that mandatory contributions are condi-
+tionally correlated with investment opportunities and that the regressions in
+Rauh (2006) do not solve the endogeneity problem. This counterexample shows
+that identification strategies based on loose analogies to RDD need not be
+logically correct. However, they may be empirically relevant, so we now turn to
+examining this latter question.
+
+III. Data
+For our empirical analysis, we attempt to reconstruct the data set in Rauh
+
+(2006). We start with an unbalanced panel of Compustat firms from the 2007
+
+
+
+1092 The Journal of Finance©R
+
+Standard and Poor’s Compustat industrial files. Definitions of the Compustat
+variables we use are in the Appendix. As in Rauh (2006), we restrict our at-
+tention to the subsample of Compustat firms that file an IRS 5500 form with
+the Department of Labor (DOL) and that sponsor DB pension plans. We need
+to impose the first restriction to calculate mandatory contributions accurately.
+All pension plans over a certain size must file an IRS form 5500 yearly. We
+impose the second restriction because only firms with DB pension plans must
+make mandatory contributions.
+
+Compustat provides pension data based on firm Securities and Exchange
+Commission (SEC) filings; however, we do not use these data. As explained in
+more detail in Rauh (2006), Compustat pension data are aggregated to the firm
+level. They are therefore inadequate for our purposes because mandatory con-
+tributions are determined at the pension plan level—not the firm level. Approx-
+imately one-third of the firms in our sample have more than one pension plan,
+and relying on Compustat data would therefore lead to inaccurate computation
+of firms’ mandatory contributions. Furthermore, firms have significantly more
+accounting discretion when submitting SEC filings than when filing form IRS
+5500. SEC pension data also include both international and domestic pension
+plans, whereas only domestic plans are required to pay mandatory contribu-
+tions. Finally, the methods for computing pension liabilities and costs for SEC
+filings are different from those that are required for computing mandatory
+contributions.
+
+The sample period runs from 1990 to 1998. The sample starts in 1990 be-
+cause IRS 5500 forms are first available in standardized form from the DOL in
+this year. The sample stops in 1998 because we match plans to firms primarily
+by using the CUSIP of the plan’s sponsor, and in 1998 reporting requirements
+no longer forced pension plans to list the CUSIP pertaining to the plan. Al-
+though we match primarily by CUSIPs, missing data occasionally force us
+to match by employee identification numbers (EINs) or by hand using exact
+firm names. EINs and firm names only match plans that directly pertain to
+the Compustat firm. For instance, if a firm’s subsidiary sponsors a plan, this
+plan cannot be matched without access to the CUSIP of the parent firm. Al-
+though we attempt to mitigate this problem by using subsidiary names from
+the Compustat Business Information File, without the CUSIP of the parent of
+the subsidiary sponsoring the plan, we face potential sample selection issues.
+After this matching process, we end up with 7,905 firm-year observations, a
+number somewhat smaller than that in Rauh (2006).
+
+For each plan-year, we extract the following variables from the plan’s IRS
+5500 filing: pension assets, pension liabilities, funding credits, total contribu-
+tions, and normal cost, which is the present value of the pension benefits that
+accrue during the current year. Pension assets are the present value of assets
+in the plan at the beginning of the year. Pension liabilities are the accumulated
+benefit obligation from Schedule B of the IRS 5500. From 1991 to 1994, the cal-
+culation of pension liabilities follows the regulations in the Omnibus Budget
+Reconciliation Act of 1987. After 1994, these calculations follow the regulations
+in the Retirement Protection Act of 1994.
+
+
+
+A Study of Cash Shortfalls 1093
+
+How are mandatory contributions determined? Over the sample period from
+1990 to 1998, mandatory contributions consist of two components: the mini-
+mum funding contribution (MFC) and the deficit reduction contribution (DRC).
+Firms must contribute the larger of the MFC or the DRC. The MFC is defined
+as the sum of the normal cost and an installment payment on unfunded liabili-
+ties. It is the normal cost component that provides the necessary discontinuity
+at the point of underfunding. Given that some discretion is allowed in calculat-
+ing this installment, we follow Munnell and Soto (2004) and Rauh (2006) and
+estimate it as 10% of the funding gap. Therefore, the MFC is given by
+
+MFC = (Normal Cost) + 0.1(Funding Gap).
+
+The MFC can be offset by accumulated funding credits, which can be estimated
+from the 5500 filings. The DRC is given as a fraction of funding status:
+
+DRC
+Funding G[ap ( ( ))]
+
+= Pension Assets
+min 0.30, 0.30−0.4 −0.6 , before 1995
+
+[ ( (Pension Liabilities ))]
+= ts
+
+min 0.30, 0.25− Pension Asse
+0.4 −0.35 , 1995 and after.
+
+Pension Liabilities
+
+The mandatory contribution (MPC) is then given by the following function
+
+MPC = max [MFC, DRC],
+
+if the funding gap is negative. The minimum and maximum in the above def-
+initions create kinks in the mandatory contribution function. At these kinks,
+the proportion of the funding gap that must be filled changes. As long as one
+defines the threshold event as a change in this proportion, these kinks can also
+be used to define threshold events.
+
+The change to the DRC in 1995 was also accompanied by two provisions
+that created further discontinuities in the mandatory contribution function.
+First, plans that were at least 90% funded were exempt from the DRC, and
+second, plans that were at least 80% funded and that had a recent history
+of being overfunded were also exempt. These thresholds imply actual discon-
+tinuities because at these thresholds the DRC can be much larger than the
+MFC.
+
+In this setting, two natural definitions of the funding gap arise. In either case,
+for a firm with one plan, defining the funding gap is straightforward. However,
+defining a funding gap for a firm with multiple plans is more complicated. One
+alternative, from Rauh (2006), is to sum the gaps across all pension plans within
+a firm. This definition, which we refer to as the average funding status, correctly
+identifies the zero underfunding point only if firms can easily shift funds across
+plans. Another alternative is to define the funding gap as the smallest gap if
+all plans have positive funding status, and as the sum of the negative gaps if
+
+
+
+1094 The Journal of Finance©R
+
+any plans have negative funding status. This definition captures the notion of
+the distance to the point of violation if firms cannot shift funds across plans.
+As we show below, the use of one definition or another is immaterial for our
+full-sample regressions.
+
+IV. Full-Sample Analysis
+We first examine the entire spectrum of funding statuses to pinpoint exactly
+
+which kinks and jumps in the mandatory contribution function are likely to
+provide a causal effect on investment. Here, we use both informal visual and
+formal statistical analysis and pay close attention to the characteristics of the
+firms at different points along the function.
+
+A. Visual Analysis
+Panel A of Figure 2 plots a kernel regression of the ratio of investment to as-
+
+sets on average funding status, where the latter is scaled by pension liabilities
+for ease of interpretation. The relevant vertical axis is on the left. The solid line
+is the fitted regression line, and the dotted lines are 5% confidence bands. This
+regression closely replicates the result in Rauh (2006) that investment appears
+to drop off sharply after the point at which pension assets equal pension liabili-
+ties. However, the kernel regression does not tell the whole story. The solid line
+plots a histogram of the funding status, superimposed on the kernel regression,
+with the vertical axis on the right indicating the number of observations. The
+drop in investment does not occur until underfunding is between 10% and 15%
+of pension liabilities, but the histogram indicates that few observations in the
+sample can be found at or below this point. Indeed, the tenth percentile is at
+the 12% level of underfunding, and the fifth percentile is at the 22% level of
+underfunding.
+
+This finding highlights one of the most important concerns facing studies that
+emphasize identification of causal effects: internal versus external validity. The
+figure suggests informally that although pension funding problems may indeed
+cause drops in investment, if this causal effect exists it is likely limited to a few
+firms. Providing more definitive evidence on this conjecture is our next task.
+
+As a first step, we continue with our informal visual analysis to determine
+whether there are any causal effects around the point of zero underfunding,
+where a reasonably large part of the sample lies. Panel B of Figure 2 plots
+two kernel regressions of investment on the funding gap, one using only ob-
+servations with a positive gap, and the other using only observations with a
+negative gap. This type of informal analysis is recommended in Imbens and
+Lemieux (2008), who comment that formal statistical analysis is essentially
+just a sophisticated version of this sort of basic plot. The intent is to find a
+discontinuity in the outcome of interest, which in our case is investment. If no
+discontinuity can be observed, there is little chance that formal analysis will
+lead to estimates with economically and statistically significant magnitudes.
+We find that the two regression lines almost meet at the discontinuity point
+
+
+
+A Study of Cash Shortfalls 1095
+
+500
+
+0.08 Rate of Investment
+400
+
+0.06 300
+
+Number of Observations 200
+0.04
+
+100
+
+0.02 0
+-0.5 -0.4 -0.3 -0.2 -0.1 0.0 0.1 0.2 0.3 0.4
+
+Funding Status
+
+Panel A: Full sample regressions
+
+500
+
+0.08 Rate of Investment
+400
+
+0.06 300
+
+Number of Observations 200
+0.04
+
+100
+
+0.02 0
+-0.5 -0.4 -0.3 -0.2 -0.1 0.0 0.1 0.2 0.3 0.4
+
+Funding Status
+
+Panel B: Regressions to the left and right of zero funding status
+
+Figure 2. Kernel regressions and funding status histograms. Calculations are based on a
+sample of firms from Compustat from 1990 to 1998. Both panels plot the univariate relation be-
+tween investment (vertical axis) and funding status (horizontal axis). Superimposed on these plots
+is a histogram of funding status. Funding status is defined as the sum of the plan surpluses minus
+the sum of the plan deficits. The kernel regression estimation is performed using an Epanech-
+nikov kernel, with a bandwidth of 0.1. In Panel A, one regression is done for the full sample. In
+Panel B, separate regressions are performed for positive and negative funding statuses. Dotted
+lines indicate 5% confidence bounds. The results show a small discontinuity at the point of zero
+underfunding within the 5% confidence bounds.
+
+corresponding to a zero funding gap. Further, their difference lies well inside
+the 5% confidence bands, that is, there is no evidence of a significant jump in
+investment at the threshold. The zero underfunding point is, hence, unlikely
+to be providing identification.3
+
+3 We obtain similar results when we include firm-fixed effects in the kernel regressions. Details
+are in the Internet Appendix for this article, which is available online in the “Supplements and
+Datasets” section at http://www.afajof.org/supplements.asp.
+
+Rate of Investment Rate of Investment
+
+Number of Observations Number of Observations
+
+
+
+1096 The Journal of Finance©R
+
+This result begs the question of whether one can find significant results by
+performing analogous tests using the other kinks and discontinuities in the
+pension funding function. The answer is no. Although we do observe small
+differences in investment for observations to the left and right of the 90%
+threshold, the 80% threshold, and the kink point at which the DRC equals
+the MFC,4 none of these differences are significantly different from zero.5 This
+last result needs to be interpreted with caution, however, because the lack
+of significance is likely due to the paucity of observations near these three
+thresholds.
+
+In sum, Figure 2 illustrates a useful diagnostic to employ whenever one is
+trying to use a threshold event to obtain identification. The main intent is to
+find at the threshold an effect that is both statistically significant and visually
+large enough that economic significance is not an issue. The secondary intent
+is to determine what fraction of the sample lies at any discontinuity points.
+
+B. Regression Analysis
+Table I examines the effects of funding thresholds on investment in a regres-
+
+sion framework. First, we replicate the results in Rauh (2006) by estimating
+his central regression:
+
+Iit = C MC
+a Q i
+
+A i + at + F
+b1 i,t−1 + t + FS
+
+b b it
+2 3 + b it
+
+4 + uit, (9)
+i,t−1 Ai,t−1 Ai,t−1 Ai,t−1
+
+where Iit is capital expenditures for firm i at time t, Ai,t−1 is beginning-of-
+period book assets, Qi,t−1 is the beginning-of-period market-to-book ratio, CFit
+is nonpension cash flow, MCit is the mandatory contribution, and FSit is the
+average funding status of all plans in a firm. All of these regressions contain
+fixed firm and year effects, ai and at, and the standard errors are robust to
+heteroskedasticity and clustering at the firm level. Before turning to the re-
+sults, it is important to note that (9) is not an exact application of regression
+discontinuity because it does not contain a funding violation indicator or indi-
+cators for whether the firm is past the 80% or 90% funding thresholds or the
+kink point defined by MFC = DRC. Instead, it contains mandatory contribu-
+tions because of the economic question involved, which is not whether funding
+violations themselves affect investment, but whether internal resources affect
+investment.6
+
+The first two columns of Table I present estimates of (9) using two different
+measures of the distance to a funding violation: average funding status (in
+column 1) and the funding gap (in column 2). As in much of the investment
+
+4 For a firm with one pension plan, calculating this kink point is straightforward. For those with
+multiple plans, we calculate the kink using the pension plan for which the kink is closest to the
+zero funding point.
+
+5 These figures are contained in the Internet Appendix.
+6 Nonetheless, it is straightforward to gauge the magnitude of the coefficient on mandatory
+
+contributions in terms of the absolute drop in investment by multiplying the coefficient by the
+average mandatory contribution for payers.
+
+
+
+A Study of Cash Shortfalls 1097
+
+Table I
+Investment Regressions
+
+Estimates are from a sample of unregulated and nonfinancial firms from the 2007 Compustat
+annual industrial files. The sample period is 1990 to 1998. Pension data are from IRS Form 5500.
+MPCs are mandatory pension contributions to underfunded plans, scaled by total assets. Funding
+Status is the average across plans of pension assets minus pension liabilities, as a fraction of total
+assets. Funding Gap is the smallest funding gap if all plans have positive gaps, and the sum of the
+negative gaps if any plans have negative gaps. Nonpension Cash Flow is income plus depreciation
+plus pension expense, all scaled by total assets. Violation Indicator is a dummy variable for whether
+the variable “Funding Gap” is positive or negative. Distances to 80% and 90% underfunding and
+the corresponding indicator variables are defined analogously. Kink is the point at which the
+MFC equals the DRC. All regressions contain fixed firm and year effects. Standard errors are in
+parentheses and are corrected for heteroskedasticity and clustering at the firm level.
+
+Market-to-Book 0.019 0.019 0.019 0.019 0.019 0.019
+(0.002) (0.002) (0.002) (0.002) (0.002) (0.002)
+
+Nonpension 0.113 0.113 0.112 0.111 0.111 0.112
+Cash Flow (0.011) (0.011) (0.008) (0.008) (0.009) (0.011)
+MPCs −0.638 −0.624
+
+(0.267) (0.268)
+Funding 0.024
+Status (0.011)
+Funding 0.038 0.048
+Gap (0.020) (0.020)
+Violation −0.020
+
+Indicator (×10) (0.014)
+Distance from 0.053
+
+90% Underfunding (0.021)
+90% Underfunding −0.029
+
+Indicator (×10) (0.014)
+Distance from 0.058
+
+80% Underfunding (0.021)
+80% Underfunding −0.022
+
+Indicator (×10) (0.016)
+Distance from 0.030
+
+the Kink (0.030)
+Kink Indicator 0.020
+
+(×10) (0.014)
+R2 (within) 0.101 0.101 0.100 0.100 0.100 0.100
+R2 0.684 0.684 0.684 0.684 0.684 0.691
+
+literature, we find a small but statistically significant coefficient on Qi,t−1 and a
+larger, significant coefficient on CFit/Ai,t−1. For both measures of distance, the
+coefficient on mandatory contributions is negative and significant. The results
+using average funding status are almost identical to those in Rauh (2006),
+although our coefficient on mandatory contributions is somewhat smaller than
+in that study.
+
+Figure 2 indicates that the relation between investment and funding sta-
+tus (and hence mandatory contributions) is nonlinear, and that the steepest
+portion of this relation may be confined to a small group of underfunded firms.
+As a first pass in examining this possibility, we include threshold dummies in
+the regression instead of mandatory contributions. We consider four thresholds:
+
+
+
+1098 The Journal of Finance©R
+
+zero underfunding, 90% funding, 80% funding, and the kink point at which
+DRC = MFC. In each of these regressions, we follow the RDD literature and
+estimate variants of (8) that include the distance to the relevant threshold
+point. Interestingly, only the coefficient on the 90% funding threshold is signif-
+icantly negative. This finding is in accord with the evidence in Figure 2 that
+the large drop in investment happens for firms that are less than 90% funded.
+
+Table II fleshes out this point in a different way by looking at subsamples
+defined by funding status. For brevity, we leave analysis of the kink point to the
+Internet Appendix because we find no economically or statistically significant
+results. This pattern makes sense in that defining an event as a change in slope
+is unlikely to provide much in the way of significant results inasmuch as the
+event itself is small.
+
+The first column of Table II repeats the full-sample regression of invest-
+ment on the market-to-book ratio, cash flow, the funding gap, and mandatory
+contributions, which is from column 2 in Table I. The next several columns
+examine the robustness of the coefficient on mandatory contributions to run-
+ning this regression on different subsamples defined by funding status. This
+type of exercise is useful for understanding exactly where identification comes
+from when threshold events are involved. The second column shows that, when
+one drops the 12% of the sample that is less than 90% funded, the coefficient
+on mandatory contributions drops slightly and the significance disappears. In
+contrast, column 3 shows that, when one drops the 6% of the sample that is less
+than 80% funded, the coefficient on mandatory contributions increases slightly
+and becomes more significant.
+
+This result suggests that it is the observations that are 80% to 90% funded
+that are driving most of the results. This conjecture is supported by the results
+in the fourth column, which correspond to a sample that omits the observa-
+tions in the 80% to 90% funding interval. Here, the coefficient on mandatory
+contributions is insignificantly different from zero. The next four columns ex-
+amine samples containing (i) all underfunded firms, (ii) firms less than 90%
+funded, (iii) firms less than 80% funded, and (iv) firms between 80% and 90%
+funded. In none of these regressions is the coefficient on mandatory contribu-
+tions significantly different from zero. Especially interesting is the result for the
+firms that are between 80% and 90% funded. The contrast between columns
+2 and 3 suggests that these firms are driving the result of a significant re-
+sponse of investment to mandatory contributions, yet an examination of these
+firms alone reveals no effect at all. One possible explanation is that it is the
+contrast between the treated (heavily underfunded) and not-treated (over-
+funded) firms that is driving the significant coefficient on mandatory contri-
+butions. We consider this possibility below when we examine sample summary
+statistics.
+
+First, we use a complementary method to pinpoint the source of the iden-
+tifying data variation. We run regression (9) using a kernel estimator in
+which the smoothing is done over the gap between pension assets and pension
+liabilities, scaled by pension liabilities. The results are depicted in Figure 3.
+The solid line is the fitted regression and the dotted lines are 5% confidence
+
+
+
+A Study of Cash Shortfalls 1099
+
+Table II
+Subsample Regressions
+
+Estimates are from a sample of unregulated and nonfinancial firms from the 2007 Compustat annual industrial files. The sample period is 1990 to
+1998. Pension data are from IRS Form 5500. MPCs are mandatory pension contributions to underfunded plans, scaled by total assets. Funding Status
+is the average across plans of pension assets minus pension liabilities, as a fraction of total assets. Funding Gap is the smallest funding gap if all
+plans have positive gaps, and the sum of the negative gaps if any plans have negative gaps. Nonpension Cash Flow is income plus depreciation plus
+pension expense, all scaled by total assets. All regressions contain fixed firm and year effects. Standard errors are in parentheses and are corrected
+for heteroskedasticity and clustering at the firm level.
+
+>90% or Between 80%
+Full At Least At Least <80% Less than Less than and 90%
+
+Sample 90% Funded 80% Funded Funded Underfunded 90% Funded 80% Funded Funded
+
+Market-to-Book 0.019 0.019 0.019 0.019 0.019 0.004 −0.011 0.009
+(0.002) (0.002) (0.002) (0.002) (0.003) (0.004) (0.007) (0.005)
+
+Nonpension 0.113 0.113 0.120 0.117 0.099 0.079 0.095 0.090
+Cash Flow (0.011) (0.013) (0.011) (0.012) (0.013) (0.019) (0.041) (0.026)
+
+MPCs −0.624 −0.586 −0.746 −0.498 −0.566 −0.152 −0.242 0.071
+(0.268) (0.434) (0.317) (0.317) (0.511) (0.451) (1.025) (0.551)
+
+Funding 0.038 0.034 0.037 0.036 0.051 −0.087 −0.290 −0.170
+Gap (0.020) (0.021) (0.020) (0.021) (0.080) (0.110) (0.272) (0.253)
+
+R2 (within) 0.101 0.106 0.105 0.100 0.100 0.061 0.069 0.145
+R2 0.684 0.693 0.690 0.686 0.712 0.759 0.717 0.862
+Sample size 7889 6932 7461 7360 2769 975 428 529
+
+
+
+1100 The Journal of Finance©R
+
+1.5
+
+1
+
+0.5
+
+Funding Gap
+0
+
+-0.40 -0.34 -0.27 -0.21 -0.14 -0.08 -0.02 0.05 0.11 0.18 0.24 0.30 0.37
+-0.5
+
+-1
+
+-1.5
+
+-2
+
+Figure 3. Kernel regression of investment on mandatory contributions. Calculations are
+based on a sample of firms from Compustat from 1990 to 1998. The regression estimated is the
+ratio of investment to assets on the market-to-book ratio, the ratio of cash flow to assets, the ratio
+of mandatory contributions to assets, and the distance to the point of zero underfunding. The
+smoothing is done over the gap between pension assets and liabilities, with this difference scaled
+by pension liabilities. A Gaussian kernel with a cross-validated bandwidth of 0.065 is used. The
+dotted lines indicate 5% confidence bands calculated with nonclustered standard errors. The results
+indicate a small, significant effect on investment for firms between 10% and 25% underfunded.
+
+bands using nonclustered standard errors. Here, we see that most of the sig-
+nificant negative reaction of investment to mandatory contributions occurs for
+firms that are between 8% and 27% underfunded.7 Because mandatory contri-
+butions are largest in this range, this piece of evidence underscores one of the
+main econometric messages of the paper: threshold events are likely to reveal
+causal effects when the events themselves are large.
+
+This evidence is somewhat weak, however, in that the statistical significance
+of the results disappears with the use of clustered standard errors. Nonetheless,
+it does confirm the basic finding that the impact of mandatory contributions on
+investment is confined to about 5% of the observations in the sample.
+
+C. Summary Statistics
+Whether the association between mandatory contributions and investment
+
+is causal depends on whether the observations that are associated with the
+decline in investment are comparable to those in the rest of the sample. In gen-
+eral, it is important to examine whether treated firms (with large mandatory
+contributions) are different from the control group of untreated firms (with
+small or zero mandatory contributions), as it is possible that those charac-
+teristics that drive firms to be underfunded also drive investment. Table III
+
+7 The strong positive response for extremely underfunded firms is the product of a few outliers
+with very high investment.
+
+CCCoooeeeffffffiiiccceiiineeetnnn ttto   ooonnnn M   MMManaaannnddddatotaaaortttyooory rrrC yyyCo   CCConooontrtnnnirbtttitrrrbuiiiiobbbutintuuuoisotttniiinooossnnnsss
+
+
+
+A Study of Cash Shortfalls 1101
+
+Table III
+Summary Statistics
+
+The figures presented are means from a sample of unregulated and nonfinancial firms from the
+2007 Compustat annual industrial files. The sample period is 1990 to 1998. Pension data are from
+IRS Form 5500. Mandatory Contributions are federally mandated contributions to a pension plan
+with assets less than liabilities. Total Contributions are mandatory plus voluntary contributions.
+Plan Violation Indicator equals one if the firm is making mandatory pension contributions, and
+zero otherwise. “In Violation” indicates that the Plan Violation Indicator is one. Average Funding
+Status is the average across plans of pension assets minus pension liabilities, as a fraction of total
+firm assets. Average Funding Status Indicator is one if average funding status is positive, and zero
+otherwise. Funding Gap is the smallest funding surplus if all plans are running surpluses, and the
+sum of the deficits if any plans are running deficits. Bond Rating is a dummy variable that takes a
+value of one if a firm has an S&P long-term bond rating, and zero otherwise. All variables except
+employment are deflated by total book assets.
+
+Full In Not in <90% <80%
+Sample Violation Violation Funded Funded
+
+Total assets 3,418 3,435 3,409 2,362 2,152
+Average Funding Status Indicator 0.218 0.622 0.000 0.951 0.970
+Plan Violation Indicator 0.351 1.000 0.000 1.000 1.000
+Average Funding Status 0.036 0.005 0.052 −0.020 −0.025
+Funding Gap 0.015 −0.012 0.030 −0.025 −0.031
+Total Contributions 0.003 0.005 0.002 0.008 0.008
+Pension Assets 0.143 0.143 0.143 0.115 0.090
+Pension Liabilities 0.106 0.138 0.089 0.137 0.125
+Mandatory Contributions 0.001 0.003 0.000 0.005 0.006
+Investment 0.069 0.066 0.071 0.057 0.055
+Cash Flow 0.096 0.089 0.100 0.068 0.057
+Nonpension Cash Flow 0.100 0.095 0.102 0.077 0.067
+Market-to-Book 1.481 1.460 1.493 1.363 1.346
+R&D 0.017 0.018 0.016 0.016 0.016
+Advertising 0.012 0.013 0.012 0.010 0.009
+Debt-to-Assets 0.249 0.263 0.241 0.280 0.284
+Bond Rating 0.411 0.400 0.417 0.271 0.193
+Short Term Debt Issuance 0.005 0.004 0.006 0.005 −0.001
+Long Term Debt Issuance 0.021 0.022 0.021 0.021 0.027
+Saving 0.004 0.004 0.004 0.003 0.003
+Cash 0.070 0.065 0.073 0.072 0.076
+Dividends 0.019 0.015 0.021 0.010 0.011
+Common Dividends per Share 0.615 0.482 0.688 0.296 0.292
+Equity Issuance 0.012 0.013 0.012 0.015 0.016
+Equity Repurchases 0.012 0.012 0.012 0.007 0.007
+Employment % Change 0.808 0.520 0.965 −1.691 −2.853
+Earnings 0.042 0.034 0.046 0.014 0.006
+Z-Score 2.780 2.280 3.052 1.667 1.599
+
+presents several summary statistics for our sample of firms, with each column
+containing figures for a particular subsample. All of the variables are scaled by
+firm assets, except employment, which is measured in logs.
+
+Before examining different subsamples near the different discontinuity
+points, to provide context we first examine the full sample. Average firm size is
+
+
+
+1102 The Journal of Finance©R
+
+quite large. For example, the mean value of assets for all firms in Compustat
+between 1990 and 1998 is 1,670 million dollars, whereas the mean for this
+sample is 3,447 million dollars. This result is not surprising in that older, more
+mature firms tend to be those with DB pension plans. The large average size
+of the firms in this sample is also evident in the high incidence of firms that
+have bond ratings relative to the rest of the Compustat universe. A final im-
+portant pattern to notice is the small size of mandatory contributions relative
+to investment: the latter is on average over 40 times larger than the former.
+
+The next two columns of the table investigate the differences between the
+firms with positive and negative pension gaps. These two groups of firms are
+surprisingly similar, except along a few dimensions. The firms that are not in
+violation have slightly higher levels of Tobin’s q, invest slightly more, and have
+slightly higher cash flow. One figure that immediately stands out in the third
+line of the table is that only 62% of the firms classified as having all plans in
+the black also have positive average funding status. To the extent that different
+plans are not fungible, this finding means that average funding status is not a
+good indicator of the point of zero underfunding status.
+
+The fourth column examines firms that are less than 90% funded, where
+the level of funding is measured by the pension gap. (As demonstrated in the
+Internet Appendix, nearly identical results are produced by average funding
+status.) This group is systematically different from the rest of the sample. Not
+only do these firms invest less, but they have lower values of Tobin’s q, and they
+have cash flow that is about three-fourths that of the sample average. Further,
+they are two-thirds as large as the average firm, they pay half the dividends
+that the average firm pays, and they are much less likely to have a bond rating.
+More strikingly, they have less than one-third the earnings of their overfunded
+counterparts, their Altman’s Z-scores are just over half the average Z-score in
+the rest of the sample, and they are shrinking their workforces at a rate of over
+1.7% per year. Although these firms do not appear to be in extreme financial
+distress, they are markedly worse off along a number of dimensions than the
+firms in the rest of the sample. The fifth column shows summary statistics for
+the firms that are less than 80% funded. This group closely resembles those
+that are less than 90% funded but are in more serious distress.
+
+Why are these differences in observable characteristics important? They hint
+at potentially large differences in unobservables, and they lend credence to the
+hypothesis that over the whole sample these differences have as much a role
+to play in the determination of investment as do mandatory contributions.
+The two characteristics that are particularly interesting along this line are
+size and the incidence of bond ratings. Both characteristics have long been
+used as indicators of access to external capital markets. Therefore, it is hard to
+rule out the possibility that financial constraints cause both the underfunding
+of the pension plans and the investment declines. So even though financial
+constraints may be affecting the investment of these firms, it is hard to argue
+that mandatory contributions themselves cause investment declines. It is also
+hard to argue that financial constraints manifest themselves as a sensitivity of
+investment to cash flow shortfall.
+
+
+
+A Study of Cash Shortfalls 1103
+
+450
+400
+350
+300
+250
+200
+150
+100
+
+50
+0
+
+Funding Gap
+
+Figure 4. Funding gap density. Calculations are based on a sample of firms from Compustat
+from 1990 to 1998. The pension gap is defined as the minimum plan surplus if all of the plans in a
+firm have a surplus and as the sum of the deficits if at least one of a firm’s plans has a deficit. This
+figure depicts a histogram of funding gaps as a fraction of total pension liabilities.
+
+Of course, it is rarely possible to test exact identifying assumptions that lead
+to causal inference. What is possible is a variety of robustness checks that
+can either lend credence to or question an identification strategy. For exam-
+ple, when using threshold events to obtain identification, it is important to
+understand exactly what parts of the sample are providing identification and
+to understand any systematic difference between these observations and the
+rest of the sample. The reason is the classic trade-off between internal and
+external validity. If the parts of the sample that provide identification are sys-
+tematically different from the rest of the sample, then it is difficult to argue
+for causality or extrapolate any results obtained from one part of the sam-
+ple to the rest of the sample.8 Although these robustness checks can never
+be definitive in a strict statistical sense, they can often be informative and
+useful.
+
+V. Local-Sample Analysis
+At this point we have several pieces of evidence that make it hard to in-
+
+fer that the correlation between mandatory contributions and investment is
+causal. We can go further, however, given that funding violations are thresh-
+old events. In particular, we can use RDD to examine what happens at these
+points.
+
+8 A useful counter example is in Babenko, Lemmon, and Tserlukevich (2011), who use the
+exercise of executive options as a threshold event to examine the sensitivity of investment to
+exogenous sources of cash flow. Because exercise thresholds differ widely across firms, they are
+less likely to be highly correlated with either financing constraints or investment opportunities.
+
+---000...222555
+---000...222444
+---000...222333
+---000...222222
+---000...222111
+---000...222000
+---000...111999
+---000...111888
+---000...111777
+---000...111666
+---000...111555
+---000...111444
+---000...111333
+---000...111222
+---000...111111
+---000...111000
+---000...000999
+---000...000888
+---000...000777
+---000...000666
+---000...000555
+---000...000444
+---000...000333
+---000...000222
+---000...000111
+000...000000
+000...000111
+000...000222
+000...000333
+000...000444
+000...000555
+
+
+
+1104 The Journal of Finance©R
+
+First, we examine the density of the selection variable (the funding gap)
+around the points of zero underfunding, 90% funding, and 80% funding.9 The
+intent is to determine whether there is a discontinuity in its density. If there
+is such a discontinuity, firms might be manipulating the funding gap, thus
+invalidating the RDD design. It is important to note here that a continuous
+density does not imply that funding status is exogenous. Instead, it only implies
+that RDD can be used to obtain causal inference in the face of an endogenous
+funding status.
+
+Figure 4 plots a histogram of the ratio of the funding gap to pension liabilities,
+with a bin width of 0.002. We observe a great deal of clustering around the zero
+underfunding point, but no bunching of observations on one side or the other.
+Two explanations are possible for the clustering. First, firms lose tax benefits
+from contributing to their plans if the plans are too overfunded. This provision
+gives them an incentive not to build too much of a cushion against a possible
+funding shortfall. Second, the Pension Benefit Guarantee Corporation insures
+the pension plans, which gives firms less of an incentive to overfund. One
+does nonetheless wonder why firms do not crowd just above the cutoff point if
+they can indeed manipulate the pension gap. Two explanations are possible.
+First, they might not care about making a mandatory contribution if they make
+regular contributions in the first place or if the consequences for being barely
+underfunded are small. Second, even if the firms do care about being above the
+gap, random fluctuations in the value of pension assets can undo their attempts
+to avoid a funding violation. Both cases support the idea that the location of
+firms close to one side or the other is approximately random. In contrast to the
+case of the zero underfunding point, we observe neither clustering nor bunching
+around the 80% and 90% funding points. In sum, all of this evidence is exactly
+what is needed to use threshold events as identification strategies.
+
+Our next step is to estimate an average treatment effect of these thresholds
+on a variety of real and financial variables. The definition in (4) provides no
+guidance for picking a sample that is “close” to the funding violation threshold.
+We therefore follow Hoxby (2000), who starts with a tiny sample size and then
+examines the results when the sample size is increased. This strategy allows
+us to demonstrate the extent to which our results are sensitive to the window
+width that defines a small sample. We estimate the treatment effect by regress-
+ing a variable of interest on a dummy for negative funding status and fixed
+firm and year effects.10 We consider 17 variables: mandatory contributions,
+sales of capital goods, investment, R&D, advertising, leverage, short-term debt
+issuance, total debt issuance, the change in cash, the level of cash, dividends,
+
+9 We omit the kink point for brevity, given no evidence of significant causal effects.
+10 As shown in Hahn, Todd, and Van der Klaauw (2001), a simple difference in means between
+
+firms on either side of the threshold can have more asymptotic bias than a local linear regression of
+the variable of interest on a violation indicator and the distance to the point of violation. However,
+in a local sample this second method can introduce collinearity between the threshold dummy
+and the distance to the threshold. We have also estimated a treatment effect using a local linear
+regression, with the main difference being less evidence of an effect on inventories. See the Internet
+Appendix for details.
+
+
+
+A Study of Cash Shortfalls 1105
+
+Figure 5. Local responses to funding violations. Calculations are based on a sample of firms
+from Compustat from 1990 to 1998. Each panel in this figure plots regression coefficients from
+40 regressions as a function of the sample used for the estimation. Each panel is labeled by the
+dependent variable in the regression. The regressors are a pension violation indicator and firm and
+time fixed effects, and the coefficient of interest is that on the violation indicator. On the horizontal
+axis is a measure of the sample used for estimation, which is the absolute value of the pension gap
+as a fraction of plan assets. The pension gap is defined as the minimum plan surplus if all of the
+plans in a firm have a surplus and as the sum of the deficits if at least one of a firm’s plans has a
+deficit. The sample used for the calculation is all observations for which the absolute value of the
+pension gaps is less than the specified value on the horizontal axis. All dependent variables except
+employment are expressed as a fraction of total assets. Employment is measured as the natural
+log of millions of employees.
+
+receivables, equity issuance, stock repurchases, the change in working capital,
+the change in employment, and the level of employment. All variables except
+for employment are measured as a fraction of total book assets. Employment
+is measured as the log of total employees. We only report results for manda-
+tory contributions, investment, and the significant results for any of the rest of
+these variables. All results for the other variables are contained in the Internet
+Appendix.
+
+The results for the point of zero underfunding are presented in Figure 5.
+The coefficient on the violation dummy is on the vertical axis. This coefficient
+
+
+
+1106 The Journal of Finance©R
+
+Figure 6. Local responses to 10% underfunding. Calculations are based on a sample of firms
+from Compustat from 1990 to 1998. Each panel in this figure plots regression coefficients from
+40 regressions as a function of the sample used for the estimation. Each panel is labeled by the
+dependent variable in the regression. The regressors are an indicator for whether any firm pension
+plan is at least 90% underfunded and firm and time fixed effects, and the coefficient of interest
+is that on the underfunding indicator. On the horizontal axis is a measure of the sample used
+for estimation, which is the absolute value of the distance from the point of 90% underfunding,
+measured as a fraction of pension liabilities. All dependent variables except employment are
+expressed as a fraction of total assets. Employment is measured as the natural log of millions of
+employees.
+
+measures the within-firm difference in the dependent variable between obser-
+vations just to the left and just to the right of the cutoff. The distance from
+a zero funding gap is on the horizontal axis, with the distance measured as a
+fraction of pension liabilities. Larger values for the gap correspond to larger
+sample sizes. For example, a gap of 0.002 corresponds to a sample size of 406,
+
+
+
+A Study of Cash Shortfalls 1107
+
+and a gap of 0.04 corresponds to a sample size of 2,180. The solid line repre-
+sents the coefficient estimate as a function of the distance to the threshold.
+The dashed lines are 5% confidence bands calculated using clustered standard
+errors.
+
+The first panel shows the response of mandatory contributions. We calcu-
+late this response for two reasons. First, we know, a priori, that there is a
+causal response of mandatory contributions to funding thresholds. If local re-
+gressions cannot pick up this effect, then there is little hope that they have
+sufficient power to pick up other effects. Fortunately, this is not the case.
+We find a statistically significant difference between the near violators and
+near escapees even for the smallest gaps. The second reason for calculat-
+ing the response of mandatory contributions is to gauge the magnitude of
+the responses of the other variables. It is worth noting that the response of
+mandatory contributions is quite small—between 0.02% and 0.1% of total firm
+assets.
+
+In contrast, the response of investment is statistically insignificant from zero.
+The next four panels show that we find significant coefficients on the violation
+dummy variable in the regressions for R&D, inventories, receivables, and the
+change in employment. What is striking about these results, however, is not
+that they are significant but rather that the magnitude of the response is much
+larger than the magnitude of the rise in mandatory contributions. This finding
+is interesting because it brings up the important point of concurrent unobserv-
+able treatments. The only way that tiny mandatory contributions can “cause”
+large changes in firm policies is via expectations about the future. If managers
+perceive current violations as signals of many years of funding difficulties, they
+may cut back in large ways today to avoid these problems. However, absent a
+dynamic model of the firm, it is only possible to conjecture about such an effect.
+One other possibility that can explain the relatively large responses of these
+variables is a discontinuous concurrent change in some other variable that
+affects managerial decisions. To explore this possibility, we calculate similar
+response functions for cash flow and the market-to-book ratio. As documented
+in the Internet Appendix, we find an insignificant response of market-to-book
+but a strong and significant response of cash flow. Of course, the natural thing
+to do is to rerun the local regressions conditioning on cash flow. Even in this
+case, however, we find similar magnitudes and levels of significance. See the
+Internet Appendix for details. In sum, although it is possible that mandatory
+contributions cause significant changes in both real and financial variables, it
+is also likely that something else is going on at this point, given the relative
+magnitudes of firm choice variables and mandatory contributions.
+
+Figure 6 contains analogous results corresponding to the 90% funding point.
+In this case, it is possible to exploit the 1995 change in the laws to exempt from
+the DRCs plans that were at least 90% funded. Figure 6 is therefore different
+from Figure 5 in that the dummy variable used in the local regressions is
+interacted with a dummy that equals one if the year is greater than 1994.
+Once again, we find an insignificant response of investment, but significant
+responses of mandatory contributions, receivables, inventories, and changes
+
+
+
+1108 The Journal of Finance©R
+
+Figure 7. Local responses to 20% underfunding. Calculations are based on a sample of firms
+from Compustat from 1990 to 1998. Each panel in this figure plots regression coefficients from
+40 regressions as a function of the sample used for the estimation. Each panel is labeled by the
+dependent variable in the regression. The regressors are an indicator for whether any firm pension
+plan is at least 80% underfunded and firm and time fixed effects, and the coefficient of interest
+is that on the underfunding indicator. On the horizontal axis is a measure of the sample used
+for estimation, which is the absolute value of the distance from the point of 80% underfunding,
+measured as a fraction of pension liabilities. All dependent variables except employment are
+expressed as a fraction of total assets. Employment is measured as the natural log of millions of
+employees.
+
+in employment. For the 90% threshold, we also find significant responses of
+equity issuance and working capital investment. As in the case of the point of
+zero underfunding, the responses of firm policies are larger in magnitude than
+the responses of mandatory contributions. Interestingly, we find no responses
+of any variables except mandatory contributions when we interact the 90%
+funding dummy with a dummy that equals one if the year is before 1995. This
+type of placebo test is an important part of any study that uses threshold events
+to identify causal effects.
+
+Finally, Figure 7 contains analogous results corresponding to the 80% fund-
+ing point. As in the case of the 90% threshold, we interact the threshold dummy
+with a post-1995 dummy. In this case, we find no responses of real variables.
+Only cash, receivables, and working capital investment produce significant
+
+
+
+A Study of Cash Shortfalls 1109
+
+effects. Our pre-1995 placebo tests yield no significant responses. We take these
+results with a grain of salt, however, given that there are very few observations
+near the 80% funding point.
+
+VI. Conclusion
+This paper seeks to understand how firms react to quasi-exogenous threshold
+
+events in which something happens when an observable continuous variable
+passes a threshold. It also seeks to clarify how to use threshold events to ob-
+tain identification of causal effects in corporate finance applications. We frame
+our discussion around the evidence in Rauh (2006) that firms cut investment
+sharply in response to mandatory contributions to their pension funds. This
+example is particularly instructive because of the rich institutional detail char-
+acterizing pension funding.
+
+From examining our entire sample of firms with DB pension plans, we find
+that, although we can replicate the result of a strong negative correlation
+between mandatory contributions and investment, we also find that this corre-
+lation stems from firm-year observations in which pension plans are seriously
+underfunded. Further, these observations constitute a small fraction of the to-
+tal sample, and they are systematically different from the rest of the sample in
+terms of several observable characteristics.
+
+We also use local linear regression techniques from the RDD literature to
+ascertain whether discontinuities in the function relating mandatory contri-
+butions to pension funding can be used to isolate causal effects. Here, we find
+robust evidence of causal effects on both accounts receivable management and
+hiring. We also find less robust effects on other components of working capital
+and on R&D. The interesting economic takeaway from all of these results is
+that the link between real economic activity and finance likely extends beyond
+the heavily studied link between finance and investment. Other real decisions,
+especially employment decisions, are likely to be just as important. This ev-
+idence is supported by the result in Campello, Graham, and Harvey (2010)
+that firms planned to cut employment and other variables during the financial
+crisis.
+
+What econometric takeaways have we gleaned from examining pension fund-
+ing? This setting is ideal for understanding how to use threshold events to
+identify causal effects because it is not an exact application of RDD. It is there-
+fore possible to understand the extent to which the intuition from RDD can
+be extended to broader circumstances. We conclude that using the reasoning
+behind RDD loosely in a general regression setting can lead to misleading
+inferences. Although a threshold rule such as a pension violation can provide
+strong local identification of a causal effect, this identification is likely to dis-
+appear as one moves away from the threshold. The lesson we take away from
+this example is that researchers who use these types of analogies to RDD need
+to examine their data carefully to determine exactly where their identification
+comes from. If this identifying data variation is isolated, as is the case here, it
+is important to determine whether this part of the sample is different from the
+
+
+
+1110 The Journal of Finance©R
+
+rest of the sample. Otherwise, the strong internal validity one can obtain from
+examining threshold events has little if any broader external validity. A greater
+concern is that the results obtained from any discontinuities may actually be
+the direct product of any differences between those observations affected by
+the discontinuity and those not affected. In the current case, this concern is
+real inasmuch as the differences are strongly related to indicators of financial
+constraints.
+
+Finally, we illustrate how to use RDD around points of discontinuity. We
+emphasize understanding firm incentives to locate either near or far from any
+discontinuities. We also emphasize checking relative magnitudes of responses
+to causal events and using placebo tests to validate any findings. These checks
+are essential to help rule out the possibility of concurrent unobserved events
+around the discontinuity points.
+
+In conclusion, threshold events occur frequently in corporate finance because
+of the rich accounting and regulatory framework in the field. We therefore
+suspect that their use in formulating identification strategies is likely to grow,
+and we hope that this study provides a useful template for studying threshold
+events.
+
+Appendix
+Our data for our pension application come from the 2007 Compustat in-
+
+dustrial files. We define book assets as item 6, cash as item 1, inventories
+as item 3, working capital as item 4 minus item 5, capital expenditures as
+item 128, dividends as the sum of items 19 and 21, long-term debt as item
+9, short-term debt as item 34 plus item 44, the number of common shares as
+item 25, the share price as item 199, balance sheet deferred taxes as item
+74, equity issuance as item 108, employment as item 29, the book value
+of common equity as item 60, and share repurchases as item 115. As in
+Rauh (2006), we define nonpension cash flow as the sum of items 14, 18,
+and 43, and cash flow as nonpension cash flow minus total pension contri-
+butions from IRS form 5500. The numerator of the market-to-book ratio is
+book assets minus the book value of common equity minus deferred taxes
+plus the product of the share price and the number of shares outstand-
+ing. The denominator is total book assets. A bond rating is the S&P long-
+term domestic issuer credit rating (S(PDRC). Altman’s Z-score is defined as
+1.2 ((item 4 − item 5) /item 6) + ) ( )
+
+1.4 item 36/item 6 (+ 3.3 item 13/item 6 +
+0.6 ((item 25 × item 199) / (item 9 + item 34)) + )
+
+0.999 item 12/ item 6 .
+
+REFERENCES
+Babenko, Ilona, Michael Lemmon, and Yuri Tserlukevich, 2011, Employee stock options and in-
+
+vestment, Journal of Finance 66, 981–1009.
+Bertrand, Marianne, Esther Duflo, and Sendhil Mullainathan, 2004, How much should we trust
+
+differences-in-differences estimates?, Quarterly Journal of Economics 119, 249–275.
+Beshears, John, 2010, The performance of corporate alliances: Evidence from oil and gas drilling
+
+in the Gulf of Mexico, Working paper, Harvard University.
+
+
+
+A Study of Cash Shortfalls 1111
+
+Campello, Murillo, John R. Graham, and Campbell Harvey, 2010, The real effects of financial
+constraints: Evidence from a financial crisis, Journal of Financial Economics 97, 470–487.
+
+Chava, Sudheer, and Michael R. Roberts, 2008, How does financing impact investment? The role
+of debt covenants, Journal of Finance 63, 2085–2121.
+
+Cooper, Russell, and John Haltiwanger, 2006, On the nature of capital adjustment costs, Review
+of Economic Studies 73, 611–633.
+
+Cuñat, Vicente, Mireia Gine, and Maria Guadalupe, 2011, The vote is cast: The effect of corporate
+governance on shareholder value, Journal of Finance (forthcoming).
+
+Erickson, Timothy, and Toni M. Whited, 2000, Measurement error and the relationship between
+investment and q, Journal of Political Economy 108, 1027–1057.
+
+Fazzari, Steven, R. Glenn Hubbard, and Bruce Petersen, 1988, Financing constraints and corporate
+investment, Brookings Papers on Economic Activity 1, 144–195.
+
+Gao, Feng, Joanna Shuang Wu, and Jerold Zimmerman, 2009, Unintended consequences of grant-
+ing small firms exemptions from securities regulation: Evidence from the Sarbanes-Oxley Act,
+Journal of Accounting Research 47, 459–506.
+
+Hahn, Jinyong, Petra Todd, and W. Van der Klaauw, 2001, Identification and estimation of treat-
+ment effects with a regression discontinuity design, Econometrica 69, 201–209.
+
+Heckman, James J., and Richard Robb, 1985, Alternative methods for evaluating the impact of
+interventions, in J. Heckman, and B. Singer, eds. Longitudinal Analysis of Labor Market Data
+(Cambridge University Press, Cambridge).
+
+Hennessy, Christopher A., and Toni M. Whited, 2007, How costly is external financing? Evidence
+from a structural estimation, Journal of Finance 62, 1705–1745.
+
+Hoxby, Caroline, 2000, The effect of class size on student achievement: New evidence from popu-
+lation variation, Quarterly Journal of Economics 115, 1239–1285.
+
+Imbens, Guido W., and Thomas Lemieux, 2008, Regression discontinuity designs: A guide to prac-
+tice, Journal of Econometrics 142, 615–635.
+
+Keyes, Benjamin J., Tanmoy Mukherjee, Amit Seru, and Vikrant Vig, 2010, Did securitization
+lead to lax screening? Evidence from subprime loans, Quarterly Journal of Economics 125,
+307–362.
+
+McCrary, Justin, 2008, Testing for manipulation of the running variable in the regression discon-
+tinuity design, Journal of Econometrics 142, 698–714.
+
+Munnell, Alicia, and Mauricio Soto, 2004, The outlook for pension contributions and profits, Journal
+of Pension Economics and Finance 3, 77–97.
+
+Petersen, Mitchell A., 2009, Estimating standard errors in finance panel data sets: Comparing
+approaches, Review of Financial Studies 22, 435–480.
+
+Rauh, Joshua, 2006, Investment and financing constraints: Evidence from the funding of corporate
+pension plans, Journal of Finance 61, 33–71.
+
+Stein, Jeremy, 2003, Agency, information and corporate investment, in G.M. Constantinides,
+M. Harris, and R. Stulz, eds. Handbook of the Economics of Finance (Elsevier Science,
+Amsterdam).
+
+Thistlethwaite, Donald, and Donald Campbell, 1960, Regression-discontinuity analysis: An alter-
+native to the ex post facto experiment, Journal of Educational Psychology 51, 309–317.
+
+Van der Klaauw, Wilbert, 2002, Estimating the effect of financial aid offers on college enrollment:
+A regression-discontinuity approach, International Economic Review 43, 1249–1287.

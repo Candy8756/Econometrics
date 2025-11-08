@@ -1,0 +1,1592 @@
+﻿Research Policy 46 (2017) 1142–1161
+
+Contents lists available at ScienceDirect
+
+Research Policy
+journal homepage: www.elsevier.com/locate/respol
+
+Firm performance and state innovation funding: Evidence from China’s T
+Innofund program☆
+
+Yanbo Wanga, Jizhen Lib, Jeffrey L. Furmanc,⁎
+a NUS Business School, Singapore
+b Tsinghua University School of Economics &Management, China
+c Boston University & NBER, USA
+
+A R T I C L E I N F O A B S T R A C T
+
+Keywords: Can firms leverage public entrepreneurship investments to improve innovation and financial performance?
+Innovation policy Analysis of this question is frustrated by the difficulty of distinguishing treatment from selection effects. We take
+R &D subsidies advantage of internal administrative data on applications to China’s Innofund program in order (a) to identify
+Entrepreneurial finance which application features are associated with higher chances of obtaining grants and (b) to evaluate the causal
+Regression discontinuity impact of receiving a grant on firm performance using a regression discontinuity (RD) design. With regards to
+Political connections
+Bureaucratic intervention grant receipt, we find that firms possessing observable merits and political connections are more likely to receive
+China Innofund grants. We also find evidence of bureaucratic intervention, as applicants’ evaluation scores are non-
+
+randomly missing and that some firms whose scores did not meet funding standards nonetheless received grants.
+With regards to post-grant performance, we find that firms receiving high project evaluation scores and Innofund
+grants perform better than those that do not receive grants and have lower scores. These do not appear to be
+causal effects, however. Applying Fuzzy RD methods, we find no evidence that receiving an Innofund grant
+boosts survival, patenting, or venture funding. Our analysis demonstrates the value of administrative data for
+causal analysis and for uncovering evidence regarding the possibility that bureaucratic intervention affects firm
+and program outcomes.
+
+1. Introduction firms (Lerner, 2009; Hall and Lerner, 2010; OECD, 2013, 2014). While
+studies of subsidy programs have proliferated along with the programs
+
+A central challenge faced by innovation-oriented, entrepreneurial themselves, there are still several important knowledge gaps in this
+ventures is the difficulty of obtaining financial resources to invest in literature. One is that we know relatively little about the functioning
+their experimental technologies and business efforts (Hall and Lerner, and effectiveness of R & D subsidies in developing economies, where the
+2010). This challenge is particularly severe in emerging economies (De challenges to effective administration are often substantial (Özcelik and
+Soto, 2000). While American and European entrepreneurs can often Taymaz, 2008; Czarnitzki and Lopes Bento, 2010). Second, less is
+seek funding from angel investors or venture capital (VC) firms, capital known about the features of applicant firms that correlate to winning
+markets for speculative, early-stage enterprises are often underdeve- such grants and among winners, which firms benefit most (Klette et al.,
+loped in the less developed world (White et al., 2005; Cumming and 2000). Third, our confidence that we understand the causal relationship
+Johan, 2013; Taussig and Delios, 2015; Wang, 2016). Emulating between subsidy receipt and firm performance remains relatively low
+innovation-oriented economies, an increasing number of countries have (Zhao and Ziedonis, 2014; Howell, 2014). This study addresses each of
+been adopting local or national policy interventions to overcome such these areas by leveraging internal administrative data in the context of
+market failures by providing direct financial support to entrepreneurial an innovation subsidy program in China, the Innofund.
+
+☆We thank Lisa Bassett, Kelly Chen, Matthew D’Amico, Jingyi Guo, Qing Jiang, Xiang Li, Jie Lin, Ziyi Meng, Qingtao Wang, Ye Wang, Yueheng Wang, Christin Wistof, and Kevin Yin
+for excellent research assistance; Pierre Azoulay, Mercedes Delgado, Caroline Flammer, Matt Gungeon, Peter Hull, Megan MacGarvie, Scott Stern, Bo Zhao and Rosemarie Ziedonis for
+substantive discussions of the analysis; and Brian Jacob and Lars Lefgren for sharing code relevant to the estimation. We also thank our editor, Keld Laursen, and two anonymous referees
+for their substantial contributions. We are grateful for funding from Boston University’s Questrom School of Business and National Natural Science Foundation of China (No. 71273152
+and 71573148) and the constructive feedback of seminar participants at Boston University, George Washington University, KU Leuven, London Business School, MIT-Sloan, National
+University of Singapore, Peking University, Shangai Jiaotong University, Shanghai University of Science and Technology, SKK Graduate School of Business, Stanford University, UIBE,
+University of Hong Kong, and the Academy of Management and AIEA-NBER Conferences.
+
+⁎ Corresponding author.
+E-mail addresses: yanbo.wang@nus.edu.sg (Y. Wang), lijzh@sem.tsinghua.edu.cn (J. Li), furman@bu.edu (J.L. Furman).
+
+http://dx.doi.org/10.1016/j.respol.2017.05.001
+Received 7 May 2015; Received in revised form 3 May 2017; Accepted 3 May 2017
+Available online 23 May 2017
+0048-7333/ © 2017 Elsevier B.V. All rights reserved.
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Historically, studies investigating the relationship between innova- predicting firm-level outcomes as a function of public funding can
+tion subsidies and firm outcomes have focused on programs in the establish a correlation between grant receipt and firm performance.
+United States, Japan, and the leading innovator countries of Europe Such models, however, should not be interpreted as ascertaining
+(Zúñiga-Vicente et al., 2014; Dimos and Pugh, 2016). To the extent that whether grants cause the observed outcomes, as outcomes and awards
+studies address non-leading economy programs, these have examined are likely to be simultaneously determined or correlated with unob-
+programs in specific regions facing particular economic challenges, served factors.
+such as Flanders (Aerts and Schmidt, 2008; et al., 2013), Eastern In this paper, we investigate (a) which firm features, if any, are
+Germany (Almus and Czarnitzki, 2003), Hungary (Halpern and correlated with the ability to win innovation subsidy grants, (b)
+Muraközy, 2010), and Turkey (Özcelik and Taymaz, 2008). The whether administrative data can provide indicators of administrative
+increasing popularity of such programs in emerging economies suggests malfeasance in the award of innovation subsidies, and (c) whether firms
+that these contexts deserve attention as well and we join Guo et al. that receive innovation subsidies achieve greater performance as a
+(2016) in examining the Innofund in China. Existing research on result of winning these grants. We are able to do this, because we have
+subsidy programs in emerging economies emphasizes empirical analysis obtained access to internal administrative data from China’s Innovation
+rather than a theoretical structure for predicting differences in program Fund (Innofund) program. These data include original application
+design, administration, or effects. A few clear differences exist between documents and, most significantly, evaluation scores for each project
+the emerging and leader innovator countries that may affect such application in the Zhongguancun (ZGC) region of Beijing. These scores
+programs. The most salient observation is that state capacity is weaker enable us (a) to compare the features of applicants that won grants with
+in an emerging economy context. This can have an impact in a number those of applicants that did not, (b) to check whether administrators are
+of ways. First, corruption in developing countries is typically wide- following official procedures and evaluator recommendations in award-
+spread, which usually has an adverse effect on government programs of ing grants, and (c) to apply a regression discontinuity (RD) design to
+all kinds, including innovation subsidy programs (Ades and Di Tella, identify the causal impact of grant receipt on firm outcomes. This RD
+1997; Hellman et al., 2003). Second, even if they are free of corruption, analysis enables us to identify Local Area Treatment Effects (LATE)
+state agencies in such environments may face great pressures to “pick around the regression discontinuity threshold (Hahn et al., 2001;
+winners,” i.e., to fund firms that would have been likely to succeed even Imbens and Lemieux, 2008). As firm performance is multidimensional
+in the absence of subsidies, thus ‘wasting’ government funding and a public funding program might affect some dimensions but not
+(Wallsten, 2000; Radicic et al., 2015). Third, the information asymme- others, we examine a battery of performance outcomes, including firm
+try featured in venture financing is particularly salient when the survival, patenting, and receipt of equity investment. After having
+investment is carried out by state bureaucrats. In contrast to profes- evaluated a number of detailed sources of firm-level data, we choose to
+sional investors, these bureaucrats possess limited technological and focus on only these firm outcomes because each can be externally-
+business expertise to judge venture quality (Lerner, 2009). Further- verified and is therefore not likely to be subject to data manipulation.
+more, market concerns may also play a role in the effectiveness of In our analyses of selection, we find that firms with observable
+subsidy programs in emerging economies. Public financing, even if merits in innovation and financial capabilities are associated with
+administered professionally, may be insufficient to promote firm higher scores and a higher likelihood to receive Innofund awards. This
+innovation in countries where complementary institutional support is consistent with expectations for one element of a well-functioning
+for innovation, such as private venture funding or mentorship, is weak subsidy program, which is by no means guaranteed in emerging
+(Nelson, 1993; Martin and Scott, 2000; Gans et al., 2008). economies. That being said, we also find indicators of bureaucratic
+
+In contrast to the limited work on subsidy programs in emerging intervention that contradicts stated policy guidelines. First, we find that
+economies, the literature on subsidy programs in the developed world is firms with political connections are more likely to receive state funding,
+wide-ranging. The United States’ Small Business Innovation Research though not higher scores. Second, we find a small group of firms (a)
+and Advanced Technology Programs have received substantial atten- with scores below the funding threshold that received state funding and
+tion (Lerner, 1999; Wallsten, 2000; Feldman and Kelley, 2003), as have (b) with scores above the threshold whose funding application was
+the Framework and other programs of the European Union (Bayona- rejected. In addition, we identified 111 observations with missing
+Sáez and García-Marco, 2010; Czarnitzki and Lopes Bento, 2013; evaluation scores, despite other information indicating that their
+Czarnitzki and Lopes Bento, 2014) and specific programs in Belgium applications were reviewed by external experts and adjudicated by
+(Meuleman and Maeseneire, 2012), Israel (Lach, 2002), Finland (Takalo the Innofund. We do not know if the missing scores were the result of
+et al., 2013), and other countries. The range of these studies is broad administrative negligence or deliberate actions, but we find that firms
+and the results they find are mixed. Some studies find that subsidy with missing scores are more likely to receive the Innofund grant and
+recipients invest more substantially in innovation, achieve higher that among firms with missing scores, political connection is positively
+innovative productivity, obtain future financing more easily, and are associated with funding. In combination, these patterns are consistent
+more likely to improve their financial performance than control sample with the possibility that missing scores are not randomly generated.
+firms (e.g., Lerner, 1999; Gonzales et al., 2005; Zhao and Ziedonis, Our analyses of the impact of grants on firm performance demon-
+2014; Czarnitzki and Lopes Bento, 2014; Howell, 2014). Others, strate the value of utilizing administrative data. In naïve regressions
+however, conclude that government innovation grants do not appreci- that do not leverage information on project scores, we find that, despite
+ably improve firm outcomes (e.g., Klette and Møen, 1999; Wallsten, indicators of bureaucratic abuse of power, firms that received Innofund
+2000; Duguet, 2004; Gorg and Strobl, 2007; De Blasio et al., 2015). grants during 2005–2007, the years during which the program was
+Antecedent results vary both because government programs differ in overseen more carefully, are more likely to survive through our sample
+their details and regional contexts and because studies employ differing period, to file patents, and to receive equity investments from State- and
+methodologies. Community-Owned enterprises than those that did not receive grants. If
+
+Research designs that involve assessing firm implications from it were to obtain in the causal analyses, the lattermost finding would be
+policy interventions face substantial methodological challenges consistent with prior evidence of a ‘certification effect,’ by which
+(David et al., 2000; Feldman and Kelley, 2003). Public funding innovation subsidy receipt leads to follow-on funding (e.g., Toole and
+programs naturally do not randomly assign awards to applicant firms, Turvey, 2009; Howell, 2014). In the absence of administrative data, we
+so it is difficult to disentangle whether observed outcomes arise because can only establish a correlation between firm outcomes and grant
+firms with higher quality projects win awards, i.e., selection effects, or receipt. Employing a Fuzzy Regression Discontinuity design, we are
+because the awards have a positive impact on the firms that receive able to ascertain the causal impact of grant receipt on firm outcomes.
+them, i.e., treatment effects (Klette et al., 2000). Running regressions These analyses leverage information from the Innofund administrative
+
+1143
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+data regarding application ratings (i.e., project scores) and grant cannot be used for collateral, with the exception of R & D effectively
+receipts. Specifically, by instrumenting for grant receipt based on secured by IP rights (Hsu and Ziedonis, 2013). As a result, capital
+whether firm projects received rankings that were above the stated markets for venture funding are not likely to be optimally efficient.
+funding threshold and weighing observations based on their closeness A range of policy levers can be used to overcome these market
+to the funding threshold, we can draw conclusions about whether grant failures, including intellectual property policies, government-conducted
+receipt induces a ‘jump’ (discontinuity) in firm outcomes around the R &D, direct and indirect subsidies for R & D (e.g. Nishimura and
+funding threshold, i.e., whether winning the grant causes changes in Okamuro, 2011; Cappelen et al., 2012; Yang et al., 2012), public-
+firm outcomes or whether it is merely correlated with them. private partnerships (e.g. Audretsch et al., 2002), public matching
+
+These analyses lead us to draw more modest conclusions than would grants that build on private investment (e.g., Lanahan, 2016), local
+the raw data. Specifically, we find no evidence of a causal relationship programs that supplement federal program (e.g., Lanahan and Feldman,
+between grant receipt and new equity investment from State- and 2015), translational research efforts to commercialize basic insights,
+Community-Owned Enterprises among “just funded” applicants, the and cluster policies (e.g. Klette et al., 2000; Hyytinen and Toivanen,
+2005–2007 applicants included. Taken together, these analyses suggest 2005; Tödtling and Trippl, 2005; Dodgson et al., 2011; Nishimura and
+that the Innofund is able to identify firms whose projects seem more Okamuro, 2011). Most advanced industrial countries, particularly those
+promising but receiving the program grant has, at most, a limited causal in the OECD, have engaged in at least some of these policy interventions
+impact on firm performance.1 (OECD, 2013).
+
+A number of features enable this study to make novel contributions Direct subsidy programs are among the most widely used and
+to our understanding of the relationship between firm performance and extensively studied of these policy interventions. Economic models of
+innovation policy. First, we are able to exploit rich, internal data from subsidies suggest that it would be socially optimal for funding to flow to
+the Innofund, China’s largest innovation subsidy program for early- projects that offer high degrees of social returns, so that firms with
+stage technology-based firms. Second, these data enable us to provide more broad-based and basic technologies should be more likely to
+initial evidence regarding the selection and treatment effects associated receive grants (Stiglitz and Wallsten, 1999). Stated differently, social
+with innovation subsidy in an emerging market context. Third, we join planner should consider three issues when providing direct subsidies,
+Zhao and Ziedonis (2014), Howell (2014), and Bronzini and Piselli including the subsidy’s potential (a) to induce innovation that would
+(2016) in making a methodological contribution by using regression otherwise not have been produced, (b) to generate knowledge spillovers
+discontinuity design to evaluate the impact of innovation policy (Stiglitz and Wallsten, 1999), and (c) to certify firm quality to attract
+intervention on firm performance. Further, while the prior authors additional outside investment (Lerner, 1999; Tool and Turvey, 2009).
+employ Sharp RD analysis, we acknowledge imperfect compliance in Some programs are set up with these aims in mind, while others,
+the program (not all firms above the funding threshold get grants and including the often-studied Small Business Innovation Research (SBIR)
+some firms below the funding threshold do) and our study is the first Program, contain a mix of goals (Lerner, 1999). Even among programs
+innovation subsidy study of which we are aware that applies Fuzzy RD set up with the social planner’s goals in mind, a number of factors could
+analysis to investigate the causal impact of funding on firm outcomes. impede their realization. One pitfall could simply be that it is difficult to
+Fourth, our study is the first within the innovation subsidy literature to judge which applications are worthy of support. The evaluation of
+open up the black box of grant allocation and shed lights on the technological and business potential is, indeed, a difficult challenge. A
+potential role of bureaucratic intervention in the process. While past second pitfall is that subsidies may end up being allocated to firms
+studies have looked at the role of information asymmetry and bureau- whose projects were highly likely to succeed anyway. Funding such
+cratic incompetence (e.g. Lerner, 2009), none has investigated how projects may result in high-profile successes for the funding agency, but
+corruption, a prominent institutional feature in the developing world, is not socially optimal, as it does not induce success that would not
+distorts grant allocation. otherwise have been achieved and may crowd out other investment that
+
+could have taken place. This “picking winners” approach wastes public
+2. Firm performance & innovation subsidies: background and funding not by investing in firms that would fail, but by granting funds
+antecedent evidence to firms that would have succeeded in any case (Wallsten, 2000).
+
+There are a number of reasons to be particularly skeptical about the
+2.1. Background – innovation subsidy programs in leading innovator and ability of subsidy programs to have a positive impact on innovation in
+emerging economies emerging economies. First, state capacity is weaker in the emerging
+
+economy context and corruption is typically more widespread (Hellman
+Two well-understood market failures are invoked in arguments et al., 2003). Politicians and state officials may use public funding
+
+supporting government intervention to support R & D for technology- programs to advance their private interests or those of their friends,
+oriented new ventures. The first is the public goods problem associated families, or contacts (Johnson and Mitton, 2003Malesky and Taussig,
+with R &D investment: Because knowledge spillovers to potential 2009). In some cases, the diversion of public expenditure for private
+competitors prevent organizations that invest in R &D from reaping gain can be extreme; scholars have documented cases in which as much
+the full returns associated with their investments, private incentives for as 87 percent of intended public investment has been diverted by state
+innovation fall short of socially optimal levels (Bush, 1945; Nelson, officials for private gain (Reinikka and Svensson, 2004). Second, the
+1959; Arrow, 1962). The second is the information asymmetry between information asymmetry that frustrates venture financing is particularly
+inventors and their potential financiers (Arrow, 1962). Investors cannot salient in countries where the investment is carried out by government
+anticipate the value of early-stage technologies with confidence, bureaucrats with limited technological and business expertise (Lerner,
+particularly when the prospects for success are highly uncertain, time 2009). Entrepreneurs could be highly motivated to misrepresent their
+horizons are long, and multiple stages of investment are needed (Hall information during grant application in countries featured with weak
+and Lerner, 2010). This problem is exacerbated by the fact that R & D legal institutions (Stuart and Wang, 2016). Third, public financing,
+
+even if administered professionally, may be insufficient to promote firm
+innovation in countries with underdeveloped innovation ecosystem
+
+1 These results differ from Guo et al. (2016), who find that Innofund recipients (Nelson, 1993; Martin and Scott, 2000; Gans et al., 2008). For example,
+outperform a sample of carefully, matched control firms. We employ a slightly different capital infusion may not improve firm performance or innovative
+sample of firms from Guo et al. (2016), i.e., firms in the ZGC area of Beijing vs. firms from
+around China, but the biggest difference in our studies is our ability to identify both outcomes in the absence of institutions that protect intellectual
+funded and unfunded applicants and to measure heterogeneity in project quality, based property, promote information exchange, and facilitate cross-organiza-
+on project application scores. tional collaboration (McDermott et al., 2009).
+
+1144
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+There are also reasons to be optimistic about the prospect of in Michigan on recipient firms’ survival, innovative productivity, and
+government subsidy policies being effective in emerging economies follow-on financing. Howell (2014) investigates the impact of the U.S.
+where innovation-oriented ventures are often financially constrained. Department of Energy’s SBIR Program on innovation and follow-on
+In cases in which financial markets are less-than-perfect in allocating funding. We expand on these efforts by conducting the first RD analysis
+capital to the highest value investments, signals from informed, neutral of which we are aware of to ascertain the causal impact of subsidy
+arbiters may be of particularly high value (Zhao and Ziedonis, 2014). programs in a major developing economy, i.e., China, employing data
+Further, government review can reduce the potentially high fixed costs from the Innofund program. Given that China has been perceived as a
+of evaluating risky ventures, enabling private funders to allocate their success story of “developmental state” where the visible hand of the
+resources more effectively across potential investment targets (Lerner government plays a key role in industrial development and firm
+1999). This is particularly true if government funding resolves technical competitiveness (e.g. Appelbaum et al., 2011), an empirical study of
+uncertainties, e.g., through the completion of risky prototypes, that can its main innovation subsidy program could shed insights on the
+facilitate funding consideration by venture capitalists and other types of program’s operation and (lack of) success, thus helping nations learn
+equity backers (Toole and Turvey 2009). Providing partial solutions to whether and how to replicate such programs.
+these information and financing difficulties may, thus, have a particu-
+larly strong effect in the context of emerging economies. 3. Institutional context: innovation funding in China and the
+
+innofund
+2.2. Evidence to date & opportunities going forward
+
+3.1. Entrepreneurial finance in China
+A wide range of studies investigate whether innovation subsidies (a)
+
+crowd out or crowd in private investment (e.g. Wallsten, 2000; While the Chinese economy has grown substantially over the past
+González et al., 2005), (b) serve as signals to induce additional funding three decades, the country’s financial institutions are underdeveloped
+(e.g., Lerner, 1999; Feldman and Kelley, 2006; Toole and Turvey, and dominated by large state-owned banks that are reluctant to make
+2007), and (c) induce superior performance among recipient firms (e.g. loans to private firms (Huang, 2002).2 Early-stage technological
+Schneider and Veugelers, 2010; Zhao and Ziedonis, 2014). Despite the ventures in China are further constrained because the country’s venture
+volume of these studies, they have found substantial variation in effects capital (VC) industry is itself still in a formative stage (White et al.,
+and it is reasonable to interpret the body of the evidence as mixed. 2005). On paper, China has become the third largest VC market in the
+Although notable exceptions exist, findings for U.S. programs are world after the U.S. and the EU, but most of the Chinese VC firms focus
+generally less optimistic regarding the impact of subsidies on invest- on late-stage mature ventures rather than on early-stage startups.
+ment and output than are the findings for European programs (see, e.g. Ernst & Young reports that “companies (receiving VC funding) in China
+Hall and Van Reenen, 2000; Zúñiga-Vicente et al., 2014; and Dimos and are typically more developed, further along in their life cycle and
+Pugh, 2016 for helpful reviews of the literature). The small number of positioned to exit within 18–24 months” (2014, p. 3). By contrast, the
+studies of subsidy programs in emerging markets is optimistic about median time for a VC to exit a deal in the U.S. is 7.15 years.
+their effects, despite the concerns that we raise above. For example, As their needs are not met by the formal financial institutions,
+Özcelik and Taymaz (2008) conclude that subsidy receipt has a positive China’s private firms have used alternative and informal channels to
+impact on post-funding private R &D investment in Turkey and Guo fund their growth and daily activities. While hard to measure precisely,
+et al. (2016) conclude that the Innofund, which we study here, induces China’s informal financial sector has been estimated to comprise at least
+innovation output in China. a quarter of all financial transactions (Tsai, 2002). Further estimates
+
+Among the reasons for the lack of convergence across the set of suggest that, by the end of 2003, 740–830 billion yuan RMB were
+empirical studies is that the design and implementation of subsidy managed by illegal entities such as underground money houses,
+programs are heterogeneous across countries, industries, and time and informal banks, pawn brokers, and money lenders (Ayyagari et al.,
+that researchers use different methods and units of analysis (see, Klette 2010).
+et al., 2000). A particularly important source of variation lies in the The capital market difficulties faced by Chinese firms may have
+ability to estimate the counterfactual associated with subsidy receipt, particular implications for innovation-oriented entrepreneurship. Prior
+i.e., what would have happened to recipient firms in the absence of research shows that firms operating in environments with under-
+funding (Jaffe, 2002, 2013). Since programs do not use random developed financial institutions are less likely to engage in innovation
+assignment to allocate grants, it is very difficult to isolate selection because (a) financial constraints make other activities such as produc-
+effects, i.e., which firms win subsidies, from treatment effects, i.e., the tion and the purchase of new machines more expensive and (b)
+impact of the subsidy on firms that receive it. Research has used several innovation requires long-term investment with uncertain returns that
+approaches to overcome this problem, including identifying potential are hard to evaluate for less-qualified loan professionals. For example,
+applicants via observable features (Lerner, 1999; Guo et al., 2016), based on a study of 14,400 firms in 27 transition economies,
+estimating two-step selection models (Cappelen et al., 2012), compar- Gorodnichenko and Schnitzer (2013) find that firms operating in
+ing to a sample of applicants who did not receive grants (e.g., countries with more severe financial constraints are less likely engage
+Meuleman and De Maeseneire, 2012), and using structural approaches in innovation and that the detrimental effect is greatest in countries
+(Takalo et al., 2013). One of the implications of the lack of cohesion with high costs of external finance and among small and young firms.
+among empirical findings is that limited theory exists to explain what The authors argue that transition and emerging market economies
+types of effects we would anticipate as a result of institutional contexts could benefit from emulating policies, like the U.S. SBIR program, that
+or program features. Another implication is that it is particularly support innovation-oriented investment among firms most sensitive to
+important to be cautious in attempting to generalize from innovation financial frictions. In the context of China, Zhu et al., 2012 survey found
+subsidy studies, including ours. that more than 60 percent of small and medium-sized private enter-
+
+Greater convergence in research design and conclusions may help
+remedy this issue. Recently, a number of researchers have obtained
+administrative data that enable them to ascertain the ratings received 2 For instance, by 2001, even though the private sector accounted for more than 50
+
+by applicant firms and use these ratings in a regression discontinuity percent of China’s economy, it accounted for just 7 percent of state bank lending (Firth
+et al., 2009). Furthermore, private firms in China were estimated to pay twice what state-
+
+framework to isolate, at the firm level, the effects of selection into owned enterprises (SOEs) paid for external financing. Even though the total financial and
+funding from the effects of funding. For instance, Zhao and Ziedonis interest expenses have declined on average for SOEs during the period of 1997–2006,
+(2014) use this approach to estimate the impact of subsidies programs they remained basically unchanged for private firms (Hale and Long, 2011).
+
+1145
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+prises cite financial constraints as one of the most severe barriers for evaluators from the private industry, it has had more success attracting
+their innovation activities. Using a panel of 120,753 manufacturing them from public sector institutions, such as state universities and
+firms over the period 2000–2007, Guariglia and Liu (2014) find that research centers. The Innofund requires that each application be
+Chinese firms’ innovation activities are negatively affected by their reviewed by at least four technical experts and one financial expert.
+financing constraints. In particular, private firms suffer the most, Each technical expert evaluates the project independently and assigns
+followed by foreign firms, while state-owned enterprises (SOEs) are an initial score, after which all the technical experts discuss the project
+the least financially constrained. together and assign a single final technical score. The same procedure is
+
+The Chinese government acknowledges these financial constraints followed by projects to which more than one financial expert has been
+and has implemented policies to alleviate them (OECD, 2008), for assigned. The Innofund integrates the final financial and technical
+example, by establishing funding programs such as the Torch Program, scores and generates the project’s comprehensive or “total” score. The
+the 863 Program, and the 973 Program.3 Some international observers MOST Administration Center of the Innovation Fund coordinates the
+consider that China is “at an early stage in the most ambitious program national version of this evaluation process. Before applications reach
+of research investment since John F. Kennedy embarked on the moon the MOST Administration Center, they are first subject to a parallel
+race” (Wilson and Keeley, 2007). Taken together, these programs spent regional process, in which local ratings are computed and projects are
+more than 27 billion yuan RMB ($4.34 billion) in 2012, about twice screened for national review. The local scores are not used in the
+what was spent on the SBIR program that year. computation of the national financial and technical scores, but they are
+
+included, along with the national financial and technical scores, in the
+undisclosed formula by which national total scores are computed.
+
+3.2. The innofund
+The Innofund ranks the applicants by total score and funds projects
+
+in rank order until its annual budget runs out. There are, however, two
+Initiated by China’s State Council in 1999 as part of the Torch
+
+exceptions to this procedure. First, the Innofund reserves the right to
+Program, the Innovation Fund for Technology-Based Small and
+
+veto its outside experts’ decision to fund a firm if it learns that the firm
+Medium-Size Firms (the Innofund) is China’s premier program targeting
+
+has fabricated information in its application, that its technology is
+early-stage technological ventures. The Innofund is administrated by
+
+under IP dispute, or that its product or production process may cause
+the Ministry of Science and Technology (MOST), though it is funded by
+
+serious environmental damage. Second, a firm with a financial score
+the Ministry of Finance (MOF). The 863 and 973 Programs, which
+
+below 60 (out of 100) is automatically disqualified, regardless of its
+target large established (state-owned) enterprises and state research
+
+technical or total scores. A firm with a financial score between 60 and
+institutions, are older and larger than the Innofund. The Innofund,
+
+65 is eligible only if its financial difficulty is judged to be temporary and
+however, constitutes the largest source of state-supported R &D in-
+
+caused by large R &D expenditures. This is consistent with the
+novation financing for young, entrepreneurial ventures in China.
+
+Innofund’s effort to avoid financially-stressed firms. Because its budget
+As a government program that aims to overcome market failures
+
+is determined by the Ministry of Finance and is independent of project
+through public financing of early-stage innovation ideas that are
+
+evaluation, the evaluators do not know the cutoff in advance. As a
+promising but too risky for private investors, the Innofund has some
+
+result, it should be hard for the evaluators or Innofund officials to game
+features in common with the U.S. SBIR program, but it differs in
+
+scores around the funding threshold, although the discretion enabled by
+important ways. The SBIR program is a federal program coordinated by
+
+the exceptions described above does provide the opportunity for
+the Small Business Administration but administered by separate federal
+
+officials to apply administrative discretion over grants and, potentially,
+agencies, some of which, such as the Department of Defense, use SBIR
+
+to engage in manipulation of outcomes.
+funds to achieve aspects of their missions. The Innofund, however, is
+
+The Innofund has been the main innovation subsidy program for
+administrated by a single government entity, the MOST Administration
+
+China’s small and medium-sized technology firms since its founding in
+Center of the Innovation Fund, and is not committed to any particular
+
+1999. By 2012, it had financed 39,823 projects and invested 26.39
+mission championed by individual government agencies. It is com-
+
+billion yuan RMB. Funds may be provided as equity-free grants, loan
+mitted to favor six broad industrial areas: electronics and information
+
+interest subsidies, or very occasionally as equity investments.
+technology; biomedicine and pharmaceuticals; new materials; optics,
+
+Recipients typically receive 0.5–1.0 million yuan RMB (approximately
+machinery, and electric integration; environmental conservation; and
+
+$80,500–$161,000 in March 2015) from the MOST, plus a matched
+new energy and energy efficiency.
+
+grant, equal to 50–100 percent of the Innofund award, from the local
+Like the SBIR program, the Innofund defines “small and medium-
+
+government. For early-stage technology ventures in China, this is a
+sized firms” as for-profit businesses that have fewer than 500 employees
+
+substantial grant, particularly when it comes without equity dilution.
+and of which at least 50 percent of the equity shares are owned by one
+
+Table 1 provides basic descriptive information on the Innofund’s
+or more people who are current or former citizens (of the U.S. or of the
+
+annual budget, yearly number of applications, awardee percentages,
+People’s Republic of China, respectively). Unlike the SBIR, however, the
+
+and the average funding size per winning proposal during the period of
+Innofund’s grant application includes explicit guidelines on qualifica-
+
+1999–2012. One salient pattern in Table 1 is the dramatic increase in
+tion, especially regarding R &D capabilities. An applicant’s R & D
+
+the Innofund’s budget beginning in 2007, reflecting a switch in the
+expenditure must be at least 5 percent of its annual revenue and at
+
+Chinese government’s mindset regarding the role of domestic innova-
+least 30 percent of the firm’s employees must have a college degree or
+
+tion. In the 1990s, the Chinese government perceived foreign direct
+higher.
+
+investment and international trade as the main sources of technological
+An overview of the Innofund granting process appears in Fig. 1.
+
+upgrading (Huang, 2002). In 2006, the government unveiled a national
+Similar to the U.S. SBIR program, China’s Innofund relies on external
+
+technological plan with the dual goals of decreasing reliance on foreign
+experts rather than internal staffs to evaluate grant applications.
+
+technology and developing indigenous technologies (Gao, 2013). This
+Although the Innofund has made substantial efforts to recruit expert
+
+policy was officially adopted in late 2007.
+Even though the Innofund has been the largest state-funding
+
+3 The Torch Program, established in 1988, was designed to develop high-tech firms in program to support early-stage technology ventures in China, efforts
+China by providing support for science and technology industry parks and technology to quantify its effects are nascent (for an exception, see Guo et al.,
+business incubators and later the Innofund. The 863 Program (or State High Technology 2016). Casual observations often associate the Innofund with success.
+R & D Program) was established in March 1986 principally to provide R &D grants to
+domestic firms, although it also supports science and engineering education and training. For example, of the first 28 firms listed on China’s Growth Enterprise
+The 973 Program, established in 1997 as a complement to the 863 and Torch Programs,
+provides funding to firms and universities engaging in basic research.
+
+1146
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Fig. 1. Innofund project review and funding process.
+
+Board in 2009, 24 had received Innofund grants.4 Furthermore, around Table 1
+one-third of the firms listed on China’s Small and Medium Board were Innofund program overview: Budget, applications, awards, and grant sizes, 1999–2012.
+
+Innofund awardees.5 According to the Innofund’s self-assessment, it had Source: Innofund, various years.
+
+created more than 450,000 jobs during its first 10 years. However, one Year Initial Number of Number Percent Planned Average
+has to keep in mind that as the Innofund generally selects the most budget applications of awarded total award
+promising high-tech ventures, and thus the “success” described above (¥100m) awards grant size per
+
+may well conflate selection effect and treatment effect. (¥100m) grant (¥
+1000)
+
+While the Innofund has funded some of the most promising
+technology ventures in China, there are also increasing doubts about 1999 10 3329 1089 32.71 8.16 749
+its capability to filter out low-quality firms. One report shows that 2000 5 4974 872 17.53 6.59 756
+between 1999 and 2008, the Innofund terminated funding to more than 2001 8 3682 1008 27.38 7.8 777
+
+1295 firms it deemed incapable of completing their proposed projects 2002 5 4215 780 18.51 5.4 693
+2003 5 4274 1197 28.01 6.64 555
+
+(Shen et al., 2013). Even though early-stage technology ventures 2004 5 4925 1464 29.73 8.27 565
+generally face high hazard rates, interviews suggest that many of the 2005 6 5406 1552 28.71 9.88 637
+terminated projects are “zombie projects” set up by shell companies 2006 7.5 6399 1905 29.77 8.43 443
+
+solely to snare state funding. Based on a rough estimation, these zombie 2007 11 (6582) (2113) (32.1) (12.56) (594)
+2008 14 6765 2470 36.51 14.62 592
+
+projects reaped at least 2 billion yuan RMB in state funding between 2009 28 10343 5855 56.61 34.84 595
+1999 and 2012 (Shen et al., 2013). 2010 35 11517 5544 48.14 42.97 776
+
+Even among the non-shell companies, manipulation has been found 2011 37.7 9124 6545 71.73 46.4 709
+to be prevalent. One study estimates that more than half of the 2012 43.7 11968 7436 62.13 51.34 690
+
+Innofund applicants manipulated their financial data (Stuart and 99–12 220.9 (93503) (39823) (42.59) (263.9) (663)
+
+Wang, 2016). Arguably the most scandalous example of fraudulent 99–12 in $US $3.20b $3.83b $96.1k
+
+behavior among Innofund recipients occurred at Hanxin Microproces- (using
+2012
+
+sor. The firm’s founder, Jin Chen, rose to national prominence in 2003 exchange
+after he had reportedly invented one of the first digital signal processing rates)
+(DCS) computer chips in China, which had been a stated priority of the
+Chinese government (Barboza, 2006). Although Chen’s research labora- Notes: Data in parentheses are author estimates based on Innofund documents. Our
+
+tory at Shanghai Jiaotong University and his family of firms had sample includes data from the Zhongguancun (ZGC) Innofund Program from 2005 to
+2009. These years are highlighted in grey. Data in parentheses involve estimates. We use
+
+received more than 110 million yuan RMB in state grants, including 2012 exchange rates to convert renminbi to U.S. dollars. Exchange rates have varied
+3.21 million yuan RMB from the Innofund and local state agencies in somewhat over time, however. The yuan-to-dollar exchange rate rose from 0.12:1 in
+Shanghai, Chen and his team never actually had microprocessor design 2005–0.145:1 in mid-2008, after which it remained relatively stable until mid-2010, then
+capability (Zhang and Wo, 2006). In reality, the Hanxin chip that Chen rose relatively steadily to approximately 0.16:1 in mid-2012, around which it has
+claimed to have developed was a Motorola chip whose original remained relatively stable until January 2015. Variables computed across years (i.e.,
+
+identification had been sanded away by Chen’s employees, and the 1999-2012) are in italics.
+
+follow-on chip innovations never actually worked, but it appeared as if
+they had, since Chen had faked the data. Once these frauds were
+
+uncovered, Chen was fired from his academic posts and was perma-
+4 nently embargoed from government-funded research, but he has never
+The Growth Enterprise Board is a Nasdaq-style stock exchange in China.
+
+5 The Small and Medium Board has a higher entry bar than the Growth Enterprise faced criminal or civilian investigation, perhaps due to his powerful
+Board but a lower bar than the Main Board, which is the Chinese version of the New York political connections (Fuller and Douglas, 2016).
+Stock Exchange. While these examples suggest that information asymmetry and
+
+1147
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+bureaucratic incompetence could lead the Innofund to choose firms may result not from state funding alone but from the interplay between
+unworthy of funding, there are also reasons to speculate that bureau- public funding and complementary features of the local environment
+cratic intervention could take place in the grant allocation process. (McDermott et al., 2009). On the other hand, innovation subsidies may
+Even though China has experienced substantial economic growth over have a higher marginal impact in regions with a lower concentration of
+the past three decades, one unfortunate companion of such develop- innovation-oriented firms. In the context of the U.S., Zhao and Ziedonis
+ment has been the prevalence of corruption (Wademan, 2012). Even (2014) find that innovation subsidies in the state of Michigan particu-
+though the Innofund has designed the program so that the evaluation larly benefit firms that are distant from economic hubs. As we have only
+process is conducted by external experts, final decision-making on been able to obtain Innofund administrative data for the ZGC area, we
+grants are made by program officials, giving them substantial discre- cannot perform similar tests and must raise external validity as a
+tionary power in circumstances of limited transparency and external concern for our study.
+monitoring. The lack of external pressure could become particularly Our data include 1086 Innofund project applications from ZGC
+strong after China adopted “indigenous innovation” as “a core strategy firms less than eight years old and fewer than 500 employees for the
+for national development” in late 2007 at the 17th National Congress of years 2005–2010. Of these, 540 applications were awarded Innofund
+the Chinese Communist Party (China News, 2007). Prior to this policy, grants, while 546 were not. Table 2 presents descriptive statistics for
+the Ministry of Finance (MOF) and the Ministry of Science and the sample. We obtain information on most firm-level characteristics
+Technology (MOST) wrestled regularly regarding the annual budget from the Innofund application files. It is difficult, however, to verify the
+and the administrative leadership in grant allocation. The new policy authenticity of these data as firms have incentives to put a positive spin
+provided the MOST with both administrative control over the program on their application information (Stuart and Wang, 2016). The descrip-
+and security in its annual budget, consequentially reducing the tive statistics shows substantial (and statistically significant) differences
+incentives for the Innofund to work diligently in grant administration. between the Funded and Unfunded firms, with the Funded firms
+
+achieving higher marks on all measures reported to the Innofund and
+4. Data, sample, and context on all firm outcome measures. Even though finding these differences in
+
+the sub-samples does not indicate the causal impact of the program on
+The data we analyze derive from a number of sources. Most notably, firm outcomes. It is an indicator, however, that Innofund grantees are
+
+we utilize information obtained directly from the Innofund program, associated with higher performance on dimensions that are observable
+including grant applications and project ratings. We supplement this to the evaluators before the funding decision and observable to analysts
+with data on patent applications from China’s State Intellectual following grant receipt.
+Property Office (SIPO) and data on firm survival and ownership We attempt to avoid the pitfalls of reporting bias in evaluating the
+structure from the Beijing Administration of Industry and Commerce relationship between firm characteristics, grant receipt, and firm
+(BAIC). We use patent applications rather than grants because the SIPO performance by considering only performance data that are not
+patent review delay is sufficiently large (about three years on average reported by the firm itself and that can be independently verified. We
+and up to seven years in our sample) that using patent grant would draw data on firm survival and changes in ownership from the Beijing
+result in substantial censoring. Administration of Industry and Commerce (BAIC) and data on firm
+
+The use of internal Innofund data is one of the novel elements of this innovation from the Chinese State Intellectual Property Rights Office
+project. Historically, few studies on innovation subsidy have been able (SIPO)
+to take advantage of internal administrative documents to compare the The majority of our measures are relatively straightforward, but a
+evaluations of successful and unsuccessful applications (for exceptions, few deserve further explanation. Because raw project scores are not
+see Howell, 2014; Zhao and Ziedonis, 2014). We were able to obtain comparable across application years, we center Project Score at the
+such information for the subset of Innofund applications in the ZGC funding cut point for each year in our descriptive statistics and
+region of Beijing for the years 2005–2010. regression analysis throughout the paper. Specifically, Project
+
+Sometimes referred to as China’s Silicon Valley, ZGC is one of Scoreit = (Raw Project Score)it – (Funding Threshold Score)t, where i
+China’s leading industrial clusters and is most noted for its computer, indexes each project submitted for Innofund funding and t indexes each
+semiconductor, and telecommunications firms. Fig. 2 presents a map of program year. Thus, positive Project Scores indicate that evaluators
+the region of Beijing in which the ZGC Park was initially founded. The rated the project as above the threshold for funding, negative Project
+Chinese government identified ZGC as an official science and research Scores indicate the opposite, and Project Score equals zero for any
+area in the 1950s and has located an increasing number of science- and project whose score is exactly equivalent to that year’s funding thresh-
+technology-oriented institutions there. In the 1980s, the government old. Note that 111 projects do not have official Innofund scores,
+allowed a number of researchers to found new ventures not supported although their applications were reviewed and adjudicated by the
+by state funds. In 1988, the State Council approved ZGC Science Park, Innofund. We explore these anomalies in greater detail below.
+or the “Z-Park,” as the country’s first science and technology park. Since We have constructed two indicators of Political Connections based on
+that time, ZGC has expanded out of its original location and the name resumes of the key firm leaders that were submitted with each firm’s
+has come to refer to a broader geographic region in northwest Beijing, Innofund application, one based on the connections of the founder/CEO
+equivalent to a city district. By the end of 2009, the ZGC area included and another based on the connections of other top management team
+10 official technology parks, the headquarters of a number of highly members. Following Li and Zhang (2007) and Jia (2014), we code the
+visible Chinese firms (including Baidu and Lenovo), the Chinese first indicator variable (CEO Political Connection) as 1 if the firm’s key
+Academy of Sciences, China’s top two universities (Peking and Tsin- founder or chief executive officer (a) had previously worked in the
+ghua), and three of its top 10 engineering schools. By the end of 2014, Chinese government (including the army) or (b) had ever been a
+254 ZGC-headquartered firms had gone public (156 listed in China and member of the People’s Congress or the Chinese People’s Political
+98 listed overseas), with a total market capitalization of 3.1 trillion Consultative Conference. We code the second indicator variable (Other
+yuan RMB (Z-Park, 2015). Political Connection) as 1 if any other top management team (TMT)
+
+The fact that ZGC is a leading high-tech center in China raises members has similar career experiences as above. These are relatively
+questions about the extent to which data for this region generalizes to conservative measures of a firm’s political ties, because it ignores
+other parts of China. We consider this an open question. On the one connections among shareholders, families, and personal networks and
+hand, firms in this region benefit from a mobile talent market, relatively because firms are less likely to report their key founders' prior political
+strong IP protection, and a deep pool of local venture funding. A positions if they were fairly low-level. We code the State Ownership
+positive correlation between Innofund support and firm performance indicator variable as 1 if the application lists any SOE as a shareholder.
+
+1148
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Fig. 2. Map of Beijing and the initial Zhongguancun Industrial District.
+Source: Stanford Center at Peking University (2015).
+
+Table 2
+Descriptive statistics.
+
+Variable Full Sample Funded Unfunded T-Test*
+
+N Mean Std dev Min Max N Mean Std dev N Mean Std dev
+
+Application characteristics (reported by the Innofund)
+Application Year 1086 2007.28 1.76 2005 2010 540 2007.70 1.79 546 2006.87 1.63
+Grant Awarded (0/1) 1086 0.50 0.50 0 1 540 1 0 546 0.00 0.00 ***
+Size of Grant (if awarded) (¥10k) 540 58.51 15.97 20 140 540 58.51 15.97 546 0.00 0.00 ***
+Project Score 975 0.52 10.62 −75 28.24 474 8.82 5.55 501 −7.34 7.96 ***
+Missing Scores 1086 0.10 0.30 0 1 540 0.12 0.33 546 0.08 0.28 **
+Requested Project Duration (years) 1086 2.02 0.16 1 4 540 2.01 0.14 546 2.02 0.18
+
+Firm characteristics in application year t (as reported to the Innofund)
+Years Since Founding 1086 3.68 1.71 1 7 540 3.77 1.73 546 3.58 1.69 *
+Employees (100 s) 1086 0.37 0.38 0.03 3.65 540 0.39 0.40 546 0.35 0.36 *
+R &D Expenditures (¥10k) 1082 127.48 191.26 0 1757 540 147.46 208.07 546 106.78 170.41 ***
+Total Profitst-1 (¥1m) 1086 0.60 2.09 −4.74 14.57 540 0.87 2.31 546 0.34 1.80 ***
+Political Connections, Founder & CEO (0/1) 1086 0.11 0.31 0 1 540 0.14 0.34 546 0.08 0.28 ***
+Political Connections, Other TMT (0/1) 1086 0.14 0.35 0 1 540 0.14 0.35 546 0.13 0.34 ***
+State Ownership (0/1) 1086 0.06 0.23 0 1 540 0.07 0.26 546 0.04 0.19 **
+Team Has Prior Prize (0/1) 1086 0.21 0.41 0 1 540 0.28 0.45 546 0.15 0.35 ***
+# Firm Patents Claimed on Application 1086 1.94 3.08 0 20 540 2.46 3.55 546 1.42 2.42 ***
+CEO Indicates Prior Research Career 1086 0.32 0.47 0 1 540 0.37 0.48 546 0.27 0.45 ***
+
+Post-application year performance indicators
+Firm Failed Prior to 2015 (0/1) 1086 0.11 0.32 0 1 540 0.07 0.26 546 0.15 0.36 ***
+SIPO Innovation Patent Filed Post-application? (0/1) 1086 0.34 0.47 0 1 540 0.37 0.48 546 0.32 0.46 **
+New State- or Community-owned Enterprise Owner? (0/1) 1086 0.08 0.28 0 1 540 0.13 0.33 546 0.04 0.21 ***
+New Venture Capital or Private Equity Owner? (0/1) 1086 0.11 0.31 0 1 540 0.12 0.33 546 0.09 0.29 *
+
+^ T-Test indicates whether mean of Funded &Unfunded observations are statistically different at the following confidence levels, * p < 0.10, ** p < 0.05, *** p < 0.01.
+
+1149
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Team Has Prior Prize is coded 1 if the key founder or any TMT member Table 3A
+ever won a major prize at the national or provincial (ministerial) level. ZGC Innofund applications by industry, 2005–2010.
+
+These prizes include, but are not limited to, the National Award for
+Industry Obs %
+
+Progress in Science and Technology, National Model Worker, Project
+863/973 grant recipient, and membership in the 1000 Talents Program. Biomedicine 86 7.9
+
+Consistent with the Innofund’s aim of supporting innovative and Electronic information 660 60.8
+
+entrepreneurial firms, the average firm in the sample was founded High-tech services 26 2.4
+New energy & energy-efficiency 45 4.1
+
+between three and four years before its application, has 36 employees, New material 56 5.2
+and claims to have filed 1.94 SIPO patents. Slightly more than one-fifth Opto-Mechatronics 147 13.5
+of applicants report having won a national or provincial prize prior to Resources & environment 66 6.1
+the application. On average, firms report 1.27 million yuan RMB Total 1086 100%
+(approximately $192,000) in R &D expenditures and 0.6 million yuan
+RMB ($80,000) in prior-year profits.6 ZGC Innofund grants average
+585k yuan, which is equivalent to 45% of an average firm’s average Table 3B
+annual research budget.7 Slightly less than one third of firms have CEOs ZGC Innofund applications and award percentage by year, 2005–2010.
+
+with experience in scientific research and only six percent of firms have
+Year Applications Awarded
+
+state owned enterprises as equity holders.
+The industrial composition of firms appears in Table 3A. Approxi- 2005 240 38.8%
+
+mately 61 percent of the applicants over the sample period were in 2006 185 40.5%
+
+information technology (classified by the Innofund as “electronic 2007 193 37.8%
+2008 135 53.3%
+
+information”), while firms in the “optomechatronics,” “biomedicine,” 2009 163 69.3%
+and “resources and the environment” sectors make up 13.5 percent, 7.9 2010 170 67.1%
+percent, and 6.1 percent, respectively.
+
+Firms in the sample have a relatively high survival rate. Only 11
+percent are identified as having failed as of 2015. We define a firm as 5. What explains innofund grant receipt?
+having failed when its record at BAIC indicates its registration has been
+(a) terminated voluntarily or (b) terminated by the BAIC due to failure We investigate two key questions in our analysis: First, we examine
+to file registration reports for two or more consecutive years. Post-grant which features of project applications enable firms to win Innofund grants,
+patent information was collected from the State Intellectual Property i.e., what drives selection into grant funding. Second, we investigate
+Office (SIPO) and we include only data on “invention” patents, a whether grant receipt has an impact on firm outcomes, i.e., whether
+category reserved by the SIPO for innovations of relatively high novelty Innofund grants induce a treatment effect. Our ability to answer both sets
+and commercial value.8 Only 34 percent of firms applied for invention of questions derives from our use of Innofund administrative data.
+patents in the post-grant period. This may reflect the fact that the In many cases, researchers studying firm subsidies know the
+majority of the firms operate in information technology, which employs identities of firms that receive funding but not the identities of firms
+patenting to a lesser degree than other industries (e.g., the chemical and that applied and were turned down (Lerner, 1999; Guo et al., 2016). In
+pharmaceutical industries). Ownership change is also relatively infre- such cases scholars interested in assessing selection and treatment
+quent; over the sample period, 8 percent of firms added significant effects often create control groups, using propensity score matching or
+public sector (SOE or COE) owners and slightly higher than 10 percent other techniques, that enable them to identify a set of firms whose
+of firms received VC/PE investments. features may match with applicant firms on some observable dimen-
+
+Table 3B reports the number of ZGC Innofund applications and the sions but that may or may not have applied for innovation subsidies
+fraction of awards granted between 2005 and 2010. The ZGC region (Czarnitzki and Lopes Bento, 2014; Guo et al., 2014). While making it
+experienced a funding boost in 2008, 2009 and 2010. Whereas fewer possible to compare firms that receive funding with a set of similar
+than 40% of applications were funded between 2005 and 2007, more firms, this does not identify the features that drive the specific decision
+than 60% won grants between 2008 and 2010. Since the bar for to fund some applicants rather than others and thus leaves open the
+Innofund grant receipt was lower and the degree of government possibility that unobserved factors play a key role in the funding
+scrutiny to which the program was subjected was lessened during the decision. Our ability to compare across all applicant firms – and to
+2008–2010 era, we anticipate that the program impact is likely to be leverage the information about project application scores – alleviates
+lower during the later years of our data. many of these concerns.
+
+We begin our analysis by employing three types of analyses to under-
+stand the Innofund’s grant allocation process. First, we use OLS regressions
+to test which firm- and entrepreneur-level features are associated with
+higher evaluation scores. Second, we conduct logit regressions to investigate
+
+6 The profit data were winsorized at 1% to reduce the influence of outliers. the antecedents of grant winning, both with and without controlling for
+7 We must consider two factors when comparing the amount of Innofund grant support evaluation scores. Third, we look at the descriptive statistics of firms with
+
+to the firm’s R & D budget, each of which suggest that the actual fraction of Innofund missing scores and firms with scores below the cutoff point but having
+grants to firm R &D may be higher than it initially appears. First, firms have incentives to
+over-report their R & D budgets in their applications to signal research activity. Second, received funding. The last set of analyses is rudimentary but helps open up
+the reported Innofund grant reflects the amount of funding that a winning firm received the black box of the Innofund’s grant allocation to shed lights on the role of
+from the MOST without counting the local matched fund of 50% or higher. When all these bureaucratic intervention in state funding.
+factors are taken into consideration, state funding could be as large as a firm's annual Table 4 presents the results of regressions on project evaluation and
+R &D budget.
+
+8 grant allocation. Each model in the table includes dummy variables for each
+There are three categories in the Chinese patent system, invention, new utility, and
+
+new design, which are listed in decreasing order of innovativeness and commercial value. application-year, industry sector, and application type, as well as variables
+The relative importance of a patent is reflected in SIPO’s patent review system, which reflecting project characteristics, an indicator of whether the firm had
+imposes differential application fees, requirements for public notification, lengths of previously applied for Innofund support, and information on the firm
+examination, and patent terms according to category. In evaluating an applicant’s founder’s professional experiences and education. Each model also includes
+technological capability, Innofund’s rule of thumb is that one “invention” patent counts
+for six “new utility” patents. “New design” patents are not viewed a substantial data on firm characteristics, including age, size, innovation investment,
+innovations. As a result of this clear hierarchy, we focus solely on invention patents. political connection, state ownership, and whether anyone in the founding
+
+1150
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Table 4
+Selection models – correlates of Project Score and Grant Funding.
+
+Model (4−1) (4−2) (4−3) (4−4) (4–5) (4–6)
+
+Method OLS OLS OLS Logit Logit Logit
+Dependent Variable Project Score Project Score Project Score Funded Funded Funded
+Sample Years 2005–2007 2008–2010 All Years 2005–2007 2008–2010 All Years
+
+Variables reported on Innofund Application
+Profit (t-1) (mil. RMB) 0.649 0.426 0.578* 0.091 0.055 0.091
+
+(0.398) (0.213) (0.230) (0.116) (0.080) (0.063)
+Reported patents 0.610** 0.204* 0.335** −0.066 0.067 0.041
+
+(0.124) (0.066) (0.115) (0.080) (0.043) (0.036)
+Employee Count (hundreds) −1.122 −2.600 −1.047 −0.205 −0.413 −0.325
+
+(1.017) (1.633) (0.777) (0.608) (0.852) (0.517)
+R & D Expenditure (t-1) 0.394 0.166 0.291 0.046 0.016 0.022
+
+(0.230) (0.294) (0.164) (0.166) (0.086) (0.069)
+
+Variables computed by or verified by authors based on information reported on Innofund Application
+Political Connection via COE or Founder 1.198 0.302 0.741 0.608 1.852*** 1.021***
+
+(1.139) (2.162) (1.014) (0.519) (0.558) (0.367)
+Political Connection via Other TMT Member 0.892 0.579 0.920 −0.266 0.121 −0.253
+
+(0.316) (1.778) (0.522) (0.391) (0.468) (0.293)
+State ownership stake −0.049 0.826 0.276 −1.525* 0.282 −0.298
+
+(2.213) (0.954) (1.003) (0.865) (0.751) (0.600)
+Team has prior prize 3.526* 1.474 2.751*** 1.349*** 0.464 0.839***
+
+(1.198) (0.909) (0.664) (0.508) (0.465) (0.294)
+
+Variables made available to authors by Innofund
+Project Score 0.638*** 0.479*** 0.529***
+
+(0.076) (0.062) (0.046)
+Project Score is Missing 1.107* 1.402*** 1.321***
+
+(0.652) (0.391) (0.292)
+Observations 568 407 975 615 467 1086
+R2 0.148 0.180 0.306
+Adjusted R2 0.110 0.129 0.286
+Log lik. −2067.506 −1419.015 −3508.574 −117.066 −127.980 −256.019
+Chi-squared 102.298 93.974 195.103
+
+Robust Standard errors in parentheses; * p < 0.10, ** p < 0.05, *** p < 0.01. Bold values indicate statistically significant results.
+Notes: Variables included in all models but not reported above (due to space considerations include Project Duration, Dummy if Firm had Applied for Grant in Prior Year, Founder
+Experience as a Researcher, Founder Experienced in State-Owned Enterprise, Founder Education = MA, Founder Education = PhD, Firm Age in Application Year, Application Year,
+Industry Sector, Application Type, and a Constant term. Project Scores are centralized around the funding threshold in their year of application. For some projects, the Innofund did not
+record or report a Project Score. For these observations, the variable Project Score is set to zero and the Project Score is Missing dummy is set to 1. Bold values indicate statistically
+significant results.
+
+team had previously won a government-sponsored innovation or research coefficient on Team Has Prior Prize suggests that, among the 2005–2007
+prize. All models employ robust Huber-White standard errors, clustered by Innofund applicants, those whose founders or top management team had
+application year to address the possibility that errors are independent across previously won prestigious prizes prior to applying for Innofund grants were
+years but correlated within year. evaluated 3.5 points higher on the centralized project score than those
+
+Models 4-1 to 4-3 show that three factors stand out as correlates of without such prizes. This result suggests that the Innofund considered the
+the centralized project score: reported profit, reported patent count, past track record of firm leaders as a cue in inferring the firm’s quality and
+and whether the firm’s founder or top management team had received grant worthiness.
+any major prize at the national or provincial (ministerial) level. Each of For the 2008–2010 applicants, even though we continue to see
+these variables has a positive relationship with the score that underlies positive associations between observable merits and evaluation score,
+the grant selection process, although their levels of statistical signifi- the results for the 2008–2010 suggest that the Innofund relaxed its
+cance vary, particularly across sample time periods. The relatively low requirements during this time period, as the relationship between
+R2 in Columns 1–3 is consistent with prior estimations of subsidy grant Project Scores, observable merits, such as patents and prior prizes, is
+receipt, which have found that grant scores have a substantial idiosyn- weaker in this period than in 2005–2007. For instance, those
+cratic component (Czarnitzki and Lopes Bento, 2014). The statistical 2008–2010 applicants with prior prizes were only evaluated 1.47
+significance and economic magnitude implied by models (4-1) and (4- points higher than their peers without such prizes, a level that is
+3) suggest that firm features that we expect to be associated with higher statistically indistinguishable from zero, considering the precision with
+scores are, indeed, positively correlated with Innofund scores during which the coefficient is measured. Reporting higher profits is also
+the stricter funding regime of the 2005–2007 time period. This is associated with higher grant scores, although here, too, the magnitude
+especially noticeable in the coefficients of variables that achieve of the relationship is slight and the noise in measurement is consider-
+statistical significance at the 95% level in some of the models, including able. According to (4-3), each additional standard deviation in reported
+Profits (t-1), Reported Patents, and Team Has Prior Prize.9 For example, the profits (2 million yuan RMB) is associated with a single additional point
+
+for the full sample. While this is a statistically significant result, it does
+not constitute a result of particular economic magnitude, as the
+
+9 In a robustness check that we do not present in the tables, we find that the count of standard deviation in Project Score (10.6) is substantially larger than 1.
+actual SIPO patents filed prior to grant application are also a statistically significant While (4-1) to (4-3) suggest that Project Scores are highly idiosyn-
+predictor of Project Score, though not Funding conditional on the score. This suggests that, cratic to the project, the models in the remaining columns of Table 4
+while there is certainly reason to doubt the veracity of information reported to the
+Innofund, there is also reason to believe that self-reported information may be correlated document that these scores play a substantial role in explaining Grant
+with underlying features of the firm. Funding. Models (4-4) to (4-6) report the results of logit models
+
+1151
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Table 5
+Political connection and Innofund grant among firms with missing scores.
+
+(1) (2)
+Funded Grant size
+
+Obs. Mean Std. Dev. Mean Std. Dev.
+
+A. Political connection via CEO or cofounder
+Firms with no political connection 102 0.559 0.049 30.922 3.256
+Firms with political connection 9 1.000 0.000 60.556 13.423
+Difference between two groups −0.441*** 0.167 −29.634** 11.644
+
+B.
+C. Political connection via CEO, cofounder, or Top Management Team
+Firms with no political connection 90 0.556 0.053 31.656 3.515
+Firms with political connection 21 0.762 0.095 40.476 8.337
+Difference between two groups −0.206* 0.118 −8.821 8.310
+
+Asterisks denote significance levels of two-tailed test: * p < 0.10, ** p < 0.05, *** p < 0.01. Bold values indicate statistically significant results.
+
+explaining Grant Funding as a function of the centralized Project Score, evaluation scores. Even though we do not know if the missing scores
+the variables previously used to explain Project Scores, and a dummy were the result of administrative negligence or deliberate actions, there
+variable indicating whether the an applicant’s project score was missing is evidence consistent with bureaucratic intervention as missing scores
+in the final Innofund data. Both time periods (2005–2007 and are positively associated with grant receipt in each sample period, in (4-
+2008–2010) experience a statistically significant and economically 4) through (4–6). The coefficient onMissing Score in (4–6) suggests that,
+important relationship between Project Score and the probability of across all years of the sample, the odds of a firm with missing scores
+Grant Funding, suggesting that evaluators’ scores are an important receiving Innofund funding are 3.7 greater than those of firms without
+predictor of grant receipt in the ZGC district. The coefficient on Project missing scores. This relationship is measured to have an even greater
+Score in the full sample regression (4-6) implies that each additional magnitude in (4–5), during the years, 2008–2010, when the Innofund
+score point around the mean corresponds to an increase of 70 percent in operated with relatively relaxed funding requirements.
+the odds of receiving a grant. Although the association between missing score and grant receipt
+
+Although these findings provide evidence that the Innofund rewards could reflect random, benign administrative negligence, we cannot rule
+applications that excel on the observable innovation-focused dimen- out the possibility that these findings arise from off-the-books activity
+sions of merit the program seeks, other results in Tables 4 and 5 raise that results in Innofund officials giving preferential treatment to
+the possibility of bureaucratic intervention that may not be consistent particular applications. Table 5 reports additional evidence consistent
+with the program’s aims. Although it is insignificant in predicting with this explanation. Panel A of the table shows that among observa-
+evaluation scores (4-1 to 4-3), CEO/Founder Political Connection is a tions with missing scores, all nine firms with politically connected
+significant predictor of grant receipt, particularly for the subgroup of founders/CEOs received Innofund grants and that these firms receive
+firms that applied during the period of 2008–2010 (4-5 and 4-8). larger grants. When we use a broader definition of political connection
+Controlling for Project Score, firms with CEO/Founder political connec- – a firm being coded as connected if any of its top management team
+tions have odds of grant funding six times as high in 2008–2010 and 2.7 member or cofounders have experiences working in the government (in
+times greater than firms without such connections. In unreported Panel B), we continue to observe a significant and positive correlation
+analyses, which are available upon request, we find that connected between political connection and winning Innofund grants, although
+firms receive approximately 50,000 yuan RMB more than similar firms this correlation is not statistically significant in regressions.
+without such connections, an amount equivalent to one-sixth of the Overall, the selection analyses provide a mixed view of the
+mean funding amount. Since the positive correlation between political Innofund’s application evaluation and grant allocation processes. On
+connection and funding outcomes is observed while controlling for the one hand, we find that the Innofund uses observable firm- and
+project score, this leads us to consider that the funding decision may not entrepreneur-level features to assign evaluation scores and that the
+be based on score alone, as prescribed in the policy guideline of the score is a key predictor of grant receipt. These outcomes are consistent
+Innofund. with the view that this program has been professionally managed. On
+
+Two other features of the funding decision are consistent with the the other hand, the results also suggest that (a) the program relaxed its
+concerns above and raise questions about Innofund grant administra- requirements during the 2008–2010 period when the MOST secured
+tion. First, our sample contains fifty-one applications that earned Project grant funding and administrative leadership over the Innofund under
+Scores greater than the funding threshold but that were, nonetheless, China’s new innovation policy and (b) the existence of nonrandom
+not offered Innofund support. The Innofund’s policy guidelines state missing scores, of firms receiving grants with scores lower than the
+that program officials may reject external experts’ funding recommen- funding threshold suggest bureaucratic interventions that are incom-
+dations if applicants are discovered to have fabricated data or have pliant with the Innofund’s official guidelines and are unlikely to be
+product or production process that could lead to serious environmental associated with the effective functioning of the program.
+damages. It is possible, therefore, that many of these firms were denied
+funding for legitimate reasons. However, our sample also contains
+seven applicants with Project Scores judged to be below the funding 6. Impact of grant funding on firm outcomes
+threshold that, nonetheless, received Innofund grants. These grant
+decisions contradict strict Innofund guidelines against funding firms We conduct two sets of analyses relating ZGC Innofund grant receipt
+with scores below the threshold. Although we have interviewed to firm outcomes. In our initial analysis, we estimate linear probability
+Innofund officials, we were unable to identify the specific mechanisms models predicting firm outcomes as a function of information on the
+underlying these irregular cases. Their existence is consistent with and, observable quality of the grant application, the features of the applicant
+indeed, strongly suggests bureaucratic intervention in grant allocation. firm, and the Innofund’s decision to fund the firm. In our subsequent
+Second, there are 111 observations in our sample with missing analysis, we leverage Project Scores and the stated threshold for
+
+Innofund grant receipt. Specifically, we apply a regression discontinuity
+
+1152
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+(RD) design, which relies on the assumption that applications whose access to multiple data sources that reported a number of such
+scores fall closely below or above the funding cutoff differ appreciably measures, we found few that we considered accurate and reliable. We
+in the probability of funding though not in project quality and, focus, therefore on three types of post-grant outcomes that provide
+therefore, can serve as a sampling frame within which we can identify important indicators of firm performance: firm survival, patenting, and
+the causal impact of funding on firm outcomes (Imbens and Lemieux, receipt of equity investments. We explain these in greater details below.
+2008; Lee and Lemieux, 2010). In recognition of the fact that the We conduct separate analyses on the subgroup of firms that applied
+treatment rule is imperfectly applied, i.e., that some firms above the during the period of 2005–2007, the subgroup of firms that applied
+threshold do not get funding and that some firms below the threshold during the period of 2008–2010, and the full sample of applicants. We
+do, we employ a fuzzy rather than sharp regression discontinuity distinguish these time periods to acknowledge that the latter represents
+design. The results show the importance of accessing internal program an episode with substantially relaxed funding requirements (and thus
+data in estimating a causal relationship between state subsidies and potential post-grant performance implications).
+post-funding firm performance, as data access often constrains the We report the results of linear probability models predicting firm
+method that researchers could utilize and that different estimation post-grant outcomes in Table 6. Panel A predicts the relationship
+strategies could lead to very different empirical conclusions. between observable attributes of the firm’s application and the prob-
+
+ability that the firm is registered by the Beijing Administration of
+6.1. OLS analysis Industry and Commerce (BAIC) as no longer existing as of 2015. While
+
+we are confident that BAIC’s data on firm survival are not biased by
+In Table 6, we report the results of models predicting firm Innofund receipt, we are less confident about the accuracy of the dates
+
+performances using all the observations in our data and using informa- of firm failure. We therefore conduct cross-sectional analyses of firm
+tion on applicant features, funding awards, and firm performance survival to the end of the data period rather than a hazard analysis of
+outcomes. Specifically, we estimate: the probability of survival in any one year between the application year
+
+and 2015. To control for cohort differences in probability of death by
+Yit+1 = β Fundedit + γ Xit + εit+1, (1) 2015, these models include a series of dummy variables for application
+
+where Yit+1 reflects firm outcome measures that may be affected by years. To account for variation in application type and industry
+Innofund grant receipt, Funded indicates whether the Innofund ap- membership, we include dummy variables for these factors as well as
+proves the firm’s grant application, Xit indicates a vector of firm- and for a vector of other firm characteristics. In the interest of space, we do
+application-specific characteristics and control variables, and εit+1 not report coefficients for these variables. Each of our models, in this
+reflects the mean zero error term. The subscript t denotes the time table and in subsequent tables, uses robust Huber-White −standard
+period of the application and t + 1 indicates the post-application errors. To be consistent with the RD regressions, we exclude all
+period. observations for which Project Score is missing.
+
+Ideally, we would like to investigate the impact of Innofund grant The principal finding in these models is that grant receipt is
+receipt on a battery of firm performance measures, including multiple negatively associated with the likelihood of firm death by 2015 in the
+accounting measures and in a panel data context. Although we obtained overall sample and among the subsample of firms applying between
+
+Table 6
+Linear probability models predicting post-application firm outcomes.
+
+2005–2007 2008–2010 All Years
+
+(6−1) (6−2) (6−3) (6−4) (6−5) (6−6) (6–7) (6–8) (6–9)
+
+Panel A: DV = Firm Death by 2015
+Funded −0.105*** −0.117*** −0.109*** 0.028 0.031* 0.031* −0.084*** −0.057*** −0.053**
+
+(0.030) (0.031) (0.033) (0.018) (0.018) (0.019) (0.020) (0.020) (0.021)
+Year & Industry FEs Yes Yes Yes Yes Yes Yes
+Other Controls Yes Yes Yes
+R2 0.018 0.051 0.068 0.005 0.042 0.079 0.017 0.073 0.086
+
+Panel B: DV = SIPO Patent Application by 2015
+Funded 0.088** 0.110*** 0.039 0.053 0.054 0.022 0.046 0.088*** 0.030
+
+(0.043) (0.042) (0.043) (0.047) (0.048) (0.046) (0.030) (0.032) (0.031)
+Year & Industry FEs Yes Yes Yes Yes Yes Yes
+Other Controls Yes Yes Yes
+R2 0.008 0.061 0.149 0.003 0.057 0.180 0.002 0.060 0.146
+
+Panel C: DV = Equity Investment from State- or Community-Owned Enterprise (SOE/COE) by 2015
+Funded 0.112*** 0.114*** 0.098*** 0.044* 0.050* 0.039 0.076*** 0.086*** 0.072***
+
+(0.027) (0.027) (0.027) (0.026) (0.026) (0.028) (0.018) (0.019) (0.020)
+Year & Industry FEs Yes Yes Yes Yes Yes Yes
+Other Controls Yes Yes Yes
+R2 0.038 0.051 0.120 0.006 0.017 0.067 0.019 0.031 0.074
+
+Panel D: DV = Equity Investment from VC or Private Equity Firm by 2015
+Funded 0.036 0.042 0.027 −0.016 −0.017 −0.019 0.022 0.018 0.007
+
+(0.026) (0.026) (0.026) (0.034) (0.035) (0.035) (0.019) (0.021) (0.021)
+Year & Industry FEs Yes Yes Yes Yes Yes Yes
+Other Controls Yes Yes Yes
+R2 0.004 0.020 0.066 0.001 0.041 0.125 0.001 0.023 0.071
+Observations 568 568 568 406 406 406 974 974 974
+
+Robust standard errors in parentheses; * p < 0.10, ** p < 0.05, *** p < 0.01. Bold values indicate statistically significant results.
+Notes: “Other Controls” include the following variables: Employee count (hundreds), CEO Political Connection, Other Top Management Team Political Connection, Reported Patents,
+Team Has Prior Prize, Founder Experienced as a Researcher, Founder Experienced in a State-Owned Enterprise, Founder Education = Master’s Degree, Founder Education = PhD,
+Indicator of whether Firm had Previously Applied for Innofund Grant. All models exclude observations with missing Project Scores.
+
+1153
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+2005 and 2007, a period when the Innofund held relatively stringent 6.2. RD design – assumptions and conditions for analysis
+criteria in award allocation. By contrast, we find a positive and
+statistically significant association between Innofund grant and firm The linear probability analyses above leverage two important
+death by 2015 for the subgroup of firms applying between 2008 and features of the ZGC Innofund data – the identities of all applicant firms
+2010, when the Innofund relaxed its selection requirements. The and the decision on whether each applicant did or did not receive
+coefficients in Panel A (6-1) to (6-3) imply that funded firms experience Innofund grants. In the remaining analyses, we exploit information
+a 10–12 percentage point lower likelihood of failure by 2015 than do available from two other important features of these data −the annual
+unfunded firms, controlling for year and industry dummies, and a threshold score for project funding and the scores that each project
+battery of other firm and project controls. The results in Panel A (6-4) to received. While firms with particularly high project scores may differ
+(6-6) come as a surprise to us, as they suggest that receiving funding systematically from those with low scores, it is reasonable to assume
+during the looser funding regime, controlling for Project Score, is that projects with scores extremely close to the funding threshold differ
+associated with a slight (3–4% point) increase in the probability of substantially in the probability of their receiving Innofund grans, but
+Firm Death by 2015. This is, indeed, a relatively small effect, less than not substantially in the quality of their projects. If funding is, indeed,
+one third as great as the reduction in the probability of Firm Death assigned randomly around the threshold, we could exploit this thresh-
+induced by funding during the 2005–2007 time period. We lack an old in a regression discontinuity framework to ascertain the impact of
+explanation for this finding and it bears further scrutiny in our RD Innofund grants on firm outcomes.
+analyses. A number of assumptions need to be satisfied in order to have
+
+Panel B reports the results of models in which the dependent confidence that an RD analysis can identify the causal impact of
+variable indicates whether the firm applied for a SIPO invention patent Innofund receipt on firm outcomes (Imbens and Lemieux, 2008; Lee
+by 2015.10 Our results imply the possibility of a meaningful relationship and Lemieux, 2010): First, a breakpoint must exist between the
+between post-grant patenting and Innofund grant receipt. During the probability of funding and firm application scores. That is, the prob-
+period in which grant funding was somewhat difficult to receive ability of funding cannot be a continuous linear function of application
+(2005–2007), funded applicants are between 4 and 11% points more score. Second, firm features in the region of the threshold must be
+likely to apply for SIPO patents than unfunded firms, although this similar. Otherwise, firm outcomes may be the product of these features
+result is only statistically significant in the absence of controls or with rather than of the funding received. Third, the outcome of the assign-
+just year and industry fixed effects and not additional application-level ment (being funded or not) must not be subject to manipulation by the
+covariates. No statistically significant results are evident for the looser firms in the sample. We examine each of these assumptions below.
+funding regime of 2008–2010, during which the relationship is We examine whether the first requirement is satisfied in Fig. 3,
+estimated to be approximately zero with the same precision as the which plots the likelihood of a project receiving funding as a function of
+2005–2007 coefficients that were estimated to be positive. We examine its total score. The figure suggests a clear discontinuity around the
+whether this pattern holds around the funding threshold in the RD cutoff point (i.e. centralized Project Score of zero), providing evidence
+analyses that follow. that the first assumption is upheld. However, it is important to note that
+
+The next two panels report the results of regressions in which the some observations below the funding threshold receive funding, while
+dependent variables reflect new equity investments in the post-grant some above do not. While not casting doubt on whether RD is an
+period. Panel C focuses on investment from State- or Community- appropriate design, this suggests that fuzzy RD is more appropriate for
+Owned Enterprises (SOE/COE), while Panel D focuses on investment assessing causality than sharp RD.
+from Venture Capital (VC) and Private Equity (PE) Firms. The results We examine the second assumption by comparing the observable
+suggest that SOE and COE investors are more likely to invest in funded features of projects in the regression discontinuity region. In Table 7,
+firms in both the strict and loose funding regime periods, although no we compare the mean values of key variables for those projects whose
+such statistically significant relationship exists for VC/PE investment. scores are close to the funding threshold, using two different-sized
+Specifically, the results in Panel C suggest that funded firms were 10–12 windows. The first window corresponds 3.05 points above and below
+percentage points more likely to receive post-application funding boosts the funding threshold, a figure which corresponds to the bandwidth
+from SOE or COE firms for the 2005–2007 applicants and between 7 suggested by the method of Imbens and Kalyarnaraman (Imbens and
+and 9 percentage points more likely to receive such boosts over the Kalyanaraman, 2012) and the other window corresponds to a band-
+entire sample period. To the extent that prior studies suggest that public width of approximately 5.23 points above and below the funding
+innovation funding can serve a signaling function that certifies recipient threshold, a figure which corresponds to the bandwidth suggested by
+firms as worthy of private support, this relationship does not appear to Calonico et al., 2014 (CCT, 2014). Projects just below the threshold
+exist among the more sophisticated of the potential investor sets in this differ from those just above it on two key dimensions: centralized
+case. Project Score and Funded. The fact that application scores are higher in
+
+We interpret the results in Table 6 as suggesting that funded firms the above group is true by construction. For the IK (CCT) window, the
+are (a) less likely to have failed than unfunded firms, (b) more likely to fact that 71(79)% of firms just above the threshold received grants,
+have received equity infusions from State-Owned and Community- whereas only six (three) percent of those just below it did, is consistent
+Owned Enterprises across the sample period, and (c) potentially more with the discontinuity point above. Firms just above and just below the
+likely to have applied for patents for the 2005–2007 application funding threshold are statistically comparable on measures of age, size,
+subgroup. Analyses like these that do not exploit the funding disconti- political connectedness, prior innovation, employee count and founder
+nuity might reach the conclusion that funding drove these outcomes. characteristics. The one exception to this is that the average level of
+Before making any pronouncements about the causal impact of the profits for firms above the funding threshold but inside the CCT window
+Innofund on affected firms, however, we proceed to our RD approaches is statistically greater than the average level of profits for firms in the
+to the analysis. window but below the funding threshold. Despite this one departure,
+
+we believe that the firms in the neighborhood of the funding disconti-
+nuity are sufficiently similar that the RD assumptions are likely to hold.
+
+10 We should exercise caution when using patents as an outcome variable measuring The third assumption, the non-manipulation condition, requires that
+firm performance in the post-grant period. Although the Innofund does not engage in firms are unable to affect their assignment to the treated or non-treated
+post-grant reviews to see if grantees have patented their technology, grantees may
+nonetheless feel encouraged to engage in this behavior. Thus, if we find that patenting group. We investigate this by comparing the distribution of observa-
+increases following grant receipt, this could be the result of institutional pressure rather tions around the funding threshold with the McCrary density test.
+than true innovation. McCrary (2008) posits that a discontinuity in density at the cutoff value
+
+1154
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Fig. 3. Probability of funding as a function of Innofund project total score.
+
+Table 7
+Means for observations in the regression discontinuity region.
+
+Variable Imbens- Kalyanaraman (IK) bandwidth Calonico Cattaneo Titiunik (CCT) bandwidth (+/−5.23)
+(+/−3.05)
+
+Mean below Mean above p-value of 2-tailed t-test Mean below Mean above p-value of 2-tailed t-test
+
+Project Score −1.50 −1.50 0.00*** −2.85 2.65 0.00***
+Grant awarded (0/1) 0.06 0.71 0.00*** 0.03 0.79 0.00***
+Application Year 2007.57 2007.32 0.37 2007.35 2007.03 0.12
+Year since founding 3.84 4.14 0.23 3.73 3.82 0.63
+Employee Count 33.19 37.91 0.35 35.93 39.80 0.33
+Founder/CEO Pol connection (0/1) 0.13 0.11 0.71 0.14 0.13 0.76
+TMT Pol Connection (0/1) 0.15 0.19 0.53 0.13 0.17 0.34
+Total profit 0.37 0.76 0.17 0.30 0.78 0.02***
+State-ownership (0/1) 0.03 0.02 0.61 0.04 0.03 0.36
+Team has Prior Prize (0/1) 0.20 0.25 0.38 0.20 0.24 0.41
+Self-reported Pre-application Patents 0.65 0.89 0.53 0.49 1.02 0.20
+
+Observations 86 91 161 160
+
+Standard errors in parentheses; * p < 0.10, ** p < 0.05, *** p < 0.01. Bold values indicate statistically significant results.
+Compares means for observable variables whose project scores fall within RD bandwidth, using alternative measures of theRD bandwidth.
+
+could suggest that parties affect their own treatment status. We reflects the fact that cutoffs are not strictly implemented in Innofund’s
+implement this test in Fig. 4 and find no statistical difference between grant allocation process: Our sample contains several (seven) grant-
+densities of Project Score on either side of the funding threshold. The winning firms with scores below the threshold and a considerable
+density of Project Scores is lower at the threshold than it is on either side number of firms (51) with scores above the threshold whose applica-
+of it. These differences fall within the 95-percent-confidence interval, tions were rejected. The existence of such observations violates the
+but do arouse a concern that Innofund may manage the scores so that complete compliance assumption under Sharp RD.
+fewer of them fall at the funding threshold. Starting with Trochim (1984), scholars have adopted a fuzzy RD
+
+One important caveat to note is that, even if all assumptions are design to deal with this setting. The fuzzy RD design allows for a
+upheld, regression discontinuity analyses are informative about treat- smaller jump in the probability of assignment to the treatment at the
+ment impact in the local area of the funding cut-point for “compliers” threshold and only requires the probability of assignment is different
+whose treatment is induced by the instrument (Angrist et al., 1996). across the threshold (Lee and Lemieux, 2009). Following Jacob and
+These Local Area Treatment Effects (LATE) may generalize across the Lefgren (2011), we employ a fuzzy RD design that involves estimating
+sample, but the experiments provided by the discontinuity cannot speak an instrumental variables regression in which the second stage is given
+to other ranges of the forcing (Project Score) variable (Hahn et al., 2001; by Eq. (1) above and the first stage is represented by:
+Imbens and Lemieux, 2008). Thus, while RD designs enable casual
+inference, they achieve this at the cost of generality, and we will not be Fundedit = β1 Above Thresholdit + γ Xit + εit+1, (2)
+
+able to draw conclusions about the average treatment effect (ATE) for in which Above Threshold is an indicator variable equal to 1 when the
+the population of Innofund applicants as a whole (Heckman, 1997). centralized Project Score is equal to or greater than 0 (i.e. the raw score
+
+is on or above the funding threshold).
+6.3. Firm performance and grant receipt − fuzzy RD analysis Table 8 reports the results of regressions with Fuzzy RD design. For
+
+each sample time period and for each firm outcome measure, we run
+To ascertain the impact of Innofund grant receipt on firm perfor- two-stage least squares, instrumenting for grant receipt, as described in
+
+mance, we employ a fuzzy regression discontinuity design. This choice (2) above. We report results for local linear model and both local
+
+1155
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Fig. 4. McCrary test for density discontinuity at the funding threshold.
+
+quadratic and local cubic polynomial models. In each reported regres- sample LPM models (Table 6). We interpret the coefficients in Table 8
+sion, we employ the Calonico et al., 2014 bandwidth and weight the as implying no causal impact exists between grant receipt and firm
+observations in the RD window based on a triangular kernel. The results outcomes. That is, we interpret this a funding of no impact rather than
+suggest that the true casual estimates of the impact of funding on firm an inability to determine whether there was an impact. Were they
+outcomes are starkly different from what one might conclude by simply statistically significant, the Fuzzy RD coefficients for Firm Death (in 8-1)
+comparing those firms that received funding with those that did not, would imply an effect one fifth the size of that in the full-sample LPM
+i.e., from the results in Table 6. For each of our firm outcome measures, analysis (i.e., a 2.0 percentage point decline in the probability of firm
+for each time period, we find no evidence that grant receipt had a failure). Were the Patenting results statistically significant, they would
+causal impact on performance. We consider the models that employ imply a different direction of impact from expectations and different
+local linear regression as our preferred specification, but since debate from that found in the full sample results (i.e., a negative impact of
+exists in the RD literature about ideal bandwidths and estimation grant receipt on patenting). Further, the coefficients on both types of
+techniques, we conduct numerous robustness checks using different follow-on Equity Investment vary in magnitude and direction of effect
+kernel weighting approaches and bandwidths (Gelman and Imbens, across the local linear and polynomial regressions.
+2014; and Card et al., 2014). We should reiterate that the FRD results are informative about the
+
+Each variation yields results consistent with the local linear “compliers,” those firms that received Innofund grants when their
+specification, with the exception of the global polynomial regressions scores were sufficiently high and those that did not when their scores
+using a uniform kernel weighting. For example, we continue to find no did not meet the funding threshold. The data also include a group of
+statistically significant relationship between funding and post-grant “always-takers,” that are funded even though they did not meet the
+changes in firm performance if we employ narrower bandwidths (e.g., criteria for funding. In the event that such firms (a) obtain funding for
+the Imbens-Kalyanaraman bandwidth) or wider bandwidths (+/7) and projects with no potential to be productive and (b) also received Project
+if we use alternative weights (e.g., rectangular or Epanechnikov kernel) Scores above the funding threshold, this may bias our results toward
+for observations within the bandwidth. We do, however, find a finding no positive impact of grant receipt on firm performance
+statistically significant relationship between new equity investments outcomes. Table 5 suggests that some politically connected firms may
+by State- and Community-Owned enterprises in global (infinite band- fall into this category.
+width) polynomial versions of our fuzzy RD specifications. These The intuition behind the differences in the results in Tables 6 and 8
+regressions, however, accord greater weight to the observations that and our relative confidence in the null results is demonstrated by the
+are distant from the funding threshold and, thus, achieve greater graphics in Fig. 5. These figures report binned scatter plots for each of
+statistical power at the cost of greater confidence in a causal relation- our firm outcomes for observations above and below the funding
+ship.11 threshold. It is important to note that these reflect the raw data, rather
+
+It is possible that the null results arise not because there is no causal than our Fuzzy RD results. They are, nonetheless, illustrative in
+impact of grant funding on firm outcomes, but because the measures thinking about the underlying patterns in the data. We report one
+are highly noisy. The standard errors in the local RD analyses (in panel for each outcome variable and divide the x-axis into 20 equally-
+Table 8) are, as a matter of course, substantially larger than in the full sized bins based on Project Score. The left-most figure in each panel
+
+reports the zero-ordered plot up to 20 Project Score points above and
+below the funding threshold. The middle figure and right-most figures
+
+11 In versions of our analysis that employ a Sharp RD design, we also find a statistically report local linear plots and local quadratic plots, respectively. Fig. 5A-
+significant relationship between firm survival to 2015 and grant funding. We do not 1, the zero-ordered RD plot of Firm Death by 2015 demonstrates that for
+report these models, however, as the fact that assignment to treatment is stochastic rather scores within 20 points of the cutpoint, the average probability of firm
+than deterministic suggests that a Fuzzy RD design is more appropriate. In earlier versions
+of this paper, we had reported the sharp RD results in order to make the methodological death is lower for firms with scores above the funding threshold. This is
+point that analyses of innovation subsidies that employ sharp RD techniques may obtain consistent with the result in Table 6 suggesting that firms that received
+misleading results when fuzzy RD are more appropriate. We omit them here to prevent grants are more likely to survive than those that did not. Figs. 5A-2 and
+confusion about the results in which we have the greatest confidence.
+
+1156
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Table 8
+Fuzzy Regression Discontinuity analysis, using 2SLS/IV to estimate the relationship between grant receipt and firm outcomes.
+
+RD type 2005–2007 2008–2010 All Years
+
+local linear local polynomial global polynomial local linear local polynomial global polynomial local linear local polynomial global polynomial
+(9–1) (9–2) (9–3) (9–4) (9–5) (9–6) (9–7) (9–8) (9–9)
+
+Panel A: DV = Firm Death by 2015
+Funded −0.022 −0.079 0.037 0.019 0.005 −0.012 0.043 −0.024 −0.023
+
+(0.358) (0.602) (0.589) (0.169) (0.198) (0.132) (0.216) (0.383) (0.464)
+
+Panel B: DV = SIPO Patent Application by 2015
+Funded −0.190 −0.179 −0.144 0.238 −0.016 −0.208 −0.005 −0.112 −0.368
+
+(0.426) (0.725) (0.710) (0.371) (0.549) (0.545) (0.278) (0.503) (0.698)
+
+Panel C: DV = Equity Investment from State- or Community-Owned Enterprise (SOE/COE) by 2015
+Funded 0.248 0.200 −0.073 0.102 0.123 0.280 0.182 0.152 0.049
+
+(0.164) (0.221) (0.181) (0.207) (0.221) (0.299) (0.130) (0.155) (0.140)
+
+Panel D: DV = Equity Investment from VC or Private Equity Firm by 2015
+Funded 0.074 −0.068 −0.209 0.249 0.097 −0.483 0.154 −0.007 −0.371
+
+(0.235) (0.476) (0.549) (0.274) (0.398) (0.541) (0.168) (0.311) (0.519)
+Observations 180 180 180 141 141 141 321 321 321
+
+Robust standard errors in parentheses; * p < 0.10, ** p < 0.05, *** p < 0.01.
+Notes: First stage regression conducted as indicated in Equ. (2). First stage F-statistics for included instruments (and associated p-values) = 679.76 (0.000), 281.64 (0.000), and 1136.55
+(0.000), for 2005–2007, 2080–2010, and All Years, respectively. All regressions omit observations with missing Project Scores.
+
+5A-3 accounting for Project Scores, however, and help explain why the Zhongguancun (ZGC) region of Beijing. The novelty of this effort
+Fuzzy RD results do not reach the same conclusion: While the derives from its context, analytic approach, associated insights, and is
+probability of firm failure by 2015 is lower for firms with higher based on our ability to leverage internal administrative data. Although
+scores, there is no discontinuous drop in the probability of firm death a number of projects have examined correlations between firm perfor-
+when we fit either local linear or local quadratic lines within the± 5 mance and innovation subsidies in the U.S., the EU, and Japan, our
+range of the funding threshold. This same pattern holds across the other effort is one of the first to examine firm behavior and outcomes
+firm outcome measures in Fig. 5 and, in the case of post-application associated with a major innovation subsidy program in an emerging
+patenting, is even clearer. The only exception to this pattern occurs in market. Our access to Innofund administrative data on application
+the case of Equity Investments by State- and Community-Owned Enterprises, scores allows us to estimate with some confidence both the firm
+whose local linear and local polynomial plots could be interpreted as characteristics that correlate with winning Innofund grants and, using
+consistent with a jump at the funding threshold. This suggests that we regression discontinuity design, the causal impact of those grants on
+should remain open to the possibility that there is a causal effect here, measures of firm performance. While such designs have been applied
+although the Fuzzy RD results do not provide strong evidence of such an widely in research in economics, particularly in program evaluation
+interpretation. studies, few projects in strategic management and innovation studies
+
+To investigate the impact of firm features on outcomes associated have used it. Along with Zhao and Ziedonis (2014), Howell (2014), and
+with Innofund awards, we estimated models that interact Funding with Bronzini and Piselli (2016), we are among the first to apply RD analysis
+firm features. None of the self-reported firm features that are correlated to innovation subsidies and the first to employ fuzzy RD to a program
+with selection into Innofund grant receipt show robust, significant that does not assign grants deterministically based on project scores.
+effects. Because it is positively correlated with winning grants, though Our analysis of the correlates of selection yields specific insights
+not with Project Scores, Political connections through the CEO and/or into the nature and effectiveness of the ZGC Innofund program. First,
+Founder is particularly interesting. In Table 9, we present local linear our analysis finds that Innofund grant receipt correlates with a number
+fuzzy RD estimates of the relationship between our firm outcome of the features that the program has been designed to reward.
+variables and grant receipt, separating those firms without and with Specifically, firms that report greater innovation (patents and science
+Founder/CEO Political Connections. The magnitudes of the coefficients in or innovation prizes) and better financial performance (profits) are
+these regressions differ for firms with politically connection. These more likely to receive higher evaluation scores and consequentially
+estimates are, however, quite noisy, as a result of the relatively small more likely to win grants than firms with otherwise similar character-
+sample sizes, particularly for politically connected firms. Were they to istics. The fact that reported profits, patent filings, and prizes are
+be significant, they would imply slightly superior performance for correlated with higher evaluation scores is consistent with an inter-
+politically connected firms with regards to survival and receipt of VC pretation in which the Innofund’s experts and administrators are
+funding across both sample periods and in patenting and public funding faithfully ranking applications and granting awards according to their
+in the 2008–2010 period. These results invite future study, but are not own stated criteria and the final selection process is acknowledging
+dispositive. reviewers’ opinions. Considering the difficulties of administering an
+
+Overall, we interpret the results of our fuzzy RD regressions as innovation subsidy program in an emerging market with few institu-
+providing evidence that, while the Innofund may be able to select firms tional supports and no demonstrated history of prior successful subsidy
+that have positive performance features, ZGC Innofund grants have not programs, this strikes us as evidence that elements of the Innofund
+induced superior chances of survival, patenting, or financing in the program are functioning as intended.
+region near the funding threshold. Further, three elements of the selection regressions are, however,
+
+not consistent with stated program goals. First, firms whose founders
+7. Discussion are likely to have acquired political connections through their profes-
+
+sional experience are more likely to win grants, even though their
+In this paper, we investigate (a) the factors that affect the receipt of connections are not associated with higher project scores. Second, firms
+
+innovation subsidies and (b) the impact of those subsidies on firm with missing scores are more likely to win grants. Third, there are firms
+performance in the context of the Innofund program in the with scores above the cut point that failed to receive grants and firms
+
+1157
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Fig. 5. Firm Outcomes as a function of Project Score.
+Each graph presents binned scatter plots and fitted lines displaying firm outcomes for observations above and below the funding threshold. We divide the x-axis into 20 equally-sized bins
+based on the centralized Project Score.
+Panel A: Firm Death by 2015
+(5A-1) Zero-order plot (mean above & below cutpoint) (5A-2) local linear plot (5A-3) local polynomial (quadratic) plot
+Panel B: Patenting by 2015
+(5B-1) Zero-order plot (mean above & below cutpoint) (5B-2) local linear plot (5B-3) local polynomial (quadratic) plot.
+Panel C: New Equity Investment from State- or Community-Owned Enterprises by 2015
+(5C-1) Zero-order plot (mean above & below cutpoint) (5C-2) local linear plot (5C-3) local polynomial (quadratic) plot
+Panel D: New Equity Investment from Venture Capital or Private Equity investors by 2015
+(5D-1) Zero-order plot (mean above & below cutpoint) (5D-2) local linear plot (5D-3) local polynomial (quadratic) plot.
+
+1158
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Table 9
+Fuzzy Regression Discontinuity analysis, using 2SLS/IV, comparing firms by Political Connection.
+
+2005–2007 2008–2010 All Years
+
+Founder/CEO Political Connection = Founder/CEO Political Connection = Founder/CEO Political Connection =
+0 (not connected) 1 (connected) 0 (not connected) 1 (connected) 0 (not connected) 1 (connected)
+(9–1) (9–2) (9–4) (9–5) (9–7) (9–8)
+
+Panel A: DV = Firm Death by 2015
+Funded 0.144 −0.499 0.130 −0.903 0.186 −0.624
+
+(0.462) (0.507) (0.125) (1.401) (0.236) (0.544)
+
+Panel B: DV = SIPO Patent Application by 2015
+Funded −0.158 −0.282 0.131 1.305 −0.013 0.056
+
+(0.521) (0.708) (0.354) (1.341) (0.300) (0.627)
+
+Panel C: DV = Equity Investment from State- or Community-Owned Enterprise (SOE/COE) by 2015
+Funded 0.348 −0.051 0.013 0.982 0.176 0.157
+
+(0.235) (0.057) (0.192) (1.210) (0.146) (0.224)
+
+Panel D: DV = Equity Investment from VC or Private Equity Firm by 2015
+Funded −0.086 0.564 0.158 0.982 0.040 0.719
+
+(0.310) (0.395) (0.255) (1.210) (0.179) (0.474)
+Observations 152 28 127 14 279 42
+
+Standard errors in parentheses; * p < 0.10, ** p < 0.05, *** p < 0.01.
+Notes: First stage regression results as described at the bottom of Table 8.
+
+with scores below the cut point but having received grants. The former China or to programs in other emerging economies. Indeed, our results
+may be a benign finding, as political connections may be an indicator of may arise exactly because of the particular features of the Innofund and
+firm quality, but it becomes more troubling in light of the latter two its administration. Nonetheless, our analyses demonstrate the value of
+findings. internal administrative data in innovation program evaluation. Our
+
+These results raise but do not answer some questions about the conclusions may differ from the recent findings that Innofund recipients
+administration of the fund over the sample period. To our surprise, a outperform a set of carefully-matched control firms that did not receive
+number of final project scores are missing from the data, despite having Innofund grants (Guo et al., 2016) because we are able to leverage
+intermediate financial and technical merit scores and final funding information on project scores as well as grant receipt. As our analyses in
+decisions. Projects whose scores are missing have a greater chance of Table 6 suggest, we would likely reach the conclusion that grant receipt
+being funded than those that do not have missing scores. Moreover, is associated with positive outcomes if we were unable to take
+projects with missing scores are disproportionately associated with advantage of funding data and instrument for grant receipt.
+firms with politically connected founders or top management teams. Our overall assessment of the Innofund depends, to a substantial
+These facts raise the possibility of administrative negligence or inter- extent, on our expectations for the program. Relative to expectations
+ference on behalf of particular firms. framed by reports of fraud and zombie Innofund recipients, the results
+
+Our analysis of treatment effects sheds additional light on these provide reasons for optimism. Relative to expectations framed by
+issues. First, we compare performance outcomes for firms that received reports about the high fraction of Innofund-supported firms on
+grants with outcomes for those that did not, using a linear probability Chinese exchanges, the results are not as encouraging. Our conclusion
+regression framework to control for observable differences between is therefore mixed: The Innofund program appears to be ranking
+each set of firms. These analyses suggest that recipient firms survive applications in a thoughtful way. However, we do not find evidence
+longer and patent more than non-recipients. By considering the entire that the program is driving positive innovation or firm outcomes.
+sample of firms in the data, such analyses cannot be interpreted as Moreover, we do not find that the loosening of funding following 2007
+providing evidence of the causal impact of grant receipt on firm had a positive impact on program outcomes. This suggests that
+outcomes, but they do suggest that grants are going to firms that increasing resources to programs that appear successful may not be
+ultimately live longer and innovate more. These outcomes are consis- an optimal policy response. In the case of the Innofund, it may be that
+tent with an interpretation in which the Innofund is able to pick the additional funding results in a decline in the marginal value of each
+winners, though it should not be interpreted as suggesting that grants newly-funded project.
+create winners. Our findings raise a number of questions that could also be usefully
+
+To assess the causal impact of grant receipt on performance, we incorporated into future empirical and theoretical analyses of subsidy
+apply regression discontinuity techniques. Our preferred analyses programs, particularly in emerging economies. The fact that we find
+involve a fuzzy RD approach, which use Above Threshold and (Above evidence consistent with manipulation raises questions about the
+Threshold)*(Project Score) as instruments for Funded in a 2SLS analysis potential for administrative interference to affect program functioning,
+of the impact of funding on firm outcomes. In all models that employ including firm selection and firm and program outcomes, in other
+windows near the funding threshold, these models fail to find evidence subsidy settings. In addition, by highlighting how particular features of
+of a treatment effect on firm outcomes. Unreported regressions using the Innofund Program predict selection (e.g., the emphasis on govern-
+infinite bandwidths find statistically significant correlations with firm ment prizes for project scores), our analyses complement other work in
+survival and equity funding from state- and community-owned enter- highlighting the importance of program features and program admin-
+prises, but these analyses rely on observations quite distant from the istration on innovation subsidy project selection and outcomes. To date,
+funding threshold and are, therefore, less clearly able to identify causal little formal theory guides hypotheses or empirical work on these issues
+effects. As a result, we cannot express confidence that the Innofund (Dimos and Pugh, 2016). Our analysis also points to a number of
+program exerts a causal impact on firm outcomes. reasons that subsidy programs in emerging markets may have greater or
+
+We should be careful to note that our analysis exploits detailed data lesser impact on affected firms than similar programs in leading
+on a particular geographic location and a particular innovation subsidy innovator countries. Indeed, some ideas, such as the impact of weak
+program and its results may not generalize, either to other regions of financial markets, could cut in either direction. Going forward, it would
+
+1159
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+be valuable to generate more precise predictions for emerging markets González, X., Jaumandreu, J., Pazó, C., 2005. Barriers to innovation and subsidy
+effectiveness. RAND J. Econ. 36 (4), 930–950.
+
+and to compare the relationship between program features and Gorg, H., Strobl, E., 2007. The effect of R & D subsidies on private R & D. Economica 74,
+program outcomes across institutional contexts. 215–234.
+
+Gorodnichenko, Y., Schnitzer, M., 2013. Financial constraints and innovation: why poor
+
+References countries don’t catch up. J. Eur. Econ. Assoc. 11 (5), 1115–1152.
+Guariglia, A., Liu, P., 2014. To what extent do financing constraints affect Chinese firms'
+
+innovation activities? Int. Rev. Financ. Anal. 36, 223–240.
+Özcelik, E., Taymaz, E., 2008. R & D support programs in developing countries: the Guo, D., Guo, Y., Jiang, K., 2016. Government-subsidized R &D and firm innovation:
+
+Turkish experience. Res. Policy 37, 258–275. evidence from China. Res. Policy 45 (6), 1129–1144.
+Ades, A., Di Tella, R., 1997. National champions and corruption: some unpleasant Hahn, J., Todd, P., Van der Klaauw, W., 2001. Identification and estimation of treatment
+
+interventionist arithmetic. Econ. J. 107 (443), 1023–1042. effects with a regression-Discontinuity design. Econometrica 69 (1), 201–209.
+Aerts, K., Schmidt, T., 2008. Two for the price of one? Additionality effects of R &D Hale, G., Long, C., 2011. What are the sources of financing for Chinese firms? In: In:
+
+subsidies: a comparison between Flanders and Germany. Res. Policy 37 (5), 806–822. Cheung, Yin-Wong, Kakkar, Vikas, Ma, Guonan (Eds.), The Evolving Role of Asia in
+Almus, M., Czarnitzki, D., 2003. The effects of public R & D subsidies on firms’ innovation Global Finance (Frontiers of Economics and Globalization), vol. 9. Emerald Group
+
+activities: the case of Eastern Germany. J. Bus. Econ. Stat. 21 (2), 226–236. Publishing Limited, pp. 313–339.
+Angrist, J., Imbens, G., Rubin, D., 1996. Identification of causal effects using instrumental Hall, B., Lerner, J., 2010. The financing of R & D and innovation. In: In: Hall, B.H.,
+
+variables. J. Am. Stat. Assoc. 91 (434), 444–455. Rosenberg, N. (Eds.), The Handbook of the Economics of Innovation, vol. I. Elsevier,
+Appelbaum, R., Parker, R., Cao, C., 2011. Developmental state and innovation: Amsterdam, NL, pp. 609–639.
+
+nanotechnology in China. Global Netw. 11 (3), 298–314. Hall, B., Van Reenen, J., 2000. How effective are fiscal incentives for R & D? A review of
+Arrow, K., 1962. Economic welfare and the allocation of resources for invention. In: the evidence. Res. Policy 29 (4), 449–469.
+
+Nelson, Richard R. (Ed.), The Rate and Direction of Inventive Activity: Economic and Halpern, L., Muraközy, B., 2010. R & D Subsidies and Firm Performance in Hungary.
+Social Factors. Princeton University Press, Princeton N.J, pp. 609–625. (MICRO-DYN Working Paper no. 38/10).
+
+Audretsch, D., Link, A., Scott, J., 2002. Public/private technology partnerships: Heckman, J., 1997. Instrumental variables: a study of implicit behavioral assumptions
+evaluating SBIR-supported research. Res. Policy 31 (1), 145–158. used in making program evaluations. J. Hum. Resour. 32 (2), 441–462.
+
+Ayyagari, M., Demirgüç-Kunt, A., Maksimovic, V., 2010. Formal versus informal finance: Hellman, J.S., Jones, G., Kaufmann, D., 2003. Seize the state, seize the day: state capture
+evidence from China. Rev. Financ. Stud. 23 (8), 3048–3097. and influence in transition economies. J. Comp. Econ. 31 (4), 751–773.
+
+Barboza, D., 2006. In a Scientist’s Fall, China Feels Robbed of Glory. The New York Times Howell, S., 2014. Financing Constraints as Barriers to Innovation: Evidence from R &D
+(May 15, 2006). Grants to Energy Startups, Working Paper. Harvard University.
+
+Bayona-Sáez, C., García-Marco, T., 2010. Assessing the effectiveness of the Eureka Hsu, D., Ziedonis, R., 2013. Resources as dual sources of advantage: implications for
+Program. Res. Policy 39, 1375–1386. valuing entrepreneurial-firm patents. Strateg. Manage. J. 34 (7), 761–781.
+
+Bronzini, R., Piselli, P., 2016. The impact of R & D subsidies on firm innovation. Res. Huang, Y., 2002. Selling China: Foreign Direct Investment During the Reform Era.
+Policy 45, 442–457. Cambridge University Press, New York.
+
+Bush, V., 1945. Science: the Endless Frontier. U.S. Government Printing Office, Hyytinen, A., Toivanen, O., 2005. Do financial constraints hold back innovation and
+Washington, D.C. growth? Evidence on the role of public policy. Res. Policy 34 (9), 1385–1403.
+
+Calonico, S., Cattaneo, M., Titiunik, R., 2014. Robust nonparametric confidence intervals Imbens, G., Kalyanaraman, K., 2012. Optimal bandwidth choice for the regression
+for regression-discontinuity designs. Econometrica 82 (6), 2295–2326. discontinuity estimator. Rev. Econ. Stud. 79 (3), 933–959.
+
+Cappelen, Å., Raknerud, A., Rybalka, M., 2012. The effects of R & D tax credits on Imbens, G., Lemieux, T., 2008. Regression discontinuity designs: a guide to practice. J.
+patenting and innovations. Res. Policy 41 (2), 334–345. Econom. 142 (2), 615–635.
+
+Card, D., Lee, D., Pei, Z., Weber, A., 2014. Inference on Causal Effects in a Generalized Jacob, B.A., Lefgren, L., 2011. The impact of NIH postdoctoral training grants on scientific
+Regression Kink Design. Princeton University, Princeton, NJ (Working Paper). productivity. Res. Policy 40, 864–874.
+
+China News, 2007. President Hu Jintao: Promoting Indigenous Innovation is the Core Jaffe, A., 2002. Building programme evaluation into the design of public research-support
+Strategy for National Development. (Available at http://www.chinanews.com/gn/ programmes. Oxford Rev. Econ. Policy 18 (1), 22–34.
+news/2007/10-15/1048869.shtml, last accessed on March 25th, 2016). Jaffe, A., 2013. An economic perspective on science and innovation policy. In: Working
+
+Cumming, D., Johan, S., 2013. Venture Capital and Private Equity Contracting: An Paper, Motu Economic and Public Policy Research, Presented at the Economic
+International Perspective. Academic Press, Waltham, MA. Analysis of Industry and Innovation Programs Design Workshop. Australian National
+
+Czarnitzki, D., Lopes Bento, C., 2010. Evaluation of Public R & D Policies: a Cross-country University, 20 September 2013.
+Comparison. ZEW Discussion Paper 10–073. Jia, N., 2014. Are collective and private political actions substitutes or complements?
+
+Czarnitzki, D., Lopes Bento, C., 2014. Innovation subsidies: does the funding source Empirical evidence from China’s private sector. Strateg. Manage. J. 35, 292–315.
+matter for innovation intensity and performance? Empirical evidence from Germany. Johnson, S., Mitton, T., 2003. Cronyism and capital controls: evidence from Malaysia. J.
+Ind. Innov. 21 (5), 380–409. Financ. Econ. 67 (2), 351–382.
+
+Czarnitzki, D., Lopes-Bento, C., 2013. Value for money? New microeconometric evidence Klette, T., Møen, J., Griliches, Z., 2000. Do subsidies to commercial R & D reduce market
+on public R &D grants in Flanders. Res. Policy 42 (1), 76–89. failures? Microeconometric evaluation studies. Res. Policy 29 (4), 471–495.
+
+David, P., Hall, B., Toole, A., 2000. Is public R & D a complement or substitute for private Lach, S., 2002. Do R &D subsidies stimulate or displace private R & D?: Evidence from
+R&D? A review of the econometric evidence. Res. Policy 29 (4), 497–529. Israel. J. Ind. Econ. 50, 369–390.
+
+De Blasio, G., Fantino, D., Pellegrini, G., 2015. Evaluating the impact of innovation Lanahan, L., Feldman, M., 2015. Multilevel innovation policy mix: a closer look at state
+incentives: evidence from an unexpected shortage of funds. Ind. Corp. Change 24 (6), policies that augment the federal SBIR program,’. Res. Policy 44 (7), 1387–1402.
+1285–1314. Lanahan, L., 2016. Multilevel funding for small business innovation: a critical review of
+
+De Soto, H., 2000. The Mystery of Capital: Why Capitalism Triumphs in the West While U.S. state SBIR match programs. J. Technol. Transfer 41 (2), 220–249.
+Fails Everywhere Else? Basic Books, New York. Lee, D., Lemieux, T., 2010. Regression discontinuity designs in economics. J. Econ. Lit. 48
+
+Dimos, C., Pugh, G., 2016. The effectiveness of R & D subsidies: a meta-regression analysis (2), 281–355.
+of the evaluation literature. Res. Policy 45, 797–815. Lerner, J., 1999. The government as venture capitalist: the long-Run effects of the SBIR
+
+Dodgson, M., Hughes, A., Foster, J., Metcalfe, S., 2011. Systems thinking, market failure, program. J. Bus. 72, 285–318.
+and the development of innovation policy: the case of Australia. Res. Policy 40 (9), Lerner, J., 2009. Boulevard of Broken Dreams: Why Public Efforts to Boost
+1145–1156. Entrepreneurship and Venture Capital Have Failed and What to Do About It.
+
+Duguet, E., 2004. Are R & D subsidies a substitute or a complement to privately funded Princeton University Press, Princeton, NJ.
+R & D? Evidence from France using propensity score methods for non-experimental Li, H., Zhang, Y., 2007. The role of managers’ political networking and functional
+data. Revue d’Economie Politique 114 (2), 263–292. experience in new venture performance: evidence from China’s transition economy.
+
+Ernst, Young, 2014. Adapting and Evolving: Global Venture Capital Insights and Trends. Strateg. Manage. J. 28 (8), 791–804.
+Feldman, M., Kelley, M.R., 2003. Leveraging research and development: assessing the Malesky, E., Taussig, M., 2009. Where is credit due? Legal institutions, connections, and
+
+impact of the US Advanced Technology Program. Small Bus. Econ. 20 (2), 153–165. the efficiency of bank lending in Vietnam. J. Law Econ. Organiz. 25 (2), 535–578.
+Feldman, M., Kelley, M.R., 2006. The ex ante assessment of knowledge spillovers: Martin, S., Scott, J., 2000. The nature of innovation market failure and the design of
+
+government R & D policy: economic incentives and private firm behavior. Res. Policy public support for private innovation. Res. Policy 29 (4), 437–447.
+35, 1509–1521. McCrary, J., 2008. Manipulation of the running variable in the regression discontinuity
+
+Firth, M., Lin, C., Liu, P., Wong, S., 2009. Inside the black box: bank credit allocation in design: a density test. J. Econom. 142 (2), 698–714.
+China’s private sector. J. Bank. Finance 33 (6), 1144–1155. McDermott, G., Corredoira, R., Kruse, G., 2009. Public-private institutions as catalysts of
+
+Fuller, Douglas, B., 2016. Paper Tigers, Hidden Dragons: Firms and the Political Economy upgrading in emerging market societies. Acad. Manage. J. 52 (6), 1270–1296.
+of China’s Technological Development. Oxford University Press, Oxford, UK. Meuleman, M., De Maeseneire, W., 2012. Do R &D subsidies affect SMEs’ access to
+
+Gans, J., Hsu, D., Stern, S., 2008. The impact of uncertain intellectual property rights on external financing? Res. Policy 41, 580–591.
+the market for ideas: evidence from patent grant delays. Manage. Sci. 54 (5), Nelson, R., 1959. The simple economics of basic scientific research. J. Polit. Econ. 67,
+982–997. 297–306.
+
+Gao, X.D., 2013. China’s technology policy change: how effective has it been? China: Int. Nishimura, J., Okamuro, H., 2011. Subsidy and networking: the effects of direct and
+J. 11 (3), 24–47. indirect support programs of the cluster policy. Res. Policy 40 (5), 714–727.
+
+Gelman, A., Imbens, G., 2014. Why High-order Polynomials Should Not be Used in OECD, 2008. OECD Reviews of Innovation Policy: China.
+Regression Discontinuity Designs. National Bureau of Economic Research (Working OECD, 2013. OECD Science, Technology and Industry Scoreboard 2013.
+Paper No. w20405). OECD, 2014. Government financing of business R & D and innovation, in OECD. Science,
+
+1160
+
+
+
+Y. Wang et al. Research Policy 46 (2017) 1142–1161
+
+Technology and Industry Outlook 2014. OECD Publishing, Paris. Tsai, K., 2002. Back-Alley Banking: Private Entrepreneurs in China. Cornell University
+Radicic, D., Pugh, G., Hollanders, H., Wintjes, R., Fairbun, J., 2015. The impact of Press, Ithaca, NY.
+
+innovation support programs on SME innovation in traditional manufacturing Wademan, A., 2012. Double Paradox: Rapid Growth and Rising Corruption in China.
+industries: an evaluation for seven EU regions. Environment and Planning C: Cornell University Press, Ithaca, NY.
+Government and Policy. Wallsten, S.J., 2000. The effects of government-industry R & D programs on private R & D:
+
+Reinikka, R., Svensson, J., 2004. Local capture: evidence from a central government the case of the Small Business Innovation Research program. RAND J. Econ. 31 (1),
+transfer program in Uganda. Quart. J. Econ. 119 (2), 679–705. 82–100.
+
+Schneider, C., Veugelers, R., 2010. On young highly innovative companies: why they Wang, Y., 2016. Bringing the stages back in: social network ties and start-up firms’ access
+matter and how (not) to policy support them. Ind. Corp. Change 19 (4), 969–1007. to venture capital in China. Strateg. Entrepreneur. J. 10 (3), 300–317.
+
+Shen, N., Lu, X., Chen, Z., 2013. Cheating to get funded: how did shell companies use White, S., Gao, J., Zhang, W., 2005. Financing new ventures in China: system antecedents
+zombie projects to receive Innofund grants. The Economic Observers. (Available at and institutionalization. Res. Policy 34 (6), 894–913.
+http://finance.sina.com.cn/money/fund/20130906/232016691713.shtml). Wilson, J., Keeley, J., 2007. China: The Next Science Superpower? Demos Publishing,
+
+Stiglitz, J., Wallsten, S., 1999. Public-Private technology partnerships promises and Denmark.
+pitfalls. Am. Behav. Sci. 43 (1), 52–73. Yang, C., Huang, C., Hou, T., 2012. Tax incentives and R &D activity: firm-level evidence
+
+Stuart, T., Wang, Y., 2016. Who cooks books in China and does it pay? Strateg. Manage. J. from Taiwan. Res. Policy 41 (9), 1578–1588.
+37, 2658–2676. Zúñiga-Vicente, J., Alonso-Borrego, C., Forcadell, F., Galán, J., 2014. Assessing the effect
+
+Tödtling, F., Trippl, M., 2005. One size fits all? Towards a differentiated regional of public subsidies on firm R&D investment: a survey. J. Econ. Surveys 28 (1),
+innovation policy approach. Res. Policy 34 (8), 1203–1219. 36–67.
+
+Takalo, T., Tanayama, T., Toivanen, O., 2013. Estimating the benefits of targeted R &D Z-Park, 2015. An Introduction to the Z-Park. (March 26, 2015. Available at http://www.
+subsidies. Rev. Econ. Stat. 95 (1), 255–272. zgc.gov.cn/sfqgk/56261.htm).
+
+Taussig, M., Delios, A., 2015. Unbundling the effects of institutions on firm resources: the Zhang, J., Wo, Z., 2006. Academic Corruption Erodes Our Nation’s Long-term
+contingent value of being local in emerging economy private equity. Strateg. Competitiveness. (Asia Weekly. http://www.oke520.com/article/779.html).
+Manage. J. Zhao, B., Ziedonis, R., 2014. State governments as financiers of technology startups:
+
+Toole, A., Turvey, C., 2009. How does initial public financing influence private incentives implications for firm performance. Social Science Research Network. (Available at
+for follow-on investment in early-stage technologies? J. Technol. Transfer 34 (1), SSRN: http://ssrn.com/abstract=2060739).
+43–58. Zhu, Y., Wittmann, X., Peng, M., 2012. Institution-based barriers to innovation in SMEs in
+
+Trochim, W., 1984. Research Design for Program Evaluation: the Regression- China. Asia Pacific J. Manage. 29 (4), 1131–1142.
+Discontinuity Design. Sage Publications, Beverly Hills, CA.
+
+1161

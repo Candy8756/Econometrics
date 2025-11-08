@@ -1,0 +1,2281 @@
+﻿THE JOURNAL OF FINANCE • VOL. LXI, NO. 1 • FEBRUARY 2006
+
+Investment and Financing Constraints: Evidence
+from the Funding of Corporate Pension Plans
+
+JOSHUA D. RAUH∗
+
+ABSTRACT
+I exploit sharply nonlinear funding rules for defined benefit pension plans in order to
+identify the dependence of corporate investment on internal financial resources in a
+large sample. Capital expenditures decline with mandatory contributions to DB pen-
+sion plans, even when controlling for correlations between the pension funding status
+itself and the firm’s unobserved investment opportunities. The effect is particularly
+evident among firms that face financing constraints based on observable variables
+such as credit ratings. Investment also displays strong negative correlations with
+the part of mandatory contributions resulting solely from unexpected asset market
+movements.
+
+Companies cannot commit to building new plants, launching new research
+projects or hiring new employees if that cash is needed to fund pensions.
+—Glen A. Barton, Chairman and Chief Executive of Caterpillar Inc.
+(New York Times, 22 June 2003).
+
+Firms that sponsor defined benefit (DB) pension plans must make financial
+contributions to their pension funds according to legally specified formulas.
+These contributions have a direct impact on a company’s internal financial
+resources. If a firm is financially constrained, contribution requirements may
+also affect its ability to invest in new capital, conduct research and development
+(R&D), and make acquisitions. To the extent that required contributions can
+be separated from the firm’s investment opportunities, they are useful instru-
+ments in identifying the response of corporate capital expenditures to changes
+in internal financial resources. This paper investigates the response of corpo-
+rate expenditures—primarily on capital but also on R&D and acquisitions—to
+
+∗Joshua D. Rauh is with the Graduate School of Business, University of Chicago. I thank James
+Poterba, Stew Myers, Jonathan Gruber, Dirk Jenter, Heitor Almeida, Daniel Bergstresser, Mihir
+Desai, Michael Greenstone, Robin Greenwood, David Scharfstein, Antoinette Schoar, Jeremy Stein,
+and Amir Sufi for helpful comments and discussions. I would also like to thank Rob Stambaugh
+(the editor) and the referees. This work benefited greatly from the thoughts of economics seminar
+participants at MIT, Harvard, Princeton, and the Kennedy School of Government, and of finance
+seminar participants at the University of Chicago, the University of Pennsylvania (Wharton),
+Harvard, Stanford, Columbia, NYU (Stern), Dartmouth (Tuck), Michigan (Ross), Boston College
+(Carroll), Northwestern (Kellogg), Duke (Fuqua), London Business School, and the 2004 Western
+Finance Association meetings in Vancouver. I am grateful to the Center for Retirement Research
+at Boston College and the National Bureau of Economic Research for financial support.
+
+33
+
+
+
+34 The Journal of Finance
+
+variation in required pension contributions, while controlling for potential cor-
+relations between the firm’s pension funding status and its unobserved invest-
+ment opportunities.
+
+In a DB pension plan, the firm pledges retirement benefits to employees ac-
+cording to a formula that is generally a function of each employee’s age, tenure,
+and salary. Thus, a firm sponsoring a DB pension plan has a financial liability
+equal to the present discounted value of the payments pledged to retirees. U.S.
+law requires the firm to fund that liability in a pension fund with dedicated
+assets. If the market value of pension assets is greater than the present dis-
+counted value of liabilities, the pension plan is considered “overfunded.” Firms
+with overfunded plans do not have to make contributions to their pension funds.
+They may choose to make contributions but only up to certain full funding lim-
+its, beyond which contributions lose their favorable tax treatment. If the market
+value of pension assets is less than the present discounted value of the pension
+liability, the pension plan is considered “underfunded.” The firm is then re-
+quired by law to make contributions as given by a complex nonlinear function
+of the pension funding status.
+
+The annual change in the legal funding status of a firm’s pension plan is de-
+termined by four factors. First, and most important, the dedicated assets in the
+fund are generally invested in a range of financial securities chosen by the firm
+that sponsors the plan. Thus, their performance varies from year to year and
+across firms depending on the investment choices. Second, until very recently,
+firms were required to discount pension liabilities for funding purposes using
+the 30-year Treasury rate.1 Changes in the rate therefore affect the pension
+funding status of firms over time and have differential cross-sectional effects
+on firms due to the varying sizes, structures, and durations of pension liabili-
+ties. Third, the firm’s funding status is affected by voluntary funding decisions,
+which may be related to the financial strength of the firm and its pension plan.
+Finally, the firm may choose to make changes to the level and structure of ben-
+efits, though these are amortized over long periods of time and therefore do not
+have immediate and significant effects on stated liabilities.
+
+Several of these factors are naturally endogenous to the firm’s investment
+opportunities. For example, variation in the funding status due to voluntary
+contributions and financial health is related to the profitability of capital in-
+vestments. However, the sharp nonlinearities of pension funding requirements,
+particularly around the threshold of underfunding, allow for the identification
+of an effect of required contributions on investment that is purged of this en-
+dogeneity problem. In particular, I estimate the effect of required contribu-
+tions on investment while controlling for Tobin’s Q, cash flows, and the pension
+funding status itself. This procedure is valid even if unobserved investment
+opportunities are functionally related to the pension funding status. The iden-
+tifying assumption is that the function that relates the pension funding status
+to investment opportunities does not have precisely the same kinks, jumps,
+and asymmetries as the function that relates the pension funding status to
+
+1 In April 2004, legislation was approved that allows companies to use a discount rate that is a
+blend of long-term corporate bonds, including both upper-medium and high-grade securities.
+
+
+
+Investment and Financing Constraints 35
+
+required pension contributions. The arbitrary structure of the pension contri-
+bution rule supports the contention that this assumption is met. This strategy
+shares features of the regression discontinuity approach in labor economics (van
+der Klaauw (1996), Angrist and Lavy (1999), and Angrist and Krueger (1999)).
+The identification is further helped by the fact that firms may have both over-
+funded and underfunded plans, since contemporaneous internal resources are
+shifted only by underfunded plans.
+
+This work is the first to estimate the response of capital expenditures to inter-
+nal financial resources using instruments for internal cash in a large sample,
+panel setting. If there are no differential costs of internal and external finances,
+the model of Modigliani and Miller (1958) predicts that funding requirements
+should not affect expenditure decisions. However, if external finance is more
+expensive than internal finance due to information asymmetries, agency costs,
+incomplete contracting, or the tax system, firm expenditures will respond neg-
+atively to required pension contributions. Much of the previous literature on fi-
+nancial constraints has focused on debating the interpretations of the observed
+positive correlation between investment and cash flow in linear investment
+models (Fazzari, Hubbard, and Petersen (1988, 2000), Kaplan and Zingales
+(1997, 2000)). It has long been recognized that this correlation might be spu-
+rious as cash flow can be correlated with omitted variables that represent the
+profitability of investment. Blanchard, Lopez-de-Silanes, and Shleifer (1994)
+and Lamont (1997) move away from investment–cash flow sensitivities by ob-
+serving responses to plausibly exogenous shocks to internal funds in small and
+specialized groups of firms. This paper unites these two strands of literature,
+combining large-sample estimation with the use of exogenous variation in in-
+ternal financial resources.
+
+In the sample for which the requisite large-sample, plan-level pension data
+are available from the Department of Labor (1990–1998), I find a strong and
+significant negative response of capital expenditures to required pension con-
+tributions. Although this sample does not include the most recent episodes of
+pension underfunding from market declines during 2001 to 2003, there are
+nonetheless many firms during the sample years that had to make economi-
+cally substantial contributions. Approximately one-quarter of the firms in the
+sample have at least one annual episode such that required contributions were
+10% of capital expenditures or greater.
+
+The point estimates are of the order of a $0.60–$0.70 decrease in capi-
+tal expenditures per dollar of mandatory contributions (MCs), compared to
+investment–cash flow coefficients of around $0.10. I show that the investment
+response is inversely related to the quality of a firm’s credit rating, and it is
+most clearly evident among firms that appear to face financing constraints
+based on other observable margins. In particular, the effect is strongest among
+younger firms, firms whose capital expenditures are greater than their cash
+flows, firms with low dividend ratios, and firms with less cash on their bal-
+ance sheets. The fact that the strength of the measured investment response
+increases with each of these variables suggests that the effects in this study are
+primarily driven by financial constraints. These constraints may be related to
+debt market or equity market frictions, but they represent an inability of the
+
+
+
+36 The Journal of Finance
+
+firm to raise funds for desired investments. These results stand in contrast to
+those from simple regressions of investment on cash flow. Such regressions of-
+ten generate coefficients on cash flow that are larger and statistically stronger
+for firms whose observable characteristics would suggest that the firm is not
+financially constrained, a result first shown by Kaplan and Zingales (1997).
+
+I also decompose MCs into “predictable” and “unexpected” components, where
+the unexpected component is driven solely by deviations of market assets and
+interest rates from their expected values. The part of MCs resulting from asset
+market movements alone has a similar effect on investment as when total MCs
+are used. Investment may also decline with predictable required contributions
+though this effect is not as robust. The possibility that investment responds to
+predictable components would have several potential explanations. Firms may
+not be sufficiently forward looking about these pension-related flows. Alterna-
+tively, these flows may not be predictable far enough in advance for financing
+to respond, especially if the constraints or agency problems that generate the
+dependence of investment on internal resources operate on longer horizons.
+
+Despite a shift from DB to defined contribution pension plans in the United
+States over the past two decades, DB plans remain a significant source of risk for
+corporate pension sponsors. Attention has recently been drawn to this issue by
+large unfunded pension liabilities at U.S. firms such as General Motors, United
+Airlines, and many others. An interesting general equilibrium consideration is
+whether firms that do not sponsor DB plans undertake some of the projects
+forgone by constrained pension sponsors. Policy implications may be different
+if the effects are largely distributional rather than a reduction in investment on
+a macroeconomic scale. I find that the investment of firms that do not sponsor
+DB plans rises with the contribution requirement for DB pension firms in their
+industry. The fact that nonpension firms undertake some of the investment
+projects that constrained pension firms leave on the table reduces the total
+decline in investment by approximately 12%.
+
+This paper proceeds as follows. Section I discusses the institutional details
+of pension funding requirements, provides some theoretical motivations, and
+introduces the empirical strategy. Section II discusses the data, which consist of
+Compustat items matched to corporate pension tax filings. Section III presents
+the results. Section IV addresses intertemporal and general equilibrium con-
+siderations. Section V concludes.
+
+I. Funding Requirements and Investment
+This section presents the institutional details of pension funding require-
+
+ments, discusses some theoretical motivations, and develops the primary em-
+pirical specification.
+
+A. Funding Requirements
+Figure 1 shows the distribution of the beginning-of-year pension funding
+
+status for Compustat firms from 1991 to 2004, as revealed in their annual 10-K
+reports filed with the Securities and Exchange Commission (SEC). Funding
+
+
+
+Investment and Financing Constraints 37
+
+120%
+
+100%
+
+80%
+
+60%
+
+40%
+
+20%
+
+0%
+
+-20%
+
+-40%
+
+-60%
+1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004
+
+mean 10th percentile 25th percentile median 75th percentile 90th percentile
+
+Figure 1. Distribution of beginning-of-year funding status. This figure shows the distribu-
+tion of the firm-level pension funding status as of the start of the fiscal year for Compustat firms
+during 1991 to 2004. The funding status is defined as pension assets minus pension liabilities
+divided by pension liabilities. The data are from the annual filings of companies in the Compustat
+database, with pension liabilities on a projected benefit obligation (PBO) basis.
+
+status is defined as pension assets minus pension liabilities, and here it is
+scaled by pension liabilities. As will be discussed in Section II, pension data
+in the SEC filings are insufficient for calculating contribution requirements
+during most of this period; data from the firm’s filings on IRS form 5500 must
+be used. Pension data from SEC filings are available for fiscal years ending
+1990 to 2003, but the research data set of the complete IRS filings provided by
+the Department of Labor ends in 1998. Hence, while the main empirical work
+in this paper is limited to the 1990–1998 sample, the SEC filings allow a longer
+overview of the evolution of pension funding in the United States.
+
+The figure illustrates the intertemporal variation in the distribution of the
+pension funding status. On the asset side, these swings are wrought by shifts
+in the market values of the equity and fixed income assets that firms select
+to fund pension liabilities, as well as potential variation in the amount of cash
+that firms contribute. Liabilities are higher in low interest rate environments
+and lower in high interest rate environments. Declines in interest rates will
+have less of a detrimental effect on the pension funding status during periods
+in which pension funds are invested more heavily in fixed income instruments
+relative to periods in which they are invested in equity.
+
+Funding Status
+
+
+
+38 The Journal of Finance
+
+In general, firms with underfunded plans must contribute an amount equal
+to the new benefits accrued during the previous year plus a fraction of the
+funding shortfall (Langbein and Wolk (2000)). Firms with overfunded plans
+are not required to make contributions. Furthermore, maximum deductibility
+laws have limited the extent to which firms with overfunded plans can make
+voluntary contributions to buffer themselves against future shortfalls. The ef-
+fects that MCs might have on firms’ internal financial resources become more
+important for the investment of financially constrained firms as the funding
+status deteriorates.
+
+During the time period in this study, firms were required to contribute the
+larger of two components, namely the minimum funding contribution (MFC)
+and the deficit reduction contribution (DRC). MFCs were first instituted by the
+Employee Retirement Income Security Act (ERISA) of 1974 and codified for tax-
+qualified plans in §412(b)(1) of the Internal Revenue Code (IRC). The ERISA
+requirements specify that sponsors of underfunded plans must contribute an-
+nually an amount equal to the present value of pension benefits accrued during
+the year (called the “normal cost”), as well as installment payments on any un-
+funded liabilities. The unfunded liability for ERISA purposes is the part of the
+projected benefit liability that is neither covered by plan assets nor is sched-
+uled to be covered by future normal cost contributions. The unfunded liability
+may be amortized over a long period, typically 5–30 years.2 The ability that
+ERISA gave firms to spread repayments of unfunded liabilities over very long
+time periods was generally believed to have contributed to inadequate funding
+of corporate plans.
+
+The Pension Protection Act of 1987 changed the laws to require better funding
+of DB plans. The primary feature of this act was a rule that required between
+13.75% and 30% of any underfunding to be deposited into the plan as a deficit
+reduction or “catch-up” contribution. The larger the funding deficit, the larger
+the percentage of the deficit that must be contributed in the first year. The
+remainder of the shortfall is then amortized over a period of 3–5 years. The
+fraction of the underfunding that had to be contributed in the first year was
+min{0.30, [0.30 − 0.25 ∗ ( funding status − 0.35)]}.
+
+The Retirement Protection Act (RPA) of 1994 changed funding requirements
+for years 1995 and later by exempting plans which are more than 90% funded
+(i.e., less than 10% underfunded) from DRCs (see Internal Revenue Service
+(1995)). It also exempted certain plans that are between 80% and 90% funded,
+applied the 30% DRC rate to more plans, and increased the lowest DRC rate
+from 13.75% to 18%. The first-year DRC under the 1994 law is equal to
+min{0.30, [0.30 − 0.40 ∗ ( funding status − 0.60)]}.
+
+Figure 2 depicts these requirements, showing contribution values in dollar
+terms for a firm with sample mean characteristics. For a given funding sta-
+tus, the firm must contribute the greater of the MFC and DRC. There is a
+
+2 Munnell and Soto (2003) provide an example. Suppose a plan’s assets exceed its liabilities by
+$5m and the normal cost is $11m. The $5m deficit may be paid off over a period of 10 years. The
+minimum funding contribution in the first year then amounts to $11m + ($5m/10) = $11.5m.
+
+
+
+Investment and Financing Constraints 39
+
+6.0
+
+Deficit Reduction Contribution 1987-1994
+
+5.0 Deficit Reduction Contribution 1995-present
+Minimum Funding Contribution
+
+4.0
+
+3.0
+
+2.0
+
+1.0
+
+0.0
+-50% -40% -30% -20% -10% 0% 10%
+
+Funding Status
+
+Figure 2. Mandatory pension contributions. A firm’s required pension contribution is the
+maximum of two components: The minimum funding contribution (MFC) and the deficit reduction
+contribution (DRC). The graph shows mandatory contributions in dollar terms for a firm with
+sample mean characteristics (liabilities of $37.3m and “normal cost” of $1.3m). The DRC as a
+percentage of firm funding is given by min{0.30,[0.30 − 0.25 ∗ (funding status − 0.35)]} for 1987
+to 1994 and min{0.30,[0.30 − 0.40 ∗ (funding status − 0.60)]} for 1995 and later. The minimum
+funding contribution is defined as the “normal cost” plus 10% of the ERISA underfunding. The
+“normal cost” differs on a firm-by-firm basis depending on the accounting cost method and the rate
+of liability accrual.
+
+discontinuity at the point of full funding, where the required contribution falls
+to zero. Within the underfunded region, the required contribution function is
+characterized by further sharp nonlinearities.
+
+There are, to be sure, other incentives for firms to shore up underfunded
+pension plans. Firms that are sufficiently overfunded are exempt from variable
+Pension Benefit Guaranty Corporation (PBGC) insurance premiums. As of 2003
+these premiums were $19 per employee per year, plus $9 per $1,000 of shortfall.
+Furthermore, credit rating agencies may take unfunded pension liabilities into
+account, and unfunded liabilities may raise a company’s cost of capital through
+that channel (Clifton et al. (2003)). It is possible that by contributing a dollar
+to the pension fund, a firm may reduce its PBGC insurance premiums and its
+probability of a rating downgrade in such a way that the value of the firm is
+increased.
+
+Mandatory Contribution ($m)
+
+
+
+40 The Journal of Finance
+
+B. Theoretical Considerations
+Froot, Scharfstein, and Stein (1993) and Kaplan and Zingales (1997) develop
+
+two-period models in which the source of a cost wedge between internal and ex-
+ternal funds may be asymmetric information as in Myers and Majluf (1984) and
+Greenwald, Stiglitz, and Weiss (1984), or incentive and agency problems as in
+Jensen and Meckling (1976), Grossman and Hart (1982), Stulz (1990), and Hart
+and Moore (1995). This framework can also be modified to account for separate
+components of cash flow that are endogenous and exogenous to investment op-
+portunities. The apparent correlation between investment and cash flow can be
+either greater or smaller than the true dependence of investment on cash flow
+in a properly identified context. The direction of the bias will depend on the
+precise shape of the relationship between investment opportunities and cash
+flow.
+
+Kaplan and Zingales (1997) derive the result that for profit maximizing firms
+in a two-period model with costly external finance, the dependence of invest-
+ment on internal resources is
+
+dI ∗
+= −C11
+
+. (1
+dw C11 − )
+
+f11
+
+In the model used to derive this equation, f (I ) is the return to investment,
+C(e, θ ) is the cost of external finance as a function of externally raised funds
+(e) and the extent of agency or information problems (θ ), and investment (I ) is
+constrained to equal available internal funds (w) plus externally raised funds
+(e). This dependence is not necessarily increasing in the degree of agency or
+information problems (θ ), although certain reasonable conditions can be shown
+to generate this monotonicity.
+
+In the absence of problems related to unobserved investment opportunities,
+this model makes very clear predictions in the context of pension funding re-
+quirements. If there are costs of external finance and underfunded pensions
+must be replenished, then investment declines in response to the cash drain
+from pension contributions according to equation (1). Furthermore, changes
+in the funding status will affect optimal investment when the firm’s pension
+plans are underfunded but not when they are overfunded. These outcomes in a
+one-period model naturally require additional considerations in a multiperiod
+setting. First, the degree of overfunding might affect future required pension
+contributions in a dynamic model even with exogenous pension funding. Firms
+could anticipate the likelihood of future required pension contributions based
+on the current extent of pension overfunding as well as current underfunding.
+Current underfunding would then have two effects that depress investment,
+specifically a current liquidity effect and an anticipated contribution effect. Cur-
+rent overfunding would have an anticipated contribution effect only. The model
+of Gross (1995) shows that in a dynamic context with cash shocks, firms may
+“dynamically manage the flow of funds” to avoid future financing constraints.
+
+This paper operates under the assumption that the firm’s operating cash
+flows are in fact related to unobserved investment opportunities. Furthermore,
+
+
+
+Investment and Financing Constraints 41
+
+it assumes that the pension funding status itself may not be exogenous to un-
+observed investment opportunities—even in the presence of controls for firm
+and year fixed effects (FEs) and controls for Tobin’s Q and the firm’s nonpen-
+sion cash flows. The critical estimate is the relationship between investment
+and required pension contributions in the presence of all of the aforementioned
+controls as well as a control for the pension funding status itself.
+
+It is also important to understand this exercise in the context of dynamic
+models that have been developed to model relationships between investment
+and cash flow. Gomes (2001) shows that the presence of financing constraints
+does not necessarily imply that cash flow adds explanatory power to invest-
+ment regressions (particularly if the impact of financing constraints is im-
+pounded immediately into Q by the market), and furthermore that cash flow
+does add explanatory power in certain models without financing constraints.
+Alti (2003) shows that cash flow can have a positive coefficient in invest-
+ment equations even in models without financing constraints. Moyen (2004)
+shows that constrained firms may have lower cash flow sensitivities than
+unconstrained firms, even though low-dividend firms may have higher sen-
+sitivities than high-dividend firms. The cash-flow effects highlighted in these
+models arise due to empirical misspecification (endogeneity) or measurement
+error in Q. The empirical approach in this paper is designed to address these
+problems by using an instrument for cash flow in the presence of direct con-
+trols for its potential correlation with unobserved investment opportunities or
+with the mismeasurment in Q. The aim of this approach is to measure a di-
+rect effect, one that is not simply the result of correlations with unobserved
+factors.
+
+In the results that follow, I find that the investment response to mandatory
+pension contributions is most clearly present in samples that appear on ob-
+servable margins to consist of financially constrained firms. Furthermore, I
+find that the response is considerably larger than the coefficient on cash flow
+in investment regressions, suggesting that investment–cash flow sensitivities
+may even underestimate the response of investment to a shift in internal re-
+sources, holding investment opportunities constant. This runs counter to the
+usual bias story in which cash flow varies positively for unobserved investment
+opportunities; it should be emphasized again, however, that in theory this bias
+could go in either direction depending on the precise shape of the relationship
+between investment opportunities and cash flow. The most stark case is one in
+which cash flow and investment opportunities are in fact negatively related if,
+for example, profitable investment opportunities arrive sporadically and gen-
+erate cash with a lag.
+
+An alternative explanation is that cash flow as used in the literature may
+not really be free cash flow, as it may be implicitly pledged to other claimants.
+The fact that required pension payments are generally not deducted from cash
+flow is an example of how cash flow could be systematically smaller than
+the intended measurement of free cash flow. If cash flow is in fact system-
+atically mismeasured, then it is even more important to have instruments
+for it.
+
+
+
+42 The Journal of Finance
+
+C. Empirical Specification Compared to Other Studies
+A large investment literature (see, e.g., Fazzari et al. (1988, 2000), Kaplan and
+
+Zingales (1997, 2000), and Baker, Stein, and Wurgler (2003)) scales variables
+by assets or capital and then estimates linear equations of the form
+
+Iit = C i
+α
+
+A i + αt + F
+β1 Qi,t−1 + t
+
+β2 + ε
+i,t−1 A it , (2)
+
+i,t−1
+
+where the dependent variable is the ratio of capital expenditures to assets,
+Ai,t−1 is a measure of book assets or fixed capital, Qi,t−1 is generally average
+Q as of the beginning-of-year t as represented by a market-to-book ratio of
+asset values, and CFit is a measure of cash flow. A linear relationship between
+investment and marginal Q can be derived using a model of investment in
+which firms pay adjustment costs (I, K) with the property that I is linear
+in I/K; alternatively, adjustment costs may be expressed as an installation
+function ψ(I, K) which is linear homogeneous in I and K (Hayashi (1982)).
+This condition and the linear homogeneity of the production function itself are
+together necessary and sufficient conditions for marginal Q to equal the ratio of
+the market value of existing capital to its replacement cost (see Hayashi (1982)
+and Erickson and Whited (2000)).
+
+Fazzari et al. (1988) motivate the inclusion of cash flow in this specification
+by reducing the value of the firm by an information premium per dollar of new
+equity issued. However, a series of studies raise objections to interpreting dif-
+ferential investment–cash flow sensitivities (estimates of β2) as indicative of
+differential financing constraints. One group of issues relates to the potential
+for differential measurement error in Q across the groups (Poterba (1988)) or the
+possible divergence of marginal Q from average Q and the commonly measured
+Tobin’s Q (Erickson and Whited (2000)). A second category of critiques begins
+with Kaplan and Zingales (1997), who show empirically that firms that ap-
+pear to be unconstrained in fact have high investment–cash flow sensitivities.
+Almeida, Campello, and Weisbach (2004) argue that the cash flow sensitivity
+of cash itself is a better measure of financing constraints than the cash flow
+sensitivity of investment.
+
+The present approach examines the response of investment to shifts in in-
+ternal cash while controlling for their potential correlation with the firm’s op-
+erating environment. This method is related to Blanchard et al. (1994) and
+Lamont (1997), who isolate such shifts in small, specialized samples. I use a
+large sample and argue that mandatory pension contributions are exogenous
+to a firm’s investment opportunities and its overall operating environment in
+the presence of the appropriate controls. The primary specification is
+
+Iit = N nPensionCashFlowit
+αi + α
+
+A t + o
+β1 Qi,t−1 + β2
+
+i,t−1 Ai,t−1
+
++ Zit
+β3 + x
+
+A itγ + εit , (3)
+i,t−1
+
+where Zit is MCs and β3 is the coefficient of interest. Variables are scaled by
+Ai,t−1, the beginning-of-year book value of firm assets. This scaling is chosen
+
+
+
+Investment and Financing Constraints 43
+
+so that all variables can be normalized by the same quantity, and it is most
+natural to normalize the pension fund variables by book assets rather than
+by the value of fixed capital or property, plant, and equipment.3 Beginning-
+of-year Tobin’s Q (Qi,t−1) and all cash flow not related to pension contributions
+(effectively operating cash flow) serve as controls. I allow xit to be a vector of
+controls, including in some specifications the funding status itself.
+
+The firm and year FEs (αi and αt, respectively) absorb certain sources of
+variation in required contributions that may be undesirable because of their
+correlation with investment opportunities. For example, an aggregate market
+downturn in a given year may increase required contributions and signal re-
+duced investment opportunities for all firms, and this is absorbed by the year
+dummies. Furthermore, if firms that are likely to end up underfunded are also
+firms with poor opportunities that always invest less, this effect will be absorbed
+by the firm FEs. The variation that remains is variation in required contribu-
+tions relative to other firms in the same year or other years of the same firm.
+The size of the cash drain from required contributions is thus larger when
+investment strategies perform poorly, when pension plans are larger, when in-
+terest rate changes have larger effects on liabilities due to variation in benefit
+structures, and when the firm’s plan is nearer the contribution danger zone, all
+relative to other firms in the same year or other years of the same firm.
+
+Clearly at this point there may still be endogeneity of required contribu-
+tions with respect to investment opportunities because firms are less likely
+to be underfunded when they are financially strong and able to make volun-
+tary contributions that adequately fund the plan. Alternatively, firms that are
+financially fragile may engage in a form of asset shifting and invest in riskier
+assets, which would generate a correlation between lower capital investment
+and higher required pension contributions in the next period if the assets per-
+form poorly. One way to address this would be to argue that the nonpension
+(operating) cash-flow variable soaks up this variation, as in this context oper-
+ating cash flows could be viewed as capturing and controlling for investment
+opportunities. Indeed, if unobserved investment opportunities are not picked
+up by Tobin’s Q due to measurement error or misspecification, it seems much
+more likely that they would be picked up by the firm’s operating cash flows
+rather than its required pension contributions.
+
+The more powerful strategy used in this paper to address the potential endo-
+geneity problem is the inclusion of linear and nonlinear functions of the funding
+status in xit. MCs are a kinked and discontinuous function of the funding sta-
+tus. Other than a direct response of investment to internal resources, there is
+no reason that investment should exhibit a response to MCs when the funding
+status is controlled for. This strategy shares features of the regression discon-
+tinuity approach in labor economics (van der Klaauw (1996), Angrist and Lavy
+(1999), and Angrist and Krueger (1999)). The identifying assumption is that a
+function that relates the pension funding status to investment opportunities
+does not have the same exact kinks, jumps, and asymmetries as the function
+
+3 Book assets are also the denominator of Q, and they are also most naturally used when testing
+responses of dependent variables other than capital investment, such as R&D and acquisitions.
+
+
+
+44 The Journal of Finance
+
+that relates the pension funding status to required pension contributions. The
+arbitrary structure of the pension contribution rules supports the contention
+that this assumption is met. For example, investment opportunities have no
+reason to make a discrete jump at the level of full pension funding, or to be
+correlated with pension funding for underfunded plans but not for overfunded
+plans.
+
+II. Data Description and Construction of Variables
+The primary data used in this analysis are an unbalanced panel of Com-
+
+pustat firms that reported DB pension assets and made an IRS 5500 filing
+between 1990 and 1998. The IRS 5500 filings contain the data on the fund-
+ing status and normal cost at the plan level that are necessary to calculate
+required contributions; 1990 is the first year for which the reported funding
+status is standardized on the form, and 1998 is the final year for which the full
+research data set is available from the Department of Labor. Approximately
+one-quarter of Compustat firms in the 1990s had DB pension plans, although
+these firms account for more than half of Compustat firm book value.
+
+Compustat pension data from SEC filings are not used because they are in-
+sufficient for computing the funding requirement during this period. The data
+in SEC filings are pre-aggregated to the firm level; they therefore do not capture
+intrafirm variation in the funding status of plans. Pension liabilities in the SEC
+filings are calculated using the projected benefit obligation (PBO) method, in
+which prospective salary increases are taken into account, whereas DRCs are
+calculated based only on benefits accumulated to date (Bodie (1990)). There
+is also significant accounting leeway in the SEC filings for the statement of
+assets and liabilities, via intertemporal smoothing and freedom to choose actu-
+arial assumptions, which is not allowed in the computation of DRCs. Domestic
+and international pension assets are aggregated in the SEC filings into one
+pension asset variable and one pension liability variable; the U.S. law only re-
+quires firms to fund domestic plans. Finally, pension costs in the SEC filings
+are reported in accordance with Financial Accounting Standards (FAS) ruling
+87, but this is not the basis for the computation of the annual cost in required
+contributions. These features make Compustat data inadequate for calculating
+MCs. The IRS 5500 filings contain the requisite information.
+
+The size of the sample is 8,030 firm-year observations on 1,522 firms. Firms
+with DB pension assets tend to be older and larger than firms without, re-
+flecting the historical evolution of pension plans and the emergence of defined
+contribution pension plans. Although there used to be relatively few restrictions
+on the termination of well-funded DB pension plans (see Petersen (1992)), leg-
+islation in 1988 and 1990 imposed severe excise taxes on such terminations, so
+that self-selection out of the DB universe is not a serious issue for the period in
+this study.
+
+Appendix Table AI illustrates the construction of the sample from Compustat.
+A number of firms in the Compustat sample of firms with pension assets were
+not able to be matched to the IRS filings because their plans were not large
+
+
+
+Investment and Financing Constraints 45
+
+enough to trigger an IRS 5500 filing on the main form. Many firms that do
+have filings in the IRS 5500 data set are not used because they are not publicly
+traded. Plan-level data on firms with multiple plans with the same fiscal year-
+end dates are aggregated to the firm level, with separate statistics maintained
+for overfunded and underfunded plans. Some firm-years are discarded because
+the firm had several plans whose fiscal years ended in different months. The
+final sample consists of approximately half of the Compustat firms with DB
+pension assets.
+
+Summary statistics are presented in Table I. Unconditional means, medians,
+standard deviations, and nonzero observation counts are presented in the left
+panel. Values of the distribution conditional on the variable being nonzero are
+in the right panel. All variables are winsorized at the 1st and 99th percentiles
+in order to protect the results from the effects of outliers. Unless otherwise
+indicated, all variables are scaled by beginning-of-year balance sheet assets.
+Capital Expenditures have a mean value of 6.9% of assets and a median of 5.8%
+of assets. There are several groups of variables whose construction requires
+further explanation.
+
+Tobin’s Q is constructed as the market-to-book ratio of firm assets.4 The nu-
+merator equals the market value of equity plus book assets minus the sum of
+the book value of common equity and deferred taxes. The denominator is as-
+sets at book value. The mean Q for the sample is 1.48, and the median is 1.26.
+This compares to a mean Q of 1.84 and a median Q of 1.20 for the Compustat
+universe.
+
+Cash-flow variables: Cash flow in empirical investment studies using micro
+data (Kaplan and Zingales (1997), Baker, Stein, and Wurgler (2003)) is often
+defined as income plus depreciation and amortization (data18 + data14). The
+rationale behind adding depreciation and amortization back to the bottom line
+is that these are noncash charges. Another noncash charge that should be added
+back to net income in deriving cash flow is the pension expense that is gener-
+ally subtracted on the income statement. This pension expense is only loosely
+related to the true cash demands of the pension plan, which are the actual con-
+tributions the firm must make to the plan (see Hawkins (2001), Bergstresser,
+Desai, and Rauh (2006)). Actual contributions are not represented on the in-
+come statement but are found at the plan level in the IRS 5500s. I define two
+cash-flow variables,
+
+CashFlow = NetIncome + DA + PensionExpense
+data18 data14 data43
+
+− PensionContributions (4a)
+IRS5500s
+
+and
+
+NonPensionCashFlow = NetIncome + DA + PensionExpense . (4b)
+data18 data14 data43
+
+4 In some measures of Tobin’s Q, the book value of assets is adjusted to more accurately reflect
+replacement costs. Perfect and Wiles (1994) suggest that this adjustment is not critical.
+
+
+
+46 The Journal of Finance
+Table I
+
+Summary Statistics
+This table presents summary statistics for the main sample of 8,030 firm-year observations. For inclusion in the sample, a firm-year observation must be found in
+both Compustat and the IRS 5500 database of U.S. defined benefit plans with more than 100 participants (see Appendix Table I for sample construction). All variables
+are winsorized at the 1st and 99th percentiles of their distributions. Variables subscripted with −1 are the values as of the beginning of year. Most variables are as of
+fiscal year-end, scaled by beginning-of-year balance sheet assets at book value (data6). Capital Expenditures are from the firm’s statement of cash flows (data128).
+Cash Flow equals nonpension cash flow minus total pension contributions. Nonpension Cash Flow equals net income plus depreciation and amortization plus the
+accounting definition of the pension expense (data14 + data18 + data43); this is essentially the same measure as used by Kaplan and Zingales (1997) and Baker,
+Stein, and Wurgler (2003), but the accounting definition of pension expense is added back as a noncash component of reported earnings. Total Pension Contributions
+are reported on the IRS 5500 forms at the plan level and in this study are aggregated to the firm level. Total U.S. Pension Assets are the current value of pension
+assets as of the beginning of the year from the IRS 5500s. Total U.S. Pension Liabilities (ABO) are accumulated benefit obligation current liabilities from Schedule B of
+the IRS 5500s. For years 1991 to 1994, this variable is the OBRA87 liability and for years 1995 to 1998, it is the RPA94 liability. Underfunding (Overfunding) equals
+the market value of assets in underfunded (overfunded) plans minus the current liabilities of underfunded plans. Funding Status is Overfunding−Underfunding, or
+alternatively, total pension assets minus total pension liabilities. Tobin’s Q is the market value of equity (data199 ∗data25) plus book assets (data6) minus the book
+value of common equity including deferred taxes (data60 + data74) over assets, as in Baker, Stein, and Wurgler (2003). Mandatory Contributions are the estimated
+mandatory component of contributions as described in Section II.
+
+Years 1990 to 1998, Observations = 8,030, Firms = 1,522
+Percentiles, Conditional on Nonzero
+
+Standard Nonzero
+Mean Median Deviation Observations 10th 25th 50th 75th 90th
+
+Capital expenditures/assets−1 0.069 0.058 0.053 8,030 0.018 0.034 0.058 0.089 0.131
+Cash flow/assets−1 0.096 0.096 0.077 8,030 0.014 0.058 0.096 0.140 0.182
+Nonpension cash flow/assets−1 0.099 0.099 0.077 8,030 0.017 0.061 0.099 0.143 0.187
+Total pension contributions/assets−1 0.003 0.001 0.006 5,582 0.000 0.001 0.003 0.007 0.013
+Pension expense/assets−1 0.007 0.005 0.008 8,006 0.000 0.002 0.005 0.010 0.017
+Total U.S. pension assets/assets−1 0.137 0.087 0.157 8,030 0.010 0.033 0.087 0.181 0.329
+Total U.S. pension liabilities (abo)/assets−1 0.112 0.067 0.134 8,030 0.009 0.028 0.067 0.140 0.270
+Total global pension assets/assets−1 0.172 0.117 0.174 7,766 0.024 0.060 0.121 0.235 0.409
+Underfunding/assets−1 0.004 0.000 0.014 3,021 0.000 0.001 0.003 0.011 0.032
+Overfunding/assets−1 0.030 0.011 0.046 6,624 0.001 0.005 0.018 0.046 0.095
+Funding Status/assets−1 0.025 0.010 0.050 8,029 −0.007 0.000 0.010 0.036 0.082
+Tobin’s Q (beginning of year) 1.479 1.256 0.707 8,030 0.901 1.034 1.256 1.681 2.339
+Firm age (years) 26.3 28.0 14.1 8,030 5 13 28 39 44
+Assets ($m) 3,632 737 8,621 8,030 76 209 737 2697 9,220
+Mandatory contributions/assets−1 0.001 0.000 0.003 2,380 0.000 0.000 0.001 0.003 0.008
+Mandatory contributions/cash flow−1 0.009 0.000 0.043 2,380 0.000 0.001 0.008 0.031 0.099
+Mandatory contributions/capital expenditures−1 0.033 0.000 0.132 2,380 0.000 0.004 0.199 0.084 0.289
+
+
+
+Investment and Financing Constraints 47
+
+CashFlow and NonPensionCashFlow are 9.6% and 9.9% of book assets,
+respectively, at the median. For the Compustat universe as a whole during
+the 1990 to 1998 period, nonpension cash flow over assets is a smaller 6.4% at
+the median. Pension contributions represent 0.3% of assets at the conditional
+median and 1.3% of assets at the conditional 90th percentile.
+
+Funding status and MCs: Firms may have several pension plans. For funding
+purposes, the overfunding in overfunded plans may not be applied against the
+underfunding in underfunded plans. Underfunding is therefore defined as the
+sum of the shortfall in underfunded pension plans, and Overfunding as the sum
+of the surplus in overfunded plans. Firms with underfunded plans have under-
+funds ranging from 0.1% of assets at the conditional 25th percentile to 3.2% of
+assets at the conditional 90th percentile. The Funding Status is (Overfunding −
+Underfunding), or equivalently, Total U.S. Pension Assets minus Total U.S. Pen-
+sion Liabilities.
+
+Total annual contributions may contain both required and discretionary com-
+ponents. MCs are a constructed estimate of the firm’s required contributions,
+with formulas based on the laws described in Section I and actuarial treat-
+ments of them (see Winklevoss (1993), p. 140). MCs are zero for firms with
+no underfunded pension plans. For firms with at least one underfunded plan
+they are the maximum of the DRC and the MFC. The DRC, a straightforward
+percentage of the underfunding that must be contributed, is calculated as de-
+scribed in Section I and illustrated in Figure 2. Following Zion and Carcache
+(2002), the MFC is approximated as the sum of the normal cost and 10% of the
+underfunding from the first year. The MFC uses a slightly different liability
+measure for calculating the funding status, the rules for which are provided by
+ERISA.5 Following Winklevoss (1993), the MFC may also be offset with credits
+built up from prior years.
+
+Initially, there are 24,879 plan-year observations on the 12,834 firm-year ob-
+servations that were matched to Compustat (see Table AI). Of these 24,879
+plans, 7,424 are underfunded. Of the 7,424 underfunded plans, 1,940 have
+DRC > MFC and 5,484 had DRC < MFC. However, the magnitude of DRC
+contributions is substantially greater than MFC contributions, as the DRC is
+operative when plans are very underfunded.
+
+Figure 3 shows a univariate kernel density estimation of the difference be-
+tween actual and required contributions at the firm level. The solid line rep-
+resents the density of all observations, including those with zero actual con-
+tributions. The dashed line represents the density excluding observations with
+zero actual contributions. Actual contributions are bunched around the point
+of estimated required contributions, suggesting that the contribution require-
+ment is an important determinant of total contributions. The area under the
+curves to the right of zero represents voluntary contributions. The small area
+
+5 Rather than being tied to the 30-year Treasury rate, this discount is set by the plan’s actuary.
+Munnell and Soto (2003) detail that the average discount rate used by final average pay pension
+plans increased from 5% in 1976 to 8% in 1986, but has not changed since then. Any effect that
+discretionary changes in the ERISA rate could potentially have on the pension liability is amortized
+into liabilities over long periods of time.
+
+
+
+48 The Journal of Finance
+
+ All Observations  Nonzero Contributions Only
+
+400
+
+200
+
+0
+
+-.01 -.005 0 .005 .01 .015 .02
+Total Contributions - Estimated Mandatory Contributions
+
+Figure 3. Probability density of the difference between actual total contributions and
+estimated mandatory contributions. Kernel density estimation of the difference between
+reported total contributions and estimated mandatory contributions is performed using the
+Epanechnikov kernel with optimal bandwidth based on the formula of Silverman (1986).
+
+under the curves to the left of zero represents error in the calculation of MCs,
+as a contribution level cannot be required if a firm manages to contribute less
+than that amount. This error could arise from a number of sources, including
+misreporting, running up against full funding limits, other prior amortization
+credits, or firms that are in bankruptcy and whose plans enter PBGC receiver-
+ship. In these error cases the estimate of MCs is replaced with what a firm
+actually contributed.6
+
+Of the 8,030 observations, 2,380 have nonzero MCs. The distribution of esti-
+mated MCs as a share of book assets is depicted in Figure 4. In addition to the
+1990–1998 sample, simulated estimates of MCs for 1999 to 2003 are also calcu-
+lated for Figure 4 based on Compustat data (see figure notes for details), since
+the critical IRS 5500 variables are not available. So as to keep the results inde-
+pendent of these approximation steps, the empirical exercises in this paper are
+presented only for the 1990–1998 sample, although they are not substantively
+different if the 1999–2003 observations are included (see Footnote 8).
+
+6 This operation affects approximately 8% of observations, mostly by less than 0.1% of book
+assets. The results are not sensitive to the treatment of these cases, including dropping them
+entirely.
+
+Density
+
+
+
+Investment and Financing Constraints 49
+
+2.5%
+
+Estimation Sample
+
+2.0%
+
+1.5%
+
+1.0%
+
+0.5%
+
+0.0%
+1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003
+
+90th percentile 95th percentile 75th percentile median
+
+Figure 4. Estimated mandatory contributions. Estimates of the mandatory contribution for
+the period 1990 to 1998 are calculated based on data from the IRS 5500 plan-level filings and
+aggregated to the firm level. Simulated values of mandatory contributions for 1999 to 2003 are
+based on Compustat data for firms that are also in the IRS 5500 sample for the earlier period,
+with a series of correction steps applied for the differences between the two reporting regimes. In
+particular, ratios of Compustat to IRS pension variables (assets, liabilities and costs) are calculated
+for 1990 to 1998, and within-firm medians of these ratios are applied to Compustat data, between
+1999 and 2003 with observations excluded if the deviation is larger than 10%. These simulated
+values for 1999 to 2003 are not used in this paper’s empirical specifications due to the potential for
+introducing systematic error via this procedure, though the results are robust to their inclusion.
+
+The years with the fewest percentage of firms in the 1990–1998 sample with
+positive MCs are 1990 (27.6%) and 1998 (29.5%), and the year with the most
+is 1995 (52.0%). In most years, approximately 25% of the sample has required
+contributions that are nonzero and may have ranged up to 1% of the book value
+of firm assets. In 1995, approximately 7% of firms had required contributions
+of over 1% of book assets. It is also informative to consider the magnitude of
+required pension contributions relative to lagged capital expenditures. At the
+1995 mean, MCs were about 9% of capital expenditures, compared to an average
+of 4–5% for the rest of the sample years. Approximately one-quarter of the firms
+in the sample had at least one annual episode such that required contributions
+were 10% of capital expenditures or greater.
+
+The simulated MCs for the period 1999 to 2003 reveal that the estimated
+required contributions in the year 2002 were nearly of the same magnitude as
+
+Mandatory Contribution / Book Assets(t-1)
+
+
+
+50 The Journal of Finance
+
+those from 1995, whereas the location of the estimated distribution for 2003 is
+considerably higher than all previous years. Almost 25% of firms in the sample
+had estimated required contributions in 2003 that were at least 20% of 2002
+capital expenditures.
+
+III. Results
+In this section, I analyze the nonparametric relationship between pension
+
+funding and capital investment, and then discuss the results of the main spec-
+ifications. The effects of required pension contributions on alternative outcome
+variables such as R&D, acquisitions, dividends, stock repurchases, and financ-
+ing variables are also examined. I develop constructions of “predictable” and
+“unexpected” MCs and test their effects on investment. The results of the main
+specification are presented in samples divided by hypothesized observable mea-
+sures of financing constraints.
+
+A. Nonparametric Evidence
+Before estimating the parameters of the linear specifications developed in
+
+Section I, it is useful to examine the nonparametric relationship between pen-
+sion funding and capital expenditures. A kernel regression allows such a re-
+lationship to be plotted between two variables without the imposition of a
+functional form. Figure 5 shows nonparametric relationships between both the
+funding status and capital expenditures (top graph), and the funding status
+and contributions (bottom graph). The error bounds shown are 95% confidence
+intervals.
+
+Capital expenditures increase with funding status but only up to the point of
+full funding, the point at which MCs cease. Contributions, which consist of both
+mandatory and voluntary components, decline as funding status improves. The
+very low level of average investment for the most poorly funded firms cannot
+be completely explained by contemporaneous contribution requirements; since
+the relationship plotted in the figure does not contain the full set of controls,
+it can only be viewed as suggestive. However, the flatness of the relationship
+in the overfunded region and the apparent kink at the level of full funding
+are definitely consistent with the hypothesized dependence of investment on
+internal cash.7
+
+B. Pension Contributions, Funding Status, and Capital Expenditures
+Table II shows the estimation of panel regressions of capital expenditures
+
+on pension and nonpension cash flows. Specification (1a) is the literature’s
+standard linear investment–cash flow specification (equation (2)) with cash
+flow defined as described in Section II. This is presented as a baseline and for
+comparison with other studies. The coefficient on cash flow (β2) has a point
+
+7 Further nonparametric evidence suggests that the slope of the effect is larger for larger shocks.
+
+
+
+Investment and Financing Constraints 51
+
+0.080
+
+0.075
+
+0.070
+
+0.065
+
+0.060
+
+0.055
+
+0.050
+
+0.045
+
+0.040
+-0.5 -0.4 -0.3 -0.2 -0.1 0.0 0.1 0.2 0.3 0.4
+
+Funding Status
+
+0.011
+
+0.010
+
+0.009
+
+0.008
+
+0.007
+
+0.006
+
+0.005
+
+0.004
+
+0.003
+
+0.002
+-0.5 -0.4 -0.3 -0.2 -0.1 0.0 0.1 0.2 0.3 0.4
+
+Funding Status
+
+Figure 5. Kernel regressions of capital expenditures and pension contributions on fund-
+ing status. Kernel regression estimation is performed on pooled data using the Epanechnikov
+kernel. The funding status is aggregated to the firm level. The top graph shows the relationship
+between funding status and pension contributions. The bottom graph shows the relationship be-
+tween funding status and capital expenditures. The error bounds are 95% confidence intervals
+(±1.96 standard deviations). The bandwidth of 0.1 is validated using a cross-validation algorithm
+that minimizes the sum of squared residuals (Härdle (1990), p. 159). The error bounds are pointwise
+confidence intervals, calculated using an algorithm that is based on the variance of the estimate
+(Härdle (1990), p. 100).
+
+Pension Contributions / Assets Capital Expenditures / Assets
+
+
+
+52 The Journal of Finance
+
+estimate of 0.111 and the coefficient on Q (β1) has a point estimate of 0.019,
+which are consistent with the usual estimates.
+
+The basic specification for the rest of Table II is equation (3). In specifications
+(1b) and (1c), Zit is total pension contributions and MCs, respectively, and there
+are no additional controls. Total contributions have a positive coefficient that
+is statistically insignificant, whereas when MCs alone are considered, an effect
+of −0.830 with a heteroskedasticity-robust standard error of 0.289 is observed.
+This effect would imply that a $1 MC would reduce capital expenditures by
+$0.83.
+
+The middle panel of Table II adds funding status itself as a control to the spec-
+ifications estimated in the left panel. Column (2a) shows that funding status is
+weakly positively correlated with capital expenditures, so that for every $1 of
+additional pension funding, investment is increased by $0.042. This estimate
+is a mixture of two effects, namely a liquidity effect, and a positive correlation
+between the funding status and unobserved investment opportunities.
+
+In column (2c), Zit is mandatory pension contributions, and the funding status
+variable is used as a control. Here, MCs have an estimated effect of −0.738
+on investment. Thus, even in the presence of a linear relationship between
+the funding status and unobserved investment opportunities, the results on
+required contributions are still robust. Furthermore, the similarity between (2c)
+and (1c) suggests that a correlation between the funding status and unobserved
+investment opportunities is not the main driver of the results.
+
+Specifications (3a), (3b), and (3c) allow for separate effects of underfunding
+and overfunding on investment. In column (3a), the point estimate for $1 of
+underfunding is an effect of −$0.164 on capital expenditures, and the extent
+of overfunding does not significantly affect investment. These coefficients are
+suggestive of an effect of the cash drain from required contributions on capi-
+tal investment; again, however, the more robust way of estimating this effect
+is to examine the relationship between contributions and capital expenditures
+while controlling for these funding status variables. Column (3b) is therefore
+similar to column (2c), except the funding status is allowed to affect invest-
+ment differently in the overfunded and underfunded regions. Finally, column
+(3c) includes squares and cubes of these funding status variables as a further
+robustness check. The estimated effects in these specifications are both around
+$0.60. Thus, the right panel of Table III shows that even when the relationships
+between the funding status and investment are allowed to be nonlinear and to
+differ between the underfunded and overfunded regions, a significant effect of
+required contributions on investment is still measured.8
+
+The standard errors in Table II are clustered by firm, so as to correct for
+arbitrary within-firm serial correlation of error terms. The table also presents
+
+8 Essentially the same results are observed in an extended sample that includes the simulated
+required contributions for 1999 to 2003 based on Compustat data shown in Figure 4. This sample
+contains 9,450 observations for the period 1990 to 2003. Mandatory contributions have a coefficient
+of −0.64 (robust standard error of 0.23) in the specification with no funding status controls, −0.52
+(0.26) with linear funding status controls, and −0.48 (0.25) with the most general nonlinear funding
+status controls.
+
+
+
+Investment and Financing Constraints 53
+Table II
+
+Panel Regressions of Capital Expenditures on Pension and Nonpension Cash Flows
+Each column presents estimates from a regression of the form:
+
+Iit = + NonPensionCashFlowit
+αi αt + β1 Qi,t−1 + Zit
+
+β2 + β + xitγ + εA it ,
+i,t−1 A
+
+3
+i,t−1 Ai,t−1
+
+where Iit is capital expenditures, Zit is (mandatory) pension contributions, and x is a vector of controls. Variables are scaled by beginning-of-year balance sheet assets
+(Ai,t−1). In specifications (1a), (2a), and (3a), nonpension cash flow and contributions are aggregated into one cash flow variable. In (1b), (2b), and (3b), the contributions
+variable is total contributions; in (1c), (2c), (3b), and (3c), it is mandatory contributions. In specifications (2a)–(2c), the funding status is controlled for linearity by including
+the funding status (pension assets minus pension liabilities scaled by firm assets) as an explanatory variable. In the specifications (3a)–(3b) the funding variable controls
+are underfunding and overfunding, separately, and in (3c) the first three powers of these variables are included (squares and cubes not shown). The sample size is 8,030
+observations on 1,522 firms.
+
+Dependent Variable: Capital Expendituresi,t / Ai,t−1
+(1a) (1b) (1c) (2a) (2b) (2c) (3a) (3b) (3c)
+
+Contributions (mandatory)i,t / Ai,t−1 −0.830∗∗∗ −0.738∗∗∗ −0.607∗∗ −0.597∗∗
+(0.289) (0.284) (0.296) (0.300)
+
+Contributions (total)i,t / Ai,t−1 0.109 0.188
+(0.162) (0.158)
+
+Cash flow ∗∗∗i,t / Ai,t−1 0.111
+(0.012)
+
+Nonpension cash flowi,t / Ai,t−1 0.111∗∗∗ 0.112∗∗∗ 0.111∗∗∗ 0.110∗∗∗ 0.111∗∗∗ 0.111∗∗∗ 0.111∗∗∗ 0.111∗∗∗
+(0.012) (0.012) (0.012) (0.012) (0.012) (0.012) (0.012) (0.012)
+
+Qi,t−1 0.019∗∗∗ 0.019∗∗∗ 0.019∗∗∗ 0.019∗∗∗ 0.019∗∗∗ 0.019∗∗∗ 0.019∗∗∗ 0.019∗∗∗ 0.019∗∗∗
+(0.002) (0.002) (0.002) (0.002) (0.002) (0.002) (0.002) (0.002) (0.002)
+
+Funding status ∗i,t−1 / Ai,t−1 0.042∗ 0.050∗ 0.026
+(0.024) (0.024) (0.023)
+
+Underfundingi,t−1 / Ai,t−1 −0.164∗∗ −0.075 −0.040
+(0.065) (0.066) (0.256)
+
+Overfundingi,t−1 / Ai,t−1 0.020 0.021 0.148∗
+(0.025) (0.024) (0.088)
+
+Powers of funding variables 0 0 0 1 1 1 1 1 1, 2, 3
+R2 (within) 0.098 0.098 0.100 0.100 0.101 0.101 0.100 0.101 0.101
+Adjusted R2 0.609 0.609 0.610 0.609 0.610 0.610 0.609 0.610 0.610
+
+Alternate standard errors for mandatory contributions coefficient:
+Clustering by year 0.238 0.232 0.329 0.232
+AR(1) model w/panel correlations 0.243 0.251 0.337 0.244
+
+Standard errors are in parentheses. ∗∗∗Significant at 1%; ∗∗significant at 5%; ∗significant at 10%.
+All models contain firm-fixed effects and year-fixed effects. Standard errors in parentheses are heteroskedasticity-robust and clustered by firm.
+
+
+
+54 The Journal of Finance
+Table III
+
+Alternate Specifications for Regressions with Funding Status Controls
+This table considers alternate specifications of the main test. The first four columns show results from two-stage least squares (2SLS) estimates of the model
+
+Iit = Y
+α
+
+A 2i + it
+α2t + β21 Qi,t−1 + β22 + xA itγ2 + εit
+
+i,t−1 i,t−1
+Yit = α
+
+A 1i + α1t + β11 Qi,t−1 + xitγ1 + Zitδ1 + υit ,
+i,t−1
+
+where Z is mandatory contributions. Only coefficients from the investment equation are shown. In the first two columns, Y is total pension contributions and x
+consists of nonpension cash flow and funding status itself. In the third and fourth columns, Y is total cash flow and x is pension funding status only. The firm
+fixed effects (α1i and α2i) are only included where indicated. The remaining three columns test the robustness of the main specification in column (2c) from
+Table II to alternate specifications. RE is a random-effects model, and FD is a first-difference model. All models contain year-fixed effects.
+
+Dependent Variable: Capital Expendituresi,t / Ai,t−1
+
+Variables instrumented with mandatory contributions:
+Contributions (total)i,t / Ai,t−1 −0.822∗∗∗ −0.829∗∗∗
+
+(0.262) (0.221)
+Cash flowi,t / Ai,t−1 0.946∗ 0.459∗∗∗
+
+(0.518) (0.099)
+
+Non-instrumented variables:
+Contributions (mandatory)i,t / Ai,t−1 −0.649∗∗ −0.863∗∗ −0.490∗
+
+(0.282) (0.210) (0.252)
+Nonpension cash flowi,t / Ai,t−1 0.115∗∗∗ 0.254∗∗∗ 0.099∗∗ 0.145∗∗ 0.083∗∗
+
+(0.009) (0.015) (0.012) (0.008) (0.010)
+Funding statusi,t−1 / Ai,t−1 0.008 −0.060∗∗∗ −0.080 −0.080∗∗∗ 0.018∗∗ 0.013∗∗ 0.020∗∗
+
+(0.021) (0.016) (0.078) (0.023) (0.002) (0.001) (0.003)
+Qi,t−1 0.019∗∗∗ 0.000 −0.019 −0.010∗ 0.034 0.003 0.023
+
+(0.001) (0.002) (0.023) (0.006) (0.024) (0.015) (0.016)
+Method 2SLS 2SLS 2SLS 2SLS OLS RE FD
+Firm fixed effects Y N Y N Y N N
+Industry-year fixed effects N N N N Y N N
+
+Adjusted R2 0.09 0.14 0.13 0.07 0.18 0.10 0.07
+Observations 8,030 8,030 8,030 8,030 8,030 8,030 6,508
+Firms 1,522 1,522 1,522 1,522 1,522 1,522 1,409
+
+Standard errors are in parentheses. ∗∗∗Significant at 1%; ∗∗significant at 5%; ∗significant at 10%.
+Standard errors are heteroskedasticity-robust and clustered by firm except in the random effects specification.
+
+
+
+Investment and Financing Constraints 55
+
+standard errors calculated using alternative methods. If there is concern that
+there is correlation in error components across firms within a given year, clus-
+tering the standard errors by year provides an alternative that is analogous to a
+Fama–MacBeth (1973) procedure in a panel context. The standard errors under
+this correction are slightly lower than under firm clustering. Ideally, we would
+like to correct the standard errors for the presence of both types of correlations,
+though to do this some structure must be placed on the nature of these corre-
+lations. One straightforward approach is to assume that the serial correlation
+is AR(1) in nature and to allow for arbitrary correlation across firms within
+a given year. These standard errors are also presented, and again are slightly
+smaller than clustering by firm (though of course larger than clustering by year
+alone).9
+
+Table III makes modifications to the central specification that relates re-
+quired contributions to capital expenditures with linear controls for the fund-
+ing status itself. The first several columns estimate instrumental variables (IV)
+regressions via two-stage least squares:
+
+Iit = Y
+α
+
+A 2i + α2t + β21 Qi,t−1 + it
+β22 + x
+
+A itγ2 + εit (5a)
+i,t−1 i,t−1
+
+and
+
+Yit = α
+A 1i + α1t + β11 Qi,t−1 + xitγ1 + Zitδ1 + υit . (5b)
+
+i,t−1
+
+The equation with Y as the dependent variable is the first stage in the esti-
+mation, and it includes an instrument (Z) that is excluded from the equation
+in I (capital expenditures). In the specifications estimated here, Z is the MCs
+variable, and Y is an endogenous variable.
+
+The first two columns of Table III present estimates of (5a) with and with-
+out firm FEs, respectively, with Y representing total pension contributions. In
+this specification, the control variables (x) consist of both the firm’s nonpen-
+sion (operating) cash flows and the pension funding status itself. Total pension
+contributions consist of both a voluntary (endogenous) and a mandatory (exoge-
+nous) component, and the assumption behind this specification is that required
+contributions affect investment only through their effect on total pension con-
+tributions. The next two columns of Table III present estimates of (5a) with
+and without firm FEs, respectively, with Y representing total (pension plus
+nonpension) cash flow. The only control variable (x) is the pension funding sta-
+tus itself. These are investment–cash flow regressions in which cash flow is
+instrumented by mandatory pension contributions.
+
+Since funding status itself is included as a control in all of these IV regres-
+sions, the identifying assumption is the same as the one in Table II: Whatever
+function may relate investment opportunities to the pension funding status, it
+does not have the same kinks and jumps as the function that relates the pension
+
+9 I thank Eugene Fama and John Cochrane for encouraging these investigations.
+
+
+
+56 The Journal of Finance
+
+funding status to the required pension contribution. The coefficient β22 (the co-
+efficient on total contributions in the first two columns and the coefficient on
+total cash flow in the second) may then be interpreted as the effect of a $1 shift
+in internal resources on corporate investment.
+
+The regressions without firm FEs are important if there is concern about the
+strict exogeneity assumptions in the panel specifications, for example, if there
+is a belief that future realizations of the funding status are affected by the
+choice of current capital expenditures. The fact that the coefficients of interest
+are similar in the IV specifications with and without FEs suggests that FEs
+are not driving the results.
+
+The remaining three columns of Table III present variations on the main
+specification (2c) in Table II. The first of these shows a specification with firm
+FEs and industry-by-year FEs. The industry effects follow the 48-industry de-
+lineation of Fama and French (1997). The final two columns estimate the speci-
+fication by random effects (RE) and first differences (FDs), respectively. REs are
+consistent and efficient if the individual-specific effects are uncorrelated with
+the observation-specific error term. A Hausman test narrowly rejects the use
+of REs in this context. The fixed-effects (FE) estimator is more efficient than
+the FD estimator when the error terms within firms over time are not seri-
+ally correlated. The FD estimator is more efficient when the error terms follow
+a random walk (see Wooldridge (2002)), although the loss of 15–20% of the
+unbalanced panel through the differencing process also would tend to make
+the estimates less accurate. A Hausman test on the vector of all coefficients
+and their standard errors would reject the hypothesis that these vectors have
+the same probability limit.10 However, the coefficients on MCs in all of these
+alternative models are not statistically distinguishable from one another or
+from the main results in Table II.
+
+With a t-statistic of around 2, there is a wide range of values around $0.60
+that could represent the true response parameter. It is nevertheless interest-
+ing to consider whether the implications of an estimate of $0.60 are sensible.
+First, within the sample approximately one-quarter of the firms have at least
+one episode where required contributions are at least 10% of lagged capital ex-
+penditures. If 60% of that contribution comes out of capital expenditures, then
+capital expenditures are depressed by an amount equal to about 6% of the pre-
+vious year’s investment. Second, the out-of-sample implications in the context
+of the recent pension funding crisis have reasonable magnitudes. The PBGC
+estimates that required contributions were $65.5b in 2003 (Pension Benefit
+Guaranty Corporation (2003)), and aggregate capital expenditures for DB pen-
+sion firms in Compustat in 2002 were $618.7b. If capital expenditures for these
+firms were lower by $39.3b (60% of $65.5bn), this would represent an amount
+
+10 The difference between the fixed effects (FE) and first difference (FD) models may be driven
+by the sample reduction when the data are first differenced. If not, the difference would call into
+question the use of panel models in linear investment equations. The ordinary least squares spec-
+ifications with funding status controls show that the fixed effects are not driving the required
+contributions results.
+
+
+
+Investment and Financing Constraints 57
+
+equal to approximately 6.4% of 2002 capital expenditures by DB firms. Given
+the statements by CEOs about the effects of required pension contributions on
+investment, these magnitudes seem plausible.
+
+Finally, the estimate can be put in the context of equation (1) In the sim-
+ple two-period model, it is possible to have a large response (i.e., a response
+close to $1.00) if the curvature of the external finance schedule (C11) is large
+relative to the curvature of the function that gives the return on investment
+(f 11). The magnitude of the response in this model therefore depends on the
+relative magnitudes of second derivatives, not on the absolute cost of external
+finance. Larger effects are observed when the production function is relatively
+flat and/or the external finance function is relatively convex.
+
+C. Pension Contributions and Other Uses of Funds
+In Table IV, I examine the effects of MCs on other uses of funds (R&D, acquisi-
+
+tions, dividends, and stock repurchases) as well as several sources of financing
+(debt issuance, trade credit, and working capital). The coefficient on MCs is
+again the object of interest in each specification, and the funding status is a
+control. For dependent variables with many observations censored at zero, tobit
+results are also presented.
+
+R&D does not appear affected by MCs in any specification, and further ex-
+periments on subsamples of firms that are only in the high-tech sector also fail
+to produce results with these specifications. This may be due to high fixed costs
+of adjusting R&D expenditures, especially if many of these expenditures are
+actually payments to employees such as engineers and scientists. The amount
+spent on acquisitions seems unchanged in the fixed-effects specifications, but
+MCs clearly affect acquisitions in the tobit specification. The most appropriate
+interpretation of these coefficients is that required pension contributions reduce
+the probability of making an acquisition (confirmed by binomial choice models)
+but not the magnitude conditional on a positive realization. Dividends and re-
+purchases both show a statistically significant effect in the tobit specification
+(−0.239 and −0.431, respectively) but not in the fixed-effects specifications.
+Because tobit specifications assume a latent variable that can take on negative
+values, the estimated coefficients are not marginal effects in the same sense as
+those in linear models, and therefore the magnitudes are not directly compara-
+ble. The results do imply that there is some negative response of acquisitions,
+dividends, and repurchases to required pension contributions.
+
+The results on the sources of financing are inconclusive. Changes in out-
+standing debt (defined as book assets minus book equity), designed to reflect
+debt issuance, do not enter with statistical significance. Little or no additional
+borrowing would be consistent with a steep schedule for the marginal cost of ex-
+ternal finance (C11) and would support the magnitude of the investment effects.
+Trade credit (defined as accounts payable minus accounts receivable) does not
+appear to increase. Net working capital (current assets minus current liabili-
+ties) appears with a large negative coefficient but is not statistically significant.
+These tests may lack sufficient power to identify financing effects where they
+
+
+
+58 The Journal of Finance
+Table IV
+
+Research and Development, Acquisitions, and Financing Variables
+This table estimates fixed-effects (FE) and Tobit models of the effect of required contributions on R&D, acquisitions, and financing variables. Each pair of
+rows shows the estimated coefficients and standard errors from the regression of an outcome variable on cash flow, Tobin’s Q, the funding status of pension
+plans, and required contributions. All variables are scaled by assets and summary statistics of the dependent variable are presented in the right panel.
+Data on acquisitions, R&D, dividends, repurchases, debt, working capital, and trade credit are from Compustat.
+
+Explanatory Variables Model and Dependent Variable Statistics
+[Conditional Nonzero Statistics in Brackets]
+
+Dependent Nonpension Funding Mandatory
+Variable Cash Flow Qi,t−1 Status Contributions Model Obs Mean Median SD
+
+R&D −0.004 0.003∗∗∗ 0.013 0.087 FE 8,030 0.016 0.000 0.031
+(0.006) (0.001) (0.008) (0.104) [3,588] [0.036] [0.022] [0.038]
+
+−0.006 0.012∗∗∗ 0.087∗∗∗ −0.002 Tobit†
+(0.008) (0.001) (0.012) (0.193)
+
+Acquisitions 0.114∗∗∗ 0.011∗∗∗ 0.123∗∗ 0.072 FE 8,030 0.025 0.000 0.075
+(0.025) (0.004) (0.051) (0.450) [5,150] [0.038] [0.000] [0.090]
+0.269∗∗∗ 0.010∗∗∗ −0.157∗∗∗ −4.948∗∗∗ Tobit†
+
+(0.035) (0.004) (0.049) (0.952)
+
+Dividends 0.015∗∗∗ 0.004∗∗∗ 0.018∗∗ −0.005 FE 8,030 0.018 0.013 0.020
+(0.003) (0.001) (0.007) (0.051) [6,537] [0.022] [0.013] [0.020]
+0.081∗∗∗ 0.010∗∗∗ 0.098∗∗∗ −0.239∗∗ Tobit†
+
+(0.004) (0.000) (0.005) (0.098)
+
+Repurchases 0.013∗ 0.007∗∗∗ 0.027 −0.078 FE 8,030 0.011 0.000 0.026
+(0.008) (0.002) (0.019) (0.219) [6,059] [0.015] [0.001] [0.030]
+0.086∗∗∗ 0.011∗∗∗ 0.067∗∗∗ −0.431∗ Tobit†
+
+(0.009) (0.001) (0.012) (0.227)
+
+Debt −0.007 0.041∗∗∗ 0.390∗∗∗ 1.307 FE 8,030 0.053 0.023 0.170
+(0.073) (0.009) (0.118) (1.566)
+
+Trade credit −0.125∗∗∗ −0.004 −0.080∗∗ −0.240 FE 8,030 −0.086 −0.071 0.117
+(0.022) (0.003) (0.033) (0.428)
+
+Working capital 0.518∗∗∗ 0.008 0.118∗ −1.009 FE 7,310 0.192 0.172 0.199
+(0.043) (0.006) (0.061) (0.750)
+
+Standard errors are in parentheses. ∗∗∗Significant at 1%; ∗∗significant at 5%; ∗significant at 10%; †Contains industry and year fixed effects.
+Standard errors are clustered by firm except in the Tobit models.
+
+
+
+Investment and Financing Constraints 59
+
+exist, but it is notable that the spending responses are strong enough to gener-
+ate a statistically significant effect.
+
+D. Predictability of MCs
+Required contributions at time t may be partly predictable at time t − 1. In
+
+particular, managers may choose the asset allocation of the pension fund and
+may know how liabilities are likely to evolve during the course of the year. They
+can influence pension funding through both voluntary funding decisions (which
+may be related to financial health) and decisions about the level and structure
+of benefits (though these are generally amortized over long periods of time). It
+is instructive to examine whether expected (or “predictable”) and unexpected
+components of required contributions appear to affect investment differently.
+To the extent that required contributions can be anticipated or controlled, firms
+might undertake measures to secure additional finance.
+
+To test this hypothesis, I develop a measure of predictable MCs, the part of
+MCs that is caused by the firm’s ability to have a 1-year influence on assets
+(by making contributions during the previous year) and liabilities (by setting
+benefit levels). The computation applies the mandatory contribution function
+to an expected funding status and to the actual funding status for each pension
+plan. The 5500 filings contain information that allows the growth of pension
+assets due to contributions to be separated from the growth due to investment
+income. The main challenge lies in determining the expected performance of
+assets in the pension plan, as the full allocation of pension assets is not usefully
+disclosed.11
+
+Required contributions may be written as a function of the firm’s funding
+variables,
+
+MandatoryContributioni,t,k = M (yi,t,k), (6)
+
+where yi,t,k is a vector consisting of pension assets (PAi,t,k), pension liabilities
+(PLi,t,k), the normal cost (NCi,t,k), and funding credits (FCi,t,k) for plan k of firm
+i at time t. Then
+
+Unexpected Mandatory Contributionsi,t,k
+
+= Actual Mandatory Contributionsi,t,k
+
+− Expected Mandatory Contributionsi,t,k
+
+= M (yi,t,k) − M (Et−1[yi,t,k])
+
+= M (PAi,t,k , PLi,t,k , NCi,t,k , FCi,t,k)
+
+− M (Et−1[PAi,t,k], Et−1[PLi,t,k], NCi,t,k , FCi,t,k). (7)
+
+The normal cost and funding credits are therefore always assumed to be known
+ex ante. Expected pension liabilities (Et−1[PLi,t,k]) are calculated as actual
+
+11 The IRS 5500 filings do contain some information on the allocation of pension assets, but the
+forms often state that assets are held in trusts whose asset allocation is not discernible from the
+main filing or standardized schedules.
+
+
+
+60 The Journal of Finance
+
+pension liabilities under the counterfactual assumption that the 30-year Trea-
+sury rate at time t is the same as it was at time t − 1. To simplify this calculation,
+a correction factor for the interest rate change is applied as though the liabilities
+were perpetuities.
+
+To calculate expected pension assets (Et−1[PAi,t,k]), an expected return Re
+i,t,k
+
+is estimated and applied to lagged pension asse)ts:
+
+Et−1[PAi,t,k] = (
+1 + Re
+
+i,t,k PAi,t−1,k . (8)
+
+To estimate the expected return, it is assumed that firms have only
+two investment possibilities, large cap corporate equity and intermediate-
+term government bonds. Each plan’s actual returns are defined as Ri,t,k =
+InvestmentIncomei,t,k/PAi,t−1,k. These actual returns may be expressed as
+
+Ri,t,k = ŝi,t,k RS
+t + (1 − ŝi,t,k)R B
+
+t , (9)
+
+where ŝi,t,k represents the implied share of the pension assets held in stock,
+and RS
+
+t and RB
+t are taken from the Ibbotson Associates (2003) time series for
+
+large cap U.S. stock returns and intermediate-term government bond returns,
+respectively. For each plan-level observation, equation (9) may be solved for
+ŝi,t,k. Then expected returns are
+
+Re
+i,t,k = ŝi,t,k[R̄S] + (1 − ŝi,t,k)[R̄ B], (10)
+
+where R̄S is the 1926–1990 average large capitalization corporate equity return
+(12.4%) and [R̄ B] is the 1926–1990 average intermediate-term bond return
+(5.1%), both from the Ibbotson Associates (2003) time series.
+
+Table V presents results of one-stage estimation in which predictable and
+unexpected components of required contributions are included separately. The
+left panel shows fixed-effects specifications, and the right panel shows pooled
+specifications which contain full nonlinear controls for the funding status (the
+first three powers, coefficients not shown). In both panels, unexpected MCs
+have a statistically significant effect, both when included alone and when in-
+cluded simultaneously with predictable MCs. The magnitude of these effects
+is of the order of those in Table II. Predictable MCs have similar coefficients
+and standard errors compared to unexpected MCs in the fixed-effects specifica-
+tions. In the pooled specifications with funding status controls, the coefficients
+on predictable MCs are somewhat smaller than those on unexpected MCs, and
+the standard errors are considerably larger. Overall, all of these coefficients are
+statistically indistinguishable from each other, but predictable MCs have a tan-
+gibly weaker effect in the pooled specifications with funding status controls.12
+
+The bottom of Table V shows a decomposition of the variance coming from the
+two contribution types. The left panel shows within-firm, within-year standard
+deviations as is appropriate given the specification, and the right panel shows
+within-year standard deviations. The important point here is that the standard
+
+12 When IV estimation is performed using both predictable and unexpected contributions as
+instruments, Hansen tests of overidentifying restrictions fail to reject the null hypothesis that it
+is valid to include both.
+
+
+
+Investment and Financing Constraints 61
+
+Table V
+“Predictable” vs. “Unexpected” Mandatory Contributions (MCs)
+
+This table shows estimates of the response of capital expenditures to required pension contribu-
+tions that have been separated into “predictable” and “unexpected” components. The fundamental
+computation applies the mandatory contributions function M(·) to expected values of the funding
+variables y and to the actual funding variables for each pension plan in the plan-level sample.
+The difference is unpredictable mandatory contributions. For the expected value of pension assets,
+an expected return is estimated based on the asset allocation of the pension fund (as implied by
+the actual return) and applied to lagged pension assets. Expected pension liabilities are equal
+to actual liabilities corrected for the change in the 30-year Treasury rate. See Section III.D for
+details. Pooled specifications contain nonlinear controls for the funding status (the first three pow-
+ers). σ(Unexpected) is the standard deviation of the unexpected component, σ(Predictable) is the
+standard deviation of the predictable component, and ρ(Unexpected, Predictable) is the correlation
+between them. These calculations are done after removing firm- and year-fixed effects as called for
+by the regression model. All models contain year-fixed effects. The left panel contains firm-fixed
+effects. The right panel contains year effects and full nonlinear controls for the pension funding
+status.
+
+Fixed Effects Specifications Pooled with Funding Controls
+
+Unexpected MCs/Ai,t−1 −0.616∗ −0.665∗∗ −0.783∗∗ −0.863∗∗
+(0.374) (0.315) (0.393) (0.428)
+
+Predictable MCs/Ai,t−1 −0.735∗ −0.779∗∗ −0.484 −0.593
+(0.384) (0.381) (0.488) (0.518)
+
+Nonpension cash flow/Ai,t−1 0.111∗∗∗ 0.112∗∗∗ 0.111∗∗∗ 0.244∗∗∗ 0.244∗∗∗ 0.244∗∗∗
+(0.012) (0.012) (0.012) (0.015) (0.015) (0.015)
+
+Qi,t−1 0.019∗∗∗ 0.019∗∗∗ 0.019∗∗∗ 0.001 0.001 0.001
+(0.002) (0.002) (0.002) (0.002) (0.002) (0.002)
+
+σ (Unexpected) 0.00117 0.00127
+σ (Predictable) 0.00115 0.00132
+ρ(Unexpected, Predictable) −0.065 −0.121
+
+Adjusted R2 0.609 0.609 0.610 0.609 0.609 0.610
+Observations 8,030 8,030 8,030 8,030 8,030 8,030
+
+Standard errors are in parentheses. ∗∗∗Significant at 1%; ∗∗significant at 5%; ∗significant at 10%.
+Standard errors are heteroskedasticity-robust and clustered by firm.
+
+deviations of the two components are quite similar, and the correlations between
+the two are relatively weak, so that roughly equal portions of the variance of
+required contributions come from the two components. If all of these required
+contributions (and the substitution of required contribution with investment)
+had been foreseeable a year in advance, then doubt would have been cast on
+the interpretation of this substitution as a reaction to a financial constraint.
+
+The question remains as to why predictable required contributions seem to
+affect investment at all, at least in the fixed-effects specification. One possibility
+is that FEs may be inappropriate in a context with predictable and unexpected
+components, as the variables are effectively averaged within firms over time.
+The pooled specifications in Table V contain the most aggressive possible con-
+trols for funding status itself as an alternative control for firm heterogeneity,
+and thus may be more appropriate. If investment actually does respond to pre-
+dictable contribution requirements, then firms may simply not be sufficiently
+
+
+
+62 The Journal of Finance
+
+forward looking about it. Alternatively, these cash flows called predictable may
+not be predictable far enough in advance for financing to respond, especially if
+the constraints or agency problems that generate the dependence of investment
+on internal resources operate on longer horizons.
+
+E. Division of Sample by Observable Measures of Financing Constraints
+Previous studies have debated the merits of observable characteristics as in-
+
+dicators of financing constraints. In Table VI, I divide the sample on some of
+these characteristics and estimate the baseline one-stage specification within
+each subsample. Each panel of Table VI focuses on one characteristic and di-
+vides the sample into three groups. The coefficient on MCs (β3) varies with all
+of these characteristics though not always in a statistically significant way. The
+first panel considers median firm age. It shows large and statistically signifi-
+cant point estimates for the effect of required contributions on investment in
+the youngest and middle-aged firms, with a smaller and not significant effect
+among the oldest firms. The second panel considers the firm’s median S&P
+credit rating, and tests whether the sensitivity of investment to MCs is larger
+for firms with a worse credit rating. Firms with no credit rating or a credit
+rating worse than BBB+ apparently adjust investment strongly in response to
+MCs, whereas firms with credit ratings of A− or above do not display any sta-
+tistically significant reaction. Firms with low credit ratings may be explicitly
+credit rationed, or they may face a high C11 in replacing internal finance with
+debt.
+
+The third and fourth panels divide the sample along the ratios of dividends-
+to-assets and cash-to-assets (net of debt), respectively. These financial ratios
+have been proposed in the literature as possible indicators of the degree to
+which a firm is financially constrained (as in Lamont, Polk, and Saá-Requejo
+(2001)). Indeed, Table VI shows that firms with low dividend ratios display
+the strongest reaction to MCs, with an estimated coefficient of −1.136 and a
+t-statistic of −2.96, while virtually no effect is observed among firms with larger
+dividend–asset ratios. Similarly, in the sample of firms with relatively little
+balance sheet cash net of debt, effects are observed that are not statistically
+different from −1, whereas in the sample of firms with more cash on their
+balance sheets relative to the book value of their assets, the effect is smaller
+and not statistically different from zero.13
+
+13 It is also possible to consider the Kaplan–Zingales (KZ) index as constructed by Lamont, Polk,
+and Saá-Requejo (2001), which estimates weights for dividend, cash, cash flow, and leverage ratios.
+The purpose of this index is to serve as an indicator of the importance of financing constraints for
+a given observation, although the index has been criticized on the grounds that its components
+are endogenous and the estimates suffer from measurement error. The magnitude of the identified
+effect of required pension contributions on investment increases with the four-variable KZ index,
+from −0.165 for the lowest (least constrained) group to −0.467 for the middle group to −1.364
+for the highest group. The coefficients on cash flow, in contrast, are lowest for firms that are
+allegedly the least constrained, consistent with the findings of Kaplan and Zingales (1997) that
+simple investment–cash flow sensitivities are not meaningful.
+
+
+
+Investment and Financing Constraints 63
+
+Table VI
+Mandatory Contributions and Capital Expenditures
+
+by Characteristics
+This table reports results of regressions of the form
+
+CAPXit = NonPensionCashFlowit andatoryContributionsit
+α
+
+A i + αt + β1 Qi,t−1 + β2 + M
+β3 + υ
+
+i,t−1 A it ,
+i,t−1 Ai,t−1
+
+with the sample divided by hypothesized a priori indicators of financing constraints. A firm’s age
+is defined as the number of years since its IPO year and is approximated as the number of years
+the firm is included in Compustat. The S&P Credit Rating is the S&P long-term domestic issuer
+credit rating (data280). The median dividend ratio is the within-firm median ratio of dividends to
+lagged book assets. The ratio of cash minus debt to assets is calculated as cash (data1) minus debt
+(data9 + data34) scaled by book assets, where debt consists of long-term debt plus debt in current
+liabilities.
+
+Explanatory Variables
+
+Mandatory
+Cash Flow Qi,t−1 Contributions
+
+Dependent Variable:
+CAPXi,t/Ai,t−1 Count Min Max Coeff t-Stat Coeff t-Stat Coeff t-Stat
+
+Panel 1: Sorting by Median Firm Age
+
+Age (youngest) 2,741 1 20 0.127 6.34 0.023 6.43 −0.954 −2.32
+Age (middle) 2,790 21 34 0.095 4.93 0.019 4.44 −1.087 −2.15
+Age (oldest) 2,499 35 48+ 0.118 5.51 0.011 3.27 −0.578 −0.98
+
+Panel 2: Sorting by Median S&P Credit Rating
+
+No S&P credit rating 3,597 – – 0.090 5.95 0.019 5.37 −0.893 −2.30
+S&P credit rating (low) 2,942 D BBB+ 0.118 5.82 0.025 5.89 −0.825 −1.77
+S&P credit rating (high) 1,491 A− AAA 0.214 5.38 0.011 3.38 0.639 0.50
+
+Panel 3: Sorting by Median Dividend Ratio
+
+Low dividend 2,611 0.000 0.006 0.077 5.56 0.021 5.26 −1.136 −2.96
+Middle dividend 2,611 0.006 0.023 0.160 5.64 0.029 5.61 0.086 0.19
+High dividend 2,600 0.023 0.111 0.142 5.03 0.009 2.84 −0.156 −0.26
+
+Panel 4: Sorting by Ratio of Cash Minus Debt to Assets
+
+Low cash minus debt 2,680 −9.852 −0.330 0.111 4.18 0.031 4.95 −1.682 −2.42
+Middle cash minus debt 2,675 −0.330 −0.150 0.120 4.44 0.030 4.95 −0.863 −1.92
+High Cash minus Debt 2,674 −0.150 0.795 0.115 5.94 0.013 4.31 −0.191 −0.64
+
+Panel 5: Sorting by% of Firm Observations for Which CAPX > Cash Flow
+
+Never 2,905 0.000 0.000 0.215 10.01 0.006 2.87 −0.340 −1.12
+Less than 1/3 of years 2,627 0.111 0.333 0.094 5.79 0.022 5.93 −0.420 −0.84
+More than 1/3 of years 2,498 0.375 1.000 0.091 4.88 0.030 5.46 −1.523 −3.18
+
+Standard errors are heteroskedasticity-robust and clustered by firm.
+
+There is a question as to whether dividing the sample by age, credit rating,
+dividends, and cash ratios is equivalent to sorting on some measure of the
+magnitude of financing constraints (θ), or on the amount of external finance
+that is needed (e). The credit rating is likely to be a relatively pure proxy for θ ;
+
+
+
+64 The Journal of Finance
+
+the terms of borrowing implied by the credit rating may diverge substantially
+from the opportunity cost of internal funds. Age is ambiguous: Older firms
+are likely to face lower costs of raising finance externally but they may also
+be less dependent on external finance. The dividend and balance sheet cash
+components are directly related to how much cash the company must raise for
+a given level of investment, but may also be chosen differently by firms with
+different values of θ .
+
+The final panel is designed to divide the sample on a measure of e only. The
+sample is sorted by the percentage of observations on the firm for which capital
+expenditures are greater than cash flow. Firms whose capital expenditures fre-
+quently exceed their cash flow are more dependent on external capital. Their
+investment should therefore be more sensitive to cash shocks. I find that the
+group of firms whose capital expenditures are greater than cash flow between
+37.5% and 100% of the time have a significant and large sensitivity of invest-
+ment to required contributions. I do not find statistically significant effects in
+the other groups.
+
+Note that firms with better credit ratings and firms for whom investment
+is never greater than cash flow both have significantly higher coefficients on
+the (nonpension) cash-flow variable than the other groups. This fact confirms
+that simply examining the coefficient on cash flow across groups is not a useful
+indicator of the true sensitivity of investment to internal resources (Kaplan
+and Zingales (1997, 2000), Cleary (1999)). It is important to control for any
+potential correlations between the cash shock being studied and unobserved
+investment opportunities. The random patterns of the strength of the coefficient
+on (nonpension) cash flow contrast with the fact that the observed response to
+mandatory pension contributions is consistently strongest in those groups that
+are most likely to be financially constrained. Since the divisions are based on
+the strength of plausible financial constraints, these results also substantiate
+the notion that the response to MCs reflects financial constraints.
+
+IV. Interpretation and General Equilibrium Considerations
+This section considers whether the lost investment might be shifted to future
+
+time periods at the same firm, and whether nonpension firms take up the
+investment that constrained pension sponsors forgo.
+
+A. Is Investment Shifted to Other Time Periods?
+The magnitude of the effect of required contributions on investment is more
+
+important if it represents permanently forgone investment rather than invest-
+ment shifted to future time periods. Furthermore, if the cash hits are able to be
+forecasted, the firm may shift some investment up from the period in which the
+cash contribution is required to the previous year. To test whether investment
+lost from required contributions is shifted to other periods, I select a sample
+of observations that have one and only one large (greater than 0.10% of book
+assets) required contribution during the sample period and that show a decline
+in investment in the contribution year relative to the previous year. Figure 6
+
+
+
+Investment and Financing Constraints 65
+
+2.0%
+
+1.5%
+
+1.0%
+
+0.5%
+
+0.0%
+
+-0.5%
+
+-1.0%
+
+-1.5%
+
+-2.0%
+
+-2.5%
++2 standard deviations mean -2 standard deviations
+
+-3.0%
+-2 -1 0 1 2
+
+Time Relative to Required Contribution
+
+Figure 6. Investment around the time of large required pension contributions. This
+figure shows the distribution of investment relative to the average investment within each firm’s
+industry-year cell, around the time of large required contributions. The figure is drawn for a sample
+of 131 firms which satisfy two criteria: 1.) the firm had a required contribution of at least 0.1%
+of assets in one and only one year during the sample period; and, 2.) the firm shows a decline in
+investment in that year relative to the previous year. The vertical axis shows the difference between
+the firm’s investment scaled by book assets and industry investment scaled by book assets in the
+observation year. Industries are defined according to the 48-industry categorization of Fama and
+French (1997).
+
+shows the distribution of investment around the time of these large required
+pension contributions relative to average investment in the industry-year cell.
+Industries are assigned based on the Fama and French (1997) 48-industry clas-
+sification. The industry normalization is done so that the patterns are purged
+of any industry-related investment trends. The confidence intervals are large
+enough to leave some ambiguity, but in general it does not appear that there
+are large shifts of investment to neighboring time periods.
+
+B. General Equilibrium Considerations
+It is possible that rather than depressing investment on a macroeconomic
+
+scale, the investment projects that constrained DB sponsors cannot undertake
+are simply shifted to DB sponsors with healthy pension plans, or to non-DB
+firms. This is an important general equilibrium concern that many empirical
+
+Investment / Assets Relative to Industry
+
+
+
+66 The Journal of Finance
+
+papers in economics and finance ignore.14 Part of the reason for this is that the
+firms of interest are often the untreated observations in the sample (such as DB
+sponsors who do not face MCs), and these serve as controls for the estimation
+of the main effect. The question of whether they have an offsetting response
+is therefore not testable. The present context, however, offers the possibility of
+examining whether firms that do not sponsor DB plans at all increase capital
+expenditures when pension sponsors in their industry have higher MCs.
+
+To test the response of non-DB firms to the required contributions of DB
+counterparts in their industry, I begin with a 1990–1998 panel of Compustat
+firms that do not have DB pension assets (see column 2.1 of Table AI). To each
+firm-year observation, I assign a measure of aggregate industry mandatory
+contributions (AIMC) that varies by industry h and time t:
+
+∑ ⎛ ∑
+⎜ ⎞
+
+AIMCh,t = j∈
+MandatoryContributionsj ,t ⎜ ∑ Aj ,t−1
+
+⎝ h,DB ⎟⎟⎠ , (11)
+j∈h,S Aj ,t−1
+
+j∈h,S
+
+where S is the sample of 8,030 observations and DB represents the set of all
+DB firms in Compustat. This variable is designed to proxy for the magnitude of
+the pension contribution requirement for the DB pension firms in each 48-cell
+industry, relative to the size of the non-DB firms in that industry. Industry-year
+total MCs among the main sample of 8,030 observations are grossed up by the
+expression in brackets to account for the fact that the sample does not cover
+every U.S. firm with DB pension assets (see Table AI).
+
+The magnitude of aggregate industry MCs is important to non-DB firms only
+if it is large relative to the aggregate size of their own balance sheet assets.
+I therefore define the industry pension requirement for the non-DB firms in
+industry h and year t as
+
+IndustryPensionRequirementh,t = ∑AIMCh,t
+. (12)
+
+Aj ,t−1
+j∈/DB
+
+Because of this scaling, the coefficient on this variable in an investment regres-
+sion in the sample of non-DB firms can be interpreted as the magnitude of the
+non-DB offset to the decline in DB firm investment.
+
+Table VII presents these regressions and shows that non-DB firms appear to
+increase investment when DB pension firms in their industry have larger re-
+quired contributions. If the DB part of an industry must contribute an amount
+equal to 1% of the book assets of the non-DB firms in that industry, then non-DB
+firms in that industry increase capital expenditures by an average of 0.073% of
+their book assets; 7.3% of the amount of the MC is therefore investment taken
+up by non-DB firms. If the 60% of the amount of the MC is investment dropped
+by DB firms, as is suggested by Table II, then the non-DB offset amounts to 12%
+(or 0.073/0.60). The 12% effect would rise to 18% if the alternative assumption
+were made that DB pension firms not in the DB-matched sample had required
+
+14 A notable exception is Greenstone (2002).
+
+
+
+Investment and Financing Constraints 67
+
+Table VII
+Investment Response of Non-DB Firms to Mandatory Contributions
+
+of Pension Firms in the Same Industry
+For firm i at time t in industry h, the following specification is estimated:
+
+CAPXit = C s F
+α
+
+A i + αt + a h
+β1 Qi,t−1 + lowit
+
+β2 + β n u t
+A 3I d s ryPensionRequirementh(i),t + εit .
+
+i,t−1 i,t−1
+
+The analysis uses the 48-industry division of Fama and French (1997). The Industry Pension Require-
+ment is constructed as the sum of estimated mandatory pension contributions at the industry-year level
+divided by the lagged balance sheet assets of nonpension assets in that industry-year cell. This variable
+is a measure of the magnitude of industry pension contributions relative to the size of the industry’s
+nonpension firms. The results in this table report regressions on the sample of Compustat firms that do
+not have any defined benefit pension assets (data287 and data296 both equal zero). This is the sample
+in column (2.1) of Appendix Table I. The sorting is conducted on two plausible indicators of the firm’s
+external financing requirement: the median cash ratio (the within-firm median of cash to balance sheet
+assets) and the share of firm observations for which capital expenditures are greater than cash inflows.
+
+Dependent Variable: Capital Expendituresit/Ai,t−1
+
+Sorted by % of Firm
+Sorted by Median Observations for Which Capital
+
+Cash Ratio Expenditures > Cash Flow
+All Non-DB
+
+Firms Low Middle High Low Middle High
+
+Cash flowi,t/Ai,t−1 0.075∗∗∗ 0.099∗∗∗ 0.080∗∗∗ 0.057∗∗∗ 0.141∗∗∗ 0.070∗∗∗ 0.066∗∗∗
+(0.010) (0.016) (0.015) (0.011) (0.015) (0.008) (0.018)
+
+Qi,t−1 0.005∗∗∗ 0.011∗∗∗ 0.010∗∗∗ 0.001 0.000 0.006∗∗∗ 0.006∗∗∗
+(0.001) (0.002) (0.002) (0.001) (0.001) (0.002) (0.002)
+
+Industry pension 0.073∗∗∗ 0.035 0.127∗∗∗ 0.061∗∗∗ 0.141∗∗∗ 0.078∗∗ 0.001
+requirementi,t (0.015) (0.066) (0.027) (0.020) (0.030) (0.034) (0.035)
+
+Observations 46,848 15,569 15,581 15,581 15,681 15,779 15,283
+Minimum value – 0.000 0.043 0.195 0.000 0.286 0.714
+
+of sorting criterion
+Maximum value – 0.043 0.195 1.000 0.250 0.667 1.000
+
+of sorting criterion
+
+∗∗∗Significant at 1%; ∗∗significant at 5%.
+Standard errors are heteroskedasticity-robust and are clustered by industry.
+
+contributions of zero (i.e., if the bracketed term in equation (11) were equal
+to 1). When the non-DB sample is sorted by plausible indicators of the firm’s
+likelihood to require external finance, it is apparent that the statistically sig-
+nificant response is coming from firms with moderate to high levels of balance
+sheet cash and firms whose capital expenditures are often less than their cash
+flows.15
+
+There are several caveats to this offset analysis. First, it only captures con-
+temporaneous effects. A year may not be sufficient time for a complete reaction
+of the non-DB competitors to the competitive weakness of DB sponsors. Fur-
+thermore, the relative size of the offset may vary by industry based on the speed
+of response. Finally, the result must be understood as a lower bound on the total
+offset, as it is impossible to measure whether DB firms that do not face MCs
+also take up some of the slack.
+
+15 A similar pattern is observed if the KZ index is used as a sorting criterion.
+
+
+
+68 The Journal of Finance
+
+V. Conclusion
+
+This paper has shown that the function relating required contributions to
+the funding status of firms’ pension plans has sharp nonlinearities that allow
+for a clean identification of the effect of required contributions on investment.
+In particular, the effect of required contributions on capital expenditures can
+be estimated even in the presence of correlations between the funding status
+of pension plans and the firm’s unobserved investment opportunities.
+
+Pension sponsors decrease spending on capital expenditures in response to a
+reduction in internal resources caused by required pension contributions. The
+point estimate of 0.60–0.70 is high compared to the large-sample coefficient on
+cash flow, which is usually of the order of 0.10–0.15. The response emerges most
+strongly in samples of firms that appear more constrained or more dependent
+on external finance, in contrast to simple investment–cash flow sensitivities
+which often are larger for firms that are less likely to be constrained (consis-
+tent with Kaplan and Zingales (1997)). Furthermore, while there seems to be
+some response on the margin of acquisitions, dividends, and repurchases, firms
+generally do not appear to increase borrowing. The estimates in this study
+survive robustness tests and carry through to a variety of functional forms.
+
+An interesting direction for further work would be to examine the effects that
+shifts to internal financial resources have on stock prices, particularly across
+different levels of corporate governance. If markets rationally believe that on
+the margin this cash would have gone largely to empire-building projects with
+zero or negative net present value (NPV), a company’s market value would not
+be expected to decline as much in response to a cash hit compared to a situa-
+tion in which the markets believed the cash was necessary to finance positive
+NPV projects. Tests of market responses to such phenomena would shed light
+on the relative importance of agency stories of overinvestment versus asym-
+metric information and underinvestment. Another important path for further
+investigation is the analysis of which projects are cut as a result of cash con-
+straints (e.g., low Q vs. high Q segments as considered in Gertner, Powers, and
+Scharfstein (2002)). A deeper investigation of the properties of the internal seg-
+ments for which investment declines in response to external cash needs could
+elucidate the internal capital allocation process.
+
+The investment sensitivity estimates in this paper are meant to be generaliz-
+able to other cash shocks. However, they also have implications for investment
+in the current pension funding crisis. Supposing a $0.60 decrease in capital ex-
+penditures per $1 of MCs, the PBGC-estimated aggregate MCs under present
+law would have reduced total capital expenditures by $39.3b in 2003. Compared
+to aggregate capital expenditures of $618.7b for DB pension firms in 2002, this
+would represent a substantial decrease in investment by DB pension sponsors
+of the order of 6.4%. If 2002 economy-wide private nonresidential fixed invest-
+ment of $1.1t is taken as a benchmark, it would have been lower by 3.6%.
+
+An important general equilibrium question is whether firms that do not spon-
+sor DB pension plans take up the investment projects that constrained pension
+sponsors are unable to finance. The evidence suggests that firms that do not
+
+
+
+Investment and Financing Constraints 69
+
+sponsor DB pension plans undertake approximately 12% of the capital invest-
+ment that pension sponsors in their industry leave on the table when required
+contributions are high. These distributional effects suggest that the macroeco-
+nomic magnitude of the reduction in investment as a result of required pension
+contributions is not quite as large as the very substantial decline in aggregate
+U.S. capital expenditures for 2003 that would be implied if those firms were
+taken in isolation. Contribution requirements in the presence of financing con-
+straints might therefore have important effects both on aggregate investment
+and on the distribution of investment across firms.
+
+Table AI
+Composition of Sample
+
+This table contains observation counts by fiscal year for the sample at different stages of construc-
+tion. The starting sample (1) is all Compustat firms with a reported level of capital expenditures.
+Columns (2.1)–(2.3) show the sample counts for the firms that never have DB pension assets, for
+firms that have DB assets in at least 1 year, and for firms that have DB assets in the given year,
+respectively. Column (3) is the sample that matches with the IRS 5,500 data set. The number in
+brackets in column (3) is the number of plan observations from the tax filings that were collapsed
+to obtain the number of firm observations in each row of column (3). The match was done sequen-
+tially by CUSIP, name, and EIN. The majority of DB plans are sponsored by companies that are not
+publicly traded and hence a large part of the IRS 5,500 database is not used in this study. Firms
+with multiple plans are retained in the IRS sample. However, if a firm has multiple plans with
+different fiscal year-end months, all the firm’s plans are dropped from the sample. Requirements
+for the final sample are: pension expense on an accounting basis is reported in Compustat; pension
+fiscal year must match firm fiscal year; requisite Compustat data must exist to compute capital
+expenditures, Q, cash flow, and assets; and IRS 5500 filing is complete enough to determine the
+funding status.
+
+Non-DB vs. DB
+Pension Samples
+
+Start Match Finish
+Year (1) (2.1) (2.2) (2.3) (3)/(3-Plan) (4)
+
+1990 6,421 4,265 2,156 1,943 1,240 [2,810] 746
+1991 6,483 4,311 2,172 1,942 1,619 [3,380] 947
+1992 6,662 4,462 2,200 1,963 1,499 [2,951] 883
+1993 7,079 4,849 2,230 1,984 1,612 [3,103] 997
+1994 7,474 5,201 2,273 2,019 1,660 [3,188] 1,031
+1995 7,684 5,419 2,265 1,972 1,009 [1,866] 660
+1996 8,403 6,080 2,323 2,017 1,355 [2,562] 918
+1997 8,511 6,247 2,264 1,964 1,394 [2,431] 919
+1998 8,151 6,014 2,137 1,876 1,446 [2,588] 949
+
+66,868 46,848 20,020 17,680 12,834 [24,879] 8,050
+
+Capital • • • • • •
+expenditures
+in Compustat
+
+Never has DB • •
+Has DB plan
+
+any year • •
+that year • • • •
+
+Matched IRS • •
+All variables •
+
+
+
+70 The Journal of Finance
+
+REFERENCES
+Almeida, Heitor, Murillo Campello, and Michael S. Weisbach, 2004, The cash flow sensitivity of
+
+cash, Journal of Finance 59, 1777–1804.
+Alti, Aydogan, 2003, How sensitive is investment to cash flow when financing is frictionless? Jour-
+
+nal of Finance 58, 707–722.
+Angrist, Joshua D., and Alan B. Krueger, 1999, Empirical strategies in labor economics, in Orley
+
+Ashenfelter, and David Card, eds.: Handbook of Labor Economics, vol. 3a (North-Holland,
+Amsterdam), 1277–1366.
+
+Angrist, Joshua D., and Victor Lavy, 1999, Using Maimonides’ Rule to estimate the effect of class
+size on student achievement, Quarterly Journal of Economics 114, 533–575.
+
+Baker, Malcolm, Jeremy C. Stein, and Jeffrey Wurgler, 2003, When does the market matter? Stock
+prices and the investment of equity-dependent firms, Quarterly Journal of Economics 118,
+909–968.
+
+Bergstresser, Daniel, Mihir A. Desai, and Joshua Rauh, 2006, Earnings manipulation, pension
+assumptions, and managerial investment decisions, Quarterly Journal of Economics, forth-
+coming.
+
+Blanchard, Olivier J., Florencio Lopez-de-Silanes, and Andrei Shleifer, 1994, What do firms do with
+cash windfalls? Journal of Financial Economics 36, 337–360.
+
+Bodie, Zvi, 1990, The ABO, the PBO, and pension investment policy, Financial Analysts Journal
+46, 27–34.
+
+Cleary, Sean, 1999, The relationship between firm investment and financial status, Journal of
+Finance 54, 673–692.
+
+Clifton, Gregory, Steven Oman, Michael Mulvaney, and Tassos Philippakos, 2003, Analytical
+Observations Related to U.S. Pension Obligations (Moody’s Investors Service).
+
+Erickson, Timothy, and Toni M. Whited, 2000, Measurement error and the relationship between
+investment and Q, Journal of Political Economy 108, 1027–1057.
+
+Fama, Eugene F., and Kenneth R. French, 1997, Industry costs of equity, Journal of Financial
+Economics 43, 153–193.
+
+Fama, Eugene F., and James D. MacBeth, 1973, Risk, return and equilibrium: Empirical tests,
+Journal of Political Economy 81, 607–636.
+
+Fazzari, Steven M., Glenn R. Hubbard, and Bruce C. Petersen, 1988, Financing constraints and
+corporate investment, Brookings Papers on Economic Activity 1, 141–195.
+
+Fazzari, Steven M., Glenn R. Hubbard, and Bruce C. Petersen, 2000, Investment-cash flow sen-
+sitivities are useful: A comment on Kaplan-Zingales, Quarterly Journal of Economics 115,
+695–705.
+
+Froot, Kenneth A., David S. Scharfstein, and Jeremy C. Stein, 1993, Risk management: Coordinat-
+ing corporate investment and financing policies, Journal of Finance 48, 1629–1658.
+
+Gertner, Robert, Eric Powers, and David Scharfstein, 2002, Learning about internal capital markets
+from corporate spin-offs, Journal of Finance 57, 2479–2506.
+
+Gomes, Joao F., 2001, Financing investment, American Economic Review 91, 1263–1285.
+Greenstone, Michael, 2002, The impacts of environmental regulations on industrial activity, Jour-
+
+nal of Political Economy 110, 1175–1219.
+Greenwald, Bruce, Joseph E. Stiglitz, and Andrew Weiss, 1984, Informational imperfections in
+
+the capital market and macroeconomic fluctuations, American Economic Review 74, 194–
+199.
+
+Gross, David B., 1995, The investment and financing decisions of liquidity constrained firms,
+Unpublished Ph.D. dissertation, Massachusetts Institute of Technology.
+
+Grossman, Sanford J., and Oliver D. Hart, 1982, Corporate financial structure and managerial
+incentives, in John J. McCall, ed.: The Economics of Information and Uncertainty (University
+of Chicago Press, Chicago).
+
+Härdle, Wolfgang, 1990, Applied Nonparametric Regression (Cambridge University Press,
+Cambridge, United Kingdom).
+
+Hart, Oliver, and John Moore, 1995, An analysis of the role of hard claims in constraining man-
+agement, American Economic Review, 567–585.
+
+
+
+Investment and Financing Constraints 71
+
+Hawkins, David F., 2001, Retiree Benefits, Harvard Business School Case 9-197-021.
+Hayashi, Fumio, 1982, Tobin’s marginal q and average q: A neoclassical interpretation, Economet-
+
+rica 50, 213–224.
+Ibbotson Associates, 2003, Stocks, Bonds, Bills, and Inflation 2003 Yearbook: Market Results for
+
+1926–2002 (Ibbotson Associates, Chicago).
+Internal Revenue Service, 1995, The Retirement Protection Act of 1994, Technical Update 95-1
+
+(Internal Revenue Service).
+Jensen, Michael C., and William H. Meckling, 1976, Theory of the firm: Managerial behavior, agency
+
+costs and ownership structure, Journal of Financial Economics 3, 305–360.
+Kaplan, Steven N., and Luigi Zingales, 1997, Do investment-cash flow sensitivities provide useful
+
+measures of financing constraints? Quarterly Journal of Economics 112, 169–215.
+Kaplan, Steven N., and Luigi Zingales, 2000, Investment-cash flow sensitivities are not valid mea-
+
+sures of financing constraints, Quarterly Journal of Economics 115, 707–712.
+Lamont, Owen, 1997, Cash flow and investment: Evidence from internal capital markets, Journal
+
+of Finance 52, 83–109.
+Lamont, Owen, Christopher Polk, and Jesús Saá-Requejo, 2001, Financial constraints and stock
+
+returns, Review of Financial Studies 14, 529–554.
+Langbein, John H., and Bruce A. Wolk, 2000, Pension and Employee Benefit Law, 3rd ed. (Founda-
+
+tion Press, New York).
+Modigliani, Franco, and Merton H. Miller, 1958, The cost of capital, corporation finance, and the
+
+theory of investment, American Economic Review 48, 261–297.
+Moyen, Nathalie, 2004, Investment-cash flow sensitivities: Constrained versus unconstrained
+
+firms, Journal of Finance 59, 2061–2092.
+Munnell, Alicia, and Mauricio Soto, 2003, The outlook for pension contributions and profits, Work-
+
+ing Paper, Fifth Annual Conference of the Retirement Research Consortium.
+Myers, Stewart C., and Nicholas S. Majluf, 1984, Corporate financing and investment decisions
+
+when firms have information that investors do not have, Journal of Financial Economics 13,
+187–221.
+
+Pension Benefit Guaranty Corporation, 2003, Cash contribution projections for JCWAA, corporate
+bond, corporate bond for 3 years, and corporate bond with no DRC for 3 years, Tables prepared
+for Congressional testimony.
+
+Perfect, Steven B., and Kenneth W. Wiles, 1994, Alternative constructions of Tobin’s q: An empirical
+comparison, Journal of Empirical Finance 1, 313–341.
+
+Petersen, Mitchell, 1992, Pension reversions and worker-stockholder wealth transfers, Journal of
+Finance 107, 1033–1056.
+
+Poterba, James M., 1988, Comment: Financing constraints and corporate investment, Brookings
+Papers on Economic Activity 1, 200–206.
+
+Silverman, B. W., 1986, Density Estimation for Statistics and Data Analysis (Chapman & Hall,
+London).
+
+Stulz, Rene, 1990, Managerial discretion and optimal financing policies, Journal of Financial
+Economics 26, 3–27.
+
+van der Klaauw, Wilbert, 1996, Regression-discontinuity evaluation of the effect of financial aid
+offers on college enrollment, Working paper, New York University Department of Economics.
+
+Winklevoss, Howard E., 1993, Pension Mathematics with Numerical Illustrations, 2nd ed. (Pension
+Research Council of the Wharton School of the University of Pennsylvania and University of
+Pennsylvania Press).
+
+Wooldridge, 2002, Econometric Analysis of Cross Section and Panel Data (MIT Press, Cambridge).
+Zion, David, and Bill Carcache, 2002, The Magic of Pension Accounting (Credit Suisse First Boston).

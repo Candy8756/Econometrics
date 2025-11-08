@@ -1,0 +1,1678 @@
+﻿Manuscript (WITHOUT AUTHOR IDENTIFIERS) Click here to view linked References
+
+ 
+The Home Stretch: County-Level Policy Implementation 
+
+and Regional Financial Development in China 
+ 
+ 
+
+Abstract: 
+ 
+Hierarchical structures, where central authorities delegate powers to local 
+governments, are ubiquitous but face implementation challenges resulting 
+from weak accountability. This study presents one of the first evidence of how 
+local officials’ policy implementation affects regional financial development 
+in China—a deeply hierarchical polity with a historical struggle to bridge the 
+“last mile” of policy execution. We develop a new index of county-level 
+Central Financial Policy Implementation Index (CFPI) based on over 6.32 
+million news releases of county governments on their websites between 2009 
+and 2023. We find that stronger CFPI implementation is positively associated 
+with local loan innovation, a proxy for financial development. We further 
+document that these effects are more substantial for counties where the 
+officials have a finance-related background and stronger promotion incentives. 
+The commendation tools used by central governments are also useful in 
+improving the efficiency of the implementation. Our paper highlights the 
+importance of addressing the “last mile” issue in policy implementation in a 
+decentralized administrative system.  
+
+ 
+Keywords: Financial Development; Policy Implementation; Textual Analysis; 
+Government Releases 
+JEL Classification: G28, O16, O53, R58 
+
+1 
+ 
+
+
+
+1. Introduction 
+Hierarchies—layers of sequential authorities—are ubiquitous in government 
+
+organizations. Government organizations often have a structured system of authority, 
+where different levels of officials or decision-makers are organized in a hierarchical 
+manner. 
+
+The concept of delegation is closely related to the hierarchical structure and has 
+significant implications for governance. In political organizations, delegation often 
+involves central government bodies granting powers to local governments to implement 
+policies. Although delegation can streamline decision-making processes, it can also 
+lead to a lack of accountability (Fan et al., 2009). As suggested by Anderson et al. 
+(2019), not all higher-level directives are effectively implemented by lower levels, 
+especially those from the central government. This situation is akin to the saying, 
+“Heaven is high, and the emperor is far away” (Zhou, 2016). 
+
+While the popular media as well as economic and political literature long stressed 
+the importance of accountability (Mookherjee, 2006; Mookherjee, 2015), namely the 
+efficient implementation of central policies by the local officials in Hierarchies, 1 
+empirical literature has had relatively little to say about it. This is largely due to 
+methodological limitations in quantifying local officials’ policy implementation. The 
+prior literature usually measures the final performance of local officials, but not their 
+implementation intensity. It causes problems for research to empirically understand 
+how sub-tier agencies react to top-tier officials, and the mechanism by which 
+implementation effort affects the outcome of the hierarchy system  
+
+Understanding the implementation by local officials is important practically. 
+“Designing good policies is one thing, implementing them is another”, as suggested by 
+the World Bank (Artuc et al., 2020). Developing countries are plagued by inefficient 
+administrative systems, which hinder the success of sound policies. It is the main reason 
+for the frustrating performance of foreign aid in driving development outcomes in these 
+
+                                                   
+1 It stems from agency costs, local capture, monitoring difficulties, and subcontracting inefficiencies 
+(Mookherjee, 2006) 
+
+ 2 
+
+
+
+countries (Artuc et al., 2020). A good way to measure the policy implementation at the 
+local official level is to improve their accountability, resource allocation, and 
+institutional coherence in decentralized systems. 
+
+This study addresses this gap by examining policy implementation in China, a vast 
+and deeply hierarchical polity. It is an ideal laboratory to investigate this issue in China 
+for two reasons. First, the central government has struggled with the issue of “directives 
+not reaching beyond Zhongnanhai,” a popular saying before 2012 that referred to the 
+weak implementation of top-level policies.2 The central government has repeatedly 
+emphasized the need to bridge the “last mile” of policy execution, recognizing that even 
+the best policies are ineffective without proper implementation. 
+
+Second, and more importantly, measuring local governments’ compliance with 
+central policies was difficult in the past, as we lacked structured data to assess the extent 
+to which local officials were implementing these policies. Fortunately, with the 
+advancement of government digitization, we now have the opportunity to measure local 
+governments’ compliance with central policies. Since 2000, county-level governments 
+have started to maintain formal official websites and disclose updates on meetings, 
+research activities, and personnel changes. Currently, almost all county governments 
+have established their own official websites where news releases are posted. We 
+manually collected over 6.32 million government news releases from 1,269 counties 
+between 2000 and 2023. Using text analysis techniques, we develop a county-level 
+Central Financial Policy Implementation Index (CFPI).3 
+
+In this study, we investigate how policy implementation affects county-level 
+economic performance. Specifically, we study the relationship between financial policy 
+implementation and regional financial development. We focus on the implementation 
+of financial policy instead of other policies because financial policy is a central matter, 
+
+                                                   
+2 For example, on January 30, 2015, the chairman of Chinese Communist Party, Xi Jinping mentioned 
+the need to address the “last mile” in reform promotion during the ninth meeting of the Central Leading 
+Group for Comprehensively Deepening Reforms. On June 29, 2020, during the twenty-first collective 
+study session of the 19th Central Political Bureau, Xi emphasized that central and national agencies are 
+the “first mile” in implementing the decisions of the central government, while grassroots Party 
+organizations represent the “last mile.” 
+3 This methodological framework has received attention in recent literature, such as the construction of 
+the Geopolitical Risk Index (Caldara and Iacoviello, 2022). 
+
+ 3 
+
+
+
+with local governments mainly responsible for execution and generally not formulating 
+differentiated policies. Financial policymaking in China is under central authority, and 
+local governments are mainly responsible for implementing policies with limited 
+discretion. Therefore, we can focus more on policy implementation instead of policy 
+design by local officials. 
+
+We first investigate the economic consequences of policy implementation at the 
+local governmental level. Using our innovatively constructed county-level CFPI 
+(Central Financial Policy Index), we explore whether counties’ stronger 
+implementation of central financial policies promotes regional financial development, 
+measured by local loan innovation. After matching the CFPI with county-level statistics 
+and incorporating 7,120 observations from 969 counties between 2009 and 2023, we 
+document that a higher level of financial policy implementation is related to higher 
+local loan innovation.  
+
+Endogeneity is a potential concern in our analysis, as it may arise from reverse 
+causality or unobserved confounding factors. For instance, local political capacity, 
+leadership quality, or pre-existing financial infrastructure may affect both the efficiency 
+of policy implementation and regional financial outcomes such as loan innovation. 
+While we attempt to mitigate this issue by including a comprehensive set of control 
+variables, we acknowledge that unobserved heterogeneity may remain. To address this 
+concern, we employ an instrumental variable (IV) strategy. Specifically, we exploit the 
+exogenous shock to local policy implementation induced by the leadership transition 
+following the rotation of the General Secretary of the Communist Party of China (CPC) 
+in 2012. This central political change triggered top-down pressure for policy 
+enforcement at the local level. To capture regional variation in responsiveness to this 
+policy shock, we further examine the academic backgrounds of county-level 
+administrative heads. We argue that regions led by officials with stronger academic 
+background are more likely to respond effectively to central directives, thus exhibiting 
+differential implementation intensity. This interaction between the 2012 leadership 
+transition and the characteristics of local leadership creates exogenous variation in 
+financial policy implementation across counties. We use this variation as a source of 
+ 4 
+
+
+
+identification to mitigate endogeneity and strengthen the causal interpretation of our 
+findings. 
+
+Lastly, we go a step further by examining how regional features, local officials’ 
+characteristics, and central government behavior modify this relationship. Empirical 
+results suggest that younger county secretaries or heads of administration with a 
+financial background could increase the positive impact of financial policy 
+implementation. This indicates that bureaucrats with stronger promotion incentives or 
+greater expertise achieve better results. We also find that higher levels of fiscal capacity 
+and industrial endowments strengthen the impact of financial policy implementation on 
+local financial growth. Furthermore, we find Confucian culture dampens the effects of 
+CFPI on financial development, extending the findings of Chen et al. (2022). Finally, 
+we find the central government’s commendation tool can amplify the positive impact 
+of CFPI on regional financial development, emphasizing the role of the central 
+government in improving policy implementation.  
+
+Our paper is related to several strands of literature. First, it relates to the research 
+that uses textual analysis techniques to analyze policy texts and quantify government 
+attitudes or preferences. This approach stems from a consensus in the literature that 
+government policy texts are an important channel for understanding officials’ policies, 
+preferences, and positions (Benoit et al., 2009). Existing studies have also utilized party 
+manifestos from multiple countries for textual analysis to identify party positions or 
+examine policy changes (Tavits, 2007; Linder et al., 2020; Laver, 2014; Gethin et al., 
+2022). We have collected a large set of unique county-level government announcement 
+text data, which allows us to quantify and compare regional implementation of central 
+financial policies. In terms of text analysis methods, we extend textual analysis 
+frameworks (Baker et al., 2016; Caldara and Iacoviello, 2022; Agoraki et al., 2022; 
+Giglio et al., 2023) to quantify policy implementation, offering a blueprint for future 
+research on administrative responsiveness and decentralization. 
+
+Second, our paper is related to the literature on policy implementation in 
+administrative systems. One way to improve policy implementation is through 
+monitoring, which can be summarized as either post-program monitoring or pre-event 
+ 5 
+
+
+
+monitoring-threat (incentive) schemes (Muralidharan et al., 2021). For example, 
+Muralidharan et al. (2021) study how to improve “last-mile” public-service delivery in 
+India, specifically policy implementation at the local officials’ level. They find that 
+phone-based monitoring of a program improved implementation, leading to a 7.6% 
+reduction in the number of farmers who did not receive transfers from the agriculture 
+subsidy policy. They argue that the improvement is due to the fact that local officials 
+know their efforts can be easily measured by supervisors through phones. Rogger and 
+Somani (2023) argue that the layering of hierarchy prevents information acquisition 
+and thus deters proper policy implementation. Our paper is among the first studies to 
+quantify the implementation intensity of top-tier policies by local officials. By 
+constructing this measure, we can study the economic effect of the “last-mile” policy 
+implication. 
+
+Our paper is also related to the literature on political hierarchies and 
+decentralization. The accountability of local officials to top-level governors is a crucial 
+issue, similar to the classical principal-agent problem (Mookherjee, 2006). The cost of 
+layering arises when local officials cater to vested local interest groups, resulting in 
+corruption and the inability of the central government to effectively supervise through 
+a layered structure (Mookherjee, 2015). Many studies compare incentive schemes and 
+local officials’ accountability to the central government across different political 
+hierarchies, such as the multi-division structure in China and the unitary divisional 
+structure in the Soviet Union (Markevich and Zhuravskaya, 2011; Qian and Xu, 1993). 
+Another strand of literature examines the accountability of local officials to local 
+citizens rather than to higher-level authorities. Some studies find that such bottom-up 
+accountability can enhance the provision of public services (Mookherjee, 2015) and 
+even reduce civil conflict (Fetzer and Kyburz, 2024). However, Cassidy and 
+Velayudhan (2024) argue that these benefits may be limited. They show that the 
+proliferation of local governments can hinder economic growth, as the potential gains 
+from local responsiveness are offset by reduced economies of scale and diminished 
+bureaucratic capacity. In these strands of literatures, few studies have operationalized 
+local governments’ responsiveness to top-tier priorities in a quantifiable way. Our 
+ 6 
+
+
+
+implementation intensity measure fills this void, enabling future research to test 
+hypotheses about bureaucratic responsiveness and the trade-offs between centralized 
+control and local autonomy (Bo and Cheng, 2021; Jia et al., 2021; Li et al., 2016; Wong 
+et al., 2017). 
+
+Finally, our paper is also related to the extensive literature analyzing the factors 
+influencing financial development, which mainly focuses on political and institutional 
+aspects. Political factors include political stability and political institutions (Girma and 
+Shortland, 2008; Huang et al., 2010), while institutional factors include the legal system, 
+the banking system, and trade policies (Porta et al., 1998; Andrianova et al., 2008; 
+Mishkin, 2009; Zhang et al., 2015). We extend this strand of literature by examining 
+the role played by central financial policies. We also provide additional evidence that 
+in regions with favorable economic endowments, officials with specialization and 
+strong promotional incentives achieve optimal economic outcomes in policy 
+implementation. This provides valuable insights for future regional efforts to improve 
+the implementation of central policies. 
+
+The remainder of the paper is organized as follows: Section 2 discusses measuring 
+county effectiveness in implementing central financial policies. Section 3 introduces 
+the data and empirical design, Section 4 presents the empirical results, Section 5 reports 
+implications for further research, and Section 6 concludes. 
+
+ 
+
+2. Text-based Measurement of Financial Policy Implementation 
+2.1 Hierarchical Policy Implementation System in China 
+
+The governance system is crucial to China’s development model (Bardhan, 2020). 
+To govern a populous and vast country, China’s central government adopts a nested, 
+multi-layered administrative structure, in which higher levels of government manage 
+and supervise lower levels, thus extending the central government’s control throughout 
+various regions (Jia et al., 2021). A distinctive feature of China’s political hierarchy is 
+the complete subordination of lower levels to higher ones, with the upper echelons 
+wielding greater power, because they determine the career paths of lower-level officials 
+
+ 7 
+
+
+
+(Xu, 2011; Lee, 2024) 
+In line with this objective, China’s administrative hierarchy is divided into four 
+
+vertical levels: the central government, provincial governments, prefectural 
+governments, and county governments (Han and Wu, 2024). The central government 
+formulates national plans, followed by provincial and prefectural governments that 
+create their plans, with GDP growth targets as prime examples (Li et al., 2019). 
+Provincial and prefectural governments also function as intermediaries, transmitting 
+governance tasks both upwards and downwards, ultimately placing a heavy burden on 
+grassroots governments, namely county-level governments (Li et al., 2016).  
+
+The primary problem in China’s hierarchical governance system, lies in the “last 
+mile” challenge of policy implementation—a systemic disconnect between central 
+directives and effective execution at lower administrative levels (Bardhan, 2016; 
+Markevich and Zhuravskaya, 2011). This issue stems from the interrelated tension 
+within the hierarchical system. Centralized systems struggle to balance delegating 
+authority for local responsiveness while maintaining oversight to prevent mission drift 
+(Zhou, 2016). As decision-making power diffuses downward, agents gain flexibility to 
+address local complexities but may deviate from collective goals due to asymmetric 
+incentives. Simultaneously, rigid institutional frameworks often fail to accommodate 
+decentralized execution, creating implementation bottlenecks that undermine both 
+policy fidelity and adaptive innovation. Therefore, improving the effectiveness of 
+governance is the main goal of China’s hierarchical governance system. 
+2.2 Text-Based Policy Analysis Review 
+
+Policy texts are not just scripts but vessels for political phenomena. They are 
+essential channels for understanding politicians’ attitudes, positions, and relationships 
+(Benoit et al., 2009). Therefore, to understand administrative officials’ thoughts and 
+policy directions, it is crucial to understand their statements and actions (Grimmer and 
+Stewart, 2013). However, prior research acknowledges that the vast array of political 
+texts, including policy documents, official announcements, and programmatic writings, 
+poses significant challenges for analysis, especially quantitative analysis. 
+
+With advances in textual analysis techniques, researchers are increasingly 
+ 8 
+
+
+
+undertaking systematic studies of large political texts. These studies fall into three 
+categories. First, political texts are used to analyze party positions quantitatively. For 
+instance, Gethin et al. (2022) analyze party manifestos from 21 countries before general 
+elections, categorizing the content into income distribution and socio-cultural issues 
+and scoring the party stances. Similarly, Laver (2014) summarizes the attributes of these 
+manifestos that represent party positions. Second, several studies focus on the content 
+of policy texts, analyzing changes in the policy philosophies of parties or governments, 
+such as policy bill similarity or shifts in party policies (Tavits, 2007; Linder et al., 2020). 
+The third category of literature focuses on novel techniques for policy text analysis, 
+such as the Wordscores technology and the WORDFISH algorithm (Lowe, 2008; Slapin 
+and Proksch, 2008). 
+
+There is also a strand of literature focusing on Chinese policy documents, given 
+that China is largely driven by political decisions. The previous literature mainly 
+focuses on the effects of specific policies. For example, the ecological benefits of the 
+Natural Forest Conservation Program (NFCP) and the Grain-to-Green Program (GTGP) 
+(Liu et al., 2008), the policy characteristics of China’s Medium- and Long-Term Plan 
+for the Development of Science and Technology (2006-2020) (Liu et al., 2011), and the 
+institutional and ecological perspective evaluation of China’s “ecological red line” 
+policy (Bai et al., 2018). In the financial domain, Klingelhöfer and Sun (2019) derive 
+macroprudential policy indicators, while Das and Song (2023) extract precise 
+timestamps of monetary policy events to reveal the complexity of monetary policy 
+transmission to interest rates. 
+2.3 Central Financial Policy Implementation (CFPI) Index 
+
+In this study, we focus on the implementation of central financial policies for two 
+reasons. Firstly, financial policy is a unique national policy. Its formulation is mainly 
+the central government’s responsibility, with local governments having limited power 
+in this area. County-level governments mainly implement these policies, reducing 
+concerns about conflating policy formulation with policy implementation.4 Secondly, 
+
+                                                   
+4 In the 7th issue of the official policy research of the People's Bank of China in 2020, titled 'Design and 
+
+ 9 
+
+
+
+financial policy is a particularly dynamic area for the Chinese central government, 
+characterized by frequent policy changes to actively respond to short-term market 
+fluctuations (Brunnermeier et al., 2022). 
+2.3.1 Data source of policy texts 
+
+To construct an indicator of county-level government implementation of central 
+financial policies, we need to obtain comprehensive and comparable policy texts from 
+county-level governments that reflect their proactivity in executing these policies. 
+Therefore, we collect government releases from the official websites of county-level 
+governments, accumulating approximately 6.32 million texts from 2000 to 2023, 
+covering 1,269 counties.5 6 Figure 1 illustrates the geographical distribution of the 
+counties from which we obtain data, showing that the sampled counties are spread 
+across various regions and provinces in China, rather than being concentrated in 
+financially developed areas or eastern coastal cities. This helps to alleviate concerns 
+about the robustness of our conclusions due to our sample’s uneven distribution. 
+
+[PLEASE INSERT FIGURE 1 HERE] 
+
+In May 2008, China’s highest administrative authority, the State Council, officially 
+implemented the Regulations on Government Information Disclosure, which mandated 
+county-level and above governments to increase transparency. As part of this initiative, 
+most county-level governments in China established official websites (Chen et al., 
+
+                                                   
+Effect Analysis of the Coordination Mechanism between Central and Local Financial Regulation,' it is 
+explicitly stated that 'financial management is mainly a central authority, and local financial supervision 
+serves as an effective supplement.' 
+5 Specifically, obtaining the government releases involves several steps. First, we identify the official 
+websites of all counties. We start by gathering the official websites of all prefecture-level cities, which 
+typically provide links to the websites of their subordinate counties, ensuring comprehensive coverage 
+of all county government websites. Second, we locate the sub links for government releases. This step is 
+the most time-consuming, as we manually identify the module names for government releases on each 
+website. Depending on the website, this module could be named differently, such as “Updates”, 
+“Important News”, “Government Activities”, “Local Headlines”, or “Today’s News”. Third, we collect 
+all texts from the government releases modules. 
+6 The total number of county in China is 1301. A small number of government releases from certain 
+counties is missing, due to restrictions on access to website data, the absence of a government releases 
+module, or an insufficient volume of texts. 
+
+ 10 
+
+
+
+2016). Before this, county-level governments didn’t need to establish official websites 
+and release information. To address the sample bias caused by the lack of compulsory 
+information release, our analysis only includes government release data from 2009 to 
+2023, including approximately 6.22 million texts from 1,269 counties, representing 
+over 98.4% of the total data collected. The blue bars in Figure 2 depict the average 
+number of government release texts per county by year, revealing a significant increase 
+in the average number of texts after the implementation of the regulations compared to 
+the period before. 
+
+[PLEASE INSERT FIGURE 2 HERE] 
+
+2.3.2 CFPI Measure construction 
+To achieve our research objectives, we adopt a dictionary-based approach by 
+
+constructing a dictionary containing terms that reflect the central financial policies of 
+county-level governments. Following the methodologies of dictionary-based index 
+construction in the literature (Baker et al., 2016; Azzimonti, 2019), we first identify 
+three sets of terms representing the categories of ‘central (C)’, ‘financial policy (FP)’, 
+and ‘implementation (I)’. Government releases must contain terms from all three 
+categories to meet our criteria. Since our research objective is not directly observable 
+and no data is available to train a supervised model, supervised or unsupervised 
+algorithms or predefined dictionary methods are less suitable (Caldara and Iacoviello, 
+2022). We have designed a rigorous process to construct the index, as illustrated in 
+Figure 3, which we will detail step by step. 
+
+[PLEASE INSERT FIGURE 3 HERE] 
+
+How do we specify the terms for our dictionary? As shown by Baker et al. (2016) 
+and Azzimonti (2019), commonly used methods often involve some degree of 
+subjectivity in determining the vocabulary content. In contrast, our paper posits that 
+such subjective judgment may introduce bias into the index construction. To address 
+this potential problem, we adopt a relatively objective method to create the term sets. 
+
+The Chinese central government’s official website provides an excellent material 
+
+ 11 
+
+
+
+source through its Government Information Disclosure module. This module 
+categorizes policy documents at the central level, including those from State Council 
+agencies, are categorized. Figure A1 shows the original website, which includes a 
+category labelled ‘Fiscal, Financial, and Auditing’. We first obtain all the policy texts 
+under this category and split the texts into individual words, removing high-frequency 
+but meaningless words such as “below” or “also”, as well as common non-financial 
+terms such as “government”. We then count the frequency of the remaining words, 
+retaining the high-frequency words and categorizing them into the three predetermined 
+sets of terms. During this process, words unrelated to these three categories are 
+excluded. The final term sets are shown in Table 1. This method of constructing the 
+term sets effectively avoids the bias introduced by human intervention, thereby 
+enhancing the replicability and credibility of the index construction. 
+
+[PLEASE INSERT TABLE 1 HERE] 
+
+After determining the term sets, we scan all the government release texts. 
+Following Baker et al. (2016) and Azzimonti (2019), we search for texts containing at 
+least one keyword from each of the three categories, requiring the co-occurrence of 
+these keywords. Texts that meet this criterion are labelled as CFPI-related government 
+releases. From 2009 to 2023, there are approximately 0.55 million CFPI-related 
+government releases, accounting for approximately 8.8% of all government releases. 
+The black line graph in Figure 2 shows the annual average proportion of CFPI-related 
+government releases. It can be seen that the proportion fluctuates significantly before 
+2008 due to the smaller number of texts, but stabilizes after 2009. The proportion is 
+significantly higher during the 2008-2009 financial crisis and has shown an upward 
+trend since 2020.  
+
+To measure the county-level implementation of central financial policies, we 
+calculate the CFPI index using the following formula: 
+
+CFPI − Related Government Releases
+𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶 𝑖𝑖,𝑡𝑡
+
+𝑖𝑖,𝑡𝑡 =  
+Government Releases (1) 
+
+𝑖𝑖,𝑡𝑡
+
+where we obtain the CFPI index by calculating the proportion of CFPI-related 
+
+ 12 
+
+
+
+government releases to the total number of government releases for county i in year t. 
+By using the total number of releases to scale the CFPI-related releases, we could avoid 
+biases introduced by the varying sizes of counties. 
+ 
+
+3. Data and Empirical Strategy 
+3.1 Data and Sample 
+
+Based on the government release data of 1,269 county-level websites obtained in 
+Section 2.3, we first limit our research sample to these 1,269 counties from 2009 to 
+2023. We then collect statistical data for the sampled counties. Due to differences in 
+statistical data collection methods, there are missing values in the different county 
+databases. To construct a more complete county-level panel data, we primarily source 
+county-level statistics from the CEInet database7, and supplement missing values from 
+the China Stock Market & Accounting Research (CSMAR) database and the Chinese 
+Research Data Services (CNRDS) platform where possible. To construct the panel data 
+for the empirical analysis, we match the CFPI data with the county-level statistical data 
+and exclude samples that lack financial development indicators. This process yields 
+7,120 county-year observations across 969 counties.  
+3.2 Main Variables 
+
+We examine the relationship between the county-level government 
+implementation of central financial policies and regional financial development. 
+Section 2.3 and Equation (1) have already explained the construction and calculation 
+of the core independent variable, namely the CFPI index. To measure county-level 
+financial development, we refer to the approaches of Zhang et al. (2012) and Zhang et 
+al. (2015). Given the availability of county-level financial statistical data, we introduce 
+the ratio of financial institutions’ loan balances to GDP as the dependent variable. 
+
+To control for potential factors influencing county-level financial development, 
+
+                                                   
+7 This comprehensive database consolidates information from regional statistical yearbooks and the 
+“China County Statistical Yearbook,” providing statistical data on county-level investment, consumption, 
+and finance, covering nearly all counties nationwide. 
+
+ 13 
+
+
+
+we introduce three categories of control variables. First, we include county-level 
+economic variables (Han and Wu, 2024; Guo et al., 2016), such as the share of GDP 
+from the primary sector (Primary GDP Share), GDP growth rate (GDP Growth), and 
+population growth rate (Population Growth). Second, we also incorporate fiscal 
+variables (Bu and Liao, 2022; Fan et al., 2012), including the ratio of general public 
+fiscal budget expenditure to general public fiscal budget revenue (Expenditure Ratio), 
+per capita general public fiscal budget expenditure (Per Capita Expenditure), and the 
+natural logarithm of general public fiscal budget expenditure (lnExpenditure). Finally, 
+we include demographic variables (Faber, 2014; Guo et al., 2025), namely the ratio of 
+the number of students enrolled in junior and senior high schools to the total population 
+(Students Ratio), as well as the ratio of the total population to the land area (People 
+Density). The main variables and their definitions are presented in Table 2. 
+
+[PLEASE INSERT TABLE 2 HERE] 
+
+Panel A in Table 3 presents the summary statistics of the main variables. The mean 
+and median of the dependent variable, Financial Development, are approximately 0.85 
+and 0.49, respectively. The core independent variable, CFPI, has a mean of around 0.10 
+and a median of about 0.07. On average, the sample counties have a primary sector 
+GDP proportion of about 18.43%. The GDP and population growth rates are about 8.90% 
+and 0.14%, respectively. In Panel B in Table 3, we further divide the sample by GDP 
+Growth, People Density, and Year, and report the descriptive statistics of CFPI for each 
+subsample. It can be observed that counties with lower population density and higher 
+GDP growth tend to have a slightly higher mean CFPI. Additionally, the mean CFPI 
+has increased over time. 
+
+[PLEASE INSERT TABLE 3 HERE] 
+
+3.3 Empirical Strategy 
+To identify the impact of county-level government implementation of central 
+
+financial policies on regional financial development, we introduce the following 
+reduced-form model: 
+
+ 14 
+
+
+
+𝐶𝐶𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹𝐹 𝐷𝐷𝐷𝐷𝐷𝐷𝐷𝐷𝐹𝐹𝐷𝐷𝐷𝐷𝐷𝐷𝐷𝐷𝐹𝐹𝐷𝐷𝑖𝑖,𝑡𝑡 = 𝛼𝛼0 + 𝛼𝛼1𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝐶𝑖𝑖,𝑡𝑡 + 𝑿𝑿′𝜸𝜸 + 𝜇𝜇𝑖𝑖 + 𝐷𝐷𝑡𝑡 + 𝜀𝜀𝑖𝑖,𝑡𝑡 (2) 
+where 𝑿𝑿 stands for the vector of control variables mentioned in Section 3.2. 𝜇𝜇𝑖𝑖 and 
+𝐷𝐷𝑡𝑡  represent county and year fixed effects, respectively. 𝜀𝜀𝑖𝑖,𝑡𝑡  is the error term, and 
+standard errors are clustered at the county level to address potential heteroskedasticity 
+and serial correlation. The coefficient of interest, 𝛼𝛼1 , captures the influence of 
+implementation capacity on regional financial development. 
+ 
+
+4. Empirical Findings 
+4.1 Main Results 
+
+Table 4 reports our main regression results. Column (1) includes only the core 
+independent variable CFPI. Column (2) further introduces county fixed effects and year 
+fixed effects. Column (3) adds county-level economic control variables, and column (4) 
+incorporates additional control variables. It can be observed that the coefficient 
+estimates for CFPI are significantly positive, at least at the 5% level in all columns. 
+Focusing on column (4), the coefficient estimate for CFPI is 0.1417, indicating that a 
+1% increase in county-level implementation of central financial policies corresponds to 
+an approximate 0.14% improvement in regional financial development. 
+
+[PLEASE INSERT TABLE 4 HERE] 
+
+Several studies have confirmed that local government actions, including 
+legislation and credit policies, can significantly influence regional financial 
+development (Allen et al., 2005). Our results show that county-level governments with 
+strong financial policy implementation capabilities can effectively bridge the “last mile” 
+for implementing central financial policies. In such cases, central financial policies can 
+effectively guide regional financial development in a positive direction. By enhancing 
+their implementation capabilities, regions can improve the quality and efficiency of 
+their financial development.  
+4.2 Instrumental Variable Results 
+
+There may be potential bias issues related to our econometric estimations. On the 
+one hand, the regression variables are based on historical data, which may be subject to 
+ 15 
+
+
+
+measurement error. On the other hand, the results could be biased by unobserved 
+confounding factors (Narciso and Severgnini, 2023). There may be unobserved factors 
+that influence both the level of policy implementation and financial innovation. For 
+example, local political capacity, leadership quality, or pre-existing financial 
+infrastructure could simultaneously affect CFPI scores and loan innovation outcomes. 
+If such variables are not adequately controlled for, the estimated effect of CFPI could 
+be biased. 
+
+To address these potential issues, we construct instrumental variables based on the 
+rotation of the General Secretary of the Communist Party of China (CPC) in 2012. Since 
+the 18th CPC National Congress, China has emphasized addressing the “last mile” 
+problem in policy implementation, aiming to overcome the problem that Directives do 
+not reach beyond Zhongnanhai. It caused an exogenous shock on the extent to which 
+county-level officials implement the central government’s policies. We introduce a 
+dummy variable Post, which takes the value of 1 for years after 2012 and 0 otherwise.  
+
+It should be noted that the 2012 transition constitutes a one-time policy shock and, 
+by itself, may not provide sufficient identification in a regional setting. To capture 
+cross-regional variation in responsiveness to this shock, we further examine the 
+academic backgrounds of county-level administrative heads. We argue that counties led 
+by officials with stronger academic or technocratic credentials are more likely to 
+respond effectively to central directives. Following the approach proposed by Geng et 
+al. (2023), we construct the variable Finance Degree, which captures whether a county-
+level administrative head holds a formal academic qualification in finance. Specifically, 
+the variable takes the value of 1 if the official has an undergraduate or graduate degree 
+in finance, and 0 otherwise. The interaction term Post × Finance Degree thus captures 
+exogenous variation in policy implementation intensity across regions, providing a 
+more credible identification strategy to address endogeneity concerns. 
+
+Using the introduced instrumental variables (IV), we perform a two-stage least 
+squares (2SLS) regression, with results reported in Table 5. Columns (1) and (2) do not 
+include control variables, while columns (3) and (4) incorporate them. All columns 
+control for year and county fixed effects, with standard errors clustered at the county 
+ 16 
+
+
+
+level. Columns (1) and (3) present the first-stage regression results, and columns (2) 
+and (4) present the second-stage regression results. The first-stage results indicate that 
+the IVs are jointly significant (with F-statistics greater than 3), suggesting a strong 
+correlation between the IVs and county-level implementation of central financial 
+policies. The second-stage results show that the coefficient estimates for the core 
+independent variable are significant, at least at the 5% level in all specifications, 
+supporting the view that higher CFPI is associated with higher levels of regional 
+financial development. Therefore, the results in Table 5 further confirm the causality 
+between county-level implementation of central financial policies and regional 
+financial development. 
+
+[PLEASE INSERT TABLE 5 HERE] 
+
+4.3 Robustness Checks 
+
+To ensure the robustness of our study’s main results, we conduct several tests based 
+
+on the financial development literature, such as Zhang et al. (2015). 
+First, we consider concerns about reverse causality and the lagged effects of policy 
+
+implementation. In the baseline regression, a natural question arises: Do counties with 
+higher levels of financial development also exhibit stronger implementation of central 
+financial policies? This potential issue suggests the presence of reverse causality. To 
+further address endogeneity caused by reverse causality and to account for the potential 
+lagged effects of policy implementation on regional financial development, we 
+introduce Financial Developmenti,t+1 as the dependent variable. The results are reported 
+in columns (1) and (2) of Table 6. Even with these considerations, the coefficient 
+estimates of the core independent variable remain significantly positive at the 5% level. 
+This finding further confirms our main conclusion that county-level implementation of 
+central financial policies positively impacts regional financial development. 
+
+Second, we consider the impact of counties governed by municipalities directly 
+under the central government. On one hand, these counties differ significantly in 
+administrative rank compared to other samples. On the other hand, these counties 
+typically exhibit better economic conditions and higher levels of financial development.  
+ 17 
+
+
+
+Our baseline regression already includes county-level fixed effects to mitigate the 
+impact of sample variability. However, as a robustness check, we further exclude these 
+counties from the sample to address potential biases in causal identification. The results 
+are presented in columns (3) and (4) of Table 6. The regression results indicate that, 
+after excluding these counties, the significance and magnitude of the coefficient 
+estimates remain consistent with the baseline regression results. This suggests that the 
+counties governed by directly administered municipalities do not affect the baseline 
+regression results, further confirming our main conclusion. 
+
+[PLEASE INSERT TABLE 6 HERE] 
+ 
+
+5. Modification factors 
+We have already provided evidence that a stronger implementation of central 
+
+financial policies by local governments can improve regional financial development. 
+However, how regional features, local officials’ characteristics, and central government 
+behavior modify this relationship remains underexplored. These factors are important 
+because they provide implications for improving the efficiency of policy 
+implementation. We investigate them in this section. 
+ 
+
+5.1 The Effects of Specialized Bureaucracy 
+The implementation of financial policies fundamentally relies on the specific 
+
+actions of key local officials (Tukiainen et al., 2024). This raises the question: Do the 
+characteristics of these officials, especially those with a background in finance, affect a 
+
+county’s effectiveness in implementing central financial policies? We manually collect 
+
+information on the sample counties’ party secretaries and administrative heads from 
+
+online sources, including their names, birthdates, academic backgrounds, and 
+educational levels. We have collected data on 2,508 party secretaries and 2,586 
+administrative heads. 
+
+First, we examine how officials’ financial academic background influences the 
+
+ 18 
+
+
+
+effectiveness of financial policy implementation on regional financial development. If 
+either the Party Secretary or the Chief Administrator in a given year has a finance-
+related degree, we assign a value of 1 to the variable Finance Degree; otherwise, it is 
+assigned a value of 0. We interact it with the variable CFPI, and the regression results 
+are shown in columns (1) and (2) of Table 7. The interaction term is significantly 
+positive at the 5% level. This suggests that when the Secretary or Chief Administrator 
+has a financial background, the impact of CFPI on regional financial development is 
+greater. These findings offer some interesting insights: while local governments can 
+actively enhance the implementation of central financial policies, the professional 
+expertise of leadership significantly affects the effectiveness of such implementation. 
+
+[PLEASE INSERT TABLE 7 HERE] 
+
+Additionally, we further investigate how the officials’ age and highest educational 
+level influences the effectiveness of central financial policy implementation, which has 
+been documented in the existing literature (Su et al., 2012). Based on the personal 
+information of local officials, we construct two variables, Young and Master. If both the 
+party secretary and the administrative head are under 50 years old, Young equals 1. If 
+either the party secretary or administrative head has a master’s degree or higher, Master 
+equals 1. By introducing the interaction terms Young × CFPI and Master × CFPI, the 
+results are shown in Table 7. The findings indicate that when both the party secretary 
+and administrative head are under 50 years old, the positive impact of CFPI on regional 
+financial development is enhanced, while the influence on educational level is not 
+significant. If these officials have strong promotion incentives, they can address the 
+“last mile” problem to promote regional financial development, and better 
+implementation outcomes are achieved, in line with administrative tournament theory. 
+5.2 The County Endowment Matters 
+
+Regional endowment can also influence the effective implementation of financial 
+policies and their outcomes. While previous sections treat the endowment of all 
+counties as homogeneous, there are significant endowment differences among counties. 
+Specifically, such an effect may be influenced by local endowments, including fiscal 
+
+ 19 
+
+
+
+capacity, and the mix of industries.  
+First, we assess the fiscal capacity endowment of county governments. We 
+
+introduce Group(Per Capita Expenditure)i,t, which takes a value of 1 if the per capita 
+fiscal expenditure of county i in year t exceeds the median, indicating a sample with 
+higher fiscal capacity, and 0 otherwise. Column (2) of Table 8 reports the results of this 
+test. The coefficient estimate of the interaction term is significantly positive at the 10% 
+level, indicating that stronger fiscal capacity enhances the benefits of implementing 
+financial policies at the county level. 
+
+Second, we consider the local industry mix. The development of the county’s 
+secondary industry could affect policy implementation effiiciency. We measure the 
+strength of the secondary industry by using the ratio of total industrial output to GDP 
+and the proportion of the labor force in the secondary industry. By introducing dummy 
+variables to divide the sample into two categories and adding interaction terms, we find 
+that the better the secondary industry endowment, the stronger the positive effect of 
+CFPI on financial development. As noted by Haraguchi et al. (2019), the opportunities 
+for manufacturing development and its importance to economic growth have not 
+diminished. Similarly, Liu et al. (2020) found that manufacturing provides demand for 
+financial services. 
+
+[PLEASE INSERT TABLE 8 HERE] 
+
+5.3 The Impact of Regional Culture 
+The effectiveness of a county’s implementation capacity for central financial 
+
+policies could hinge on regional culture, especially the Confucian culture. Unlike 
+Western cultural traditions, under the influence of Confucian culture, China has relied 
+on clan systems and kinship ethics to achieve cooperation among relatives since the 
+Han Dynasty (Greif and Tabellini, 2017; Cheng et al., 2024). Chen et al. (2022) found 
+that deeply rooted Confucian family traditions have historically stifled and continue to 
+inhibit the demand and supply of external financing in China.  
+
+To test whether Confucian culture influences the impact of CFPI on financial 
+development, we consider Confucian temples as important physical carriers of 
+
+ 20 
+
+
+
+Confucian ideology. These temples play a significant role in educating local residents 
+about Confucian ethics (Kung and Ma, 2014). We introduce the proxy variable 
+Group(Confucian), which takes a value of 1 if the number of Confucian temples in the 
+province where the county is located exceeds the median, and 0 otherwise. Additionally, 
+Chen et al. (2022) argued that Zhu Xi (1130-1200 AD) played a crucial role in spreading 
+the Confucian lifestyle at the grassroots level by encouraging clans to establish 
+ancestral halls, with Zhu Xi academies becoming centers for propagating 
+operationalized Confucianism. Thus, we introduce another proxy variable 
+Group(Shuyuan), which takes a value of 1 if the number of Zhu Xi academies in the 
+province where the county is located exceeds the median, and 0 otherwise. 
+
+[PLEASE INSERT TABLE 9 HERE] 
+
+After introducing the interaction terms between these two variables and CFPI, the 
+regression results are presented in Table 9. The results show that the coefficient 
+estimates for the interaction terms are significantly negative. This indicates that, 
+consistent with the findings of Chen et al. (2022), the stronger the presence of 
+Confucian culture in a county, the more the positive effect of CFPI on financial 
+development is curbed. 
+
+5.4 Central Government Commendations 
+Since the 18th National Congress, the central government has designed top-level 
+
+frameworks to improve policy implementation, exemplified by the State Council’s 
+office conducting inspections and rewarding effective regions. Since 2016, the State 
+Council annually evaluates the impact of major policy measures across regions and 
+rewards regions for effective policy implementation. Specifically, regarding financial 
+policy, 5–6 provinces are commended annually for their enthusiasm, initiative, and 
+creativity in financial policy implementation. 8 
+
+                                                   
+8 Since 2016, the policy to increase incentives and support for regions with effective implemen
+tation has been in effect. The document can be accessed at https://www.gov.cn/gongbao/content/
+2016/content_5145564.htm. In 2018, the policy was further intensified, and the document can b
+e accessed at https://www.gov.cn/gongbao/content/2018/content_5350045.htm. In 2021, the superv
+
+ 21 
+
+
+
+ [PLEASE INSERT TABLE 10 HERE] 
+
+Thus, we set a dummy variable, Practice. If the county’s province received 
+incentives in a given year, it is coded as 1; otherwise, it is 0. Based on publicly available 
+information, we only collect the lists of 31 provinces that were commended from 2016 
+to 2021.9 In columns (1) and (2) of Table 10, we first introduce the dummy variable 
+Practice alone, without CFPI. Column (1) uses the same sample as the main regression, 
+while column (2) extends the sample to the annual panel data of all sample counties. 
+Considering that commendations are for past performance, all dependent variables in 
+Table 10 are lagged by one year. The results show that the variable Practice 
+significantly enhances regional financial development, confirming the positive effect 
+of central commendations on regional policy implementation. Columns (3) and (4) 
+further introduce the interaction term between Practice and CFPI. The results show that 
+the interaction term is significantly positive, indicating that the central government’s 
+commendations amplify the positive impact of CFPI on regional financial development. 
+ 
+
+6. Conclusions 
+This paper addresses a critical gap in empirical literature by quantifying the 
+
+intensity of local officials’ policy implementation using text analysis of over 6.32 
+million county-level government news releases (2000–2023). Constructing a novel 
+Central Financial Policy Implementation Index (CFPI) provides a granular measure of 
+how effectively local governments execute central financial policies, a task previously 
+hindered by methodological limitations. 
+
+                                                   
+ision and incentive measures were further strengthened, and the document can be accessed at h
+ttps://www.gov.cn/xinwen/2021-12/20/content_5662066.htm. 
+9 The provinces commended by the General Office of the State Council for effective implementation of 
+financial policies were as follows: In 2016, Fujian, Shandong, Shanghai, Sichuan, and Zhejiang were 
+commended. In 2017, the commended provinces were Guangdong, Guizhou, Henan, Jiangxi, Zhejiang, 
+and Chongqing. For 2018, the provinces included Guangdong, Hebei, Hubei, Jiangsu, and Chongqing. 
+In 2019, Guangdong, Jiangxi, Shanghai, Sichuan, and Zhejiang were recognized. The year 2020 saw 
+Beijing, Guangdong, Jiangsu, Shandong, and Zhejiang being commended. Finally, in 2021, Beijing, 
+Jiangsu, Shandong, Shanghai, and Zhejiang were the commended provinces. 
+
+ 22 
+
+
+
+Specifically, we investigate how county effectiveness in implementing central 
+financial policies impacts regional financial development. Our findings indicate that the 
+more effectively counties implement central financial policies, the higher the level of 
+regional financial development. It reveals that stronger implementation drives higher 
+local loan innovation, underscoring the importance of “last-mile” execution in 
+economic development. 
+
+We also analyze the impacts of official characteristics, regional culture, and the 
+central government’s commendation scheme. First, when officials have a background 
+in finance and stronger promotion incentives, the CFPI has a greater impact on regional 
+financial development. Second, regional endowments, particularly fiscal capacity and 
+industrial structure, significantly influence the effectiveness of financial policy 
+implementation. Third, in areas with a stronger Confucian culture, the effects of the 
+CFPI are suppressed. Fourth, the central government’s commendation tool can amplify 
+the positive impact of CFPI on regional financial development. 
+
+While existing literature extensively analyzes economic and political drivers of 
+financial development, most studies rely on international data or focus on 
+provincial/municipal levels. Our paper uniquely examines the “last mile” of policy 
+implementation at the county level, identifying factors influencing local financial 
+development and revealing how regional governance shapes policy outcomes. Given 
+China’s top-down policy framework, this research helps to advance our understanding 
+of hierarchical governance and provides actionable strategies for policymakers seeking 
+to bridge the “last mile” of policy execution, particularly in decentralized systems. 
+
+ 
+
+References 
+[1] Agoraki, M. E. K., Aslanidis, N., & Kouretas, G. P. (2022). US banks’ lending, 
+
+financial stability, and text-based sentiment analysis. Journal of Economic 
+Behavior & Organization, 197, 73-90. 
+
+[2] Allen, F., Qian, J., & Qian, M. (2005). Law, finance, and economic growth in China. 
+Journal of Financial Economics, 77(1), 57-116. 
+
+ 23 
+
+
+
+[3] Anderson, S. E., Buntaine, M. T., Liu, M., & Zhang, B. (2019). Non-governmental 
+monitoring of local governments increases compliance with central mandates: A 
+national-scale field experiment in China. American Journal of Political Science, 
+63(3), 626-643. 
+
+[4] Andrianova, S., Demetriades, P., & Shortland, A. (2008). Government ownership 
+of banks, institutions, and financial development. Journal of Development 
+Economics, 85(1-2), 218-252. 
+
+[5] Artuc, E., Cull, R., Dasgupta, S., Fattal, R., Filmer, D., Giné, X., ... & Woolcock, 
+M. (2020). Toward successful development policies: Insights from research in 
+development economics. 
+
+[6] Azzimonti, M. (2019). Does partisan conflict deter FDI inflows to the US? Journal 
+of International Economics, 120, 162-178. 
+
+[7] Bai, Y., Wong, C. P., Jiang, B., Hughes, A. C., Wang, M., & Wang, Q. (2018). 
+Developing China’s ecological redline policy using ecosystem services 
+assessments for land use planning. Nature Communications, 9(1), 3034. 
+
+[8] Baker, S. R., Bloom, N., & Davis, S. J. (2016). Measuring economic policy 
+uncertainty. The Quarterly Journal of Economics, 131(4), 1593-1636. 
+
+[9] Bardhan, P. (2016). State and development: The need for a reappraisal of the 
+current literature. Journal of Economic Literature, 54(3), 862-892. 
+
+[10] Bardhan, P. (2020). The Chinese governance system: Its strengths and weaknesses 
+in a comparative development perspective. China Economic Review, 61, 101430. 
+
+[11] Benoit, K., Laver, M., & Mikhaylov, S. (2009). Treating words as data with error: 
+Uncertainty in text statements of policy positions. American Journal of Political 
+Science, 53(2), 495-513. 
+
+[12] Bo, S., & Cheng, C. (2021). Political hierarchy and urban primacy: Evidence from 
+China. Journal of Comparative Economics, 49(4), 933-946. 
+
+[13] Brunnermeier, M. K., Sockin, M., & Xiong, W. (2022). China’s model of managing 
+the financial system. The Review of Economic Studies, 89(6), 3115-3153. 
+
+[14] Bu, D., & Liao, Y. (2022). Land property rights and rural enterprise growth: 
+Evidence from land titling reform in China. Journal of Development Economics, 
+
+ 24 
+
+
+
+157, 102853. 
+[15] Caldara, D., & Iacoviello, M. (2022). Measuring geopolitical risk. American 
+
+Economic Review, 112(4), 1194-1225. 
+[16] Cassidy, Traviss, Tejaswi Velayudhan (2024). Government fragmentation and 
+
+economic growth. Review of Economics and Statistics, 1-46. 
+[17] Chen, J., Pan, J., & Xu, Y. (2016). Sources of authoritarian responsiveness: A field 
+
+experiment in China. American Journal of Political Science, 60(2), 383-400. 
+[18] Chen, Z., Ma, C., & Sinclair, A. J. (2022). Banking on the Confucian clan: Why 
+
+China developed financial markets so late. The Economic Journal, 132(644), 1378-
+1413. 
+
+[19] Cheng, M., Fan, Z., Feng, C., & Tian, B. (2024). Cultural norms and tax 
+compliance: Evidence from China. Journal of Economic Behavior & Organization, 
+227, 106720. 
+
+[20] Das, S., & Song, W. (2023). Monetary policy transmission and policy coordination 
+in China. China Economic Review, 82, 102032. 
+
+[21] Faber, B. (2014). Trade integration, market size, and industrialization: Evidence 
+from China’s National Trunk Highway System. Review of Economic Studies, 
+81(3), 1046-1070. 
+
+[22] Fan, C. S., Lin, C., & Treisman, D. (2009). Political decentralization and corruption: 
+Evidence from around the world. Journal of Public Economics, 93(1-2), 14-34. 
+
+[23] Fan, S., Li, L., & Zhang, X. (2012). Challenges of creating cities in China: Lessons 
+from a short-lived county-to-city upgrading policy. Journal of Comparative 
+Economics, 40(3), 476-491. 
+
+[24] Fetzer, Thiemo, Stephan Kyburz (2024). Cohesive institutions and political 
+violence. Review of Economics and Statistics 106, 133-150. 
+
+[25] Geng, C., Li, D., Sun, J., & Yuan, C. (2023). Functional distance and bank loan 
+pricing: Evidence from the opening of high-speed railway in China. Journal of 
+Banking & Finance, 149, 106810. 
+
+[26] Gethin, A., Martínez-Toledano, C., & Piketty, T. (2022). Brahmin left versus 
+merchant right: Changing political cleavages in 21 western democracies, 1948-
+
+ 25 
+
+
+
+2020. The Quarterly Journal of Economics, 137(1), 1-48. 
+[27] Giglio, S., Kuchler, T., Stroebel, J., & Zeng, X. (2023). Biodiversity risk (No. 
+
+w31137). National Bureau of Economic Research. 
+[28] Girma, S., & Shortland, A. (2008). The political economy of financial development. 
+
+Oxford Economic Papers, 60(4), 567-596. 
+[29] Greif, A., & Tabellini, G. (2017). The clan and the corporation: Sustaining 
+
+cooperation in China and Europe. Journal of Comparative Economics, 45(1), 1-35. 
+[30] Grimmer, J., & Stewart, B. M. (2013). Text as data: The promise and pitfalls of 
+
+automatic content analysis methods for political texts. Political Analysis, 21(3), 
+267-297. 
+
+[31] Guo, N., Huang, W., & Wang, R. (2025). Public pensions and family dynamics: 
+Eldercare, child investment, and son preference in rural China. Journal of 
+Development Economics, 172, 103390. 
+
+[32] Guo, Q., Liu, C., & Ma, G. (2016). How large is the local fiscal multiplier? 
+Evidence from Chinese counties. Journal of Comparative Economics, 44(2), 343-
+352. 
+
+[33] Han, Y., & Wu, M. (2024). Inter-regional barriers and economic growth: Evidence 
+from China. Journal of Development Economics, 167, 103197. 
+
+[34] Haraguchi, N., Cheng, C. F. C., & Smeets, E. (2017). The importance of 
+manufacturing in economic development: Has this changed? World Development, 
+93, 293-315. 
+
+[35] Huang, Y. (2010). Political institutions and financial development: An empirical 
+study. World Development, 38(12), 1667-1677. 
+
+[36] Jia, J., Liang, X., & Ma, G. (2021). Political hierarchy and regional economic 
+development: Evidence from a spatial discontinuity in China. Journal of Public 
+Economics, 194, 104352. 
+
+[37] Klingelhöfer, J., & Sun, R. (2019). Macroprudential policy, central banks and 
+financial stability: Evidence from China. Journal of International Money and 
+Finance, 93, 19-41. 
+
+[38] Kung, J. K. S., & Ma, C. (2014). Can cultural norms reduce conflicts? 
+ 26 
+
+
+
+Confucianism and peasant rebellions in Qing China. Journal of Development 
+Economics, 111, 132-149. 
+
+[39] Laver, M. (2014). Measuring policy positions in political space. Annual Review of 
+Political Science, 17, 207-223. 
+
+[40] Lee, M. Y. (2024). Enacting decentralized authority: The practices and limits of 
+moving beyond hierarchy. Administrative Science Quarterly, forthcoming. 
+
+[41] Li, P., Lu, Y., & Wang, J. (2016). Does flattening government improve economic 
+performance? Evidence from China. Journal of Development Economics, 123, 18-
+37. 
+
+[42] Li, X., Liu, C., Weng, X., & Zhou, L. A. (2019). Target setting in tournaments: 
+Theory and evidence from China. The Economic Journal, 129(623), 2888-2915. 
+
+[43] Linder, F., Desmarais, B., Burgess, M., & Giraudy, E. (2020). Text as policy: 
+Measuring policy similarity through bill text reuse. Policy Studies Journal, 48(2), 
+546-574. 
+
+[44] Liu, F. C., Simon, D. F., Sun, Y. T., & Cao, C. (2011). China’s innovation policies: 
+Evolution, institutional structure, and trajectory. Research Policy, 40(7), 917-931. 
+
+[45] Liu, J., Li, S., Ouyang, Z., Tam, C., & Chen, X. (2008). Ecological and 
+socioeconomic effects of China’s policies for ecosystem services. Proceedings of 
+the National Academy of Sciences, 105(28), 9477-9482. 
+
+[46] Liu, X., Mattoo, A., Wang, Z., & Wei, S. J. (2020). Services development and 
+comparative advantage in manufacturing. Journal of Development Economics, 144, 
+102438. 
+
+[47] Lowe, W. (2008). Understanding wordscores. Political Analysis, 16(4), 356-371. 
+[48] Markevich, A., & Zhuravskaya, E. (2011). M-form hierarchy with poorly-
+
+diversified divisions: A case of Khrushchev’s reform in Soviet Russia. Journal of 
+Public Economics, 95(11-12), 1550-1560. 
+
+[49] Mishkin, F. S. (2009). Globalization and financial development. Journal of 
+Development Economics, 89(2), 164-169. 
+
+[50] Mookherjee, D. (2006). Decentralization, hierarchies, and incentives: A 
+mechanism design perspective. Journal of Economic Literature, 44(2), 367-390. 
+
+ 27 
+
+
+
+[51] Mookherjee, D. (2015). Political decentralization. Annual Review of Economics, 
+7(1), 231-249. 
+
+[52] Muralidharan, K., Niehaus, P., Sukhtankar, S., & Weaver, J. (2021). Improving 
+last-mile service delivery using phone-based monitoring. American Economic 
+Journal: Applied Economics, 13(2), 52-82. 
+
+[53] Narciso, G., & Severgnini, B. (2023). The deep roots of rebellion. Journal of 
+Development Economics, 160, 102952. 
+
+[54] Porta, R. L., Lopez-de-Silanes, F., Shleifer, A., & Vishny, R. W. (1998). Law and 
+finance. Journal of Political Economy, 106(6), 1113-1155. 
+
+[55] Qian, Y., & Xu, C. (1993). The M-form hierarchy and China’s economic reform. 
+European Economic Review, 37(2-3), 541-548. 
+
+[56] Rogger, D., & Somani, R. (2023). Hierarchy and information. Journal of Public 
+Economics, 219, 104823. 
+
+[57] Slapin, J. B., & Proksch, S. O. (2008). A scaling model for estimating time-series 
+party positions from texts. American Journal of Political Science, 52(3), 705-722. 
+
+[58] Su, F., Tao, R., Xi, L., & Li, M. (2012). Local officials’ incentives and China’s 
+economic growth: Tournament thesis reexamined and alternative explanatory 
+framework. China & World Economy, 20(4), 1-18. 
+
+[59] Tavits, M. (2007). Principle vs. pragmatism: Policy shifts and political competition. 
+American Journal of Political Science, 51(1), 151-165. 
+
+[60] Tukiainen, J., Blesse, S., Bohne, A., Giuffrida, L. M., Jääskeläinen, J., Luukinen, 
+A., & Sieppi, A. (2024). What are the priorities of bureaucrats? Evidence from 
+conjoint experiments with procurement officials. Journal of Economic Behavior & 
+Organization, 227, 106716. 
+
+[61] Wong, H. L., Wang, Y., Luo, R., Zhang, L., & Rozelle, S. (2017). Local governance 
+and the quality of local infrastructure: Evidence from village road projects in rural 
+China. Journal of Public Economics, 152, 119-132. 
+
+[62] Xu, C. (2011). The fundamental institutions of China’s reforms and development. 
+Journal of Economic Literature, 49(4), 1076-1151. 
+
+[63] Zhang, C., Zhu, Y., & Lu, Z. (2015). Trade openness, financial openness, and 
+ 28 
+
+
+
+financial development in China. Journal of International Money and Finance, 59, 
+287-309. 
+
+[64] Zhang, J., Wang, L., & Wang, S. (2012). Financial development and economic 
+growth: Recent evidence from China. Journal of Comparative Economics, 40(3), 
+393-412. 
+
+[65] Zhou, L. A. (2016). The administrative subcontract: Significance, relevance and 
+implications for intergovernmental relations in China. Chinese Journal of 
+Sociology, 2(1), 34-74. 
+
+  
+
+ 29 
+
+
+
+Figure 1: Illustration of Government Website Text Accessibility 
+Notes: This Figure depicts the administrative divisions of Chinese districts and counties. We collect text data from 
+the government websites of 1,269 Chinese districts and counties. After matching this data with other district and 
+county data, the effective sample size is reduced to 969, which are marked in red on the map.  
+
+ 
+ 
+  
+
+ 30 
+
+
+
+Figure 2: The Dynamics of County-Level Government Website Texts 
+Notes: The Figure provides an annual summary of the average number of news articles on sample district and county 
+government websites, as well as the average proportion of articles related to the implementation of central financial 
+policies. The former is presented with blue bar charts, while the latter is shown with a line graph. 
+
+ 
+  
+
+ 31 
+
+
+
+Figure 3: Flowchart for CFPI Index Construction 
+Notes: This Figure illustrates the process used to construct the CFPI index, which is divided into 
+three core modules: building the database of district and county government website texts, 
+developing the CFPI index vocabulary, and constructing the CFPI index.  
+
+ 
+ 
+ 
+ 
+  
+
+ 32 
+
+
+
+Table 1: CFPI Vocabulary Set 
+Category Content 
+
+Central (C) Central Government; National; State Council; Ministry of Finance; China 
+Insurance Regulatory Commission (CIRC); China Banking Regulatory 
+Commission (CBRC); China Securities Regulatory Commission (CSRC) 
+
+Financial Policy Insurance; Capital; Banking; Financial; Fiscal; Investment; Budget; Credit; 
+(FP) Financing; Payment; Assets; Mutual Fund; Audit; Loan; Revenue; 
+
+Expenditure; Guarantee; Issuance; Securities 
+Implementation (I) Work; Operate; Regulate; Develop; Strengthen; Serve; Undertake; Require; 
+
+Reform; Manage; Support; Assume; Construct; Refine; Notify; Initiate; 
+Comply (with the law); Establish; Implement; Provide; Utilize; Execute; 
+Draft; Advance; Approve; Elevate; Oversee; Standardize; Fulfill; Assess; 
+Adjust; Apply. 
+
+Notes: This Table presents the subset used in constructing the CFPI index.  
+
+ 
+  
+
+ 33 
+
+
+
+Table 2: Variable Definition 
+Variable Definition 
+
+Financial Development Ratio of financial institutions’ total loan balances to GDP 
+CFPI Ratio of target texts to total government website texts 
+
+Primary GDP Share Ratio of primary industry’s added value to GDP 
+GDP Growth GDP growth rate 
+
+Population Growth Growth rate of registered population 
+Ratio of general public budget expenditures to general public budget 
+
+Expenditure Ratio 
+revenues 
+
+Per Capita Expenditure Per capita general public budget expenditure 
+lnExpenditure Natural logarithm of general public budget expenditure 
+
+Ratio of primary and secondary school students to registered 
+Students Ratio 
+
+population 
+People Density Ratio of registered population to land area 
+
+Notes: This Table reports the variables primarily used in our paper, along with their corresponding definitions or 
+construction methods. 
+
+ 
+  
+
+ 34 
+
+
+
+Table 3: Descriptive Statistics 
+Panel A: Descriptive statistics of key variables 
+
+Variable Obs. Mean S.D. P10 Median P90 
+Financial Development 7,120 0.8512 0.4891 0.3441 0.7336 1.5048 
+
+CFPI 7,120 0.0991 0.0649 0.0317 0.0878 0.1743 
+Primary GDP Share 7,107 0.1843 0.1222 0.0428 0.1673 0.3434 
+
+GDP Growth 7,100 0.0890 0.0961 0.0029 0.0855 0.1906 
+Population Growth 6,979 0.0014 0.0180 -0.0102 0.0003 0.0139 
+Expenditure Ratio 7,062 5.3420 5.6495 1.3546 3.6767 10.4937 
+
+Per Capita Expenditure 6,973 0.3347 0.3906 0.0665 0.1943 0.7908 
+lnExpenditure 7,088 3.4666 0.6496 2.6312 3.4799 4.2848 
+Students Ratio 6,938 0.1144 0.0360 0.0694 0.1136 0.1581 
+People Density 6,942 0.0381 0.0369 0.0031 0.0264 0.0863 
+
+Panel B: Descriptive statistics of CFPI grouped by regional characteristics 
+Variable Group Obs. Mean S.D. Median 
+
+High 3,649 0.0924 0.0613 0.0833 
+People Density 
+
+Low 3,471 0.1063 0.0681 0.0946 
+High 3,570 0.0998 0.0665 0.0877 
+
+GDP Growth 
+Low 3,550 0.0986 0.0635 0.0882 
+
+[2009, 2013] 1,145 0.0913 0.0691 0.0826 
+Year [2014, 2018] 2,544 0.0964 0.0638 0.0858 
+
+[2019, 2023]  3,431 0.1039 0.0642 0.0921 
+Notes: This Table provides descriptive statistics for the main variables, including the number of observations, 
+mean, variance, 10th percentile, median, and 90th percentile. All continuous variables have been subjected to 
+winsorization at the 1% level at both the upper and lower tails. 
+
+ 
+ 
+ 
+  
+
+ 35 
+
+
+
+Table 4: Main Results 
+Variable (1) (2) (3) (4) 
+
+CFPI 0.5503*** 0.2001*** 0.1703** 0.1641** 
+ (0.174) (0.074) (0.071) (0.071) 
+
+Primary GDP Share   0.7047*** 0.8128*** 
+   (0.172) (0.169) 
+
+GDP Growth   -0.4114*** -0.4046*** 
+   (0.038) (0.039) 
+
+Population Growth   -0.0864 -0.2564 
+   (0.151) (0.156) 
+
+Expenditure Ratio    -0.0015 
+    (0.003) 
+
+Per Capita Expenditure    -0.0577 
+    (0.046) 
+
+lnExpenditure    0.1176*** 
+    (0.040) 
+
+Students Ratio    -0.4431 
+    (0.345) 
+
+People Density    4.3547** 
+    (1.704) 
+
+Constant 0.7966*** 0.8302*** 0.7416*** 0.2217 
+ (0.023) (0.007) (0.033) (0.149) 
+
+County FEs NO YES YES YES 
+Year FEs NO YES YES YES 
+
+Obs. 7,120 7,073 6,913 6,778 
+Adjusted R2 0.0052 0.8517 0.8620 0.8641 
+
+Notes: This Table reports the main regression results. The dependent variable is the level of financial 
+development. The core explanatory variable is the CFPI. Column (1) includes only the CFPI variable. Column 
+(2) introduces county fixed effects and year fixed effects. Column (3) includes basic control variables, and column 
+(4) further introduces additional control variables related to fiscal revenues and expenditures. Standard errors in 
+all columns are clustered at the county level. *, **, and *** denote significance levels at 10%, 5%, and 1% 
+respectively, with standard error in parentheses. 
+
+ 
+  
+
+ 36 
+
+
+
+Table 5: 2SLS Results 
+First Stage Second Stage First Stage Second Stage 
+
+Variable 
+(1) (2) (3) (4) 
+
+Post × Finance Degree -0.0456**  -0.0445**  
+ (0.019)  (0.020)  
+
+Finance Degree 0.0432**  0.0447**  
+ (0.018)  (0.018)  
+
+CFPI  6.0558**  3.4892** 
+  (2.447)  (1.380) 
+
+Primary GDP Share   0.0066 0.7737*** 
+   (0.027) (0.146) 
+
+GDP Growth   -0.0136* -0.3536*** 
+   (0.008) (0.048) 
+
+Population Growth   -0.0351 0.0012 
+   (0.039) (0.228) 
+
+Expenditure Ratio   0.0011** -0.0054* 
+   (0.001) (0.003) 
+
+Per Capita Expenditure   -0.0164** 0.0491 
+   (0.008) (0.046) 
+
+lnExpenditure   -0.0036 0.0806** 
+   (0.007) (0.033) 
+
+Students Ratio   0.1478** -0.9535** 
+   (0.068) (0.385) 
+
+People Density   0.3918 3.2837** 
+   (0.300) (1.497) 
+
+County FEs YES YES YES YES 
+Year FEs YES YES YES YES 
+
+Obs. 5,473 5,473 5,244 5,244 
+F Statistic 3.08 3.23 
+
+Notes: This table reports the 2SLS regression results using instrumental variables. The dependent variable is the 
+level of financial development. The variable Post is set to 1 for years after 2012 and 0 otherwise. The variable 
+Finance Degree is set to 1 if the county-level executive has a finance degree, and 0 otherwise. Columns (1) and 
+(2) present the regression results without control variables, while columns (3) and (4) include control variables. 
+Standard errors in all columns are clustered at the county level. *, **, and *** denote significance levels at 10%, 
+5%, and 1% respectively, with standard error in parentheses. 
+
+ 
+  
+
+ 37 
+
+
+
+Table 6: Robustness Tests 
+Incorporating Financial 
+
+Variable Developmentt+1  Excluding 
+Municipalities Sample 
+
+(1) (2)  (3) (4) 
+CFPI 0.1887** 0.1717**  0.2016*** 0.1654** 
+
+ (0.077) (0.078)  (0.074) (0.071) 
+Primary GDP Share  0.4736***   0.8171*** 
+
+  (0.177)   (0.169) 
+GDP Growth  -0.3301***   -0.4001*** 
+
+  (0.037)   (0.039) 
+Population Growth  -0.0835   -0.2572* 
+
+  (0.142)   (0.156) 
+Expenditure Ratio  -0.0024   -0.0015 
+
+  (0.003)   (0.003) 
+Per Capita Expenditure  -0.0183   -0.0603 
+
+  (0.047)   (0.046) 
+lnExpenditure  0.1181***   0.1183*** 
+
+  (0.044)   (0.040) 
+Students Ratio  -0.3412   -0.4390 
+
+  (0.333)   (0.345) 
+People Density  2.9470*   4.3537** 
+
+  (1.726)   (1.705) 
+Constant 0.8478*** 0.3330**  0.8291*** 0.2171 
+
+ (0.008) (0.160)  (0.007) (0.149) 
+County FEs YES YES  YES YES 
+
+Year FEs YES YES  YES YES 
+Obs. 5,991 5,834  7,055 6,760 
+
+Adjusted R2 0.8630 0.8684  0.8512 0.8636 
+Notes: This Table presents the results of the robustness tests. Columns (1) and (2) use Financial Developmentt+1 
+as the dependent variable to address concerns of reverse causality. Columns (3) and (4) exclude samples from 
+municipalities directly under the central government in the regression sample. Columns (1) and (3) include only 
+the CFPI and fixed effects, while columns (2) and (4) further incorporate control variables. Standard errors in all 
+columns are clustered at the county level. *, **, and *** denote significance levels at 10%, 5%, and 1% respectively, 
+with standard error in parentheses. 
+
+ 
+  
+
+ 38 
+
+
+
+Table 7: The Effects of Official’s Background 
+Variable (1) (2) (3) (4) (5) (6) 
+
+Finance Degree -0.2670* -0.2346**     
+ (0.138) (0.118)     
+
+Finance Degree × CFPI 1.9695** 1.8724**     
+ (0.882) (0.741)     
+
+Young   -0.0178 -0.0202*   
+   (0.013) (0.012)   
+
+Young × CFPI   0.2138* 0.2359**   
+   (0.110) (0.106)   
+
+Master     0.0045 0.0033 
+     (0.017) (0.017) 
+
+Master × CFPI     0.1363 0.1911 
+     (0.126) (0.124) 
+
+CFPI 0.1867** 0.1537** 0.1496 0.1016 0.0899 0.0115 
+ (0.077) (0.074) (0.093) (0.088) (0.119) (0.117) 
+
+Controls NO YES NO YES NO YES 
+Constant YES YES YES YES YES YES 
+
+County FEs YES YES YES YES YES YES 
+Year FEs YES YES YES YES YES YES 
+
+Obs. 6,402 6,141 6,421 6,151 6,996 6,709 
+Adjusted R2 0.8492 0.8593 0.8556 0.8668 0.8550 0.8656 
+
+Notes: This Table reports the heterogeneous effects of CFPI due to differences in the academic background and 
+highest degree of county party secretaries and administrative heads. In columns (1) and (2), the variable Finance 
+Degree is assigned a value of 1 when the party secretaries or administrative heads have a finance-related 
+background. In columns (3) and (4), the variable Young is set to 1 if both the county-level Party Secretary and the 
+executive are under 50 years old, and 0 otherwise. In columns (5) and (6), the variable Master is set to 1 if either 
+the party secretary or the administrative head has a master’s degree or higher, and 0 otherwise. All columns include 
+control variables and fixed effects. Standard errors in all columns are clustered at the county level. *, **, and *** 
+denote significance levels at 10%, 5%, and 1% respectively, with standard error in parentheses. 
+
+ 
+  
+
+ 39 
+
+
+
+Table 8: The Heterogeneity across County Endowment 
+Variable (1) (2) (3) (4) 
+
+Group(Financial Development) 0.2551***    
+ (0.020)    
+
+Group(Financial Development) × CFPI 0.2226**    
+ (0.109)    
+
+Group(Per Capita Expenditure)  -0.0355*   
+  (0.021)   
+
+Group(Per Capita Expenditure) × CFPI  0.2399*   
+  (0.124)   
+
+Group(Industrial Output)   -0.0130  
+   (0.023)  
+
+Group(Industrial Output) × CFPI   0.2588*  
+   (0.150)  
+
+Group(Secondary Worker Share)    -0.0277 
+    (0.019) 
+
+Group(Secondary Worker Share) × CFPI    0.2295** 
+    (0.114) 
+
+CFPI 0.0096 0.0496 -0.0228 -0.1087 
+ (0.062) (0.080) (0.101) (0.084) 
+
+Controls YES YES YES YES 
+Constant YES YES YES YES 
+
+County FEs YES YES YES YES 
+Year FEs YES YES YES YES 
+
+Obs. 6,778 6,778 4,072 3,683 
+Adjusted R2 0.8890 0.8642 0.8845 0.9000 
+
+Notes: This Table reports the heterogeneous effects of the CFPI attributable to differences in 
+district and county endowments. We classify different sample groups annually based on the 
+median values of Financial Development, Per Capita Expenditure, Industrial Output, and 
+Secondary Worker Share. Group(Variable) is a dummy variable, assigned a value of 1 when 
+greater than the median. All columns include control variables and fixed effects. Standard errors 
+in all columns are clustered at the county level. *, **, and *** denote significance levels at 10%, 
+5%, and 1% respectively, with standard error in parentheses. 
+
+ 
+  
+
+ 40 
+
+
+
+Table 9: The Impact of County Culture 
+Variable (1) (2) (3) (4) 
+
+Group(Confucian) -0.0129 -0.0185   
+ (0.025) (0.026)   
+
+Group(Confucian) × CFPI -0.2498** -0.2592**   
+ (0.119) (0.119)   
+
+Group(Shuyuan)   0.0503** 0.0369* 
+   (0.024) (0.022) 
+
+Group(Shuyuan) × CFPI   -0.2962** -0.2540* 
+   (0.141) (0.136) 
+
+CFPI 0.2969*** 0.2669*** 0.3243*** 0.2731*** 
+ (0.094) (0.092) (0.092) (0.092) 
+
+Controls NO YES NO YES 
+Constant YES YES YES YES 
+
+County FEs YES YES YES YES 
+Year FEs YES YES YES YES 
+
+Obs. 6,730 6,472 7,073 6,778 
+Adjusted R2 0.8504 0.8623 0.8519 0.8642 
+
+Notes: This Table reports the heterogeneous effects of the CFPI attributable to differences in district and county 
+culture. We classify different sample groups annually based on the median values of province-level Confucian 
+temple (Confucian) and Shuyuan. Group(Variable) is a dummy variable, assigned a value of 1 when greater than 
+the median. All columns include control variables and fixed effects. Standard errors in all columns are clustered 
+at the county level. *, **, and *** denote significance levels at 10%, 5%, and 1% respectively, with standard error 
+in parentheses. 
+
+ 
+  
+
+ 41 
+
+
+
+Table 10: The Impact of Central Government Commendations 
+Variable (1) (2) (3) (4) 
+Practice 0.0159* 0.0477*** -0.0208 -0.0148 
+
+ (0.009) (0.008) (0.018) (0.016) 
+Practice × CFPI   0.2969* 0.3279** 
+
+   (0.162) (0.156) 
+CFPI   0.1445** 0.1216* 
+
+   (0.073) (0.072) 
+Controls YES YES NO YES 
+
+County FEs YES YES YES YES 
+Year FEs YES YES YES YES 
+
+Obs. 5,771 39,660 5,920 5,771 
+Adjusted R2 0.8692 0.7074 0.8633 0.8695 
+
+Notes: This Table reports the effects of financial policy implementation commended by the central government. 
+Since 2016, the central government has annually recognized provinces that have shown tangible progress in the 
+financial sector. Based on this, we construct the dummy variable Practice, which is assigned a value of 1 for 
+districts and counties in provinces recognized in that year. Columns (1) and (2) include the variable Practice, 
+with the former using the same sample as the main regression and the latter using a sample from all national 
+districts and counties. Columns (3) and (4) include an interaction term between Practice and CFPI, with column 
+(3) excluding control variables and column (4) further including them. All columns include fixed effects. 
+Standard errors in all columns are clustered at the county level. *, **, and *** denote significance levels at 10%, 
+5%, and 1% respectively, with standard error in parentheses. 
+
+  
+
+ 42 
+
+
+
+Appendix  
+Figure A1: The Government Information Disclosure module 
+
+ 
+Notes: This figure is sourced from the Government Information Disclosure module on the State 
+Council website, where all policies of the Chinese State Council are publicly available and 
+categorized by theme. For our analysis, we selected policies from the “Finance, Financial, and Audit” 
+submodule. 
+  
+
+ 43 
+
+
+
+Figure A2: Example of Obtaining County-Level Government Releases Process 
+
+ 
+
+ 
+Notes: These two subfigures illustrate how we locate the government releases for counties, using 
+the example of Hailing District in Taizhou, Jiangsu Province, China. As described in Section 2.3, 
+we first navigate to the government website of Taizhou, shown in the first figure. At the bottom, 
+links to the government websites of its subordinate counties can be found. By following the link to 
+the Hailing District government website, shown in the second figure, we can see that the site has a 
+total of eight modules. The government releases a module on the Hailing District website called the 
+“News Center.” This exemplifies the challenge in our data processing, as each county website 
+requires individual identification of the government releases module and the development of 
+specific programs to extract the data.  
+ 
+
+ 44
