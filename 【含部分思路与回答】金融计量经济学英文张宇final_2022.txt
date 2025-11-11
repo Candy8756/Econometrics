@@ -135,6 +135,8 @@ salary
 roe
 slope =19
 
+图片内容：8个散点和一条上升的回归直线，横坐标roe，纵坐标salary，直线从大约(0,1000)上升到大约(60,2000)
+
 A) The code generates a scatter plot of salary (y) on roe (x) using the ceosall dataset.
 
 B) The code generates a scatter plot of grouped averages of salary (y) on roe (x) using the
@@ -200,32 +202,13 @@ Note: *p<0.1; **p<0.05; ***p<0.01
 a) First, look at the regression results on the left. Interpret the economic size and the
 statistical significance of the regression coefficient of log(salary) on roe.
 
-2TE N« ROEIEM—ANEfT , TERAE D LN — Mg
-BB : ROEM log ( salary ) BWEIASERE , EHtAiHE=0. 014/0. 005=2. 8 ELAA , pfEH/NTF0. 01k
 
 b) Now, look at the figure on the right. Is the standard error in part a) correct? Why?
 
-RAZMRIEARE, BERENHEE « M DENFHRSE ), ?':E x BJFREIE X | FIRTRIBERH ER /5 E iR _
-MRFEEHERG | ML EEERLHAHER B EBREDENNBHEENZANAR , FoHRREX N B E 34N 5T
 
-Eﬁ'«*—*ﬁ'{#ﬁ MARHIEEEEEEMNTL 'J—"'E’J%’*ﬂs}?EH_.J_WXZK:FJZ/J\E’J'F/R
-
-11281t= 01 : 17 : 18
-
-T c¢) Afriend recommended you to run the following code in addition to the code above.
+c) Afriend recommended you to run the following code in addition to the code above.
 What does the code do and what is the meaning of “HC” in “HCO0™?
-
 coeftest(modell, vcov=vcovHC, type=HCO0)
-coeftest RZATIRBEITRBNAITEZM , ESRIBEEND G ZHEMEME TR
-
-XEBET veov = veovlC FEEMER veovllC EREERAM TN ZMHMEREF T ELNAR BAVTERZFENMRTE |, EMFEE
-RTINS R
-
-“HC” {XFT “Heteroskedasticity—-Consistent” , EIFHE—i,
-“IC0” BRITE—MMEHI—FERLR, TR EEMEE TR — MHix, Fﬁﬂ:ﬂ&J—ET EFAENRAZER , F130
-
-IR BT SR E TR |, BB REINFE R A EH0ER F |, AR B Al M it el
-
 
 
 @@@ 7 @@@
