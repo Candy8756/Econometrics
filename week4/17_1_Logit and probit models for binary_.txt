@@ -1,0 +1,824 @@
+﻿c h a p t e r  17
+Limited Dependent 
+
+Variable Models and 
+Sample Selection 
+
+Corrections
+
+n Chapter 7, we studied the linear probability model, which is simply an application of the multiple 
+
+Iregression model to a binary dependent variable. A binary dependent variable is an example of a 
+limited dependent variable (LDV). An LDV is broadly defined as a dependent variable whose 
+
+range of values is substantively restricted. A binary variable takes on only two values, zero and one. 
+In Section 7-7, we discussed the interpretation of multiple regression estimates for generally discrete 
+response variables, focusing on the case where y takes on a small number of integer values—for 
+example, the number of times a young man is arrested during a year or the number of children born 
+to a woman. Elsewhere, we have encountered several other limited dependent variables, including 
+the percentage of people participating in a pension plan (which must be between zero and 100) and 
+ college grade point average (which is between zero and 4.0 at most colleges).
+
+Most economic variables we would like to explain are limited in some way, often because they 
+must be positive. For example, hourly wage, housing price, and nominal interest rates must be greater 
+than zero. But not all such variables need special treatment. If a strictly positive variable takes on 
+many different values, a special econometric model is rarely necessary. When y is discrete and takes 
+on a small number of values, it makes no sense to treat it as an approximately continuous variable. 
+Discreteness of y does not in itself mean that linear models are inappropriate. However, as we saw in 
+Chapter 7 for binary response, the linear probability model has certain drawbacks. In Section 17-1, 
+we discuss logit and probit models, which overcome the shortcomings of the LPM; the disadvantage 
+is that they are more difficult to interpret.
+
+524
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+CHAPTER 17 Limited Dependent Variable Models and Sample Selection Corrections 525
+
+Other kinds of limited dependent variables arise in econometric analysis, especially when the 
+behavior of individuals, families, or firms is being modeled. Optimizing behavior often leads to a 
+ corner solution response for some nontrivial fraction of the population. That is, it is optimal to 
+choose a zero quantity or dollar value, for example. During any given year, a significant number of 
+families will make zero charitable contributions. Therefore, annual family charitable contributions 
+has a population distribution that is spread out over a large range of positive values, but with a pileup 
+at the value zero. Although a linear model could be appropriate for capturing the expected value of 
+charitable contributions, a linear model will likely lead to negative predictions for some families. 
+Taking the natural log is not possible because many observations are zero. The Tobit model, which we 
+cover in Section 17-2, is explicitly designed to model corner solution dependent variables.
+
+Another important kind of LDV is a count variable, which takes on nonnegative integer values. 
+Section 17-3 illustrates how Poisson regression models are well suited for modeling count variables.
+
+In some cases, we encounter limited dependent variables due to data censoring, a topic we 
+ introduce in Section 17-4. The general problem of sample selection, where we observe a nonrandom 
+ sample from the underlying population, is treated in Section 17-5.
+
+Limited dependent variable models can be used for time series and panel data, but they are 
+most often applied to cross-sectional data. Sample selection problems are usually confined to cross-
+sectional or panel data. We focus on cross-sectional applications in this chapter. Wooldridge (2010) 
+analyzes these problems in the context of panel data models and provides many more details for 
+cross-sectional and panel data applications.
+
+17-1 Logit and Probit Models for Binary Response
+The linear probability model is simple to estimate and use, but it has some drawbacks that we dis-
+cussed in Section 7-5. The two most important disadvantages are that the fitted probabilities can be 
+less than zero or greater than one and the partial effect of any explanatory variable (appearing in level 
+form) is constant. These limitations of the LPM can be overcome by using more sophisticated binary 
+response models.
+
+In a binary response model, interest lies primarily in the response probability
+
+ P 1y 5 1 0x 2 5 P 1y 5 1 0x1, x2, p , xk 2 , [17.1]
+
+where we use x to denote the full set of explanatory variables. For example, when y is an employment 
+indicator, x might contain various individual characteristics such as education, age, marital status, and 
+other factors that affect employment status, including a binary indicator variable for participation in a 
+recent job training program.
+
+17-1a Specifying Logit and Probit Models
+In the LPM, we assume that the response probability is linear in a set of parameters, bj; see 
+equation (7.27). To avoid the LPM limitations, consider a class of binary response models of the form
+
+ P 1y 5 1 0x 2 5 G 1b0 1 b1x1 1 p 1 bkxk 2 5 G 1b0 1 xb 2 , [17.2]
+
+where G is a function taking on values strictly between zero and one: 0 , G 1z 2 , 1, for all real 
+ numbers z. This ensures that the estimated response probabilities are strictly between zero and one. 
+As in earlier chapters, we write xb 5 b1x1 1 p 1 bkxk.
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+526 PART 3 Advanced Topics
+
+Various nonlinear functions have been suggested for the function G to make sure that the 
+ probabilities are between zero and one. The two we will cover here are used in the vast majority of 
+applications (along with the LPM). In the logit model, G is the logistic function:
+
+ G 1z 2 5  exp 1z 2 / 31 1  exp 1z 2 4 5 L 1z 2 ,  [17.3]
+
+which is between zero and one for all real numbers z. This is the cumulative distribution function 
+(cdf) for a standard logistic random variable. In the probit model, G is the standard normal cdf, 
+which is expressed as an integral:
+
+z
+
+ G 1z 2 5 F 1z 2 ; 3 f 1v 2dv, [17.4]
+2`
+
+where f 1z 2  is the standard normal density
+
+ f 1z 2 5 12p 221/2exp 12z2/2 2 . [17.5]
+
+This choice of G again ensures that (17.2) is strictly between zero and one for all values of the param-
+eters and the xj.
+
+The G functions in (17.3) and (17.4) are both increasing functions. Each increases most quickly at 
+z 5 0, G 1z 2 S 0 as z S 2`, and G 1z 2 S 1 as z S `. The logistic function is plotted in Figure 17.1. 
+The standard normal cdf has a shape very similar to that of the logistic cdf.
+
+Logit and probit models can be derived from an underlying latent variable model. Let yp be an 
+unobserved, or latent, variable, and suppose that
+
+ yp 5 b0 1 xb 1 e, y 5 1 3yp . 0 4, [17.6]
+
+where we introduce the notation 1 3 # 4 to define a binary outcome. The function 1 3 # 4 is called the 
+indicator function, which takes on the value one if the event in brackets is true, and zero otherwise. 
+Therefore, y is one if yp . 0, and y is zero if yp # 0. We assume that e is independent of x and that 
+e either has the standard logistic distribution or the standard normal distribution. In either case, e is 
+
+FiguRE 17.1 Graph of the logistic function G 1z 2 5 exp 1z 2/ 31 1 exp 1z 2 4.
+G(z) 5 exp(z)/[1 1 exp(z)]
+
+1
+
+.5
+
+0
+23 22 21 0 1 2 3
+
+z
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+CHAPTER 17 Limited Dependent Variable Models and Sample Selection Corrections 527
+
+symmetrically distributed about zero, which means that 1 2 G 12z 2 5 G 1z 2  for all real numbers z. 
+Economists tend to favor the normality assumption for e, which is why the probit model is more pop-
+ular than logit in econometrics. In addition, several specification problems, which we touch on later, 
+are most easily analyzed using probit because of properties of the normal distribution.
+
+From (17.6) and the assumptions given, we can derive the response probability for y:
+
+  P 1y 5 1 0x 2 5 P 1yp . 0 0x 2 5 P 3e . 2 1b0 1 xb 2 0x 4 
+  5 1 2 G 32 1b0 1 xb 2 4 5 G 1b0 1 xb 2 , 
+which is exactly the same as (17.2).
+
+In most applications of binary response models, the primary goal is to explain the effects of the 
+xj on the response probability P 1y 5 1 0x 2 . The latent variable formulation tends to give the impres-
+sion that we are primarily interested in the effects of each xj on yp. As we will see, for logit and probit, 
+the direction of the effect of xj on E 1yp 0x 2 5 b0 1 xb and on E 1y 0x 2 5 P 1y 5 1 0x 2 5 G 1b0 1 xb 2  
+is always the same. But the latent variable yp rarely has a well-defined unit of measurement. (For 
+example, yp might be the difference in utility levels from two different actions.) Thus, the magnitudes 
+of each bj are not, by themselves, especially useful (in contrast to the linear probability model). For 
+most purposes, we want to estimate the effect of xj on the probability of success P 1y 5 1 0x 2 , but this 
+is complicated by the nonlinear nature of G 1 #  2 .
+
+To find the partial effect of roughly continuous variables on the response probability, we must 
+rely on calculus. If xj is a roughly continuous variable, its partial effect on p 1x 2 5 P 1y 5 1 0x 2  is 
+obtained from the partial derivative:
+
+'p 1x 2
+ 5 g 1b0 1 xb 2b    her  g 1
+
+'x j, w e z 2 dG
+; 1z 2 . [17.7]
+
+j dz
+
+Because G is the cdf of a continuous random variable, g is a probability density function (pdf). In the 
+logit and probit cases, G 1 #  2  is a strictly increasing cdf, and so g 1z 2 . 0 for all z. Therefore, the partial 
+effect of xj on p 1x 2  depends on x through the positive quantity g 1b0 1 xb 2 , which means that the 
+partial effect always has the same sign as bj.
+
+Equation (17.7) shows that the relative effects of any two continuous explanatory variables do 
+not depend on x: the ratio of the partial effects for xj and xh is bj/bh. In the typical case that g is a sym-
+metric density about zero, with a unique mode at zero, the largest effect occurs when b0 1 xb 5 0. 
+For example, in the probit case with g 1z 2 5 f 1z 2 , g 10 2 5 f 10 2 5 1/"2p < .40. In the logit case, 
+g 1z 2 5 exp 1z 2 / 31 1 exp 1z 2 42, and so g 10 2 5 .25.
+
+If, say, x1 is a binary explanatory variable, then the partial effect from changing x1 from zero to 
+one, holding all other variables fixed, is simply
+
+ G 1b0 1 b1 1 b2x2 1 p 1 bkxk 2 2 G 1b0 1 b2x2 1 p 1 bkxk 2 . [17.8]
+
+Again, this depends on all the values of the other xj. For example, if y is an employment indicator and 
+x1 is a dummy variable indicating participation in a job training program, then (17.8) is the change in 
+the probability of employment due to the job training program; this depends on other characteristics 
+that affect employability, such as education and experience. Note that knowing the sign of b1 is suffi-
+cient for determining whether the program had a positive or negative effect. But to find the magnitude 
+of the effect, we have to estimate the quantity in (17.8).
+
+We can also use the difference in (17.8) for other kinds of discrete variables (such as number of 
+children). If xk denotes this variable, then the effect on the probability of xk going from ck to ck 1 1 is 
+simply
+
+  G 3b0 1 b1x1 1 b2x2 1 p 1 bk 1ck 1 1 2 4 
+[17.9]
+
+  2 G 1b0 1 b1x1 1 b2x2 1 p 1 bkck 2 .
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+528 PART 3 Advanced Topics
+
+It is straightforward to include standard functional forms among the explanatory variables. For 
+example, in the model
+
+ P 1y 5 1 0z 2 5 G 1b0 1 b1z1 1 b2z
+2
+1 1 b3log 1z2 2 1 b4z3 2 ,
+
+the partial effect of z1 on P 1y 5 1 0z 2  is 'P 1y 5 1 0z 2 /'z1 5 g 1b0 1 xb 2 1b1 1 2b2z1 2 , and the 
+partial effect of z2 on the response probability is 'P 1y 5 1 0z 2 /'z2 5 g 1b0 1 xb 2 1b3/z2 2 , where 
+xb 5 b1z1 1 b2z
+
+2
+1 1 b3log 1z2 2 1 b4z3. Therefore, g 1b0 1 xb 2 1b3/100 2  is the approximate change 
+
+in the response probability when z2 increases by 1%.
+Sometimes we want to compute the elasticity of the response probability with respect to an 
+
+explanatory variable, although we must be careful in interpreting percentage changes in probabilities. 
+For example, a change in a probability from .04 to .06 represents a 2-percentage-point increase in the 
+probability, but a 50% increase relative to the initial value. Using calculus, in the preceding model 
+the elasticity of P 1y 5 1 0z 2  with respect to z2 can be shown to be b3 3g 1b0 1 xb 2 /G 1b0 1 xb 2 4. The 
+elasticity with respect to z3 is 1b4z3 2 3g 1b0 1 xb 2 /G 1b0 1 xb 2 4. In the first case, the elasticity is 
+always the same sign as b2, but it generally depends on all parameters and all values of the explana-
+tory variables. If z3 . 0, the second elasticity always has the same sign as the parameter b4.
+
+Models with interactions among the explanatory variables can be a bit tricky, but one should 
+compute the partial derivatives and then evaluate the resulting partial effects at interesting values. 
+When measuring the effects of discrete variables—no matter how complicated the model—we should 
+use (17.9). We discuss this further in the subsection on interpreting the estimates on page 530.
+
+17-1b Maximum Likelihood Estimation of Logit and Probit Models
+How should we estimate nonlinear binary response models? To estimate the LPM, we can use ordi-
+nary least squares (see Section 7-5) or, in some cases, weighted least squares (see Section 8-5). 
+Because of the nonlinear nature of E 1y 0x 2 , OLS and WLS are not applicable. We could use nonlinear 
+versions of these methods, but it is no more difficult to use maximum likelihood estimation (MLE) 
+(see Appendix 17A for a brief discussion). Up until now, we have had little need for MLE, although 
+we did note that, under the classical linear model assumptions, the OLS estimator is the maximum 
+likelihood estimator (conditional on the explanatory variables). For estimating limited dependent var-
+iable models, maximum likelihood methods are indispensable. Because MLE is based on the distribu-
+tion of y given x, the heteroskedasticity in Var 1y 0x 2  is automatically accounted for.
+
+Assume that we have a random sample of size n. To obtain the maximum likelihood estimator, 
+conditional on the explanatory variables, we need the density of yi given xi. We can write this as
+
+ f 1y 0xi;b 2 5 3G 1xib 2 4y 31 2 G 1xib 2 412y, y 5 0, 1, [17.10]
+
+where, for simplicity, we absorb the intercept into the vector xi. We can easily see that when y 5 1, 
+we get G 1xib 2  and when y 5 0, we get 1 2 G 1xib 2 . The log-likelihood function for observation i is 
+a function of the parameters and the data 1xi, yi 2  and is obtained by taking the log of (17.10):
+
+ ,i 1b 2 5 yilog 3G 1xib 2 4 1 11 2 yi 2 log 31 2 G 1xib 2 4. [17.11]
+
+Because G 1 #  2  is strictly between zero and one for logit and probit, ,i 1b 2  is well defined for all values 
+of b.
+
+The log-likelihood for a sample size of n is obtained by summing (17.11) across all observa-
+tions: + 1b 2 5 g n
+
+i51,i 1b 2 . The MLE of b, denoted by b̂, maximizes this log-likelihood. If G 1 #  2  is 
+the standard logit cdf, then b̂ is the logit estimator; if G 1 #  2  is the standard normal cdf, then b̂ is the 
+probit  estimator.
+
+Because of the nonlinear nature of the maximization problem, we cannot write formulas for the 
+logit or probit maximum likelihood estimates. In addition to raising computational issues, this makes 
+the statistical theory for logit and probit much more difficult than OLS or even 2SLS. Nevertheless, 
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+CHAPTER 17 Limited Dependent Variable Models and Sample Selection Corrections 529
+
+the general theory of MLE for random samples implies that, under very general conditions, the 
+MLE is consistent, asymptotically normal, and asymptotically efficient. [See Wooldridge (2010, 
+Chapter 13) for a general discussion.] We will just use the results here; applying logit and probit mod-
+els is fairly easy, provided we understand what the statistics mean.
+
+Each b̂j comes with an (asymptotic) standard error, the formula for which is complicated and pre-
+sented in the chapter appendix. Once we have the standard errors—and these are reported along with 
+the coefficient estimates by any package that supports logit and probit—we can construct (asymp-
+totic) t tests and confidence intervals, just as with OLS, 2SLS, and the other estimators we have 
+encountered. In particular, to test H0: bj 5 0, we form the t statistic b̂j /se 1b^ j 2  and carry out the test in 
+the usual way, once we have decided on a one- or two-sided alternative.
+
+17-1c Testing Multiple Hypotheses
+We can also test multiple restrictions in logit and probit models. In most cases, these are tests of mul-
+tiple exclusion restrictions, as in Section 4-5. We will focus on exclusion restrictions here.
+
+There are three ways to test exclusion restrictions for logit and probit models. The Lagrange mul-
+tiplier or score test only requires estimating the model under the null hypothesis, just as in the linear 
+case in Section 5-2; we will not cover the score test here, since it is rarely needed to test exclusion 
+restrictions. [See Wooldridge (2010, Chapter 15) for other uses of the score test in binary response 
+models.]
+
+The Wald test requires estimation of only the unrestricted model. In the linear model case, the 
+Wald statistic, after a simple transformation, is essentially the F statistic, so there is no need to 
+cover the Wald statistic separately. The formula for the Wald statistic is given in Wooldridge (2010, 
+Chapter 15). This statistic is computed by econometrics packages that allow exclusion restrictions to 
+be tested after the unrestricted model has been estimated. It has an asymptotic chi-square distribution, 
+with df equal to the number of restrictions being tested.
+
+If both the restricted and unrestricted models are 
+easy to estimate—as is usually the case with exclu-
+
+Exploring FurthEr 17.1 sion restrictions—then the likelihood ratio (LR) 
+
+A probit model to explain whether a firm is test becomes very attractive. The LR test is based 
+taken over by another firm during a given on the same concept as the F test in a linear model. 
+year is The F test measures the increase in the sum of 
+
+squared residuals when variables are dropped from 
+ P 1 takeover 5 1 0x 2 5 F 1b0 1 b1avgprof the model. The LR test is based on the difference in 
+
+ 1 b2mktval the log-likelihood functions for the unrestricted and 
+ 1 b3debtearn restricted models. The idea is this: Because the MLE 
+ 1 b4ceoten maximizes the log-likelihood function, dropping 
+ 1 b5ceosal variables generally leads to a smaller—or at least no 
+ 1 b5ceoage 2 , larger—log-likelihood. (This is similar to the fact 
+
+where takeover is a binary response  variable, that the R-squared never increases when variables are 
+avgprof is the firm’s average profit margin dropped from a regression.) The question is whether 
+over several prior years, mktval is market the fall in the log-likelihood is large enough to con-
+value of the firm, debtearn is the debt-to- clude that the dropped variables are important. We 
+earnings ratio, and ceoten, ceosal, and ceo- can make this decision once we have a test statistic 
+age are the tenure, annual salary, and age and a set of critical values.
+of the chief executive officer, respectively. The likelihood ratio statistic is twice the differ-
+State the null hypothesis that, other factors ence in the log-likelihoods:
+being equal, variables related to the CEO 
+have no effect on the probability of takeover.  LR 5 2 1+ur 2 +r 2 , [17.12]
+How many df are in the chi-square distribu-
+tion for the LR or Wald test?
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+530 PART 3 Advanced Topics
+
+where +ur is the log-likelihood value for the unrestricted model and +r is the log-likelihood value for 
+the restricted model. Because +ur $ +r, LR is nonnegative and usually strictly positive. In computing 
+the LR statistic for binary response models, it is important to know that the log-likelihood function 
+is always a negative number. This fact follows from equation (17.11), because yi is either zero or one 
+and both variables inside the log function are strictly between zero and one, which means their natural 
+logs are negative. That the log-likelihood functions are both negative does not change the way we 
+compute the LR statistic; we simply preserve the negative signs in equation (17.12).
+
+The multiplication by two in (17.12) is needed so that LR has an approximate chi-square distribu-
+tion under H0. If we are testing q exclusion restrictions, LR ,a x2
+
+q. This means that, to test H0 at the 
+5% level, we use as our critical value the 95th percentile in the x2
+
+q distribution. Computing p-values is 
+easy with most software packages.
+
+17-1d Interpreting the Logit and Probit Estimates
+Given modern computers, from a practical perspective the most difficult aspect of logit or probit 
+models is presenting and interpreting the results. The coefficient estimates, their standard errors, and 
+the value of the log-likelihood function are reported by all software packages that do logit and probit, 
+and these should be reported in any application. The coefficients give the signs of the partial effects of 
+each xj on the response probability, and the statistical significance of xj is determined by whether we 
+can reject H0: bj 5 0 at a sufficiently small significance level.
+
+As we briefly discussed in Section 7-5 for the linear probability model, we can compute a 
+goodness-of-fit measure called the percent correctly predicted. As before, we define a binary pre-
+dictor of yi to be one if the predicted probability is at least .5, and zero otherwise. Mathematically, 
+|y |
+
+i 5 1 if G 1 b̂0 1 x |
+ib̂ 2 $ .5 and yi 5 0 if G 1 b̂0 1 xib̂ 2 , .5. Given 5yi: i 5 1, 2, p , n6, we can see 
+
+how well |yi predicts yi across all observations. There are four possible outcomes on each pair, 1yi, |yi 2 ; 
+when both are zero or both are one, we make the correct prediction. In the two cases where one of the 
+pair is zero and the other is one, we make the incorrect prediction. The percentage correctly predicted 
+is the percentage of times that |yi 5 yi.
+
+Although the percentage correctly predicted is useful as a goodness-of-fit measure, it can be mis-
+leading. In particular, it is possible to get rather high percentages correctly predicted even when the 
+least likely outcome is very poorly predicted. For example, suppose that n 5 200, 160 observations 
+have yi 5 0, and, out of these 160 observations, 140 of the |yi are also zero (so we correctly predict 
+87.5% of the zero outcomes). Even if none of the predictions is correct when yi 5 1, we still correctly 
+predict 70% of all outcomes 1140/200 5 .70 2 . Often, we hope to have some ability to predict the 
+least likely outcome (such as whether someone is arrested for committing a crime), and so we should 
+be up front about how well we do in predicting each outcome. Therefore, it makes sense to also com-
+pute the percentage correctly predicted for each of the outcomes. Problem 1 asks you to show that the 
+overall percentage correctly predicted is a weighted average of q̂0 (the percentage correctly predicted 
+for yi 5 0) and q̂1 (the percentage correctly predicted for yi 5 1), where the weights are the fractions 
+of zeros and ones in the sample, respectively.
+
+Some have criticized the prediction rule just described for using a threshold value of .5, espe-
+cially when one of the outcomes is unlikely. For example, if y 5 .08 (only 8% “successes” in the 
+sample), it could be that we never predict yi 5 1 because the estimated probability of success is never 
+greater than .5. One alternative is to use the fraction of successes in the sample as the threshold—.08 
+in the previous example. In other words, define |yi 5 1 when G 1b^0 1 xib̂ 2 $ .08, and zero other-
+wise. Using this rule will certainly increase the number of predicted successes, but not without cost: 
+we will necessarily make more mistakes—perhaps many more—in predicting zeros (“failures”). In 
+terms of the overall percentage correctly predicted, we may do worse than using the .5 threshold.
+
+A third possibility is to choose the threshold such that the fraction of |yi 5 1 in the sample is the 
+same as (or very close to) y. In other words, search over threshold values t, 0 , t , 1, such that if 
+we define |yi 5 1 when G 1b^0 1 xib̂ 2 $ t, then g n | n
+
+i51yi < g i51y ( h  r a  
+ i. T e t i l and error required to 
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+CHAPTER 17 Limited Dependent Variable Models and Sample Selection Corrections 531
+
+find the desired value of t can be tedious, but it is feasible. In some cases, it will not be possible to 
+make the number of predicted successes exactly the same as the number of successes in the sample.) 
+Now, given this set of |yi, we can compute the percentage correctly predicted for each of the two out-
+comes as well as the overall percentage correctly predicted.
+
+There are also various pseudo R-squared measures for binary response. McFadden (1974) sug-
+gests the measure 1 2 +ur/+o, where +ur is the log-likelihood function for the estimated model and 
++0 is the log-likelihood function in the model with only an intercept. Why does this measure make 
+sense? Recall that the log-likelihoods are negative, and so +ur/+o 5 0+ur 0 / 0+o 0 . Further, 0+ur 0 # 0+o 0 . 
+If the covariates have no explanatory power, then +ur/+o 5 1, and the pseudo R-squared is zero, just 
+as the usual R-squared is zero in a linear regression when the covariates have no explanatory power. 
+Usually, 0+ur 0 , 0+o 0 , in which 1 2 +ur/+o . 0. If +ur were zero, the pseudo R-squared would equal 
+
+ 
+
+unity. In fact, +ur cannot reach zero in a probit or logit model, as that would require the estimated 
+probabilities when yi 5 1 all to be unity and the estimated probabilities when yi 5 0 all to be zero.
+
+Alternative pseudo R-squareds for probit and logit are more directly related to the usual R-squared 
+from OLS estimation of a linear probability model. For either probit or logit, let ŷi 5 G 1 b̂0 1 xib̂ 2  
+be the fitted probabilities. Since these probabilities are also estimates of E 1yi 0xi 2 , we can base an 
+R-squared on how close the ŷi are to the yi. One possibility that suggests itself from standard regres-
+sion analysis is to compute the squared correlation between yi and ŷi. Remember, in a linear regres-
+sion framework, this is an algebraically equivalent way to obtain the usual R-squared; see equation 
+(3.29). Therefore, we can compute a pseudo R-squared for probit and logit that is directly comparable 
+to the usual R-squared from estimation of a linear probability model. In any case, goodness-of-fit is 
+usually less important than trying to obtain convincing estimates of the ceteris paribus effects of the 
+explanatory variables.
+
+Often, we want to estimate the effects of the xj on the response probabilities, P 1y 5 1 0x 2 . If xj is 
+(roughly) continuous, then
+
+ DP̂ 1y 5 1 0x 2 < 3g 1b^0 1 xb̂ 2 b̂j 4Dxj, [17.13]
+
+for “small” changes in xj. So, for Dxj 5 1, the change in the estimated success probability is roughly 
+g 1 b̂0 1 xb̂ 2 b̂j. Compared with the linear probability model, the cost of using probit and logit mod-
+els is that the partial effects in equation (17.13) are harder to summarize because the scale factor, 
+g 1 b̂0 1 xb̂ 2 , depends on x (that is, on all of the explanatory variables). One possibility is to plug in 
+interesting values for the xj —such as means, medians, minimums, maximums, and lower and upper 
+quartiles—and then see how g 1 b̂0 1 xb̂ 2  changes. Although attractive, this can be tedious and result 
+in too much information even if the number of explanatory variables is moderate.
+
+As a quick summary for getting at the magnitudes of the partial effects, it is handy to have a sin-
+gle scale factor that can be used to multiply each b̂j (or at least those coefficients on roughly continu-
+ous variables). One method, commonly used in econometrics packages that routinely estimate probit 
+and logit models, is to replace each explanatory variable with its sample average. In other words, the 
+adjustment factor is
+
+ g 1 b̂0 1 xb̂ 2 5 g 1 b̂0 1 b̂1x1 1 b̂2x2 1 p 1 b̂kxk 2 , [17.14]
+
+where g 1 #  2  is the standard normal density in the probit case and g 1z 2 5 exp 1z 2 / 31 1 exp 1z 2 42 in the 
+logit case. The idea behind (17.14) is that, when it is multiplied by b̂j, we obtain the partial effect of 
+xj for the “average” person in the sample. Thus, if we multiply a coefficient by (17.14), we generally 
+obtain the partial effect at the average (PEA).
+
+There are at least two potential problems with using PEAs to summarize the partial effects of 
+the explanatory variables. First, if some of the explanatory variables are discrete, the averages of 
+them represent no one in the sample (or population, for that matter). For example, if x1 5 female and 
+47.5% of the sample is female, what sense does it make to plug in x1 5 .475 to represent the “aver-
+age” person? Second, if a continuous explanatory variable appears as a nonlinear function—say, as 
+a natural log or in a quadratic—it is not clear whether we want to average the nonlinear function or 
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+532 PART 3 Advanced Topics
+
+plug the average into the nonlinear function. For example, should we use log 1sales 2  or log 1sales 2  to 
+represent average firm size? Econometrics packages that compute the scale factor in (17.14) default 
+to the former: the software is written to compute the averages of the regressors included in the probit 
+or logit estimation.
+
+A different approach to computing a scale factor circumvents the issue of which values to plug 
+in for the explanatory variables. Instead, the second scale factor results from averaging the individual 
+partial effects across the sample, leading to what is called the average partial effect (APE) or, some-
+times, the average marginal effect (AME). For a continuous explanatory variable xj, the average 
+partial effect is n21g n
+
+i51 3g 1 b̂0 1 xib̂ 2 b̂ ^
+j 4 5 3n21g n
+
+i51 g 1 b̂0 1 xib̂ 2 4b̂i. The term multiplying bj acts 
+as a scale factor:
+
+ n21 an g 1b^0 1 xib̂ 2 . [17.15]
+i51
+
+Equation (17.15) is easily computed after probit or logit estimation, where g 1 b̂0 1 xib̂ 2 5 f 1 b̂0 1 xib̂ 2  
+in the probit case and g 1 b̂0 1 xib̂ 2 5 exp 1 b̂0 1 xib̂ 2 / 31 1 exp 1 b̂0 1 xib̂ 2 42 in the logit case. The 
+two scale factors differ—and are possibly quite different—because in (17.15) we are using the aver-
+age of the nonlinear function rather than the nonlinear function of the average [as in (17.14)].
+
+Because both of the scale factors just described depend on the calculus approximation in (17.13), 
+neither makes much sense for discrete explanatory variables. Instead, it is better to use equation (17.9) 
+to directly estimate the change in the probability. For a change in xk from ck to ck 1 1, the discrete 
+analog of the partial effect based on (17.14) is
+
+  G 3b̂0 1 b̂1x1 1 p 1 b̂k21xk21 1 b̂k 1ck 1 1 2 4 
+[17.16]
+
+  2 G 1 b̂0 1 b̂1x1 1 p 1 b̂k21xk21 1 b̂kck 2 ,
+where G is the standard normal cdf in the probit case and G 1z 2 5 exp 1z 2 / 31 1 exp 1z 2 4 in the logit 
+case. The average partial effect, which usually is more comparable to LPM estimates, is
+
+  n21 an 5G 3b̂0 1 b̂1xi1 1 p 1 b̂k21xik21 1 b̂k 1ck 1 1 2 4 
+i51 [17.17]
+
+  2 G 1 b̂0 1 b̂1xi1 1 p 1 b̂k21xik21 1 b̂kck 2 6.
+The quantity in equation (17.17) is a “partial” effect because all explanatory variables other than 
+
+xk are being held fixed at their observed values. It is not necessarily a “marginal” effect because the 
+change in xk from ck to ck 1 1 may not be a “marginal” (or “small”) increase; whether it is depends 
+on the definition of xk. Obtaining expression (17.17) for either probit or logit is actually rather simple. 
+First, for each observation, we estimate the probability of success for the two chosen values of xk, 
+plugging in the actual outcomes for the other explanatory variables. (So, we would have n estimated 
+differences.) Then, we average the differences in estimated probabilities across all observations. For 
+binary xk, both (17.16) and (17.17) are easily computed using certain econometrics packages, such as 
+Stata®.
+
+The expression in (17.17) has a particularly useful interpretation when xk is a binary variable. 
+For each unit i, we estimate the predicted difference in the probability that yi 5 1 when xk 5 1 and 
+xk 5 0, namely,
+
+ G 1 b̂0 1 b̂1xi1 1 p 1 b̂k21xi, k21 1 b̂k 2 2 G 1 b̂0 1 b̂1xi1 1 p 1 b̂k21xi, k21 2 . 
+For each i, this difference is the estimated effect of switching xk from zero to one, whether unit i 
+had xik 5 1 or xik 5 0. For example, if y is an employment indicator (equal to one if the person is 
+employed) after participation in a job training program, indicated by xk, then we can estimate the dif-
+ference in employment probabilities for each person in both states of the world. This counterfactual 
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+CHAPTER 17 Limited Dependent Variable Models and Sample Selection Corrections 533
+
+reasoning is similar to that in Chapter 16, which we used to motivate simultaneous equations models. 
+The estimated effect of the job training program on the employment probability is the average of the 
+estimated differences in probabilities. As another example, suppose that y indicates whether a family 
+was approved for a mortgage, and xk is a binary race indicator (say, equal to one for nonwhites). Then 
+for each family we can estimate the predicted difference in having the mortgage approved as a func-
+tion of income, wealth, credit rating, and so on—which would be elements of 1xi1, xi2, p , xi, k21 2— 
+under the two scenarios that the household head is nonwhite versus white. Hopefully, we have 
+ controlled for enough factors so that averaging the differences in probabilities results in a convincing 
+estimate of the race effect.
+
+In applications where one applies probit, logit, and the LPM, it makes sense to compute the scale 
+factors described above for probit and logit in making comparisons of partial effects. Still, sometimes 
+one wants a quicker way to compare magnitudes of the different estimates. As mentioned earlier, for 
+probit g 10 2 < .4 and for logit, g 10 2 5 .25. Thus, to make the magnitudes of probit and logit roughly 
+comparable, we can multiply the probit coefficients by .4/.25 5 1.6, or we can multiply the logit esti-
+mates by .625. In the LPM, g(0) is effectively one, so the logit slope estimates can be divided by four 
+to make them comparable to the LPM estimates; the probit slope estimates can be divided by 2.5 to 
+make them comparable to the LPM estimates. Still, in most cases, we want the more accurate com-
+parisons obtained by using the scale factors in (17.15) for logit and probit.
+
+ExamplE 17.1 married Women’s labor Force participation
+We now use the data on 753 married women in MROZ to estimate the labor force participation model 
+from Example 8.8—see also Section 7-5—by logit and probit. We also report the linear probability 
+model estimates from Example 8.8, using the heteroskedasticity-robust standard errors. The results, 
+with standard errors in parentheses, are given in Table 17.1.
+
+TAblE 17.1 LPM, Logit, and Probit Estimates of Labor Force Participation
+Dependent Variable: inlf
+
+Independent Variables LPM (OLS) Logit (MLE) Probit (MLE)
+nwifeinc 2.0034 2.021 2.012
+
+(.0015) (.008) (.005)
+educ .038 .221 .131
+
+(.007) (.043) (.025)
+exper .039 .206 .123
+
+(.006) (.032) (.019)
+exper 2 2.00060 2.0032 2.0019
+
+(.00019) (.0010) (.0006)
+age 2.016 2.088 2.053
+
+(.002) (.015) (.008)
+kidslt6 2.262 21.443 2.868
+
+(.032) (.204) (.119)
+kidsge6 .013 .060 .036
+
+(.014) (.075) (.043)
+constant .586 .425 .270
+
+(.152) (.860) (.509)
+Percentage correctly predicted  73.4 73.6 73.4
+Log-likelihood value  — 2401.77 2401.30
+Pseudo R-squared .264 .220 .221
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+534 PART 3 Advanced Topics
+
+The estimates from the three models tell a 
+Exploring FurthEr 17.2  consistent story. The signs of the coefficients are 
+
+Using the probit estimates and the calcu- the same across models, and the same variables are 
+lus approximation, what is the approximate statistically significant in each model. The pseudo 
+change in the response probability when R-squared for the LPM is just the usual R-squared 
+exper increases from 10 to 11? reported for OLS; for logit and probit, the pseudo 
+
+R-squared is the measure based on the log-likelihoods 
+described earlier.
+
+As we have already emphasized, the magnitudes of the coefficient estimates across models are 
+not directly comparable. Instead, we compute the scale factors in equations (17.14) and (17.15). If 
+we evaluate the standard normal pdf f 1 b̂0 1 b̂1x1 1 b̂2x2 1 p 1 b̂kxk 2  at the sample averages of 
+the explanatory variables (including the average of exper2, kidslt6, and kidsge6), the result is approxi-
+mately .391. When we compute (17.14) for the logit case, we obtain about .243. The ratio of these, 
+.391/.243 < 1.61, is very close to the simple rule of thumb for scaling up the probit estimates to make 
+them comparable to the logit estimates: multiply the probit estimates by 1.6. Nevertheless, for compar-
+ing probit and logit to the LPM estimates, it is better to use (17.15). These scale factors are about .301 
+(probit) and .179 (logit). For example, the scaled logit coefficient on educ is about .179 1 .221 2 < .040, 
+and the scaled probit coefficient on educ is about .301 1 .131 2 < .039; both are remarkably close to 
+the LPM estimate of .038. Even on the discrete variable kidslt6, the scaled logit and probit coef-
+ficients are similar to the LPM coefficient of 2.262. These are .179 121.443 2 < 2.258 (logit) and 
+.301 12.868 2 < 2.261 (probit).
+
+Table 17.2 reports the average partial effects for all explanatory variables and for each of the 
+three estimated models. We obtained the estimates and standard errors from the statistical package 
+Stata® 13. These APEs treat all explanatory variables as continuous, even the variables for the num-
+ber of children. Obtaining the APE for exper requires some care, as it must account for the quadratic 
+functional form in exper. Even for the linear model we must compute the derivative and then find the 
+average. In the LPM column, the APE of exper is the average of the derivative with respect to exper, 
+so .039 2 .0012 experi averaged across all i. (The remaining APE entries for the LPM column are 
+simply the OLS coefficients in Table 17.1.) The APEs for exper for the logit and probit models also 
+account for the quadratic in exper. As is clear from the table, the APEs, and their statistical signifi-
+cance, are very similar for all explanatory variables across all three models.
+
+The biggest difference between the LPM model and the logit and probit models is that the LPM 
+assumes constant marginal effects for educ, kidslt6, and so on, while the logit and probit models 
+
+TAblE 17.2 Average Partial Effects for the Labor Force Participation Models
+Independent Variables LPM Logit Probit
+nwifeinc −.0034 −.0038 −.0036
+
+(.0015) (.0015) (.0014)
+educ .038 .039 .039
+
+(.007) (.007) (.007)
+exper .027 .025 .026
+
+(.002) (.002) (.002)
+age −.016 −.016 −.016
+
+(.002) (.002) (.002)
+kidslt6 −.262 −.258 −.261
+
+(.032) (.032) (.032)
+kidsge6 .013 .011 .011
+
+(.014) (.013) (.013)
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+
+
+CHAPTER 17 Limited Dependent Variable Models and Sample Selection Corrections 535
+
+imply diminishing magnitudes of the partial effects. In the LPM, one more small child is estimated 
+to reduce the probability of labor force participation by about .262, regardless of how many young 
+children the woman already has (and regardless of the levels of the other explanatory variables). We 
+can contrast this with the estimated marginal effect from probit. For concreteness, take a woman 
+with nwifeinc 5 20.13, educ 5 12.3, exper 5 10.6, and age 5 42.5—which are roughly the sample 
+averages—and kidsge6 5 1. What is the estimated decrease in the probability of working in going 
+from zero to one small child? We evaluate the standard normal cdf, F 1 b̂0 1 b̂1x1 1 p 1 b̂kxk 2 , with 
+kidslt6 5 1 and kidslt6 5 0, and the other independent variables set at the preceding values. We get 
+roughly .373 2 .707 5 2.334, which means that the labor force participation probability is about 
+.334 lower when a woman has one young child. If the woman goes from one to two young chil-
+dren, the probability falls even more, but the marginal effect is not as large: .117 2 .373 5 2.256. 
+Interestingly, the estimate from the linear probability model, which is supposed to estimate the effect 
+near the average, is in fact between these two estimates. (Note that the calculations provided here, 
+which use coefficients mostly rounded to the third decimal place, will differ somewhat from calcula-
+tions obtained within a statistical package—which would be subject to less rounding error.)
+
+Figure 17.2 illustrates how the estimated response probabilities from nonlinear binary response 
+models can differ from the linear probability model. The estimated probability of labor force par-
+ticipation is graphed against years of education for the linear probability model and the probit 
+model. (The graph for the logit model is very similar to that for the probit model.) In both cases, the 
+explanatory variables, other than educ, are set at their sample averages. In particular, the two equa-
+tions graphed are inlf 5 .102 1 .038 educ for the linear model and inlf 5 F 121.403 1 .131 educ 2 .  
+At lower levels of education, the linear probability model estimates higher labor force participation 
+probabilities than the probit model. For example, at eight years of education, the linear probability 
+model estimates a .406 labor force participation probability while the probit model estimates about .361. 
+
+FiguRE 17.2  Estimated response probabilities with respect to education for the linear 
+probability and probit models.
+
+1
+.9
+
+inlf 5 F (21.403 1 .131 educ)
+
+.75
+
+inlf 5 .102 1 .038 educ
+
+.5
+
+.25
+
+.1
+0
+
+0 4 8 12 16 20
+years of education
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
+
+estimated probability of
+labor force participation
+
+
+
+536 PART 3 Advanced Topics
+
+The estimates are the same at around 11 3  years of education. At higher levels of education, the probit 
+model gives higher labor force participation probabilities. In this sample, the smallest years of educa-
+tion is 5 and the largest is 17, so we really should not make comparisons outside this range.
+
+The same issues concerning endogenous explanatory variables in linear models also arise in 
+logit and probit models. We do not have the space to cover them, but it is possible to test and cor-
+rect for endogenous explanatory variables using methods related to two stage least squares. Evans 
+and Schwab (1995) estimated a probit model for whether a student attends college, where the key 
+explanatory variable is a dummy variable for whether the student attends a Catholic school. Evans 
+and Schwab estimated a model by maximum likelihood that allows attending a Catholic school to be 
+considered endogenous. [See Wooldridge (2010, Chapter 15) for an explanation of these methods.]
+
+Two other issues have received attention in the context of probit models. The first is nonnormal-
+ity of e in the latent variable model (17.6). Naturally, if e does not have a standard normal distribution, 
+the response probability will not have the probit form. Some authors tend to emphasize the inconsist-
+ency in estimating the bj, but this is the wrong focus unless we are only interested in the direction of 
+the effects. Because the response probability is unknown, we could not estimate the magnitude of 
+partial effects even if we had consistent estimates of the bj.
+
+A second specification problem, also defined in terms of the latent variable model, is heteroske-
+dasticity in e. If Var 1e 0x 2  depends on x, the response probability no longer has the form G 1b0 1 xb 2 ; 
+instead, it depends on the form of the variance and requires more general estimation. Such models 
+are not often used in practice, since logit and probit with flexible functional forms in the independent 
+variables tend to work well.
+
+Binary response models apply with little modification to independently pooled cross sections or 
+to other data sets where the observations are independent but not necessarily identically distributed. 
+Often, year or other time period dummy variables are included to account for aggregate time effects. 
+Just as with linear models, logit and probit can be used to evaluate the impact of certain policies in the 
+context of a natural experiment.
+
+The linear probability model can be applied with panel data; typically, it would be estimated by 
+fixed effects (see Chapter 14). Logit and probit models with unobserved effects have recently become 
+popular. These models are complicated by the nonlinear nature of the response probabilities, and they 
+are difficult to estimate and interpret. [See Wooldridge (2010, Chapter 15).]
+
+17-2 The Tobit Model for Corner Solution Responses
+As mentioned in the chapter introduction, another important kind of limited dependent variable is 
+a corner solution response. Such a variable is zero for a nontrivial fraction of the population but is 
+roughly continuously distributed over positive values. An example is the amount an individual spends 
+on alcohol in a given month. In the population of people over age 21 in the United States, this variable 
+takes on a wide range of values. For some significant fraction, the amount spent on alcohol is zero. 
+The following treatment omits verification of some details concerning the Tobit model. [These are 
+given in Wooldridge (2010, Chapter 17).]
+
+Let y be a variable that is essentially continuous over strictly positive values but that takes on a 
+value of zero with positive probability. Nothing prevents us from using a linear model for y. In fact, 
+a linear model might be a good approximation to E 1y 0x1, x2, p , xk 2 , especially for xj near the mean 
+values. But we would possibly obtain negative fitted values, which leads to negative predictions for y; 
+this is analogous to the problems with the LPM for binary outcomes. Also, the assumption that an 
+explanatory variable appearing in level form has a constant partial effect on E 1y 0x 2  can be misleading. 
+Probably, Var 1y 0x 2  would be heteroskedastic, although we can easily deal with general heteroskedas-
+ticity by computing robust standard errors and test statistics. Because the distribution of y piles up at 
+zero, y clearly cannot have a conditional normal distribution. So all inference would have only asymp-
+totic justification, as with the linear probability model.
+
+Copyright 2016 Cengage Learning. All Rights Reserved. May not be copied, scanned, or duplicated, in whole or in part. Due to electronic rights, some third party content may be suppressed from the eBook and/or eChapter(s).
+Editorial review has deemed that any suppressed content does not materially affect the overall learning experience. Cengage Learning reserves the right to remove additional content at any time if subsequent rights restrictions require it.
