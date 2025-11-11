@@ -1,0 +1,870 @@
+---
+title: "Financial Econometrics Week 7"
+subtitle: "Factor model; Time-series: Detrending; Seasonal Adjustment; Forecasting"
+date: "2025-11-9"
+author: Yu Zhang
+output:
+  rmdformats::readthedown:
+    self_contained: true
+    thumbnails: true
+    lightbox: true
+    gallery: false
+    highlight: tango
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+11/9 Week 7
+
+# 9 Factor model（不考）
+
+Full Implementation of a Factor model: Three steps
+
+1)  Construction of the factors: Sorting of stocks -\> Forming factor
+    portfolios -\> calculate long-short (long-only) factor returns
+
+Some useful code if you are interested in constructing factors with R
+<https://christophscheuch.github.io/post/asset-pricing/fama-french-3-factors/>
+<https://sites.google.com/site/waynelinchang/r-code>
+<https://www.tidy-finance.org/?utm_source=christophscheuch.github.io>
+
+For tradable factors (Size, Value, etc.): 1.5) Model-free return
+prediction as an evaluation of the factors: Calculate future returns for
+factor portfolios and get long-short (long-only) future returns. Single
+sort, double sort.
+
+2)  Beta (factor loading) estimation: For the test assets (a set of
+    portfolios or stocks), Estimate using pre-period data the factor
+    model (y = pre-period test asset return, x = factor returns), and
+    get alpha (excess return) and betas (factor loadings)
+
+No need for standard errors in step 2. Efficient implementation uses
+matrix multiplication.
+
+3)  Return prediction: For the test assets, regress test period returns
+    on the pre-period factor loadings, preferrably with a multi-variate
+    regression. Test whether factor loadings predictively explain future
+    returns.
+
+Standard error is needed in step 3. Use lm.
+
+Remark: Note that the test in step 1.5, step 2 and step 3 can be done at
+various time points in the data. Do a "rolling" estimation.
+
+Additional details of the Factor model should be learned in a financial
+modelling course.
+
+# 10 Time series data basics (IE Chpt 10, URfIE Chpt 10)
+
+（考）
+
+Time series data:
+$$y_t = b_0 + b_1*x_{1t} + b_2*x_{2t} + ... + u_t, t=1,...,T$$
+
+-   yt​：第 t 期的因变量（如股价）
+
+-   x_{1t}​：第 t 期的第一个解释变量（如利率）
+
+-   u_t​：误差项，包含所有未观测到的影响因素
+
+-   下标t在x和y上是一致的——静态时间序列回归；不一致——动态时间序列回归
+
+时间序列中的 t 指的是同一个个体在不同时间点的观测值。
+
+数据量：时间序列数据是同一个个体在不同时间点的多次观测，而横截面数据和面板回归是多个个体在同一时间点的观测。
+
+时间序列存在的问题：
+
+小样本问题：数据经常会遇到数据量小的问题；
+
+抽样未必符合随机性，随机残差容易出现相关。而在标准假设想爱，OLS估计的系数是无偏的
+
+重复抽样可能会抽到原来已经抽到的
+
+# 10.1 "Static" model for time-series data
+
+(the above is a "static" model for time-series data, see IE 10-2a)
+
+Things to note:
+
+1)  OLS beta is unbiased under the standard assumptions (model is linear
+    in parameters, the regression error is uncorrelated with the
+    regressors.)
+
+2)  Small sample---Our OLS standard errors are derived with a large
+    sample in mind.
+
+Finance time series data often have a large T (large sample).
+
+Macro time series data often have a small T (small sample).
+
+When there is a small sample size, OLS inference is still correct only
+if the residual \~ Normal and homoskedastic.
+
+Under a small sample, even under our previous assumptions A1-A5 (i.e.,
+linear, random sample, variations in x, u is conditional independent,
+homoskedastic, but not Normal), the standard error itself has
+non-negligible estimation error, therefore the OLS t-stat (b/sd) has
+error in both the numerator (beta) as well as the denominator (standard
+error) and is biased for inference.
+
+Leonid Kogan (MIT)'s advice for small sample inference:
+<https://ocw.mit.edu/courses/15-450-analytics-of-finance-fall-2010/3894e9e72ac0f3d1c98d43323a104fec_MIT15_450F10_lec09.pdf>
+(bootstrap to adjust standard errors and monte carlo simulations to gain
+intuition)
+
+3)  Autocorrelation---Our OLS standard error assumes random sampling
+    (i.e. no correlation between observations in the regression error
+    $u_t$).
+
+Time series data often have correlation between observations in the
+regression error $u_t$ (serial correlation, or autocorrelation, IE
+chapter 12).
+
+For example, suppose overreaction in stock prices gradually gets
+corrected. The overreaction and the subsequent correction would both be
+in the regression error for the stock price. The regression error tends
+to be positive during the overreaction period, and less positive or even
+negative during the correction period, creating correlation in the
+regression errors over time.
+
+The OLS standard error is still correct only if the residual \~ Normal,
+homoskedastic, and uncorrelated over
+time.OLS标准误只有在满足以下条件时才是准确的：残差服从正态分布、同方差、且在不同时期互不相关。
+
+Pratically, when you have time series
+data:在实践中，当你处理时间序列数据时：
+
+-   Estimate the beta the old fashioned way (nothing changes compared to
+    cross-sectional data)
+
+    -   小样本正态残差
+
+    -   系数估计值仍然用老方法（OLS），这和横截面数据没有区别。
+
+-   Never assume the regression error is uncorrelated over time.
+    Therefore, never use the plain vanilla OLS standard error.
+
+    -   **绝对不要**假设回归误差项在不同时期是互不相关的。因此，**永远不要**使用最原始的OLS标准误。
+
+-   If the residual \~ Normal, use HAC (heteroskedasticity and
+    autocorrelation consistent) standard errors (Newey-West standard
+    errors, which is HAC, as compared to White standard errors, which is
+    only HC).
+
+    -   如果残差服从正态分布，请使用HAC标准误。HAC是“异方差和自相关一致”标准误的缩写（Newey-West标准误就是一种HAC标准误；与之相比，White标准误只处理异方差HC，不处理自相关）。
+
+(A related point: In week 6's lecture, we discussed clustered standard
+error for panel data. Clustered standard error also handles
+heteroskedasticity and autocorrelation. But clustered standard error can
+only be used in panel data, or in cross-sectional data with groups.)
+
+（一个相关的知识点：在第六周的课程中，我们讨论了面板数据的聚类标准误。聚类标准误也能同时处理异方差和自相关。但聚类标准误只能用于面板数据，或者存在分组结构的横截面数据。）
+
+-   Same as above if the residual is not normal and you have \>30 obs
+    ("large sample")
+
+-   If the residual is not Normal and you have \<25\~30 obs (i.e. small
+    sample), you are in uncharted water. Perform monte carlo analysis to
+    gain intuition about bias of the OLS t-stat, and use bootstrap to
+    adjust standard errors.
+
+    如果残差不服从正态分布，但你的样本量大于30（即“大样本”），处理方式同上（使用HAC标准误）。
+
+    如果残差不服从正态分布，并且你的样本量小于25\~30（即小样本），那么你就进入了“未知水域”。需要进行蒙特卡洛模拟来直观理解OLS
+    t统计量的偏差，并使用Bootstrap方法来调整标准误。
+
+-   以下回归表格解读不考
+
+```{r}
+library(stargazer);library(sandwich);library(lmtest)
+data(intdef, package='wooldridge')
+
+# Linear regression of static model:
+reg<- lm(i3~inf+def,data=intdef) #  Effects of Inflation and Deficits on Interest Rates
+
+# HAC SE for time series data and t tests:
+coeftest(reg, NeweyWest)
+
+# HAC standard errors for time series data for stargazer
+covHAC         <- NeweyWest(reg) # Newey-West's estimator (56 obs)
+HAC_se    <- sqrt(diag(covHAC))
+
+# Stargazer output (with OLS and HAC standard errors)
+stargazer(reg, reg, type = "text",
+          se = list(NULL, HAC_se), column.labels = c("Plain Vanilla", "HAC"))
+```
+
+-   If you have strong concerns that the residual !\~ Normal (and think
+    56 is not "large" enough a sample size), use bootstrap standard
+    errors.
+-   以下QQ plot不考
+
+```{r}
+library(ggplot2)
+intdef$pred <- predict(reg)
+intdef$resid <- residuals(reg)
+
+# no strong indication that the residual is not normally distributed
+ggplot(data=intdef, aes(x=resid)) + geom_histogram()
+qqnorm(intdef$resid)
+qqline(intdef$resid)
+```
+
+No strong indication that the residual is not normally distributed.
+
+But, if you are worried, then just use bootstrap:
+
+```{r}
+# but, if you are worried, then just use bootstrap
+coeftest(reg, vcovBS)
+
+# HAC standard errors for time series data for stargazer
+covBS         <- vcovBS(reg) # Bootstrap estimator
+BS_se    <- sqrt(diag(covBS))
+
+# Stargazer output (with OLS, HAC and bootstrap standard errors)
+stargazer(reg, reg, reg, type = "text",
+          se = list(NULL, HAC_se, BS_se), column.labels = c("Plain Vanilla", "HAC", "Bootstrap"))
+```
+
+回归系数不会变，SDE会变
+
+# 10.2 Finite Distributed Lag Models-动态时间序列模型
+
+$$y_t = b_0 + b_1*z_{1,t} + b_2*z_{1,t-1} + ... + b_{k+1}*z_{1,t-k}  + u_t$$
+
+$z_t$：同期影响
+
+$z_{t-1}$：滞后一期的影响
+
+$z_{t-2}$：滞后二期的影响
+
+...以此类推，直到滞后 k 期
+
+By design, $u_t$ and $u_{t-1}$ is correlated (which makes IE 10-3
+useless). Never use the plain-vanilla OLS standard error for models with
+lags. 从模型设计上来看，$u_t$ 和 $u_{t-1}$
+就是相关的（这使得教材10-3节的内容无效）。对于包含滞后项的模型，绝对不要使用最原始的OLS标准误。
+
+Question: What effect does an increase in $z_{1,t}$ have, ceteri
+paribus? 问题：在其他条件不变的情况下，$z_{1,t}$
+的增加会产生什么影响？【**理解这个问题的答案！！！】**
+
+$z_{1,t}$ 增加1，yt增加b1，y_t+1增加b2……
+
+$z_{1,t}$ （本期广告支出）增加1单位带来的**连锁反应**：
+
+-   **当期影响（Impact Effect）**：
+
+    -   $z_{1,t}$ 增加，直接导致$y_{t}$ **（本期销售额）** 增加$b_{1}$
+        个单位。
+
+    -   这是**立即发生的、短期内的**影响。
+
+-   **动态影响（Dynamic Effects）**：
+
+    -   **到了下一期（t+1）**：虽然 $z_{1,t}$
+        已经成为了过去的数据，但它会“变身”为 $z_{1,t}$
+        的一阶滞后项（$z_{1,t}$ ），**继续影响**
+        $y_{t+1}$**，影响大小为** $b_2$**。**
+
+    -   **再到下下期（t+2）**：它又会“变身”为 $z_{1,t}$
+        的二阶滞后项（$z_{1,t}$），**影响** $y_{t+2}$**，影响大小为**
+        $b_3$**。**
+
+    -   ...以此类推，直到 k 期后影响消失。
+
+```{r}
+# Libraries for dynamic lm, regression table and F tests
+library(dynlm);library(lmtest);library(car);library(sandwich)
+data(fertil3, package='wooldridge') # Example 10.4 in Section 10-4
+
+# Define Yearly time series beginning in 1913
+tsdata <- ts(fertil3, start=1913)
+
+# Linear regression of model with lags:
+res <- dynlm(gfr ~ pe + L(pe) + L(pe,2) + ww2 + pill, data=tsdata)
+# HAC SE for time series data and t tests:
+coeftest(res, NeweyWest)
+
+# HAC standard errors for time series data for stargazer
+covHAC         <- NeweyWest(res) # Newey-West's estimator
+HAC_se    <- sqrt(diag(covHAC))
+
+# Stargazer output
+stargazer(res, res, type = "text", se=list(NULL, HAC_se))
+
+# F test. H0: all pe coefficients are=0
+linearHypothesis(res, c("pe", "L(pe)", " L(pe, 2)"))
+# same as linearHypothesis(res, matchCoefs(res,"pe"))
+
+# F test. H0: all pe coefficients are=0, NeweyWest standard errors
+linearHypothesis(res, matchCoefs(res,"pe"), vcov.=NeweyWest)
+
+```
+
+Summing the dynamic effects:
+
+```{r}
+# Calculating the LRP
+b<-coef(res)
+b["pe"]+b["L(pe)"]+b["L(pe, 2)"]
+
+# F test. H0: LRP=0
+linearHypothesis(res,"pe + L(pe) + L(pe, 2) = 0", vcov.=NeweyWest)
+```
+
+Q: What if you are interested in adding lag variables in panel
+regressions? A: Use fixest (it is the fastest fixed effect command btw
+-- 5-20 times faster than reghdfe in Stata
+<https://github.com/lrberge/fixest>) See here:
+<https://cran.r-project.org/web/packages/fixest/vignettes/fixest_walkthrough.html#lagging-variables>
+
+# 10.3 Detrending and Seasonal Adjustment（IE 10.5, 可考）
+
+Spurious correlations (in time-series):
+<https://www.tylervigen.com/spurious-correlations>时间序列中的伪相关：参见链接中的例子
+
+(IE 18.3 also discusses spurious correlations in time-series.)
+
+Detrending: y = b0+b1x1+b2x2 + c\*year + u (control for linear time
+trend)
+
+去趋势：y = b0 + b1x1 + b2x2 + c\*year + u （控制线性时间趋势）
+
+Seasonal Adjustment: y = b0+b1x1+b2x2 + c1*Jan + c2*Feb + ... +
+c11\*Nov + u = b0+b1x1+b2x2+factor(month of the year) + u (control for
+month of the year dummies)
+
+【可能考相关解读】季节调整：y = b0 + b1x1 + b2x2 + c1*1月虚拟变量 +
+c2*2月虚拟变量 + ... + c11\*11月虚拟变量 + u = b0 + b1x1 + b2x2 +
+factor(月份) + u （控制月份虚拟变量）
+
+具体解释每个 $c_j$： $c_1$ (Jan): 1月份的 $y$ 比12月份高/低 $c_1$ 个单位
+
+$c_2$ (Feb): 2月份的 $y$ 比12月份高/低 $c_2$ 个单位
+
+$c_3$ (Mar): 3月份的 $y$ 比12月份高/低 $c_3$ 个单位
+
+...
+
+$c_{11}$ (Nov): 11月份的 $y$ 比12月份高/低 $c_{11}$ 个单位
+
+预测公式：y\^​=b0​+b1​x1​+b2​x2​+(月份效应)
+
+12月: $\hat{y} = b_0 + b_1x_1 + b_2x_2$（因为所有月份虚拟变量=0）
+
+1月: $\hat{y} = b_0 + b_1x_1 + b_2x_2 + c_1$
+
+2月: $\hat{y} = b_0 + b_1x_1 + b_2x_2 + c_2$
+
+...
+
+11月: $\hat{y} = b_0 + b_1x_1 + b_2x_2 + c_{11}$
+
+A convenient way to deal with equispaced time series in R is to store
+them as ts objects.
+
+控制时间序列项，可以控制时间变化趋势
+
+As pointed out by IE Chapter 10.5, deterministic linear (and
+exponential) time trends can be accounted for by adding the time measure
+as another independent variable. In a regression with `dynlm`, this can
+easily be done using the expression `trend(tsobj)` in the model formula
+with the time series object `tsobj`.
+
+```{r}
+library(dynlm);library(stargazer)
+data(hseinv, package='wooldridge')
+```
+
+```{r}
+# Define Yearly time series beginning in 1947
+hseinv <- hseinv[order(hseinv$year),] # make sure the data is ascending in year
+tsdata <- ts(hseinv, start=1947, frequency=1) # make sure R knows data is annual. See https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/ts
+```
+
+```{r}
+library(ggplot2)
+library(stargazer)
+ggplot(aes(y=invpc,x=year), data=hseinv)+geom_line()+geom_smooth(method="lm")
+ggplot(aes(y=price,x=year), data=hseinv)+geom_line()+geom_smooth(method="lm")
+invpc_model <- lm("log(invpc) ~ year", data=hseinv)
+price_model <- lm("log(price) ~ year", data=hseinv)
+stargazer(invpc_model, price_model, type='text')
+hseinv$loginvpc_resid <- invpc_model$residuals
+hseinv$logprice_resid <- price_model$residuals
+ggplot(aes(y=loginvpc_resid,x=year), data=hseinv)+geom_line()+geom_smooth(method="lm")
+ggplot(aes(y=logprice_resid,x=year), data=hseinv)+geom_line()+geom_smooth(method="lm")
+raw_model <- lm("log(invpc) ~ log(price)", data=hseinv)
+detrended_model <- lm("loginvpc_resid ~ logprice_resid", data=hseinv)
+stargazer(raw_model, detrended_model, type='text')
+```
+
+```{r}
+# Example 1: Time series regressions with trend
+library(sandwich)
+res1  <- dynlm(log(invpc) ~ log(price)                , data=tsdata)
+res1a <-    lm(log(invpc) ~ log(price)                , data=tsdata)
+res2  <- dynlm(log(invpc) ~ log(price) + trend(tsdata), data=tsdata)
+res2a <-    lm(log(invpc) ~ log(price) + year, data=tsdata)
+
+HAC_se1    <- sqrt(diag(NeweyWest(res1)))
+HAC_se1a   <- sqrt(diag(NeweyWest(res1a)))
+HAC_se2    <- sqrt(diag(NeweyWest(res2)))
+HAC_se2a   <- sqrt(diag(NeweyWest(res2a)))
+
+stargazer(res1, res1a, res2, res2a, type="text", se = list(HAC_se1, HAC_se1a, HAC_se2, HAC_se2a))
+```
+
+```{r}
+# Example 2: Plot detrended time series data
+fit_price <- dynlm(log(price) ~ trend(tsdata), data=tsdata)
+fit_invpc <- dynlm(log(invpc) ~ trend(tsdata), data=tsdata)
+hseinv$price_detrended <- residuals(fit_price)
+hseinv$invpc_detrended <- residuals(fit_invpc)
+ggplot(data=hseinv, aes(x=year))+geom_line(aes(y=invpc,color='invpc')) + geom_line(aes(y=price,color='price'))
+ggplot(data=hseinv, aes(x=year))+geom_line(aes(y=invpc_detrended,color='invpc_detrended')) + geom_line(aes(y=price_detrended,color='price_detrended'))
+```
+
+# Seasonality
+
+# Example 10.5 p.351 (327) IE
+
+```{r}
+library(dynlm);library(lmtest)
+data(barium, package='wooldridge')
+barium$mofy <- barium$t%%12 # month of year = mod 12
+# Define monthly time series beginning in Feb. 1978
+tsdata <- ts(barium, start=c(1978,2), frequency=12)
+```
+
+```{r}
+ggplot(data=barium,aes(x=t))+ geom_line(aes(y=lchnimp)) + geom_line(aes(y=befile6))
+```
+
+```{r}
+res0 <-    lm(log(chnimp) ~ log(chempi)+log(gas)+log(rtwex)+befile6+
+                          affile6+afdec6, data=barium )
+res0a <-    lm(log(chnimp) ~ log(chempi)+log(gas)+log(rtwex)+befile6+
+                          affile6+afdec6+ factor(mofy), data=barium )
+res1 <- dynlm(log(chnimp) ~ log(chempi)+log(gas)+log(rtwex)+befile6+
+                          affile6+afdec6+ season(tsdata), data=tsdata )
+res1a <-    lm(log(chnimp) ~ log(chempi)+log(gas)+log(rtwex)+befile6+
+                          affile6+afdec6+ feb+mar+apr+may+jun+jul+aug+sep+oct+nov+dec, data=tsdata )
+res2 <- dynlm(log(chnimp) ~ log(chempi)+log(gas)+log(rtwex)+befile6+
+                          affile6+afdec6+ season(tsdata) +trend(tsdata), data=tsdata )
+
+
+HAC_se0    <- sqrt(diag(NeweyWest(res0)))
+HAC_se0a    <- sqrt(diag(NeweyWest(res0a)))
+HAC_se1    <- sqrt(diag(NeweyWest(res1)))
+HAC_se1a    <- sqrt(diag(NeweyWest(res1a)))
+HAC_se2    <- sqrt(diag(NeweyWest(res2)))
+
+stargazer(res0, res0a, res1, res1a, res2, type="text", se = list(HAC_se0, HAC_se0a, HAC_se1, HAC_se1a, HAC_se2))
+```
+
+# 11 Forecasting
+
+(IE 18.5, URfIE 18.5,
+<https://bookdown.org/ccolonescu/RPoE4/time-series-nonstationarity.html>)
+**(只考unit root test怎么做, ADF test大致是什么)**
+
+## **Unit Root Test 怎么做？（考试作答版）**
+
+单位根检验的目的是判断一个时间序列数据是否**平稳**。其基本操作步骤如下：
+
+1.  **设定检验回归方程**：\
+    最基础的检验方程形式为：
+
+    \$\Delta y_t = \gamma + \theta y_{t-1} + e_tΔyt​=γ+θyt−1​+etv​
+
+    其中，\$\Delta y_t = y_t - y_{t-1}Δyt​=yt​−yt−1​，即变量的一阶差分。
+
+2.  **提出假设**：
+
+    -   **原假设 (H0)**：θ=0，即序列存在**单位根**，是**非平稳**的。
+
+    -   **备择假设 (H1)**：θ\<0，即序列**不存在单位根**，是**平稳**的。
+
+3.  **进行检验**：\
+    使用统计软件（如R）对上述方程进行回归，并检查 y_{t-1}yt−1​ 的系数
+    \thetaθ 的 **t 统计量**。
+
+4.  **判断规则**：
+
+    -   将计算出的 t 统计量与特定的**临界值**（如 Mackinnon
+        临界值）进行比较。
+
+    -   如果 t 统计量 **小于** 临界值，则 **拒绝原假设
+        (H0)**，认为序列**不存在单位根，是平稳的**。
+
+    -   如果 t 统计量 **大于** 临界值，则 **不能拒绝原假设
+        (H0)**，认为序列**存在单位根，是非平稳的**。
+
+5.  **后续处理**：\
+    如果检验结论是序列存在单位根（非平稳），通常的解决方案是对变量进行**一阶差分**，然后对差分后的序列
+    \Delta y_tΔyt​ 再次进行单位根检验，以确保其已成为平稳序列。
+
+## **ADF Test 大致是什么？（考试作答版）**
+
+**ADF检验（Augmented Dickey-Fuller Test，增广迪基-富勒检验）**
+是单位根检验中最常用、最标准的方法。
+
+1.  **基本思想**：\
+    ADF检验是对基础迪基-富勒检验的扩展。它在检验方程中加入了被检验变量
+    \Delta y_tΔyt​ 的
+    **滞后项**，以控制序列中可能存在的更高阶的自相关性，从而确保误差项
+    e_tet​ 是白噪声，使得检验结果更加可靠。
+
+2.  **检验方程**：\
+    完整的ADF检验方程通常写作：
+
+    \Delta y_t = \gamma + \theta y_{t-1} + \delta_1 \Delta y_{t-1} + \delta_2 \Delta y_{t-2} + ... + \delta_p \Delta y_{t-p} + e_tΔyt​=γ+θyt−1​+δ1​Δyt−1​+δ2​Δyt−2​+...+δp​Δyt−p​+et​
+
+    其中，\Delta y_{t-1}, ..., \Delta y_{t-p}Δyt−1​,...,Δyt−p​ 就是新增的
+    **p 个滞后差分项**。
+
+3.  **检验目的**：\
+    与基础单位根检验完全相同，即检验 y_{t-1}yt−1​ 的系数 \thetaθ
+    是否显著小于0（H1: \theta < 0H1:θ\<0），以判断序列是否平稳。
+
+4.  **实践应用**：\
+    在实际操作中，我们通常直接调用统计软件中的 `adf.test()`
+    函数（如在R的 `tseries`
+    包中），软件会自动处理滞后阶数选择等问题，并直接给出检验统计量和对应的p值，我们只需根据p值或与临界值的比较做出判断即可。
+
+**总结**：ADF检验是一种通过引入滞后差分项来修正自相关性的、更为稳健的单位根检验方法，是判断时间序列数据平稳性的标准工具。
+
+## 11.1 Unit root (IE 18.2)
+
+The remaining section teaches you the basics of time series forecasting,
+mainly for macro variables, but also for volatility on the stock market.
+
+本章剩余部分将教授时间序列预测的基础知识，主要针对宏观经济变量，但也包括股票市场的波动率。
+
+Only stationary data can be forecasted. For stationary data,
+distribution of future data resembles distribution of the historical
+data. An example is the stock return. (See IE 11-1.)
+
+只有平稳数据才可以被预测。对于平稳数据，未来数据的分布与历史数据的分布相似。股票收益率就是一个例子（见教材11-1）。
+
+Non-stationary data does not resemble the past history. An example is
+the level of GDP, another example is the level of stock prices
+especially if they follow a random walk, (see Nio, Moutai. See also IE
+11-3).
+
+非平稳数据与过去的历史没有相似性。一个例子是GDP的水平值，另一个例子是股票价格的水平值，特别是当它们遵循随机游走过程时（例如蔚来、茅台的股价。另见教材11-3）。
+
+$$ S_t = S_{t-1} + e_t $$
+
+Therefore, we must test whether the data is non-stationary (in other
+words, "have a unit root"). If the data have a unit root (i.e. is
+non-stationary), then the time serie cannot be forecasted.
+
+因此，我们必须检验数据是否是非平稳的（换句话说，是否“存在单位根”）。如果数据存在单位根（即是非平稳的），那么这个时间序列就无法被预测。
+
+More strictly, IE defines "unit-root" under the concept of
+weakly-dependent (asymtotically independent) time-series. "unit-root" is
+an AR-1 process that is not asymptotically independent. Only AR-1
+process with $-1<\rho<1$ is asymptotically independent and stationary.
+"unit-root" is AR-1 with $\rho=1$ and is non-stationary.
+
+更严格地说，教材在"弱依赖（渐近独立）"时间序列的概念下定义"单位根"。"单位根"是一个不是渐近独立的AR(1)过程。只有满足
+$-1<\rho<1$ 的AR(1)过程才是渐近独立且平稳的。"单位根"是 $\rho=1$
+的AR(1)过程，是非平稳的。
+
+Testing for the unit root uses the following regression:
+
+单位根检验使用以下回归：
+
+$$ y_t = \alpha + \rho*y_{t-1} + e_t $$ If $\rho=1$, then $y_t$ is said
+to have a unit root (unit mean 1) and $y_t = \alpha + y_{t-1} + e_t$ -\>
+$y_t$ is a random walk and cannot be forecasted. The alternative is
+$rho<1$. Then $y_t$ is an AR(1) process and stationary and can be
+forecasted.
+
+如果 $\rho=1$，**则称** $y_t$ **有单位根，且**
+$y_t = \alpha + y_{t-1} + e_t$ **-\>** $y_t$
+**是一个随机游走过程，无法被预测。**备择假设是 $\rho<1$。此时 $y_t$
+是一个AR(1)过程，平稳且可以被预测。
+
+A convenient way to test if $\rho=1$ is to estimate the following
+transformed equation of the above and test the null H0: $\theta=0$
+against the alternative hypothesis H1: $\theta<0$
+
+检验 $\rho=1$ 的一个便利方法是估计上述方程的如下变换形式，并检验**原假设
+H0:** $\theta=0$ **对备择假设 H1:**
+$\theta<0$，这样变换后，我们可以直接使用标准的t检验来判断$$\Delta y_t = \gamma + \theta*y_{t-1} + e_t$$
+
+```{r}
+library(dynlm)
+data(inven, package='wooldridge')
+
+# variable to test: y=log(gdp)
+inven$y <- log(inven$gdp)
+inven.ts<- ts(inven)
+
+# Simplest unit root test
+summary(dynlm( d(y) ~ L(y) , data=inven.ts))
+
+# automated ADF test using tseries:
+library(tseries)
+adf.test(inven$y, k=0)
+```
+
+We cannot reject that log gdp has a unit root at a 5% confidence level.
+What to do now?
+
+```{r}
+adf.test(diff(inven$y), k=0)
+```
+
+Answer: Take the first difference. $\Delta y_t$ does not have a unit
+root and should be stationary and can be forecasted.
+
+In time-series language, $y_t$ is I(1) thus non-stationary (IE 11-3b),
+$\Delta y_t$ is I(0) thus stationary.
+
+Sketch of the Proof (not required):
+
+$y_t = \alpha + 1*y_{t-1} + e_t \$
+
+\Delta y_t = \alpha + (\rho-1)y\_{t-1} + e_t \\
+
+\Delta y_t = \alpha + (\rho-1)\Delta y\_{t-1} + (\rho-1)y\_{t-2} + e_t
+\\ \Delta y_t = \alpha + (\rho-1)\Delta y\_{t-1} + (\rho-1)\Delta
+y\_{t-2} + (\rho-1)\Delta y\_{t-3} + ... + e_t $
+
+Practically: Procedure of a forecast
+
+Step 1: Test whether y can be forecasted (unit root test, ADF test)
+
+When y fail to reject a unit root in the simplest unit root test above
+and therefore cannot be forecasted, two options: (1) detrend y and test
+again (2) take first difference, $\Delta y$ should be non-unit-root (you
+can test)
+
+Step 2: Design a forecast model (can be a linear regression or more
+complex models). Estimate it. predict
+
+**实践中的预测流程**
+
+第一步：检验 y 是否能够被预测（单位根检验，ADF检验）
+
+当 y
+在最简单的单位根检验中无法拒绝存在单位根的原假设，因而无法被预测时，有两个选择：(1)
+对 y 进行去趋势处理并再次检验；(2) 进行一阶差分，\$\\Delta y\$
+应该不存在单位根（你可以进行检验）
+
+第二步：设计一个预测模型（可以是一个线性回归或更复杂的模型）。估计该模型。进行预测。
+
+总结：
+
+1.  **先检验，后预测**：绝对不要跳过单位根检验
+
+2.  **平稳性是预测的基础**：只有平稳序列才能可靠预测
+
+3.  **非平稳序列的两种处理**：
+
+    -   **去趋势**：适用于有确定趋势的序列
+
+    -   **一阶差分**：适用于随机游走型序列
+
+4.  **模型选择要合理**：根据数据特征和经济理论选择适当的预测模型
+
+## 11.2 AR(1) model
+
+The simplest forecast model: AR(1)
+
+$$ y_t = \alpha + \rho*y_{t-1} + e_t $$
+
+That's right, the above equation for the unit root test is also the
+simplest forecast model (when \$\|\rho\|\<1).
+
+```{r}
+library(dynlm);library(stargazer);library(sandwich)
+data(nyse, package='wooldridge')
+
+# Define time series (numbered 1,...,n)
+tsdata <- ts(nyse)
+
+# Linear regression of models with lags:
+reg1 <- dynlm(return~L(return)                        , data=tsdata) # AR(1)
+reg2 <- dynlm(return~L(return)+L(return,2)            , data=tsdata) # AR(2)
+reg3 <- dynlm(return~L(return)+L(return,2)+L(return,3), data=tsdata) # AR(3)
+
+# Pretty regression table
+stargazer(reg1, reg2, reg3, type="text", 
+                            keep.stat=c("n","rsq","adj.rsq","f"))
+```
+
+# Forecasting the US unemployment rate
+
+```{r}
+# load updated data from URfIE Website since online file is incomplete
+library(dynlm); library(stargazer)
+data(phillips, package='wooldridge')
+tsdat=ts(phillips, start=1948)
+```
+
+```{r}
+# Estimate models and display results
+res1 <- dynlm(unem ~ unem_1      , data=tsdat, end=1996)
+res2 <- dynlm(unem ~ unem_1+inf_1, data=tsdat, end=1996)
+stargazer(res1, res2 ,type="text", keep.stat=c("n","adj.rsq","ser"))
+
+# Predictions for 1997-2003 including 95% forecast intervals:
+predict(res1, newdata=window(tsdat,start=1997), interval="prediction")
+predict(res2, newdata=window(tsdat,start=1997), interval="prediction")
+
+```
+
+# Compare the out of sample forecast errors
+
+```{r}
+# Actual unemployment and forecasts:
+phillips$f1 <- predict( res1, newdata=window(tsdat,start=1997) )
+phillips$f2 <- predict( res2, newdata=window(tsdat,start=1997) )
+
+# Plot unemployment and forecasts:
+ggplot(data=phillips[phillips$year>=1997,],aes(x=year)) + geom_line(aes(y=unem, color='Unempl.')) + 
+  geom_line(aes(y=f1, color='Forecast 1')) + geom_line(aes(y=f2, color='Forecast 2')) 
+
+# Forecast errors:
+e1<- phillips$unem - phillips$f1
+e2<- phillips$unem - phillips$f2
+
+# RMSE:
+sqrt(mean(e1^2))
+sqrt(mean(e2^2))
+
+# MAE:
+mean(abs(e1))
+mean(abs(e2))
+
+```
+
+Simple VAR (Vector AR) model for forecasting (IE 18-5b, Equation 18.50)
+
+```{r}
+# load updated data from URfIE Website since online file is incomplete
+library(dynlm); library(stargazer)
+data(phillips, package='wooldridge')
+tsdat=ts(phillips, start=1948)
+
+# Estimate models and display results
+res1 <- dynlm(unem ~ unem_1      , data=tsdat, end=1996)
+res2 <- dynlm(unem ~ unem_1+inf_1, data=tsdat, end=1996)
+stargazer(res1, res2 ,type="text", keep.stat=c("n","adj.rsq","ser"))
+
+# Predictions for 1997-2003 including 95% forecast intervals:
+predict(res1, newdata=window(tsdat,start=1997), interval="prediction")
+predict(res2, newdata=window(tsdat,start=1997), interval="prediction")
+```
+
+true unem for 1997-2003: 4.9 4.5 4.2 4.0 4.8 5.8 6.0
+
+Y_t = [unem_t, inf_t] Y\_{t-1} = [unem\_{t-1}, inf\_{t-1}]
+
+THE CODE BELOW COMPLETES THE VAR: predict inf, unem using inf_1 and
+unem_1
+
+```{r}
+# load updataed data from URfIE Website since online file is incomplete
+library(dynlm); library(stargazer)
+data(phillips, package='wooldridge')
+tsdat=ts(phillips, start=1948)
+
+# Estimate models and display results
+res2 <- dynlm(unem ~ unem_1+inf_1, data=tsdat, end=1996)
+res3 <- dynlm(inf  ~ unem_1+inf_1, data=tsdat, end=1996)
+stargazer(res2, res3 ,type="text", keep.stat=c("n","adj.rsq","ser"))
+
+# Predictions for 1997-2003 including 95% forecast intervals:
+predict(res2, newdata=window(tsdat,start=1997), interval="prediction")
+predict(res3, newdata=window(tsdat,start=1997), interval="prediction")
+```
+
+true inf for 1997-2003: 2.3 1.6 2.2 3.4 2.8 1.6 2.3
+
+THE CODE BELOW ENRICHES THE VAR: predict inf, unem using inf_1 \_2 and
+unem_1 \_2
+
+```{r}
+# load updataed data from URfIE Website since online file is incomplete
+library(dynlm); library(stargazer)
+data(phillips, package='wooldridge')
+tsdat=ts(phillips, start=1948)
+
+# Estimate models and display results
+res4 <- dynlm(unem ~ unem_1+L(unem_1)+inf_1+L(inf_1)      , data=tsdat, end=1996)
+res5 <- dynlm(inf  ~ unem_1+L(unem_1)+inf_1+L(inf_1)      , data=tsdat, end=1996)
+stargazer(res4, res5 ,type="text", keep.stat=c("n","adj.rsq","ser"))
+
+# Predictions for 1997-2003 including 95% forecast intervals:
+predict(res4, newdata=window(tsdat,start=1997), interval="prediction")
+predict(res5, newdata=window(tsdat,start=1997), interval="prediction")
+```
+
+true unem for 1997-2003: 4.9 4.5 4.2 4.0 4.8 5.8 6.0
+
+DIY: (which you do not need to submit)
+
+Use data from the CCWZ paper (NBER Macro Annual, 2015), redo all the
+time-series class examples above.
+
+```{r}
+ccwz <- read.csv('7_data201504_ccwz_hz_quarterly.csv')
+ccwz$Inflation <- c(NA,diff(log(ccwz$CPI)))
+ccwz$M2Growth <- c(NA,diff(ccwz$logM2))
+ccwz$RealGDPGrowth <- c(NA,diff(ccwz$logrealGDP_va))
+# Define monthly time series beginning in Feb. 1978
+tsdata <- ts(ccwz, start=c(1996,1), frequency=4)
+
+# Estimate models and display results
+res1 <- dynlm(M2Growth ~ L(M2Growth) + L(RealGDPGrowth) + L(Inflation), data=tsdata, end=c(2010,4))
+stargazer(res1,type="text", keep.stat=c("n","adj.rsq","ser"))
+res2 <- dynlm(Inflation ~ L(M2Growth) + L(RealGDPGrowth) + L(Inflation), data=tsdata, end=c(2010,4))
+stargazer(res2,type="text", keep.stat=c("n","adj.rsq","ser"))
+res3 <- dynlm(RealGDPGrowth ~ L(M2Growth) + L(RealGDPGrowth) + L(Inflation), data=tsdata, end=c(2010,4))
+stargazer(res3,type="text", keep.stat=c("n","adj.rsq","ser"))
+```
+
+以下为补充内容，不考
+
+## Appendix: VAR using the vars package
+
+<https://bookdown.org/ccolonescu/RPoE4/vec-and-var-models.html>
+<https://www.pfaffikus.de/rpacks/vars/files/vignette-vars.pdf>
+
+## Appendix: ARCH and GARCH models
+
+<https://bookdown.org/ccolonescu/RPoE4/time-varying-volatility-and-arch-models.html>
+<https://rpubs.com/CongWang141/929782> akshare
+波动率指数接口(futures_nh_volatility_index)：
+<https://akshare.xyz/data/futures/futures.html#id59>
+<https://chat.openai.com/chat> (how to run a garch model in r?)
+
+## Appendix: A List of R packages for empirical finance
+
+<https://cran.r-project.org/web/views/Finance.html>
+
+## Appendix: CSMAR R API
+
+<https://www.gtarsc.com/#/support/doc>
+
+## Appendix: Wind R API
+
+<http://180.96.8.19/windnet/Bulletin/help/R.pdf>
+<https://zhuanlan.zhihu.com/p/96751428>
+
+HW3: Journal Replication---replicate main tables. Add a new
+heterogeneity test.
+
+Exam review.
+
+11/16 Final Exam

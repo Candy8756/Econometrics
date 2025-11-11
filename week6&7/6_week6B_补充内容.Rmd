@@ -517,7 +517,7 @@ New estimators have been proposed to address this issue (e.g., Callaway & Sant'A
 
 
 ---
-
+（中介调节不考！）
 ## 9.3 Heterogeneous Treatment Effects: Moderator vs. Mediator  
 ## 9.3 异质性处理效应：调节变量 vs. 中介变量
 
